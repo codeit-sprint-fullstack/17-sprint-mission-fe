@@ -1,8 +1,8 @@
 .footer {
   height: 10rem;
   padding: 2rem 0;
-  background-color: #111827;
-  color: #9ca3af;
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-400);
 }
 
 .footer-inner {
@@ -19,7 +19,7 @@
 .footer-links {
   display: flex;
   gap: 1.875rem;
-  color: #e5e7eb;
+  color: var(--color-gray-200);
 }
 
 .footer-links a {

@@ -37,7 +37,7 @@ main {
   justify-content: center;
   width: 2.5rem;
   height: 2.5rem;
-  background-color: #3692ff;
+  background-color: var(--color-primary-100);
   border-radius: 0.699rem;
 }
 
@@ -46,7 +46,7 @@ main {
   font-size: 1.602rem;
   font-weight: 700;
   line-height: 100%;
-  color: #3692ff;
+  color: var(--color-primary-100);
 }
 
 .logo-icon img {

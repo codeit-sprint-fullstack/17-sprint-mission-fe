@@ -63,7 +63,7 @@
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.625rem;
-  color: #3692ff;
+  color: var(--color-primary-100);
 }
 
 /* 섹션 2 */
