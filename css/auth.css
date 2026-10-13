@@ -155,6 +155,16 @@
   outline-offset: 2px;
 }
 
+/* 비밀번호 칸은 type=text에 글자를 점으로 가려 보여줌 (비표준 속성, JS를 배우면 type 전환 방식으로 교체) */
+.password-input {
+  -webkit-text-security: disc;
+}
+
+/* 눈 아이콘을 체크하면 글자를 그대로 보여줌 */
+.password-wrap:has(.password-toggle-check:checked) .password-input {
+  -webkit-text-security: none;
+}
+
 /* 기본: 숨김 아이콘 / 체크하면: 보기 아이콘 */
 .eye-on,
 .password-toggle-check:checked + .password-toggle .eye-off {
