@@ -5,14 +5,18 @@
   font-weight: 700;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 form {
   /*위치 확인용 배경색상*/
-  background-color: rgb(177, 224, 177);
+  /* background-color: rgb(177, 224, 177); */
 }
 
 body {
   /*위치 확인용 배경색상*/
-  background-color: rgb(253, 247, 238);
+  /* background-color: rgb(253, 247, 238); */
 
   /*브라우저 표시 영역만큼 바디의 최소 높이를 맞춘다
     화면보다 짧아지지는 않고 내용이 많으면 더 길어질 수 있게
@@ -20,21 +24,31 @@ body {
   min-height: 100vh;
   display: flex;
   justify-content: center;
-  padding-top: 10vh;
+  padding: 10vh 5%;
 }
 
 main {
-  width: 40rem; /*640px*/
+  width: 100%;
+  max-width: 40rem; /*640px*/
+  min-width: 20rem;
+}
+
+header {
+  height: calc(132rem / 16);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(40rem / 16);
+  text-wrap: nowrap;
+  /* background-color: #f598ff; */
 }
 
 header a {
   /*위치 확인용 배경색상*/
-  background-color: orange;
-
+  /* background-color: orange; */
   display: flex;
   justify-content: center;
-
-  margin-bottom: calc(40rem / 16);
+  gap: calc(23rem / 16);
 }
 
 header img {
@@ -47,10 +61,6 @@ header p {
   color: #3692ff;
   font-family: "ROKAF", sans-serif;
   font-weight: 900;
-}
-
-header a {
-  gap: calc(23rem / 16);
 }
 
 form {
@@ -82,8 +92,8 @@ form {
 #password,
 #confirm-password {
   font-size: 1rem;
-  color: #9ca3af;
-  width: calc(640rem / 16);
+  color: #1f2937;
+  width: 100%;
   height: calc(56rem / 16);
   background-color: #f3f4f6;
 }
@@ -109,10 +119,10 @@ form {
   border-radius: 40px;
   /*버튼은 기본적으로 브라우저가 테두리를 제공함*/
   border: none;
-  width: calc(640rem / 16);
   height: calc(56rem / 16);
   font-size: calc(20rem / 16);
   color: #f3f4f6;
+  width: 100%;
 }
 
 .password-field {
@@ -129,6 +139,7 @@ form {
   y축을 다시 박스 높이의 50퍼 만큼 올리겠다 */
   top: 50%;
   transform: translateY(-50%);
+  padding: 0;
 }
 
 .signup-form .password-toggle img {
@@ -149,6 +160,7 @@ form {
 .social-login p {
   display: flex;
   align-items: center;
+  text-wrap: nowrap;
 }
 
 .social-login__links {
@@ -158,11 +170,12 @@ form {
 
 .login {
   /*위치 확인용 배경색상*/
-  background-color: rgb(253, 215, 143);
+  /* background-color: rgb(253, 215, 143); */
   display: flex;
   justify-content: center;
   gap: calc(4rem / 16);
   font-size: calc(14rem / 16);
+  text-wrap: nowrap;
 }
 
 .login a {
