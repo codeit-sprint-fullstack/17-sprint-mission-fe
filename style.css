@@ -1,0 +1,195 @@
+* {
+  box-sizing: border-box;
+}
+/*공통변수*/
+:root {
+  --header-height: 3.125rem; /* 50px */
+
+  --blue: #3692ff;
+  --light-blue: #cfe5ff;
+
+  --footer-bg: rgba(17, 24, 39, 1);
+  --footer-text: rgba(156, 163, 175, 1);
+}
+
+body {
+  padding-top: 0.0625rem;
+}
+
+header {
+  position: fixed;
+  height: 3.125rem;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: #ffffff;
+  display: grid;
+  grid-template-columns: 12.5rem 1fr 12.5rem;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.logo {
+  grid-column: 1;
+  justify-self: start;
+}
+
+.logo img {
+  width: 10rem;
+  height: auto;
+}
+
+.login-btn {
+  grid-column: 3;
+  justify-self: end;
+
+  background-color: var(--blue);
+  color: #ffffff;
+
+  padding: 0.8rem 1.8rem; /* 10px 20px */
+
+  border-radius: 0.5rem; /* 8px */
+
+  font-size: 0.8rem;
+  line-height: 1;
+}
+
+/*upper-banner*/
+.upper-banner {
+  background-color: #cfe5ff;
+  padding-top: 3.125rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 33.75rem;
+  width: 100%;
+  margin-bottom: 3.125rem;
+}
+
+.introduce0 {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5.625rem;
+  margin-right: 4rem;
+}
+
+.large-bluebtn {
+  display: inline-block;
+  background-color: var(--blue);
+  color: white;
+  padding: 0.8rem 5.5rem;
+  border-radius: 2.5rem;
+  margin-top: 1rem;
+  text-decoration: none;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.upperbanner-image {
+  width: 46.625rem;
+  height: 21.25rem;
+}
+
+/*공통*/
+.introduce {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.625rem;
+}
+
+.content-inclu {
+  background-color: #ffffff;
+  padding: 5rem 0;
+}
+
+.content {
+  width: 56.25rem;
+  height: 27.75rem;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  background-color: rgba(252, 252, 252, 1);
+  align-items: center;
+  line-height: 1.5;
+  gap: 0.625rem;
+}
+
+.badge {
+  color: #3692ff;
+  font-size: 0.85rem;
+  margin-bottom: 0.625rem;
+  font-weight: 700;
+}
+
+.content-explain {
+  display: inline-block;
+  flex-direction: column;
+  padding-left: 2rem;
+}
+
+/*content1*/
+
+/*content2*/
+.content2-explain {
+  text-align: end;
+  margin-right: 1.25rem;
+}
+
+/*content3*/
+
+/*하단배너*/
+.lower-banner {
+  margin-top: 8.6rem;
+  background-color: #cfe5ff;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 33.75rem;
+  width: 100%;
+}
+
+.content3-explain {
+  margin-bottom: 10.5rem;
+  margin-right: 5rem;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/*footer*/
+footer {
+  display: grid;
+  grid-template-columns: 12.5rem 1fr 12.5rem;
+  height: 4.37rem;
+  background-color: rgba(17, 24, 39, 1);
+  color: rgba(156, 163, 175, 1);
+  padding-top: 1rem;
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+footer a {
+  color: rgba(156, 163, 175, 1);
+}
+
+.codeit {
+  justify-self: start;
+}
+
+.for-client {
+  justify-self: center;
+  display: flex;
+  gap: 1.25rem;
+}
+
+.linkable {
+  justify-self: end;
+  display: flex;
+  gap: 0.75rem;
+}
+
+a {
+  cursor: pointer;
+}
