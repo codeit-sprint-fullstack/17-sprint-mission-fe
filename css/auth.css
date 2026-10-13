@@ -91,6 +91,11 @@
   cursor: pointer;
 }
 
+/* 모든 input에 값이 입력되면(placeholder가 보이는 input이 없으면) 버튼을 파란색으로 */
+.auth-form:not(:has(input:placeholder-shown)) .submit-btn {
+  background-color: #3692ff;
+}
+
 /* focus 시 테두리 1px가 생기는 만큼 padding을 줄여 글자 위치 유지 */
 .field input:focus {
   padding: calc(1rem - 1px) calc(1.5rem - 1px);
