@@ -21,24 +21,18 @@
         <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" />
 
         <label for="password">비밀번호</label>
-        <div class="password-box">
-          <input
-            id="password"
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-          />
-          <button class="eye-button" type="button" onclick="togglePassword(this, 'password')" aria-label="비밀번호 보기 또는 숨기기">👁</button>
-        </div>
+        <input
+          id="password"
+          type="password"
+          placeholder="비밀번호를 입력해주세요"
+        />
 
         <label for="password-check">비밀번호 확인</label>
-        <div class="password-box">
-          <input
-            id="password-check"
-            type="password"
-            placeholder="비밀번호를 다시 한 번 입력해주세요"
-          />
-          <button class="eye-button" type="button" onclick="togglePassword(this, 'password-check')" aria-label="비밀번호 확인 보기 또는 숨기기">👁</button>
-        </div>
+        <input
+          id="password-check"
+          type="password"
+          placeholder="비밀번호를 다시 한 번 입력해주세요"
+        />
 
         <button type="button" disabled>회원가입</button>
       </form>
@@ -57,12 +51,5 @@
 
       <p class="other-page">이미 회원이신가요? <a href="/login">로그인</a></p>
     </main>
-    <script>
-      function togglePassword(button, id) {
-        const input = document.getElementById(id);
-        input.type = input.type === "password" ? "text" : "password";
-        button.classList.toggle("visible");
-      }
-    </script>
   </body>
 </html>

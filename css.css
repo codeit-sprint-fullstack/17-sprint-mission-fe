@@ -1,6 +1,6 @@
 body {
   min-width: 75rem;
-  color: var(--black);
+  color: #111827;
   font-family: Arial, "Noto Sans KR", sans-serif;
 }
 
@@ -15,7 +15,7 @@ main {
   z-index: 100;
   width: 100%;
   height: 4.375rem;
-  background-color: var(--white);
+  background-color: #ffffff;
 }
 
 .nav-content {
@@ -40,16 +40,16 @@ main {
   justify-content: center;
   width: 8rem;
   height: 3rem;
-  color: var(--white);
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
-  background-color: var(--blue);
+  background-color: #3692ff;
   border-radius: 0.5rem;
 }
 
 .banner {
   height: 33.75rem;
-  background-color: var(--banner-blue);
+  background-color: #cfe5ff;
 }
 
 .banner-box {
@@ -68,7 +68,7 @@ main {
 .banner h1,
 .last-banner h2 {
   margin-bottom: 2rem;
-  color: var(--black);
+  color: #111827;
   font-size: 2.5rem;
   font-weight: 700;
   line-height: 1.4;
@@ -78,11 +78,11 @@ main {
   display: block;
   width: 22.3125rem;
   padding: 1rem 0;
-  color: var(--white);
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   text-align: center;
-  background-color: var(--blue);
+  background-color: #3692ff;
   border-radius: 2.5rem;
 }
 
@@ -128,7 +128,7 @@ main {
 
 .feature-label {
   margin-bottom: 0.75rem;
-  color: var(--blue);
+  color: #3692ff;
   font-size: 1.125rem;
   font-weight: 700;
 }
@@ -143,14 +143,14 @@ main {
 }
 
 .description {
-  color: var(--dark-gray);
+  color: #374151;
   font-size: 1rem;
   line-height: 1.5;
 }
 
 .last-banner {
   height: 33.75rem;
-  background-color: var(--banner-blue);
+  background-color: #cfe5ff;
 }
 
 .last-banner-box {
@@ -175,8 +175,8 @@ main {
 
 .site-footer {
   height: 10rem;
-  color: var(--footer-gray);
-  background-color: var(--black);
+  color: #e5e7eb;
+  background-color: #111827;
 }
 
 .footer-content {
@@ -191,7 +191,7 @@ main {
 }
 
 .footer-content > p {
-  color: var(--gray);
+  color: #9ca3af;
 }
 
 .footer-menu,

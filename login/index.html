@@ -18,14 +18,11 @@
         <input id="email" type="email" placeholder="이메일을 입력해주세요" />
 
         <label for="password">비밀번호</label>
-        <div class="password-box">
-          <input
-            id="password"
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-          />
-          <button class="eye-button" type="button" onclick="togglePassword(this, 'password')" aria-label="비밀번호 보기 또는 숨기기">👁</button>
-        </div>
+        <input
+          id="password"
+          type="password"
+          placeholder="비밀번호를 입력해주세요"
+        />
 
         <button type="button" disabled>로그인</button>
       </form>
@@ -46,12 +43,5 @@
         판다마켓이 처음이신가요? <a href="/signup">회원가입</a>
       </p>
     </main>
-    <script>
-      function togglePassword(button, id) {
-        const input = document.getElementById(id);
-        input.type = input.type === "password" ? "text" : "password";
-        button.classList.toggle("visible");
-      }
-    </script>
   </body>
 </html>
