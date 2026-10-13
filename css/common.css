@@ -1,0 +1,50 @@
+/* 디자인 palette 색상 */
+:root {
+  /* Primary */
+  --color-primary-100: #3692ff;
+  --color-primary-200: #1967d6;
+  --color-primary-300: #1251aa;
+
+  /* Error */
+  --color-error: #f74747;
+
+  /* Secondary (Gray) */
+  --color-gray-900: #111827;
+  --color-gray-800: #1f2937;
+  --color-gray-700: #374151;
+  --color-gray-600: #4b5563;
+  --color-gray-500: #6b7280;
+  --color-gray-400: #9ca3af;
+  --color-gray-200: #e5e7eb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-50: #f9fafb;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+  color: var(--color-gray-900);
+  line-height: 1.5;
+}
+
+img {
+  height: auto;
+}
+
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 8rem;
+  height: 3rem;
+  padding: 0.75rem 1.4375rem;
+  background-color: var(--color-primary-100);
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}

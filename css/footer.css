@@ -1,0 +1,55 @@
+.footer {
+  height: 10rem;
+  padding: 2rem 0;
+  background-color: var(--color-gray-900);
+  color: var(--color-gray-400);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.625rem;
+  max-width: 120rem;
+  min-height: 1.25rem;
+  margin: 0 auto;
+  padding: 0 12.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.875rem;
+  color: var(--color-gray-200);
+}
+
+.footer-links a {
+  color: inherit;
+  cursor: pointer;
+}
+
+.sns {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.sns a {
+  cursor: pointer;
+}
+
+/* SNS 아이콘 크기 (원본 크기 기준) */
+.ic-facebook {
+  width: 1.25rem; /* 20px */
+}
+
+.ic-twitter {
+  width: 1.1875rem; /* 19px */
+}
+
+.ic-youtube {
+  width: 1.25rem; /* 20px */
+}
+
+.ic-instagram {
+  width: 1.0625rem; /* 17px */
+}
