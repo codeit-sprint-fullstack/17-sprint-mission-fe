@@ -1,0 +1,213 @@
+@charset "UTF-8";
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css");
+
+
+body {
+  font-family: "Pretendard", sans-serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+.wrap {
+  width: 100%;
+  padding-top: 70px;
+}
+.header{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 200px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #fff;
+    z-index: 999;
+    border-bottom: 1px solid #DFDFDF;
+}
+.login-but{
+    width: 128px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    background-color: #3692FF;
+    color: #F3F4F6;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.625rem;
+}
+.main{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.banner{
+    width: 100%;
+    height: 540px;
+    background-color: #CFE5FF;
+    display: flex;
+    align-items: end;
+    justify-content: center;
+}
+.banner-imgbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.banner-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+.banner-textbox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 32px;
+}
+.banner-textbox h1{
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 140%;
+    color: #374151;
+}
+.banner-btn{
+    width: 357px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 40px;
+    background-color: #3692FF;
+    color: #F9FAFB;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 2rem;
+}
+.section{
+    width: 100%;
+    height: 720px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-item{
+    width: 988px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+    background-color: #FCFCFC;
+}
+.section-imgbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.section-textbox{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+.section-textbox span{
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.625rem;
+    color: #3692FF;
+    margin-bottom: 12px;
+}
+.section-textbox h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 140%;
+    color: #374151;
+    margin-bottom: 24px;
+}
+.section-textbox p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    line-height: 2rem;
+    color: #374151;
+}
+
+.section-item-reverse{
+    flex-direction: row-reverse;
+}
+.section-item-reverse .section-textbox{
+    align-items: flex-end;
+}
+.section-item-reverse .section-textbox h2,
+.section-item-reverse .section-textbox p{
+    text-align: right;
+}
+
+.section-2{
+    width: 100%;
+    height: 540px;
+    background-color: #CFE5FF;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+.section-item-2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 69px;
+}
+.section-item-2 .section-textbox{
+    padding-bottom: 60px;
+}
+.section-item-2 .section-textbox h2{
+    margin-bottom: 0;
+}
+.footer{
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: #111827;
+    padding: 32px 200px 0 200px;
+}
+.footer-copyright{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 100%;
+    color: #9CA3AF;
+}
+.footer-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.footer-link a{
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 100%;
+    color: #E5E7EB;
+}
+.footer-sns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+.sns-link{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
