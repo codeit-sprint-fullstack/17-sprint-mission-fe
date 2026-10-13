@@ -21,29 +21,48 @@
         <input id="nickname" type="text" placeholder="닉네임을 입력해주세요" />
 
         <label for="password">비밀번호</label>
-        <input id="password" type="password" placeholder="비밀번호를 입력해주세요" />
+        <div class="password-box">
+          <input
+            id="password"
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+          />
+          <button class="eye-button" type="button" onclick="togglePassword(this, 'password')" aria-label="비밀번호 보기 또는 숨기기">👁</button>
+        </div>
 
         <label for="password-check">비밀번호 확인</label>
-        <input id="password-check" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" />
+        <div class="password-box">
+          <input
+            id="password-check"
+            type="password"
+            placeholder="비밀번호를 다시 한 번 입력해주세요"
+          />
+          <button class="eye-button" type="button" onclick="togglePassword(this, 'password-check')" aria-label="비밀번호 확인 보기 또는 숨기기">👁</button>
+        </div>
 
         <button type="button" disabled>회원가입</button>
       </form>
 
       <div class="social">
         <span>간편 로그인하기</span>
-        <div class="social-links">
-          <a class="google" href="https://www.google.com/" aria-label="Google">
-            G
+        <div class="social-icons">
+          <a class="google" href="https://www.google.com/">
+            <img src="../img/google-logo.png" alt="구글" />
           </a>
-          <a class="kakao" href="https://www.kakaocorp.com/page/" aria-label="Kakao">
-            TALK
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="../img/kakao-logo.png" alt="카카오톡" />
           </a>
         </div>
       </div>
 
-      <p class="other-page">
-        이미 회원이신가요? <a href="/login">로그인</a>
-      </p>
+      <p class="other-page">이미 회원이신가요? <a href="/login">로그인</a></p>
     </main>
+    <script>
+      function togglePassword(button, id) {
+        const input = document.getElementById(id);
+        input.type = input.type === "password" ? "text" : "password";
+        button.classList.toggle("visible");
+      }
+    </script>
   </body>
 </html>

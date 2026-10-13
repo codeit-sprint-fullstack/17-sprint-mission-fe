@@ -2,6 +2,18 @@
   box-sizing: border-box;
 }
 
+:root {
+  --blue: #3692ff;
+  --light-blue: #e6f2ff;
+  --banner-blue: #cfe5ff;
+  --black: #111827;
+  --dark-gray: #374151;
+  --gray: #9ca3af;
+  --light-gray: #f3f4f6;
+  --footer-gray: #e5e7eb;
+  --white: #ffffff;
+}
+
 html,
 body,
 h1,
