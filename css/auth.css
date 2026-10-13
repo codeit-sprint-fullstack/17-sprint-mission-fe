@@ -13,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 2rem; /* 시안 크기(396px)에 맞춘 추정값 */
+  gap: 2rem; /* 32px */
   width: 24.75rem; /* 396px */
   height: 8.25rem; /* 132px */
   margin-bottom: 1rem; /* 로고와 폼 사이 40px = gap 24px + 16px */
@@ -24,10 +24,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 6.5rem; /* 시안 스크린샷 기준 추정값 */
+  width: 6.5rem; /* 104px */
   height: 6.5rem;
   background-color: #3692ff;
-  border-radius: 1.5rem; /* 추정값 */
+  border-radius: 1.5rem; /* 24px */
 }
 
 .auth-logo-icon img {
@@ -127,7 +127,7 @@
 .password-toggle {
   position: absolute;
   top: 50%;
-  right: 1.5rem; /* 시안 스크린샷 기준 추정값 */
+  right: 1.5rem; /* 24px */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -156,7 +156,7 @@
 .easy-login-links {
   display: flex;
   align-items: center;
-  gap: 1rem; /* 추정값 */
+  gap: 1rem; /* 16px */
 }
 
 .easy-login-links a {
@@ -186,6 +186,13 @@
 }
 
 /* 하단 회원가입 / 로그인 링크 */
+.auth-switch {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  line-height: 1.5rem; /* 24px */
+  color: #1f2937;
+}
+
 .auth-switch a {
   font-size: 0.875rem; /* 14px */
   font-weight: 500;
@@ -193,11 +200,4 @@
   color: #3692ff;
   text-decoration: underline;
   cursor: pointer;
-}
-
-.auth-switch {
-  font-size: 0.875rem; /* 14px */
-  font-weight: 500;
-  line-height: 1.5rem; /* 24px */
-  color: #1f2937;
 }
