@@ -3,9 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="login.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
     <title>로그인</title>
   </head>
   <body>
-    login page
+    <!-- 로그인 페이지 헤더 -->
+
+    <!-- 로그인 입력칸 -->
+    <main class="login-main">
+      <h1 class="login-name">
+        <a href="../index.html">
+          <img src="../images/panda_face.png" alt="판다마켓 로고" />
+          <span>판다마켓</span>
+        </a>
+      </h1>
+
+      <form class="login-form">
+        <div class="form-gruop">
+          <label class="login-label">이메일</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+          />
+        </div>
+        <div class="form-gruop">
+          <label class="login-label">비밀번호</label>
+          <p>
+            <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+          </p>
+        </div>
+
+        <button type="submit">로그인</button>
+      </form>
+
+      <!-- 소셜 간편 로그인 -->
+      <section class="social-login">
+        <span>간편 로그인하기</span>
+        <a href="https://www.google.com/" rel="noopener noreferrer"
+          ><img src="../images/google_img.png" alt="구글 간편로그인 버튼"
+        /></a>
+        <a href="https://www.kakaocorp.com/page/" rel="noopener noreferrer"
+          ><img src="../images/kakao_img.png" alt="카카오톡 간편로그인 버튼"
+        /></a>
+      </section>
+
+      <p class="signup">
+        판다마켓이 처음인가요? <a href="signup.html">회원가입</a>
+      </p>
+    </main>
   </body>
 </html>
