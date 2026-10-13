@@ -1,0 +1,28 @@
+/* reset.css */
+
+* {
+  /* 지정한 너비, 높이 안에 페딩과 테두리를 포함시키기 위해서 */
+  box-sizing: border-box;
+  /* 작성하는 모든 텍스트들 밑줄이 없었으면 좋겠음 */
+  text-decoration: none;
+  /* 모든 글자 폰트의 기본 설정 */
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 브라우저가 기본적으로 넣는 여백 제거 */
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+/* 클릭하면 포인트가 변경 스프린트미션1-요구사항 16번 */
+a,
+button {
+  cursor: pointer;
+}
