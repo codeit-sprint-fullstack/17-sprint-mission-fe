@@ -35,6 +35,7 @@
             id="email"
             name="email"
             placeholder="이메일을 입력해주세요"
+            required
           />
         </div>
 
@@ -45,6 +46,7 @@
             id="nickname"
             name="nickname"
             placeholder="닉네임을 입력해주세요"
+            required
           />
         </div>
 
@@ -55,7 +57,9 @@
               type="password"
               id="password"
               name="password"
+              minlength="8"
               placeholder="비밀번호를 입력해주세요"
+              required
             />
             <button
               type="button"
@@ -74,7 +78,9 @@
               type="password"
               id="password-confirm"
               name="password-confirm"
+              minlength="8"
               placeholder="비밀번호를 다시 한 번 입력해주세요"
+              required
             />
             <button
               type="button"
