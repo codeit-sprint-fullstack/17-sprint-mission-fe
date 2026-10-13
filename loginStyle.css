@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  width: 640px;
+  margin: 0 auto;
+}
+
+/*header*/
+header {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+/*main의 section1 로그인세트*/
+.login-set {
+  display: flex;
+  flex-direction: column;
+}
+
+/*라벨부분*/
+.text {
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/*이메일 입력부분*/
+.input-item0 {
+  background-color: #e9e9e9ef;
+  font-size: 0.8rem;
+  padding: 1rem 1rem;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.input-item0:focus {
+  border-color: #3692ff;
+}
+
+/*pw 입력부분*/
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box .input-item {
+  width: 100%;
+  padding-right: 2rem;
+  background-color: #e9e9e9ef;
+  font-size: 0.8rem;
+  padding: 1rem 1rem;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid transparent;
+}
+
+.input-item:focus {
+  border-color: #3692ff;
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #414141b6;
+}
+
+/*로그인버튼*/
+.login-btn {
+  margin: 1.3rem 0;
+  padding: 0.7rem 0;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  background-color: #41414188;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.login-set:has(input[name="userEmail"]:valid:not(:placeholder-shown)):has(
+    input[name="userPassword"]:valid:not(:placeholder-shown)
+  )
+  .login-btn {
+  background-color: #3692ff;
+}
+
+/*lower-banner 전체*/
+.lower-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+
+  background-color: #dbebfd;
+  border-radius: 8px;
+}
+
+/*lower-banner text부분*/
+.text2 {
+  font-size: 14px;
+  color: #383838e7;
+}
+
+/*lower-banner 아이콘 부분*/
+.social-login {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-login img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/*footer*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
