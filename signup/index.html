@@ -73,13 +73,16 @@
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <button
-              type="button"
-              class="password-toggle"
+            <input
+              type="checkbox"
+              id="password-toggle"
+              class="password-toggle-check"
               aria-label="비밀번호 보기"
-            >
-              <img src="/images/icons/ic_eye_off.png" alt="" />
-            </button>
+            />
+            <label for="password-toggle" class="password-toggle">
+              <img class="eye-off" src="/images/icons/ic_eye_off.png" alt="" />
+              <img class="eye-on" src="/images/icons/ic_eye_on.png" alt="" />
+            </label>
           </div>
         </div>
 
@@ -94,13 +97,16 @@
               placeholder="비밀번호를 다시 한 번 입력해주세요"
               required
             />
-            <button
-              type="button"
-              class="password-toggle"
+            <input
+              type="checkbox"
+              id="password-confirm-toggle"
+              class="password-toggle-check"
               aria-label="비밀번호 확인 보기"
-            >
-              <img src="/images/icons/ic_eye_off.png" alt="" />
-            </button>
+            />
+            <label for="password-confirm-toggle" class="password-toggle">
+              <img class="eye-off" src="/images/icons/ic_eye_off.png" alt="" />
+              <img class="eye-on" src="/images/icons/ic_eye_on.png" alt="" />
+            </label>
           </div>
         </div>
 

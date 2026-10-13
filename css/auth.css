@@ -124,6 +124,18 @@
   padding-right: calc(4.5rem - 1px);
 }
 
+/* 체크박스는 화면에서 숨기고 label(눈 아이콘)로 대신 누름 */
+.field .password-toggle-check {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
 .password-toggle {
   position: absolute;
   top: 50%;
@@ -133,11 +145,24 @@
   justify-content: center;
   width: 1.5rem; /* 24px */
   height: 1.5rem;
-  padding: 0;
-  border: 0;
-  background: none;
   transform: translateY(-50%);
   cursor: pointer;
+}
+
+/* 키보드로 이동했을 때 눈 아이콘 위치 표시 */
+.password-toggle-check:focus-visible + .password-toggle {
+  outline: 2px solid var(--color-primary-100);
+  outline-offset: 2px;
+}
+
+/* 기본: 숨김 아이콘 / 체크하면: 보기 아이콘 */
+.eye-on,
+.password-toggle-check:checked + .password-toggle .eye-off {
+  display: none;
+}
+
+.password-toggle-check:checked + .password-toggle .eye-on {
+  display: block;
 }
 
 /* 간편 로그인 */
