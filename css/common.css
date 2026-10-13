@@ -1,0 +1,28 @@
+body {
+  font-family: "Pretendard", sans-serif;
+  color: #111827;
+  line-height: 1.5;
+}
+
+img {
+  height: auto;
+}
+
+.container {
+  max-width: 75rem;
+  margin: 0 auto;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  width: 8rem;
+  height: 3rem;
+  padding: 0.75rem 1.4375rem;
+  background-color: #3692ff;
+  color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
