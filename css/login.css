@@ -86,9 +86,19 @@ form {
 
 .login-form input {
   background-color: #f3f4f6;
-  border: none;
+  /* 아웃라인으로 처리하지 않고 평상시 보더: 투명 포커스: 파란색이 되게 작성함
+  2픽셀, 직선, 투명 */
+  border: 2px solid transparent;
   border-radius: 12px;
   padding-left: calc(24rem / 16);
+}
+
+.login-form input:focus {
+  border-color: #3692ff;
+  /* 브라우저가 기본 아웃라인을 제공함: 웹 접근성 때문에 > tab키 사용자 등
+  그래서 아무 대체 표시 없이 아웃라인을 제거하는건 권장하지 않음
+  현재는 보더 컬러로 대체 표시가 있어서 사용하기로 함 */
+  outline: none;
 }
 
 .login-form button {
