@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 - 판다마켓</title>
+    <link rel="stylesheet" href="../reset.css" />
+    <link rel="stylesheet" href="../auth.css" />
+  </head>
+  <body>
+    <main class="auth">
+      <a class="logo" href="/">
+        <img src="../img/Property 1=md@2x.png" alt="판다마켓" />
+      </a>
+
+      <form class="auth-form">
+        <label for="email">이메일</label>
+        <input id="email" type="email" placeholder="이메일을 입력해주세요" />
+
+        <label for="password">비밀번호</label>
+        <input
+          id="password"
+          type="password"
+          placeholder="비밀번호를 입력해주세요"
+        />
+
+        <button type="button" disabled>로그인</button>
+      </form>
+
+      <div class="social">
+        <span>간편 로그인하기</span>
+        <div class="social-icons">
+          <a class="google" href="https://www.google.com/">
+            <img src="../img/google-logo.png" alt="구글" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/">
+            <img src="../img/kakao-logo.png" alt="카카오톡" />
+          </a>
+        </div>
+      </div>
+
+      <p class="other-page">
+        판다마켓이 처음이신가요? <a href="/signup">회원가입</a>
+      </p>
+    </main>
+  </body>
+</html>
