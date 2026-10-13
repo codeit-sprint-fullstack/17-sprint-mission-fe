@@ -13,5 +13,56 @@
         <img src="image/pandamarket-logo.png" alt="판다마켓로고" />
       </a>
     </header>
+    <main>
+        <!--이메일부터 회원가입까지 세트-->
+        <section>
+            <form action="/signup" method="post" class="signup-set">
+                <!--이메일-->
+                <label for="user-email" class="text">이메일</label>
+                <input type="email"
+                       id="user-email"
+                       name="userEmail" 
+                       class="input-item0"
+                       placeholder="이메일을 입력해주세요" 
+                       required>
+                <!--닉네임-->
+                <label for="user-nickname" class="text">닉네임</label>
+                <input type="text"
+                       id="user-nickname"
+                       name="userNickname"
+                       class="input-item0"
+                       placeholder="닉네임을 입력해주세요"
+                       required>
+                <!--비밀번호-->
+                <label for="user-password" class="text">비밀번호</label>
+                <div class="password-box">          
+                   <input type="password"
+                       id="user-password"
+                       name="userPassword" 
+                       placeholder="비밀번호를 입력해주세요" 
+                       class="input-item"
+                       required>
+                   <button type="button"
+                        class="toggle-password"
+                        onclick="togglePassword()"
+                        aria-label="비밀번호 표시 전환">👁</button>
+                </div>
+                <!--비밀번호 확인-->
+                <label for="user-password" class="text">비밀번호 확인</label>
+                <div class="password-box">
+                   <input type="password"
+                          id="user-password-confirm"
+                          name="userPasswordConfirm"
+                          placeholder="비밀번호를 다시 한 번 입력해주세요"
+                          class="input-item"
+                          required>
+                   <button type="button"
+                           class="toggle-password"
+                           onclick="togglePasswordConfirm()"
+                           aria-label="비밀번호 확인 표시 전환">👁</button>
+                 </div>
+                 <button type="submit" class="signup-btn">회원가입</button>
+            </form>
+        </section>
   </body>
 </html>
