@@ -4,43 +4,120 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원가입 | 판다마켓</title>
+
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-69J3SDBQ5S"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-69J3SDBQ5S");
+    </script>
+
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./auth.css" />
-    <script src="./auth.js" defer></script>
   </head>
+
   <body>
     <main class="auth-container">
+      <!-- 판다마켓 로고 -->
       <a href="./index.html" class="auth-logo">
         <img src="./img/panda logo.png" alt="판다마켓" />
       </a>
 
-      <form class="auth-form" id="signup-form">
+      <!-- 회원가입 폼 -->
+      <form class="auth-form">
         <div class="input-group">
           <label for="signup-email">이메일</label>
-          <input id="signup-email" name="email" type="email" placeholder="이메일을 입력해주세요" autocomplete="email" required />
+
+          <input
+            type="email"
+            id="signup-email"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+            autocomplete="email"
+            required
+          />
         </div>
 
         <div class="input-group">
           <label for="nickname">닉네임</label>
-          <input id="nickname" name="nickname" type="text" placeholder="닉네임을 입력해주세요" autocomplete="nickname" required />
+
+          <input
+            type="text"
+            id="nickname"
+            name="nickname"
+            placeholder="닉네임을 입력해주세요"
+            autocomplete="nickname"
+            required
+          />
         </div>
 
         <div class="input-group">
           <label for="signup-password">비밀번호</label>
+
           <div class="password-field">
-            <input id="signup-password" name="password" type="password" placeholder="비밀번호를 입력해주세요" autocomplete="new-password" required minlength="8" />
-            <button type="button" class="password-toggle" data-target="signup-password" aria-label="비밀번호 표시" aria-pressed="false">
-              <img src="./img/btn_visibility_on_24px.png" alt="" width="24" height="24" />
+            <input
+              type="password"
+              id="signup-password"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+              autocomplete="new-password"
+              required
+              minlength="8"
+            />
+
+            <button
+              type="button"
+              class="password-toggle"
+              data-target="signup-password"
+              aria-label="비밀번호 표시"
+              aria-pressed="false"
+            >
+              <img
+                src="./img/btn_visibility_on_24px.png"
+                alt=""
+                width="24"
+                height="24"
+              />
             </button>
           </div>
         </div>
 
         <div class="input-group">
           <label for="password-confirm">비밀번호 확인</label>
+
           <div class="password-field">
-            <input id="password-confirm" name="passwordConfirm" type="password" placeholder="비밀번호를 다시 입력해주세요" autocomplete="new-password" required minlength="8" />
-            <button type="button" class="password-toggle" data-target="password-confirm" aria-label="비밀번호 표시" aria-pressed="false">
-              <img src="./img/btn_visibility_on_24px.png" alt="" width="24" height="24" />
+            <input
+              type="password"
+              id="password-confirm"
+              name="passwordConfirm"
+              placeholder="비밀번호를 다시 입력해주세요"
+              autocomplete="new-password"
+              required
+              minlength="8"
+            />
+
+            <button
+              type="button"
+              class="password-toggle"
+              data-target="password-confirm"
+              aria-label="비밀번호 표시"
+              aria-pressed="false"
+            >
+              <img
+                src="./img/btn_visibility_on_24px.png"
+                alt=""
+                width="24"
+                height="24"
+              />
             </button>
           </div>
         </div>
@@ -48,19 +125,55 @@
         <button type="submit" class="auth-submit">회원가입</button>
       </form>
 
+      <!-- 간편 로그인 -->
       <div class="social-login">
         <span>간편 로그인하기</span>
+
         <div class="social-buttons">
-          <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer" aria-label="구글 사이트 열기 (간편 로그인 연동 전)">
+          <a
+            href="https://www.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src="./img/google.png" alt="구글" />
           </a>
-          <a href="https://www.kakaocorp.com/page/" target="_blank" rel="noopener noreferrer" aria-label="카카오 사이트 열기 (간편 로그인 연동 전)">
+
+          <a
+            href="https://www.kakaocorp.com/page/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <img src="./img/kakao.png" alt="카카오" />
           </a>
         </div>
       </div>
 
-      <p class="auth-switch">이미 회원이신가요? <a href="./login.html">로그인</a></p>
+      <!-- 로그인 페이지 이동 -->
+      <p class="auth-switch">
+        이미 회원이신가요?
+        <a href="./login.html">로그인</a>
+      </p>
     </main>
+
+    <!-- 비밀번호 및 비밀번호 확인 표시 기능 -->
+
+    <!-- 비밀번호 표시 / 숨김 기능 -->
+    <script>
+      const toggleButtons = document.querySelectorAll(".password-toggle");
+
+      toggleButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const input = document.getElementById(button.dataset.target);
+          const isHidden = input.type === "password";
+
+          input.type = isHidden ? "text" : "password";
+
+          button.setAttribute(
+            "aria-label",
+            isHidden ? "비밀번호 숨기기" : "비밀번호 표시",
+          );
+        });
+      });
+    </script>
   </body>
 </html>
