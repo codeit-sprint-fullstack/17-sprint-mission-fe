@@ -305,14 +305,12 @@ button:focus-visible {
   outline-offset: 4px;
 }
 
-/* 입력 완료 전 */
-.signup-submit:disabled {
+/* 기본 상태 */
+.signup-submit {
   background-color: #9ca3af;
-  cursor: not-allowed;
 }
 
-/* 입력 완료 후 */
-.signup-submit:not(:disabled) {
+/* 네 칸 모두 입력했을 때 */
+.signup-form:has(#signup-email:not(:placeholder-shown)):has(#nickname:not(:placeholder-shown)):has(#signup-password:not(:placeholder-shown)):has(#password-confirm:not(:placeholder-shown)) .signup-submit {
   background-color: #3692ff;
-  cursor: pointer;
 }
