@@ -53,7 +53,7 @@ header {
     .txt {
         margin-bottom: 9%;
 
-        h1 {
+        & h1 {
             color: var(--color-secondary-700);
             font-size: 2.5rem;
             font-weight: 700;
@@ -98,7 +98,7 @@ header {
         .txt {
             margin-bottom: 8.25rem;
 
-            h1 {
+            & h1 {
                 font-size: 2rem;
             }
 
@@ -137,12 +137,12 @@ header {
     .txt {
         color: var(--color-secondary-700);
 
-        span {
+        & span {
             color: var(--color-primary-100);
             font: var(--text-2lg-bold);
         }
 
-        h2 {
+        & h2 {
             margin: .75rem 0 1.5rem;
             font-size: 2.5rem;
             font-weight: 700;
@@ -150,7 +150,7 @@ header {
             letter-spacing: 2%;
         }
 
-        p {
+        & p {
             font: var(--text-2xl-medium);
         }
     }
@@ -176,11 +176,11 @@ header {
         }
 
         .txt {
-            h2 {
+            & h2 {
                 font: var(--text-3xl-bold);
             }
 
-            p {
+            & p {
                 font: var(--text-2lg-medium);
             }
         }
@@ -209,16 +209,16 @@ header {
         padding: 0 0 40px 0;
 
         .txt {
-            span {
+            & span {
                 font: var(--text-lg-bold);
             }
 
-            h2 {
+            & h2 {
                 margin: .5rem 0 1rem;
                 font: var(--text-2xl-bold);
             }
 
-            p {
+            & p {
                 font: var(--text-lg-medium);
             }
         }
@@ -305,7 +305,7 @@ footer {
         gap: 1.5rem;
     }
 
-    p {
+    & p {
         color: var(--color-secondary-400);
     }
 
@@ -319,7 +319,7 @@ footer {
         display: flex;
         gap: .75rem;
 
-        li {
+        & li {
             width: 1.25rem;
             height: 1.25rem;
         }
@@ -330,7 +330,7 @@ footer {
     }
 
     @media (max-width: 767px) {
-        p {
+        & p {
             order: 1;
         }
     }
