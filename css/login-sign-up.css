@@ -55,7 +55,7 @@ body {
 
 .main {
   width: min(698px, calc(100% - 32px));
-  margin: 82px auto 0;
+  margin: 82px auto;
   display: flex;
   flex-direction: column;
   align-items: stretch;
