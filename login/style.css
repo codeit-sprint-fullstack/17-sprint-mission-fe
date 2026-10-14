@@ -33,8 +33,7 @@ body {
 }
 
 /* 두 칸을 모두 입력하면 파란색 */
-.login-form:has(#email:not(:placeholder-shown))
-:has(#password:not(:placeholder-shown)) 
+.login-form:has(#email:not(:placeholder-shown)):has(#password:not(:placeholder-shown)) 
 .login-button {  background: #3692ff;
 }
 
