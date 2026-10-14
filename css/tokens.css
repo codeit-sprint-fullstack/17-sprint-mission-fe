@@ -1,0 +1,16 @@
+:root {
+  --color-brand: #3692ff;
+  --color-action: #007bff;
+  --color-brand-soft: #cfe5ff;
+  --color-panel: #e6f2ff;
+  --color-surface: #fff;
+  --color-surface-muted: #fcfcfc;
+  --color-input: #f3f4f6;
+  --color-text-primary: #1f2937;
+  --color-text-secondary: #374151;
+  --color-text-muted: #9ca3af;
+  --color-border: #dfdfdf;
+  --color-disabled: #9ca3af;
+  --color-footer: #111827;
+  --color-footer-text: #e5e7eb;
+}
