@@ -307,3 +307,7 @@
 .signup-page .submit-button {
   margin-bottom: 1.5rem;
 }
+/* 로그인과 회원가입 버튼 아래 간격을 동일하게 유지합니다. */
+.auth-page .submit-button {
+  margin-bottom: 1.5rem;
+}
