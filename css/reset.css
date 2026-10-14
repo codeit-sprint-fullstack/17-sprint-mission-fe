@@ -1,0 +1,74 @@
+/* ==========================================================================
+   Reset CSS - 브라우저 기본 스타일 초기화
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 사용자의 브라우저 기본 폰트 크기 설정(16px 등)에 가변 반응하도록 % 설정 */
+html {
+  font-size: 100%;
+}
+
+/* 미션 2 로그인·회원가입 인증 화면에서 사용하는 색상 변수 */
+:root {
+  --color-primary: #3692ff;
+  --color-primary-hover: #2677d9;
+  --color-primary-soft: #e6f2ff;
+  --color-text: #1f2937;
+  --color-text-secondary: #374151;
+  --color-text-muted: #4b5563;
+  --color-text-subtle: #9ca3af;
+  --color-border: #f2f4f7;
+  --color-surface: #f3f4f6;
+  --color-white: #fff;
+  --color-hero: #cfe5ff;
+  --color-footer: #111827;
+  --color-footer-text: #e5e7eb;
+  --color-error: #f04452;
+  --color-primary-rgb: 54 146 255;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
