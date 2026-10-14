@@ -1,4 +1,4 @@
-// form: required input 입력시 버튼 활성화
+// form: required input 입력 시 버튼 활성화
 const form = document.querySelector('form');
 
 if (form) {
