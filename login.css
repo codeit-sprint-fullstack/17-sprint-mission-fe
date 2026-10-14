@@ -26,7 +26,6 @@ body {
     color: black;
     display: flex;
     flex-direction: column;
-    /* justify-content: center; -> margin-top 등으로 변경*/
     margin-top: 100px;
     align-items: center;
     min-height: 100vh;
