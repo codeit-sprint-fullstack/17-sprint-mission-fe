@@ -1,0 +1,342 @@
+/* ==========================================================
+   판다마켓 랜딩 페이지
+   - 모든 크기 값은 rem (1rem = 브라우저 기본 글꼴 크기, 보통 16px)
+   - 시안 기준 너비 1920px
+   ========================================================== */
+
+body {
+  font-family: "Pretendard", "Malgun Gothic", sans-serif;
+  color: #374151;
+  background-color: #ffffff;
+}
+
+/* ---------- 공통 ---------- */
+
+/* 1920px 이상이면 가운데 정렬 + 양쪽 여백만 커지고,
+   1920px 미만이면 양쪽 200px(12.5rem) 여백을 유지한 채 안쪽 간격이 줄어듦 */
+.inner {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 0 12.5rem;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: #3692ff;
+}
+
+.btn:hover {
+  background-color: #1967d6;
+}
+
+.btn:active {
+  background-color: #1251aa;
+}
+
+/* 클릭 가능한 요소 */
+.btn,
+.logo,
+.footer-links a,
+.footer-sns a {
+  cursor: pointer;
+}
+
+/* ---------- 상단 네비게이션 ---------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 4.375rem; /* 70px */
+  background-color: #ffffff;
+  border-bottom: 0.0625rem solid #dfdfdf;
+}
+
+.header .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.logo img {
+  width: 9.3125rem; /* 149px */
+  height: 2.5rem; /* 40px */
+}
+
+.btn-login {
+  width: 8rem; /* 128px */
+  height: 3rem; /* 48px */
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.625rem;
+}
+
+/* ---------- 하늘색 배너 (히어로 / 하단 배너 공통) ---------- */
+
+.banner {
+  height: 33.75rem; /* 540px */
+  background-color: #cfe5ff;
+}
+
+.banner-inner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  width: 69.375rem; /* 1110px */
+  height: 100%;
+  margin: 0 auto;
+}
+
+.banner-text {
+  padding-bottom: 6.25rem; /* 100px */
+}
+
+.banner-title {
+  font-size: 2.5rem; /* 40px */
+  line-height: 3.5rem; /* 56px */
+  font-weight: 700;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.banner-img {
+  flex-shrink: 0;
+  width: 46.625rem; /* 746px */
+}
+
+.btn-explore {
+  width: 22.3125rem; /* 357px */
+  height: 3.5rem; /* 56px */
+  margin-top: 2rem;
+  border-radius: 2.5rem;
+  font-size: 1.25rem;
+  line-height: 2rem;
+}
+
+.features {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 17.25rem; 
+  padding: 8.625rem 0; 
+}
+
+.feature {
+  display: flex;
+  align-items: center;
+  width: 61.75rem; 
+  height: 27.75rem; 
+  background-color: #fcfcfc;
+}
+
+.feature-img {
+  flex-shrink: 0;
+  width: 36.75rem; 
+  height: 27.75rem;
+}
+
+.feature-text {
+  flex: 1;
+}
+
+.feature-label {
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-weight: 700;
+  color: #3692ff;
+}
+
+.feature-title {
+  margin-top: 0.75rem;
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  font-weight: 700;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.feature-desc {
+  margin-top: 1.5rem;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 500;
+  color: #374151;
+  white-space: nowrap;
+}
+
+.feature-hot .feature-text {
+  padding-left: 6rem; 
+}
+
+.feature-search {
+  padding-right: 0.5625rem; 
+}
+
+.feature-search .feature-text {
+  padding-right: 4.125rem; 
+  text-align: right;
+}
+
+.feature-register .feature-text {
+  padding-left: 4.125rem;
+}
+
+.bottom-banner {
+  padding-top: 8.625rem; 
+  background-color: #fcfcfc;
+}
+
+.bottom-banner .banner-text {
+  padding-bottom: 10.75rem; 
+}
+
+.footer {
+  height: 10rem; 
+  padding-top: 1.875rem;
+  background-color: #111827;
+  color: #9ca3af;
+  font-family: "Inter", "Pretendard", sans-serif;
+  font-size: 1rem;
+}
+
+.footer .inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 1.5rem;
+}
+
+.footer-links {
+  display: flex;
+  gap: 2rem; 
+  color: #e5e7eb;
+}
+
+.footer-sns {
+  display: flex;
+  gap: 0.75rem; 
+}
+
+.footer-sns img {
+  width: 1.25rem; 
+  height: 1.25rem;
+}
+
+/* ==========================================================
+   로그인 / 회원가입 페이지
+   ========================================================== */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #fcfcfc;
+}
+
+.auth-box {
+  width: 25rem; /* 400px */
+  padding: 3rem 2rem;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.auth-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.auth-logo img {
+  width: 12rem;
+  height: auto;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #374151;
+}
+
+
+.sign-input {
+  width: 100%;
+  height: 3rem;
+  padding: 0 1rem;
+  border: 1px solid #DFDFDF;
+  border-radius: 0.5rem;
+  outline: none; 
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.sign-input:focus {
+  border: 1px solid #3692FF; 
+}
+
+.btn-submit {
+  width: 100%;
+  height: 3.25rem;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  margin-top: 1rem;
+}
+
+.auth-links {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #374151;
+}
+
+.auth-links a {
+  color: #3692FF;
+  font-weight: 600;
+  text-decoration: underline;
+  margin-left: 0.5rem;
+}
+
+.auth-sns {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #DFDFDF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.auth-sns p {
+  font-size: 0.875rem;
+  color: #9ca3af;
+}
+
+.sns-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.sns-icons a img {
+  width: 2.625rem;
+  height: 2.625rem;
+  border-radius: 50%;
+}
