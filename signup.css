@@ -101,7 +101,11 @@ p, a {
     position: relative;
     display: flex;
     align-items: center;
-    position: relative;
+}
+.visibility-icon {
+    position: absolute;
+    width: 24px;
+    right: 24px;
 }
 .input-box input {
     height: 56px;
