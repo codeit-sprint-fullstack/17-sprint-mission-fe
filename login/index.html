@@ -4,13 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인 - 판다마켓</title>
+    <link rel="icon" href="/assets/images/favicon.ico">
     <link rel="stylesheet" href="/assets/css/reset.css">
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/common.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
+    <link rel="stylesheet" href="/assets/css/auth.css">
+    <script defer src="/assets/js/script.js"></script>
+    <script defer src="/assets/js/auth.js"></script>
 </head>
 <body>
-    <div id="wrap">
+    <div id="wrap" class="auth">
+        <header>
+            <a href="/" class="logo">
+                <img src="/assets/images/logo.png" alt="판다마켓">
+            </a>
+        </header>
+        <main class="container">
+            <h1 class="blind">로그인</h1>
+            <form action="" method="POST" class="form-login" name="login">
+                <div class="field">
+                    <label class="form-label" for="login-email">이메일</label>
+                    <input class="form-input" id="login-email" name="email" type="email" autocomplete="email" placeholder="이메일을 입력해주세요" required>
+                    <span class="error-message"></span>
+                </div>
+                <div class="field">
+                    <label class="form-label" for="login-pw">비밀번호</label>
+                    <input class="form-input" id="login-pw" name="password" type="password" autocomplete="current-password" placeholder="비밀번호를 입력해주세요" minlength="8" required>
+                    <button class="toggle-pw" type="button" aria-label="비밀번호 보기" aria-pressed="false"></button>
+                    <span class="error-message"></span>
+                </div>
+                <button class="btn-submit btn-lg" type="submit" disabled>로그인</button>
+            </form>
+            <div class="field-login-sns">
+                <h2>간편 로그인하기</h2>
+                <div class="sns-list">
+                    <a href="https://www.google.com/">
+                        <img src="/assets/images/ic_google.png" alt="구글 로그인">
+                    </a>
+                    <a href="https://www.kakaocorp.com/page/">
+                        <img src="/assets/images/ic_kakao.png" alt="카카오 로그인">
+                    </a>
+                </div>
+            </div>
+            <div class="field-auth">
+                <p>판다마켓이 처음이신가요?</p>
+                <a href="/signup">회원가입</a>
+            </div>
+        </main>
     </div>
 </body>
 </html>

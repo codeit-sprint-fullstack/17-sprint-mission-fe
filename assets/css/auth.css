@@ -1,0 +1,115 @@
+/* Wrap */
+#wrap.auth {
+    padding: 3.75rem 0 11.13rem;
+    margin: 0 auto;
+    width: 40rem;
+
+    @media (max-width: 1024px) {
+        width: calc(100% - 6.5rem);
+    }
+
+    @media (max-width: 767px) {
+        width: calc(100% - 32px);
+    }
+}
+
+/* Header */
+header {
+    margin-bottom: 2.5rem;
+
+    .logo {
+        display: block;
+        margin: 0 auto;
+        width: 24.75rem;
+    }
+
+    @media (max-width: 767px) {
+        .logo {
+            width: 12.38rem;
+        }
+    }
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Form */
+.form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    .field {
+        position: relative;
+        
+        .form-label {
+            font: var(--text-2lg-bold);
+        }
+
+        .form-input {
+            margin-top: 1rem;
+            height: 3.5rem;
+        }
+    }
+
+    .btn-submit {
+        width: 100%;
+    }
+
+    @media (max-width: 767px) {
+        gap: 1rem;
+
+        .field .form-label {
+            font: var(--text-lg-bold);
+        }
+    }
+}
+
+/* 간편 로그인 */
+.field-login-sns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1.44rem;
+    width: 100%;
+    height: 4.63rem;
+    border-radius: .63rem;
+    background-color: #e6f2ff;
+
+    > h2 {
+        font: var(--text-lg-medium);
+    }
+
+    .sns-list {
+        display: flex;
+        gap: 1rem;
+
+        > a {
+            width: 2.63rem;
+            height: 2.63rem;
+        }
+    }
+}
+
+/* 로그인+회원가입 */
+.field-auth {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .25rem;
+
+    > p {
+        font: var(--text-md-medium);
+    }
+
+    > a {
+        color: var(--color-primary-100);
+        font-size: .88rem;
+        font-weight: 500;
+        text-decoration: underline;
+    }
+}

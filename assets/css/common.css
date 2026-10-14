@@ -13,13 +13,11 @@
 }
 
 html {
-    font-size: 62.5%;
     scroll-behavior: smooth;
 }
 
 body {
     font-family: 'Pretendard', sans-serif;
-    font-size: 1.6rem;
     word-break: keep-all;
 }
 
@@ -39,6 +37,7 @@ a {
 }
 
 button {
+    padding: 0;
     background-color: transparent;
     border: none;
     color: inherit;
@@ -46,8 +45,53 @@ button {
 }
 
 input {
-    background-color: #fff;
+    padding: .94rem 1.5rem;
+    width: 100%;
+    background-color: var(--color-secondary-100);
     border: none;
+    outline: none;
+    border-radius: 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    color: var(--color-secondary-800);
+
+    &:active,
+    &:focus {
+        border: 1px solid var(--color-primary-100);
+    }
+
+    &::placeholder {
+        font: var(--text-lg-regular);
+        color: var(--color-secondary-400);
+    }
+
+    &:has(+ .toggle-pw) {
+        padding-right: 3.13rem;
+
+        &::-ms-reveal {
+            display: none;
+        }
+
+        + .toggle-pw {
+            position: absolute;
+            bottom: 1rem;
+            right: 1.5rem;
+            width: 1.5rem;
+            height: 1.5rem;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            &[aria-pressed='false'] {
+                background-image: url('/assets/images/btn_visibility_off.png');
+            }
+
+            &[aria-pressed='true'] {
+                background-image: url('/assets/images/btn_visibility_on.png');
+            }
+        }
+    }
 }
 
 #wrap {
@@ -56,30 +100,87 @@ input {
 
 #container {
     padding-top: 70px;
+
+    .contents {
+        padding: 0 24px;
+    }
+
+    @media (max-width: 767px) {
+        .contents {
+            padding: 0 16px;
+        }
+    }
 }
 
-#container > * {
-    padding: 0 20px;
+.blind {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    overflow: hidden;
+    font-size: 0;
+    text-indent: -99999px;
+    pointer-events: none;
 }
 
+.error-message {
+    display: none;
+    margin-top: .5rem;
+    font-size: .94rem;
+    font-weight: 600;
+    color: var(--color-error);
+}
+
+.is-hidden-1200 {
+    @media (max-width: 1200px) {
+        display: none;
+    }
+}
+
+.is-hidden-1024 {
+    @media (max-width: 1024px) {
+        display: none;
+    }
+}
+
+.is-hidden-767 {
+    @media (max-width: 767px) {
+        display: none;
+    }
+}
+
+.is-visible-767 {
+    @media (min-width: 768px) {
+        display: none;
+    }
+}
+
+.is-hidden-tablet {
+    @media (min-width: 768px) and (max-width: 1200px) {
+        display: none;
+    }
+}
+
+/* Inner */
 .inner-lg {
-    width: min(100%, 1520px);
+    width: min(100%, 95rem);
     height: 100%;
     margin: 0 auto;
 }
 
 .inner-md {
-    width: min(100%, 1110px);
+    width: min(100%, 69.38rem);
     height: 100%;
     margin: 0 auto;
 }
 
 .inner-sm {
-    width: min(100%, 988px);
+    width: min(100%, 61.75rem);
     height: 100%;
     margin: 0 auto;
 }
 
+/* Button */
 [class^='btn'] {
     display: flex;
     justify-content: center;
@@ -96,37 +197,37 @@ input {
         background-color:  var(--btn-bg-click);
     }
 
-    &.is-disabled {
+    &:disabled {
         background-color: var(--btn-bg-inactive);
         pointer-events: none;
     }
 }
 
 .btn-lg {
-    width: 35.7rem;
-    height: 5.6rem;
-    border-radius: 4rem;
+    width: 22.31rem;
+    height: 3.5rem;
+    border-radius: 2.5rem;
     font: var(--text-xl-semibold);
 }
 
 .btn-md {
-    width: 24rem;
-    height: 4.8rem;
-    border-radius: 4rem;
+    width: 15rem;
+    height: 3rem;
+    border-radius: 2.5rem;
     font: var(--text-2lg-semibold);
 }
 
 .btn-sm-42 {
-    width: 8.8rem;
-    height: 4.2rem;
-    border-radius: 0.8rem;
+    width: 5.5rem;
+    height: 2.63rem;
+    border-radius: .5rem;
     font: var(--text-lg-semibold);
 }
 
 .btn-sm-48 {
-    width: 8.8rem;
-    height: 4.8rem;
-    border-radius: 0.8rem;
+    width: 5.5rem;
+    height: 3rem;
+    border-radius: .5rem;
     font: var(--text-lg-semibold);
 
     &.outlined {
