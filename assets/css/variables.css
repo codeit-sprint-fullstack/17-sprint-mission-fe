@@ -14,57 +14,45 @@
     --color-secondary-50: #F9FAFB;
 
     --color-error: #F74747;
-
     --color-bg-blue: #CFE5FF;
-    --color-bg-gray: #FCFCFC;
 
     --btn-bg-default: var(--color-primary-100);
     --btn-bg-hover: var(--color-primary-200);
     --btn-bg-click: var(--color-primary-300);
     --btn-bg-inactive: var(--color-secondary-400);
 
-    --font-weight-black: 900;
-    --font-weight-extrabold: 800;
-    --font-weight-bold: 700;
-    --font-weight-semibold: 600;
-    --font-weight-medium: 500;
-    --font-weight-regular: 400;
-    --font-weight-light: 300;
-    --font-weight-extralight: 200;
-    --font-weight-thin: 100;
+    --text-3xl-bold: 700 2rem/2.63rem 'Pretendard', sans-serif;
+    --text-3xl-semibold: 600 2rem/2.63rem 'Pretendard', sans-serif;
 
-    --text-3xl-bold: var(--font-weight-bold) 2rem/2.63rem 'Pretendard', sans-serif;
-    --text-3xl-semibold: var(--font-weight-semibold) 2rem/2.63rem 'Pretendard', sans-serif;
+    --text-2xl-bold: 700 1.5rem/2rem 'Pretendard', sans-serif;
+    --text-2xl-semibold: 600 1.5rem/2rem 'Pretendard', sans-serif;
+    --text-2xl-medium: 500 1.5rem/2rem 'Pretendard', sans-serif;
+    --text-2xl-regular: 400 1.5rem/2rem 'Pretendard', sans-serif;
 
-    --text-2xl-bold: var(--font-weight-bold) 1.5rem/2rem 'Pretendard', sans-serif;
-    --text-2xl-semibold: var(--font-weight-semibold) 1.5rem/2rem 'Pretendard', sans-serif;
-    --text-2xl-medium: var(--font-weight-medium) 1.5rem/2rem 'Pretendard', sans-serif;
-    --text-2xl-regular: var(--font-weight-regular) 1.5rem/2rem 'Pretendard', sans-serif;
+    --text-xl-bold: 700 1.25rem/2rem 'Pretendard', sans-serif;
+    --text-xl-semibold: 600 1.25rem/2rem 'Pretendard', sans-serif;
+    --text-xl-medium: 500 1.25rem/2rem 'Pretendard', sans-serif;
+    --text-xl-regular: 400 1.25rem/2rem 'Pretendard', sans-serif;
 
-    --text-xl-bold: var(--font-weight-bold) 1.25rem/2rem 'Pretendard', sans-serif;
-    --text-xl-semibold: var(--font-weight-semibold) 1.25rem/2rem 'Pretendard', sans-serif;
-    --text-xl-medium: var(--font-weight-medium) 1.25rem/2rem 'Pretendard', sans-serif;
-    --text-xl-regular: var(--font-weight-regular) 1.25rem/2rem 'Pretendard', sans-serif;
+    --text-2lg-bold: 700 1.13rem/1.63rem 'Pretendard', sans-serif;
+    --text-2lg-semibold: 600 1.13rem/1.63rem 'Pretendard', sans-serif;
+    --text-2lg-medium: 500 1.13rem/1.63rem 'Pretendard', sans-serif;
+    --text-2lg-regular: 400 1.13rem/1.63rem 'Pretendard', sans-serif;
 
-    --text-2lg-bold: var(--font-weight-bold) 1.13rem/1.63rem 'Pretendard', sans-serif;
-    --text-2lg-semibold: var(--font-weight-semibold) 1.13rem/1.63rem 'Pretendard', sans-serif;
-    --text-2lg-medium: var(--font-weight-medium) 1.13rem/1.63rem 'Pretendard', sans-serif;
-    --text-2lg-regular: var(--font-weight-regular) 1.13rem/1.63rem 'Pretendard', sans-serif;
+    --text-lg-bold: 700 1rem/1.63rem 'Pretendard', sans-serif;
+    --text-lg-semibold: 600 1rem/1.63rem 'Pretendard', sans-serif;
+    --text-lg-medium: 500 1rem/1.63rem 'Pretendard', sans-serif;
+    --text-lg-regular: 400 1rem/1.63rem 'Pretendard', sans-serif;
 
-    --text-lg-bold: var(--font-weight-bold) 1rem/1.63rem 'Pretendard', sans-serif;
-    --text-lg-semibold: var(--font-weight-semibold) 1rem/1.63rem 'Pretendard', sans-serif;
-    --text-lg-medium: var(--font-weight-medium) 1rem/1.63rem 'Pretendard', sans-serif;
-    --text-lg-regular: var(--font-weight-regular) 1rem/1.63rem 'Pretendard', sans-serif;
+    --text-md-bold: 700 .88rem/1.5rem 'Pretendard', sans-serif;
+    --text-md-semibold: 600 .88rem/1.5rem 'Pretendard', sans-serif;
+    --text-md-medium: 500 .88rem/1.5rem 'Pretendard', sans-serif;
+    --text-md-regular: 400 .88rem/1.5rem 'Pretendard', sans-serif;
 
-    --text-md-bold: var(--font-weight-bold) .88rem/1.5rem 'Pretendard', sans-serif;
-    --text-md-semibold: var(--font-weight-semibold) .88rem/1.5rem 'Pretendard', sans-serif;
-    --text-md-medium: var(--font-weight-medium) .88rem/1.5rem 'Pretendard', sans-serif;
-    --text-md-regular: var(--font-weight-regular) .88rem/1.5rem 'Pretendard', sans-serif;
+    --text-sm-semibold: 600 .81rem/1.38rem 'Pretendard', sans-serif;
+    --text-sm-medium: 500 .81rem/1.38rem 'Pretendard', sans-serif;
 
-    --text-sm-semibold: var(--font-weight-semibold) .81rem/1.38rem 'Pretendard', sans-serif;
-    --text-sm-medium: var(--font-weight-medium) .81rem/1.38rem 'Pretendard', sans-serif;
-
-    --text-xs-semibold: var(--font-weight-semibold) .75rem/1.25rem 'Pretendard', sans-serif;
-    --text-xs-medium: var(--font-weight-medium) .75rem/1.13rem 'Pretendard', sans-serif;
-    --text-xs-regular: var(--font-weight-regular) .75rem/1.13rem 'Pretendard', sans-serif;
+    --text-xs-semibold: 600 .75rem/1.25rem 'Pretendard', sans-serif;
+    --text-xs-medium: 500 .75rem/1.13rem 'Pretendard', sans-serif;
+    --text-xs-regular: 400 .75rem/1.13rem 'Pretendard', sans-serif;
 }
