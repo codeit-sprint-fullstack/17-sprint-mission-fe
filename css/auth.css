@@ -1,6 +1,6 @@
 @font-face {
   font-family: "ROKAF Sans";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts2201-2@1.0/ROKAFSansBold.woff") format("woff");
+  src: url("../fonts/rokaf-sans-bold.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -26,13 +26,13 @@
 }
 
 .auth-logo {
-  width: 23.625rem;
-  height: 6.4925rem;
+  width: 24.75rem;
+  height: 8.25rem;
   margin: 0 auto 2.5rem;
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
+  justify-content: flex-start;
+  gap: 1.39rem;
   color: var(--color-primary);
   font-family: "ROKAF Sans", sans-serif;
   font-size: 1rem;
@@ -43,20 +43,32 @@
   text-decoration: none;
 }
 
+.auth-logo-link {
+  display: block;
+  width: 6.4706rem;
+  height: 6.4925rem;
+  flex: 0 0 6.4706rem;
+}
+
 .auth-logo span {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   width: 16.625rem;
   height: 5.625rem;
+  font-family: "ROKAF Sans", sans-serif;
   font-size: 4.14625rem;
-  line-height: 5.625rem;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 1;
   letter-spacing: 0;
   white-space: nowrap;
 }
 
 .auth-logo img {
-  width: 6.4706rem;
-  height: 6.4925rem;
-  flex: 0 0 6.4706rem;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .auth-form {
@@ -90,7 +102,7 @@
 
 .field input {
   width: 100%;
-  height: 3rem;
+  height: 3.5rem;
   padding: 0 0.9375rem;
   border: 0;
   border-radius: 0.5rem;
@@ -191,6 +203,10 @@
   transition: background-color 160ms ease;
 }
 
+.auth-page .submit-button {
+  margin-bottom: 1.5rem;
+}
+
 .submit-button:hover:not(:disabled) {
   background: var(--color-primary-hover);
 }
@@ -243,14 +259,14 @@
 .social-buttons {
   display: flex;
   align-items: center;
-  gap: 0.625rem;
+  gap: 1rem;
   margin-right: 0;
   margin-left: auto;
 }
 
 .social-button {
-  width: 2rem;
-  height: 2rem;
+  width: 2.625rem;
+  height: 2.625rem;
   padding: 0;
   display: block;
   border-radius: 50%;
