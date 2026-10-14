@@ -103,8 +103,15 @@ header {
             }
 
             .btn-link {
+                width: 15rem;
+                height: 3rem;
+                font: var(--text-2lg-semibold);
                 margin: 1.13rem auto 0;
             }
+        }
+
+        .img {
+            width: 120%;
         }
     }
 }
