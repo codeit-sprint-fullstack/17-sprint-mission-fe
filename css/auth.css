@@ -61,15 +61,17 @@
 
 .auth-form {
   width: 100%;
-  height: 18.75rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
+  min-height: 18.75rem;
+  height: auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
   gap: 1.5rem;
 }
 
 .signup-page .auth-form {
-  height: 32.75rem;
+  min-height: 32.75rem;
+  height: auto;
   gap: 1.5rem;
 }
 
@@ -175,7 +177,10 @@
 }
 
 .submit-button {
+  display: block;
+  width: 100%;
   height: 3.5rem;
+  min-height: 3.5rem;
   border: 0;
   border-radius: 999rem;
   color: var(--color-white);
