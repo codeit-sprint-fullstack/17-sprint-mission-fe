@@ -1,0 +1,85 @@
+/* 작성하는 모든 텍스트들 밑줄이 없었으면 좋겠음 */
+* {
+  text-decoration: none;
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 클릭하면 포인트가 변경 요구사항16번 */
+.clickable {
+  cursor: pointer;
+}
+
+header {
+  background-color: rgb(96, 207, 255);
+  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+
+  align-items: center;
+  display: flex;
+}
+
+.mainHeaderInner {
+  background-color: rgb(245, 171, 171);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  padding: 0 200px;
+}
+
+.mainLogo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 8.5px;
+}
+
+.mainHeaderLogin {
+  background-color: #3692ff;
+  color: white;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.mainTitle {
+  font-size: 26px;
+  font-weight: bold;
+  color: #3692ff;
+}
+
+/* 바디가 위아래 공백 없이 딱 붙게 하고 싶음 */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  margin-top: 70px;
+  background-color: #0b3d7b;
+}
+
+main .mainTopBanner {
+  background-color: #cfe5ff;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 540px;
+}
+
+main .topBannerImg {
+  width: auto;
+  height: 63%;
+}
+
+.items {
+  background-color: #3692ff;
+  color: white;
+  border-radius: 4px;
+  font-size: 20px;
+}

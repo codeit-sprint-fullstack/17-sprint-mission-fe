@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 | 판다마켓</title>
+
+    <link rel="stylesheet" href="./css/reset.css" />
+    <link rel="stylesheet" href="./css/login.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+  </head>
+
+  <body>
+    <main>
+      <header>
+        <a href="./index.html">
+          <img src="./image/판다 얼굴.svg" alt="판다마켓" />
+          <p class="head__title">판다마켓</p>
+        </a>
+      </header>
+
+      <form class="login-form">
+        <div class="login-form__email">
+          <label for="email">이메일</label>
+          <input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="이메일을 입력해주세요"
+          />
+          <!-- 
+          input 속성 정리
+          id: 고유 이름이며 label과 연결할 때도 사용
+          type: 폼 제출시 검사하는 형식
+          name: 폼을 제출할 때 입력값의 이름
+          placeholder: 입력값이 비어있을 때 보여주는 안내 문구 -->
+        </div>
+
+        <div class="login-form__password">
+          <label for="password">비밀번호</label>
+          <div class="password-field">
+            <input
+              id="password"
+              type="password"
+              name="password"
+              placeholder="비밀번호를 입력해주세요"
+            />
+
+            <button
+              type="button"
+              class="password-toggle"
+              aria-label="비밀번호 표시"
+            >
+              <!-- 추후에 자바스크립트 배우면
+               기본 false에서 클릭 후 True가 되면
+              인풋 타입이 패스워드에서 테스트가 되게 변경할 예정 
+              aria-pressed="false"-->
+
+              <img src="./image/btn_visibility_on_24px.svg" alt="" />
+            </button>
+          </div>
+        </div>
+
+        <!-- 타입 버튼을 안해두면 계속 브라우저가 입력값을 제출하려고 한다함 -->
+        <button type="button">로그인</button>
+      </form>
+
+      <div class="social-login">
+        <p>간편 로그인하기</p>
+        <div class="social-login__links">
+          <a href="https://www.google.com/" class="google-login">
+            <img src="image/icon_google.svg" alt="google 로그인" />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="kakao-login">
+            <img src="image/icon_kakao.svg" alt="kakao 로그인" />
+          </a>
+        </div>
+      </div>
+
+      <div class="sign-up">
+        <p>판다마켓이 처음이신가요?</p>
+        <a href="./signup.html">회원가입</a>
+      </div>
+    </main>
+  </body>
+</html>

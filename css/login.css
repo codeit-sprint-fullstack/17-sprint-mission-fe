@@ -1,0 +1,185 @@
+@font-face {
+  font-family: "ROKAF";
+  src: url("../rokaf sans/공군서체 OTF(디자인작업용)/바른공군체/ROKAF Sans Bold.otf")
+    format("opentype");
+  font-weight: 700;
+}
+
+/* 세로스크롤바가 생기면 그 스크롤바 크기만큼 너비가 달라짐
+너비가 달라지면 똑같이 페이지 가운데 정렬을 해도 스크롤이 있는 페이지와
+없는 페이지의 중앙 정렬 선이 달라져버림
+스크롤바 공간을 미리 확보하여 로그인과 회원가입 페이지 모두 동일한 위치에
+정렬할 수 있게 추가함 */
+html {
+  scrollbar-gutter: stable;
+}
+
+/* form {
+  위치 확인용 배경색상
+  background-color: rgb(177, 224, 177); 
+} */
+
+body {
+  /*위치 확인용 배경색상*/
+  /* background-color: rgb(253, 247, 238); */
+
+  /*브라우저 표시 영역만큼 바디의 최소 높이를 맞춘다
+    화면보다 짧아지지는 않고 내용이 많으면 더 길어질 수 있게
+    바디 내용이 브라우저 top 부분으로부터 10% 아래에 고정되게 설정*/
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 10vh 5%;
+}
+
+main {
+  width: 100%;
+  max-width: 40rem; /*640px*/
+  min-width: 20rem;
+}
+
+header {
+  height: calc(132rem / 16);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: calc(40rem / 16);
+  text-wrap: nowrap;
+  /* background-color: #f598ff; */
+}
+
+header a {
+  /*위치 확인용 배경색상*/
+  /* background-color: orange; */
+  display: flex;
+  justify-content: center;
+  gap: calc(23rem / 16);
+}
+
+header img {
+  /* 단위를 식 밖이 아닌 안에 넣어야하며, 계산할때는 calc사용 */
+  width: calc(103.53rem / 16);
+}
+
+header p {
+  font-size: 90px;
+  color: #3692ff;
+  font-family: "ROKAF", sans-serif;
+  font-weight: 900;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form {
+  font-size: calc(18rem / 16);
+  display: flex;
+  gap: calc(24rem / 16);
+}
+
+.login-form__email,
+.login-form__password {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.login-form label {
+  font-weight: 700;
+}
+
+#email,
+#password {
+  font-size: 1rem;
+  color: #1f2937;
+  width: 100%;
+  height: calc(56rem / 16);
+  background-color: #f3f4f6;
+}
+
+.login-form input {
+  /* 아웃라인으로 처리하지 않고 평상시 보더: 투명 포커스: 파란색이 되게 작성함
+  2픽셀, 직선, 투명 */
+  border: 2px solid transparent;
+  border-radius: 12px;
+  padding-left: calc(24rem / 16);
+}
+
+.login-form input:focus {
+  border-color: #3692ff;
+  /* 브라우저가 기본 아웃라인을 제공함: 웹 접근성 때문에 > tab키 사용자 등
+  그래서 아무 대체 표시 없이 아웃라인을 제거하는건 권장하지 않음
+  현재는 보더 컬러로 대체 표시가 있어서 사용하기로 함 */
+  outline: none;
+}
+
+.login-form > button {
+  background-color: #9ca3af;
+  border-radius: 40px;
+  /*버튼은 기본적으로 브라우저가 테두리를 제공함*/
+  border: none;
+  height: calc(56rem / 16);
+  font-size: calc(20rem / 16);
+  color: #f3f4f6;
+  width: 100%;
+}
+
+.password-field {
+  position: relative;
+  /* 눈 버튼을 필드 위로 올릴건데 부모가 스태틱이면 안됨 */
+  /* background-color: #c9f89d; */
+}
+
+.login-form__password .password-toggle {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: calc(24rem / 16);
+  /* 박스의 탑을 부모 탑으로부터 50퍼 내린 다음에
+  y축을 다시 박스 높이의 50퍼 만큼 올리겠다 */
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0;
+}
+
+.login-form__password .password-toggle img {
+  width: calc(24rem / 16);
+  height: calc(24rem / 16);
+}
+
+.social-login {
+  background-color: #e6f2ff;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem calc(23rem / 16) 1rem calc(23rem / 16);
+  margin: calc(24rem / 16) 0;
+  height: calc(74rem / 16);
+  border-radius: 8px;
+}
+
+.social-login p {
+  display: flex;
+  align-items: center;
+  text-wrap: nowrap;
+}
+
+.social-login__links {
+  display: flex;
+  gap: 1rem;
+}
+
+.sign-up {
+  /*위치 확인용 배경색상*/
+  /* background-color: rgb(253, 215, 143); */
+  display: flex;
+  justify-content: center;
+  gap: calc(4rem / 16);
+  font-size: calc(14rem / 16);
+  text-wrap: nowrap;
+}
+
+.sign-up a {
+  text-decoration: underline;
+}
