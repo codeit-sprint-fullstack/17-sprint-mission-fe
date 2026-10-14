@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 | 판다마켓</title>
+    <link rel="stylesheet" href="css/tokens.css" />
+    <link rel="stylesheet" href="css/login-sign-up.css" />
+  </head>
+  <body class="login-page">
+    <div class="main">
+      <a class="main-logo" href="/">
+        <img src="img/logo2.png" alt="Panda Market Logo" />
+        <h1>판다마켓</h1>
+      </a>
+      <div class="login-container">
+        <div class="form-container">
+          <form>
+            <div class="input-group">
+              <label for="email">이메일</label>
+              <input
+                type="email"
+                class="email"
+                placeholder="이메일을 입력해주세요"
+                required
+                autocomplete="email"
+              />
+            </div>
+            <div class="input-group">
+              <label for="password">비밀번호</label>
+              <div class="input-wrapper">
+                <input
+                  type="text"
+                  id="password"
+                  class="password-input"
+                  placeholder="비밀번호를 입력해주세요"
+                  required
+                  autocomplete="current-password"
+                />
+                <input
+                  type="checkbox"
+                  id="toggle-login-password"
+                  class="password-visibility-toggle"
+                  aria-label="비밀번호 표시 또는 가리기"
+                />
+                <label class="password-toggle" for="toggle-login-password">
+                  <img
+                    class="icon-hidden"
+                    src="img/password-hidden.svg"
+                    alt=""
+                  />
+                  <img
+                    class="icon-visible"
+                    src="img/password-visible.svg"
+                    alt=""
+                  />
+                </label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="simple-login">
+        <div class="simple-login-text">간편 로그인하기</div>
+        <div class="simple-login-href">
+          <a href="https://www.google.com/" target="_blank" rel="noreferrer"
+            ><img src="img/google.png" alt="Google Logo"
+          /></a>
+          <a
+            href="https://www.kakaocorp.com/page/"
+            target="_blank"
+            rel="noreferrer"
+            ><img src="img/kakao.png" alt="Kakao Logo"
+          /></a>
+        </div>
+      </div>
+      <div class="sign-up">
+        판다마켓이 처음이신가요? <a href="/signup">회원가입</a>
+      </div>
+    </div>
+  </body>
+</html>
