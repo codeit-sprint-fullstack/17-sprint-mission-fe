@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="login.css">
+    <title>로그인</title>
+</head>
+<body>
+    <!-- 로그인 창 -->
+    <main class="login-container">
+        <!-- 로고 영역 -->
+        <a class="logo-box" href="./index.html">
+            <div class="logo-box">
+                <img class="logo-img" src="./img/logo.png" alt="판다마켓 로고" >
+                <p class="logo-text">판다마켓</p>
+            </div>
+        </a>
+
+        <!-- 로그인 입력 폼 -->
+        <form action="" class="login-form">
+            <div class="input-box">
+                <label for="email">이메일</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" placeholder="이메일을 입력해주세요" required>
+                </div>
+            </div>
+            <div class="input-box">
+                <label for="password">비밀번호</label>
+                <div class="input-wrapper">
+                    <input type="password" id="password" placeholder="비밀번호를 입력해주세요" required>
+                </div>
+            </div>
+            <button type="submit" class="login-btn">로그인</button>
+        </form>
+
+        <!-- 간편 로그인 -->
+        <div class="social-login">
+            <span class="social-text">간편 로그인하기</span>
+            <div class="social-icon">
+                <a href="https://www.google.com/" style="cursor: pointer;" target="_blank"><img class="icons" src="./icon/ic_google.png" alt=""></a>
+                <a href="https://www.kakaocorp.com/page/" style="cursor: pointer;" target="_blank"><img class="icons" src="./icon/ic_kakaotalk.png" alt=""></a>
+                <!-- <img type="button" class="">G</button>
+                <button type="button" class="">💬</button> -->
+            </div>
+        </div>
+
+        <!-- 회원가입 링크 -->
+        <div class="regist-link">
+            <span>판다마켓이 처음이신가요?</span>
+            <a href="./signup.html">회원가입</a>
+        </div>
+    </main>
+</body>
+</html>
