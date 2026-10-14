@@ -14,10 +14,10 @@ html {
   scrollbar-gutter: stable;
 }
 
-form {
-  /*위치 확인용 배경색상*/
-  /* background-color: rgb(177, 224, 177); */
-}
+/* form {
+  위치 확인용 배경색상
+  background-color: rgb(177, 224, 177); 
+} */
 
 body {
   /*위치 확인용 배경색상*/
