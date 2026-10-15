@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>로그인 - 판다마켓</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+
+  <body class="auth-page">
+    <div class="auth-box">
+      <!-- 미션 요구사항: 로고 클릭 시 루트(/) 경로로 이동 -->
+      <a href="index.html" class="auth-logo logo">
+        <img src="images/logo.png" alt="판다마켓" />
+      </a>
+
+      <form class="auth-form">
+        <div class="input-group">
+          <label for="email">이메일</label>
+          <input type="email" id="email" class="sign-input" placeholder="이메일을 입력해주세요" />
+        </div>
+        
+        <div class="input-group">
+          <label for="password">비밀번호</label>
+          <input type="password" id="password" class="sign-input" placeholder="비밀번호를 입력해주세요" />
+        </div>
+
+        <button type="button" class="btn btn-submit">로그인</button>
+      </form>
+
+      <!-- 미션 요구사항: 로그인/회원가입 페이지 간 이동 -->
+      <div class="auth-links">
+        회원이 아니신가요? <a href="signup.html">회원가입 하기</a>
+      </div>
+
+      <!-- 미션 요구사항: SNS 로고 클릭 시 외부 사이트로 이동 -->
+      <div class="auth-sns">
+        <p>간편 로그인</p>
+        <div class="sns-icons">
+          <a href="https://www.google.com/" target="_blank" rel="noopener">
+            <img src="images/icon-google.png" alt="구글 로그인" onerror="this.src='https://via.placeholder.com/42/DB4437/FFFFFF?text=G'"/>
+          </a>
+          <a href="https://www.kakaocorp.com/" target="_blank" rel="noopener">
+            <img src="images/icon-kakao.png" alt="카카오 로그인" onerror="this.src='https://via.placeholder.com/42/FEE500/000000?text=K'"/>
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
