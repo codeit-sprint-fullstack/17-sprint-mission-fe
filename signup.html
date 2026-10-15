@@ -160,6 +160,19 @@
     <!-- 비밀번호 표시 / 숨김 기능 -->
     <script>
       const toggleButtons = document.querySelectorAll(".password-toggle");
+      const form = document.querySelector(".auth-form");
+      const inputs = [...form.querySelectorAll("input")];
+      const submitButton = form.querySelector(".auth-submit");
+
+      function updateButton() {
+        submitButton.classList.toggle(
+          "active",
+          inputs.every((input) => input.value.trim()),
+        );
+      }
+
+      form.addEventListener("input", updateButton);
+      updateButton();
 
       toggleButtons.forEach((button) => {
         button.addEventListener("click", () => {
