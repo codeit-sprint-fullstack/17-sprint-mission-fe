@@ -15,6 +15,7 @@ body {
   margin: 100px auto 60px;
 }
 
+
 .logo-link {
   display: block;
   width: 396px;
@@ -101,10 +102,13 @@ body {
   border: 0;
   border-radius: 40px;
   background: #9ca3af;
-  color: #fff;
+  color: #f3f4f6;
   font: inherit;
+  font-family: Pretendard, sans-serif;
   font-size: 20px;
   font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0;
   cursor: pointer;
 }
 
@@ -135,8 +139,11 @@ body {
 .signup-text {
   margin: 24px 0 0;
   text-align: center;
+  font-family: Pretendard, sans-serif;
   font-size: 14px;
-  line-height: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0;
 }
 
 .signup-text a {
@@ -159,7 +166,7 @@ button:focus-visible {
 .signup-page {
   width: 640px;
   max-width: calc(100% - 40px);
-  margin: 60px auto;
+  margin: 100px auto 60px;
   color: #1f2937;
   font-family: Pretendard, "Malgun Gothic", sans-serif;
 }
