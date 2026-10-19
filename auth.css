@@ -5,6 +5,8 @@
   --gray-100: #f3f4f6;
   --gray-400: #9ca3af;
   --gray-900: #111827;
+  --social-bg: #e6f2ff;
+  --white: #ffffff;
 }
 
 * {
@@ -21,7 +23,7 @@ body {
   margin: 60px auto;
 }
 
-/* 로고 */
+/* 판다마켓 로고 */
 .auth-logo {
   display: block;
   width: fit-content;
@@ -35,14 +37,14 @@ body {
   object-fit: contain;
 }
 
-/* 로그인 폼 */
+/* 로그인 및 회원가입 폼 */
 .auth-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
-/* 이메일 및 비밀번호 */
+/* 입력창 */
 .input-group {
   display: flex;
   flex-direction: column;
@@ -66,8 +68,10 @@ body {
   font: inherit;
 }
 
+/* 입력창 포커스 */
 .input-group input:focus {
-  outline: 1px solid var(--primary);
+  border: 1px solid var(--primary);
+  outline: none;
 }
 
 /* 비밀번호 눈 아이콘 */
@@ -89,17 +93,22 @@ body {
   cursor: pointer;
 }
 
-/* 로그인 버튼 */
+/* 로그인 / 회원가입 버튼 */
 .auth-submit {
   width: 100%;
   height: 56px;
   border: none;
   border-radius: 40px;
   background: var(--gray-400);
-  color: white;
+  color: var(--white);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
+}
+
+/* 로그인 입력 완료 시 파란색 버튼 */
+.auth-submit.active {
+  background: var(--primary);
 }
 
 /* 간편 로그인 */
@@ -110,7 +119,7 @@ body {
   margin-top: 24px;
   padding: 16px 24px;
   border-radius: 8px;
-  background: #e6f2ff;
+  background: var(--social-bg);
 }
 
 .social-buttons {
@@ -130,14 +139,13 @@ body {
   cursor: pointer;
 }
 
-/* 회원가입 안내 */
+/* 하단 로그인 / 회원가입 링크 */
 .auth-switch {
   margin-top: 24px;
   text-align: center;
   font-size: 14px;
 }
 
-/* 회원가입 링크 - Figma 스타일 */
 .auth-switch a {
   font-family: "Pretendard", sans-serif;
   font-weight: 500;

@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>로그인 | 판다마켓</title>
 
+    <!-- Google Analytics -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-69J3SDBQ5S"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+      gtag("config", "G-69J3SDBQ5S");
+    </script>
+
     <link rel="stylesheet" href="./reset.css" />
     <link rel="stylesheet" href="./auth.css" />
   </head>
@@ -20,6 +36,7 @@
       <form class="auth-form">
         <div class="input-group">
           <label for="email">이메일</label>
+
           <input
             type="email"
             id="email"
@@ -85,18 +102,32 @@
         </div>
       </div>
 
-      <!-- 회원가입 페이지 이동 -->
+      <!-- 회원가입 이동 -->
       <p class="auth-switch">
         판다마켓이 처음이신가요?
         <a href="./signup.html">회원가입</a>
       </p>
     </main>
 
-    <!-- 비밀번호 표시/숨김 -->
+    <!-- 로그인 버튼 색상 및 비밀번호 표시 기능 -->
     <script>
-      const passwordToggle = document.querySelector(".password-toggle");
+      const emailInput = document.querySelector("#email");
       const passwordInput = document.querySelector("#password");
+      const passwordToggle = document.querySelector(".password-toggle");
+      const loginButton = document.querySelector(".auth-submit");
 
+      // 이메일과 비밀번호 입력 여부 확인
+      function updateLoginButton() {
+        const hasEmail = emailInput.value.trim() !== "";
+        const hasPassword = passwordInput.value.trim() !== "";
+
+        loginButton.classList.toggle("active", hasEmail && hasPassword);
+      }
+
+      emailInput.addEventListener("input", updateLoginButton);
+      passwordInput.addEventListener("input", updateLoginButton);
+
+      // 비밀번호 표시 / 숨김
       passwordToggle.addEventListener("click", function () {
         const isHidden = passwordInput.type === "password";
 
@@ -109,6 +140,8 @@
 
         passwordToggle.setAttribute("aria-pressed", String(isHidden));
       });
+
+      updateLoginButton();
     </script>
   </body>
 </html>
