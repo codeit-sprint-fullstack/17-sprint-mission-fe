@@ -1,22 +1,7 @@
-@font-face {
-  font-family: "ROKAF Sans";
-  src: url("../fonts/rokaf-sans-bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-:root {
-  font-size: 100%;
-  color: var(--color-text);
-  font-family: Pretendard, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-}
-
 .auth-page {
   min-height: 100vh;
-  padding: 3rem 1.5rem;
-  display: grid;
-  place-items: center;
+  padding: 3.75rem 1.5rem;
+  display: block;
   background: var(--color-white);
 }
 
@@ -34,20 +19,14 @@
   justify-content: flex-start;
   gap: 1.39rem;
   color: var(--color-primary);
-  font-family: "ROKAF Sans", sans-serif;
+  font-family: var(--font-brand);
   font-size: 1rem;
   font-weight: 700;
   line-height: 1;
   white-space: nowrap;
   letter-spacing: normal;
   text-decoration: none;
-}
-
-.auth-logo-link {
-  display: block;
-  width: 6.4706rem;
-  height: 6.4925rem;
-  flex: 0 0 6.4706rem;
+  cursor: pointer;
 }
 
 .auth-logo span {
@@ -55,19 +34,21 @@
   align-items: center;
   width: 16.625rem;
   height: 5.625rem;
-  font-family: "ROKAF Sans", sans-serif;
+  font-family: var(--font-brand);
   font-size: 4.14625rem;
   font-weight: 700;
   font-style: normal;
   line-height: 1;
   letter-spacing: 0;
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .auth-logo img {
   display: block;
-  width: 100%;
-  height: 100%;
+  width: 6.4706rem;
+  height: 6.4925rem;
+  flex: 0 0 6.4706rem;
   object-fit: contain;
 }
 
@@ -217,12 +198,8 @@
 }
 
 .social-login {
-  position: relative;
-  left: 50%;
-  width: 40rem;
-  height: 4.625rem;
+  width: 100%;
   min-height: 4.625rem;
-  transform: translateX(-50%);
   margin-top: 0;
   padding: 1rem 1.4375rem;
   display: flex;
@@ -237,9 +214,8 @@
 }
 
 .social-login-inner {
-  width: 37.125rem;
-  height: 2.625rem;
-  flex: 0 0 37.125rem;
+  width: 100%;
+  min-height: 2.625rem;
   display: flex;
   align-items: center;
 }
@@ -309,21 +285,8 @@
   border: 0;
 }
 
-@media (max-height: 52rem) {
-  .auth-page {
-    align-items: start;
-  }
-}
-
 @media (max-width: 36rem) {
   .auth-page {
-    padding: 2rem 1.25rem;
+    padding: 3.75rem 1.25rem;
   }
-}
-.signup-page .submit-button {
-  margin-bottom: 1.5rem;
-}
-/* 로그인과 회원가입 버튼 아래 간격을 동일하게 유지합니다. */
-.auth-page .submit-button {
-  margin-bottom: 1.5rem;
 }

@@ -1,47 +1,7 @@
-/* Pretendard 가변 폰트를 프로젝트 로컬 파일에서 불러옵니다. */
-@font-face {
-  font-family: "Pretendard";
-  src: url("../fonts/pretendard-variable.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* 공군 서체 Bold를 프로젝트 로컬 파일에서 불러옵니다. */
-@font-face {
-  font-family: "ROKAF Sans";
-  src: url("../fonts/rokaf-sans-bold.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-.font {
-  font-family: "Pretendard", sans-serif; /* 파일이 없으면 sans-serif로 대체됨 */
-}
-
-/* 색상과 공통 콘텐츠 너비/좌우 여백을 변수로 관리합니다. */
-:root {
-  --blue: #3692ff;
-  --ink: #1f2937;
-  --page-max: 95rem;
-  --page-gutter: 12.5rem;
-}
-
-/* rem 단위가 브라우저 기본 글꼴 크기를 따르도록 설정합니다. */
-html {
-  font-size: 100%;
-}
 body {
-  color: var(--ink);
-  background: #fff;
-  font-family:
-    Pretendard,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  color: var(--color-text);
+  background: var(--color-white);
+  font-family: var(--font-body);
   line-height: 1.5;
 }
 
@@ -68,8 +28,8 @@ p {
   top: 0;
   z-index: 10;
   height: 4.375rem;
-  background: #fff;
-  border-bottom: 0.0625rem solid #f2f4f7;
+  background: var(--color-white);
+  border-bottom: 0.0625rem solid var(--color-border);
 }
 /* 내비게이션 내용을 최대 너비로 가운데 정렬하고 양끝에 배치합니다. */
 .nav-container {
@@ -84,13 +44,10 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem; /* GNB 시안 기준 10px */
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 }
-.logo-link {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-}
-
 .logo-icon {
   width: 2.5rem;
   height: 2.50875rem; /* 40.14px / 16 */
@@ -101,7 +58,6 @@ p {
 .logo-text {
   height: 2.1875rem; /* 35px: 아이콘과 위아래 약 2.5px 여백 */
   align-self: center;
-  transform: translateY(0.15625rem); /* 2.5px 아래로 */
   /* 정렬 및 줄바꿈 방지 */
   display: inline-flex;
   align-items: center;
@@ -109,14 +65,15 @@ p {
   white-space: nowrap;
 
   /* 폰트 관련 */
-  font-family: "ROKAF Sans", sans-serif;
+  font-family: var(--font-brand);
   font-weight: 700;
   font-style: normal;
   font-size: 1.602rem; /* 약 25.63px / 16 */
   line-height: 100%;
   letter-spacing: 0;
-  color: #3692ff;
+  color: var(--color-primary);
   opacity: 1;
+  cursor: pointer;
 }
 /* 파란색 공통 버튼 스타일입니다. */
 .btn-primary {
@@ -128,8 +85,8 @@ p {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  background: var(--blue);
+  color: var(--color-white);
+  background: var(--color-primary);
   font-size: 1rem; /* 16px / 16 */
   font-weight: 600;
   text-decoration: none;
@@ -137,7 +94,7 @@ p {
   transition: background-color 160ms ease;
 }
 .btn-primary:hover {
-  background: #2677d9;
+  background: var(--color-primary-hover);
 }
 .btn-lg {
   width: 100%;
@@ -147,21 +104,18 @@ p {
 
 /* 첫 화면 히어로 영역: 배경색은 전체 너비, 콘텐츠는 중앙 최대 너비입니다. */
 .hero-section {
-  position: relative;
-  height: 33.75rem;
+  min-height: 33.75rem;
+  padding-top: 12.5rem;
   overflow: hidden;
-  background: #cfe5ff;
+  background: var(--color-hero);
 }
 /* 제목/버튼과 메인 이미지를 한 줄로 배치합니다. */
 .hero-container {
-  position: absolute;
-  top: 12.5rem;
-  left: 50%;
-  transform: translateX(-50%);
   width: min(68.75rem, calc(100% - (var(--page-gutter) * 2)));
-  height: 21.25rem; /* 340px */
+  min-height: 21.25rem; /* 340px */
+  margin-inline: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 0.4375rem;
 }
 .hero-text {
@@ -178,7 +132,7 @@ p {
 .hero-text h1 {
   height: 7rem; /* 112px / 16, 브라우저 기본 글꼴 크기에 비례 */
   margin: 0;
-  color: #374151;
+  color: var(--color-text-secondary);
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.04em;
@@ -251,42 +205,39 @@ p {
 .badge {
   display: inline-block;
   margin-bottom: 0.75rem;
-  color: var(--blue);
+  color: var(--color-primary);
   font-size: 1.125rem; /* 18px / 16 */
   font-weight: 700;
 }
 .feature-text h2 {
   height: 7rem; /* 112px / 16 */
   margin: 0 0 1rem;
-  color: #374151;
+  color: var(--color-text-secondary);
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.04em;
 }
 .feature-text p {
-  color: #4b5563;
+  color: var(--color-text-muted);
   font-size: 1.5rem; /* 24px / 16 */
   line-height: 1.5;
 }
 
 /* 페이지 하단의 하늘색 강조 배너입니다. */
 .bottom-banner {
-  position: relative;
-  height: 33.75rem;
+  min-height: 33.75rem;
   margin-top: 13.6875rem;
+  padding-top: 8.9375rem;
   overflow: hidden;
-  background: #cfe5ff;
+  background: var(--color-hero);
 }
 /* 배너 문구와 이미지를 고정된 최대 너비 안에서 정렬합니다. */
 .banner-container {
-  position: absolute;
-  top: 8.9375rem;
-  left: 50%;
-  transform: translateX(-50%);
   width: min(68.75rem, calc(100% - (var(--page-gutter) * 2)));
-  height: 21.25rem; /* 340px 그룹 높이 */
+  min-height: 21.25rem; /* 340px 그룹 높이 */
+  margin-inline: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   gap: 0;
 }
 .banner-container h2 {
@@ -296,7 +247,7 @@ p {
   height: 7rem; /* 112px / 16 */
   margin: 0;
   padding-bottom: 3.75rem;
-  color: #374151;
+  color: var(--color-text-secondary);
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: -0.04em;
@@ -319,8 +270,8 @@ p {
 .footer {
   height: 10rem;
   padding: 2rem 0;
-  color: #9ca3af;
-  background: #111827;
+  color: var(--color-text-subtle);
+  background: var(--color-footer);
 }
 /* 푸터를 왼쪽 저작권, 가운데 링크, 오른쪽 SNS의 한 줄 3열로 배치합니다. */
 .footer-container {
@@ -361,10 +312,10 @@ p {
   justify-content: center;
   font-size: 1rem; /* 16px / 16 */
   line-height: 1.1875rem;
-  color: #e5e7eb;
+  color: var(--color-footer-text);
 }
 .footer-links a:hover {
-  color: #fff;
+  color: var(--color-white);
 }
 .social-links {
   display: flex;
