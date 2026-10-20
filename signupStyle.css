@@ -1,0 +1,161 @@
+* {
+  box-sizing: border-box;
+}
+
+/*공통변수*/
+:root {
+  /* Primary Color */
+  --color-primary: #3692ff;
+
+  /* Background Color */
+  --color-input-bg: #e9e9e9ef;
+  --color-banner-bg: #dbebfd;
+
+  /* Text Color */
+  --color-text-primary: #383838e7;
+  --color-text-secondary: #414141b6;
+
+  /* Button Color */
+  --color-button-disabled: #41414188;
+
+  /* Border Color */
+  --color-border-transparent: transparent;
+}
+
+/*body*/
+body {
+  width: 640px;
+  margin: 0 auto;
+}
+
+/*header*/
+header {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 15px;
+}
+
+.logo img {
+  width: 300px;
+  height: auto;
+  display: block;
+}
+
+/*main의 section-회원가입세트*/
+.signup-set {
+  display: flex;
+  flex-direction: column;
+}
+
+/*라벨부분*/
+.text {
+  font-size: 1rem;
+  text-align: left;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/*이메일_닉네임 입력부분*/
+.input-item0 {
+  background-color: var(--color-input-bg);
+  font-size: 0.8rem;
+  padding: 1rem 1rem;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid var(--color-border-transparent);
+}
+
+.input-item0:focus {
+  border-color: var(--color-primary);
+}
+
+/*pw_pw확인 입력부분*/
+.password-box {
+  position: relative;
+  width: 100%;
+}
+
+.password-box .input-item {
+  width: 100%;
+  background-color: var(--color-input-bg);
+  font-size: 0.8rem;
+  padding: 1rem 3rem 1rem 1rem;
+  border-radius: 12px;
+  outline: none;
+  border: 1px solid var(--color-border-transparent);
+}
+
+.input-item:focus {
+  border-color: var(--color-primary);
+}
+
+.toggle-password {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  border: none;
+  background: var(--color-border-transparent);
+  padding: 0;
+  cursor: pointer;
+  font-size: 1rem;
+  color: var(--color-text-secondary);
+}
+
+/*회원가입 버튼*/
+.signup-btn {
+  margin: 1.3rem 0;
+  padding: 0.7rem 0;
+  width: 100%;
+  border: none;
+  border-radius: 999px;
+  background-color: var(--color-button-disabled);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+/*lower-banner 전체*/
+.lower-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.5rem 1rem;
+
+  background-color: var(--color-banner-bg);
+  border-radius: 8px;
+}
+
+/*lower-banner text부분*/
+.text2 {
+  font-size: 14px;
+  color: var(--color-text-primary);
+}
+
+/*lower-banner 아이콘 부분*/
+.social-login {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.social-login img {
+  display: block;
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+}
+
+/*footer*/
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.2rem;
+  margin-bottom: 1.2rem;
+}
