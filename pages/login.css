@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+.body {
+  font-family: "Pretendard", sans-serif;
+}
+
+/* 로그인, 회원가입 페이지 공통 사용 */
+
+/* 페이지 메인 전체 그룹화 */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.main-group {
+  width: 100%;
+  max-width: 640px;
+}
+
+/* 상단 로고 */
+.head {
+  justify-self: center;
+  width: 396px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #3692ff;
+  font-weight: 700;
+  font-style: bold;
+  font-size: 67px;
+  gap: 24px;
+}
+
+
+/* 이메일 입력창 */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-label {
+  font-weight: 700;
+  font-style: bold;
+  font-size: 18px;
+}
+
+.email-input, .nick-input {
+  border-radius: 12px;
+  padding: 16px 24px;
+  width: 640px;
+  height: 56px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+.password-group {
+  position: relative;
+  width: 640px;
+}
+
+.password-input, .password-confirm-input {
+  border-radius: 12px;
+  padding: 16px 24px;
+  width: 100%;
+  height: 56px;
+  padding-right: 56px;
+  border: none;
+  background-color: #f3f4f6;
+}
+
+.password-btn {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+
+  border: none;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* 로그인 버튼 */
+.btn {
+  width: 640px;
+  height: 56px;
+  border-radius: 40px;
+  padding: 16px 124px;
+  background-color: #9ca3af;
+  border: none;
+}
+
+.btn-text {
+  font-weight: 600;
+  font-style: bold;
+  font-size: 20px;
+  color: #f3f4f6;
+}
+
+/* 소셜 간편 로그인 */
+.social-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 23px;
+  border-radius: 8px;
+  background-color: #e6f2ff;
+  margin-top: 24px;
+}
+
+.social-text {
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.social-btn {
+  display: flex;
+  gap: 16px;
+}
+
+/* 하단 페이지 이동 링크 */
+.signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.signup a {
+  color: #3692ff;
+}
+
+input:focus {
+  border: 1px solid #3692ff;
+  outline: none;
+}
+
+.login-form:has(.email-input:valid):has(.password-input:valid) .btn {
+  background-color: #3692FF;
+}
