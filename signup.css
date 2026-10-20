@@ -1,0 +1,144 @@
+:root {
+  --primary-color: #3692FF;
+}
+
+body{
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     padding: 0 20px;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%
+
+}
+
+form {
+  width: 100%;
+   max-width: 640px;
+  display: flex;
+  flex-direction: column;
+}
+
+form input {
+    width: 100%;
+    box-sizing: border-box;
+}
+/* 로고 */
+.logo {
+  width: 400px;
+  height: auto;
+  margin-bottom: 40px;
+}
+
+/* 이메일, 비밀번호 제목 */
+form label {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+/* 입력창 */
+form input {
+  width: 100%;
+  height: 56px;
+  padding: 0 24px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+/* 로그인 버튼 */
+.login-button {
+  width: 100%;
+  height: 56px;
+  background-color: #9ca3af;
+  color: white;
+  border: none;
+  border-radius: 28px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 간편 로그인 */
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #e6f2ff;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-top: 24px;
+  font-size: 16px;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.social-icons img {
+  width: 42px;
+  height: 42px;
+}
+
+/* 회원가입 */
+.signup {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.signup a {
+  color: var(--primary-color);
+  text-decoration: underline;
+}
+
+input:focus {
+  outline: 1px solid var(--primary-color);
+  border-color: var(--primary-color);
+} 
+
+.password-wrapper {
+  position: relative;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.password-wrapper input {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0;
+  padding-right: 60px;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+}
+
+.password-toggle img {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+form input::placeholder {
+  color: #9CA3AF;
