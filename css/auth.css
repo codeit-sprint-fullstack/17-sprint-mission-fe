@@ -1,0 +1,197 @@
+/* =========================================================
+   auth.css · 로그인(/login) · 회원가입(/signup) 공통 스타일
+   - 연결 순서: reset.css → tokens.css → auth.css
+   - 숫자는 Figma 그대로, rem (px ÷ 16). 1px 선만 px.
+   ========================================================= */
+
+/* ===== 0. 폰트 (로고 글자 4개만 담은 공군체 서브셋) ===== */
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("../fonts/rokaf-sans-bold-logo.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ===== 1. 공통 ===== */
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-800);
+  background: var(--page);
+}
+a,
+button {
+  cursor: pointer;
+}
+
+/* ===== 2. 전체 틀: 폭 640 · 가운데 · 로고 위 60 ===== */
+.auth {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* 40px · 로고 ↔ 폼 */
+  width: var(--auth);
+  margin: 0 auto;
+  padding: var(--auth-top) 0;
+}
+
+/* ===== 3. 큰 로고 396 × 132 ===== */
+.auth-logo {
+  align-self: center;
+}
+.logo-lg {
+  position: relative;
+  display: block;
+  width: 24.75rem; /* 396px */
+  height: 8.25rem; /* 132px */
+}
+.logo-lg-icon {
+  position: absolute;
+  top: 0.81125rem; /* 12.98px */
+  left: 0;
+  width: 6.470625rem; /* 103.53px */
+  height: auto;
+}
+.logo-lg-text {
+  position: absolute;
+  top: 1.49875rem; /* 23.98px */
+  left: 7.860625rem; /* 125.77px */
+  height: 5.625rem; /* 90px · 글자 상자 */
+  font-family: "ROKAF Sans", sans-serif;
+  font-size: 4.14625rem; /* 66.34px */
+  font-weight: var(--fw-bold);
+  line-height: 5.625rem; /* 90px 상자 세로 가운데 */
+  color: var(--blue);
+  white-space: nowrap;
+}
+
+/* ===== 4. 폼 영역: 항목 사이 24 ===== */
+.auth-body,
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem; /* 24px */
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* 16px · 라벨 ↔ 입력창 */
+}
+.field-label {
+  font-size: var(--fs-label);
+  font-weight: var(--fw-bold);
+  line-height: 1.625rem; /* 26px · 로그인 */
+}
+.auth--signup .field-label {
+  line-height: 1.3125rem; /* 21px · 회원가입 (Figma 행간 100% 글자 상자) */
+}
+
+/* ===== 5. 입력창 640 × 56 ===== */
+.input {
+  display: block;
+  width: 100%;
+  height: 3.5rem; /* 56px */
+  padding: 1rem 1.5rem; /* 16 · 24 */
+  border: none; /* focus out: 테두리 없음 */
+  border-radius: var(--radius-md);
+  background: var(--gray-100);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-regular);
+  line-height: 1.5rem; /* 24px · 입력한 글자 */
+  color: var(--gray-800);
+}
+.input::placeholder {
+  color: var(--gray-400);
+}
+.input:focus {
+  outline: 1px solid var(--blue); /* focus in: 1px 파란 테두리 */
+  outline-offset: -1px; /* 상자 안쪽에 그리기 (크기 그대로) */
+}
+
+/* 비밀번호: 오른쪽에 눈 아이콘 24 × 24 */
+.input-wrap {
+  position: relative;
+}
+.input-wrap .input {
+  padding-right: 3.625rem; /* 58px = 24 + 아이콘 24 + 10 */
+}
+.btn-eye {
+  position: absolute;
+  top: 1.0625rem; /* 17px = 16 + (26 − 24) ÷ 2 · 26px 줄 가운데 */
+  right: 1.5rem; /* 24px */
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: none;
+  background: none;
+}
+.btn-eye img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ===== 6. 큰 버튼 640 × 56 ===== */
+.btn-auth {
+  width: 100%;
+  height: 3.5rem; /* 56px */
+  border: none;
+  border-radius: var(--radius-pill);
+  background: var(--gray-400); /* inactive */
+  color: var(--gray-100);
+  font-size: var(--fs-btn-lg);
+  font-weight: var(--fw-semibold);
+  line-height: 2rem; /* 32px · 로그인 */
+}
+/* 칸을 모두 알맞게 채우면(폼이 유효하면) 파란 버튼 · JS 없이 :valid
+   Figma '로그인 - 테두리' 프레임 · btn_large(active) #3692FF */
+.auth-form:valid .btn-auth {
+  background: var(--blue);
+}
+.auth--signup .btn-auth {
+  color: var(--white);
+  line-height: 1.5rem; /* 24px · 회원가입 */
+}
+
+/* ===== 7. 간편 로그인 640 × 74 ===== */
+.sns-login {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 4.625rem; /* 74px */
+  padding: 1rem 1.4375rem; /* 16 · 23 */
+  border-radius: var(--radius-sm);
+  background: var(--blue-50);
+}
+.sns-login-title {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  line-height: 1.625rem; /* 26px */
+}
+.sns-list {
+  display: flex;
+  gap: 1rem; /* 16px */
+}
+.sns-list img {
+  width: 2.625rem; /* 42px */
+  height: 2.625rem;
+}
+
+/* ===== 8. 아래 안내 문구 ===== */
+.auth-switch {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem; /* 4px */
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  line-height: 1.5rem; /* 24px */
+}
+.auth-switch a {
+  color: var(--blue);
+  line-height: 1.0625rem; /* 17px · Figma 글자 상자 */
+  text-decoration: underline;
+}
+.auth--signup .auth-switch a {
+  color: var(--blue-deep);
+  font-size: var(--fs-link);
+  line-height: 1.125rem; /* 18px */
+}
