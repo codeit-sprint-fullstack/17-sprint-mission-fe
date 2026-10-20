@@ -1,0 +1,180 @@
+@font-face {
+    font-family: 'Pretendard1';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Pretendard2';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* palette 설정 */
+:root {
+  --point-color: #3692FF;
+  --color-bg: #ffffff;
+  --color-text: #1F2937;
+  --color-button: #9CA3AF;
+  --color-input-box: #F3F4F6;
+  --color-footer-box: #E6F2FF;
+}
+
+/* 전체 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 공통 태그 속성 */
+body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    margin-top: 100px;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Pretendard1', sans-serif;
+}
+form{
+    display: block;
+    width: 100%;
+}
+p, a {
+    text-decoration: none;
+}
+
+/* 로그인 페이지 창 및 로고 관련 속성 */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    width: 33%;
+}
+.logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 24px;
+    border-radius: 16px;
+}
+.logo-img {
+    width: 100px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.logo-text {
+    display: flex;
+    flex-direction: row;
+    font-size: 66px;
+    align-items: center;
+    font-family: "Do Hyeon", sans-serif;
+    color: var(--point-color);
+    text-decoration: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+/* 로그인 폼 영역 */
+.login-form {
+    gap: 24px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;    
+}
+.input-box {
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+.input-box label {
+    font-weight: 700;
+    color: var(--color-text);
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.visibility-icon {
+    position: absolute;
+    width: 24px;
+    right: 24px;
+}
+.input-box input {
+    height: 56px;
+    padding: 24px 16px;
+    background-color: var(--color-input-box);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    font-size: 16px;
+    color: var(--color-text);
+    outline: none;
+    width: 100%;
+}
+.input-box input:focus {
+    border-color: var(--point-color);
+}
+.login-btn {
+    height: 56px;
+    background-color: var(--color-button);
+    color: var(--color-input-box);
+    border: none;
+    border-radius: 50px;
+    font-size: 20px;
+    margin: 16px 0;
+}
+
+/* 소셜 로그인 영역 속성 */
+.social-login {
+    width: 100%;
+    background-color: var(--color-footer-box);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+    padding: 16px 23px;
+    border-radius: 8px;
+}
+.social-text {
+    font-family: Pretendard2, sans-serif;
+    font-weight: 200;
+    color: var(--color-text);
+}
+.social-icon {
+    display: flex;
+    gap: 16px;
+}
+.icons {
+    width: 42px;
+}
+
+/* 회원가입 링크 */
+.regist-link {
+    font-family: Pretendard2, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 24px;
+}
+.regist-link span{
+    color: var(--color-text);
+}
+.regist-link a {
+    color: var(--point-color);
+    text-decoration-line: underline;
+}
