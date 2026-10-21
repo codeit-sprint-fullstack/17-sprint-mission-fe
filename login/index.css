@@ -1,0 +1,205 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "ROKAF Sans Bold";
+  src: url("../font/ROKAFSansBold.otf") format("opentype");
+  font-weight: 700;
+}
+
+body.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+.box {
+  width: 100%;
+  max-width: 640px;
+  height: 618px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  width: 396px;
+  height: 132px;
+}
+
+.icon {
+  width: 103.53px;
+  height: 103.88px;
+  object-fit: contain;
+}
+
+.icon-text {
+  font-family: "ROKAF Sans Bold", sans-serif;
+  font-size: 66.34px;
+  color: #3692ff;
+  line-height: 100%;
+  letter-spacing: 0%;
+  font-weight: 700;
+}
+
+.main-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 640px;
+  height: 446px;
+}
+
+.email-box,
+.password-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.email-text,
+.password-text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #111111;
+}
+
+.email-input,
+.password-input {
+  width: 100%;
+  height: 56px;
+  padding: 0 16px;
+  background-color: #ffffff;
+  border: 1px solid #dfdfdf;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.email-input::placeholder,
+.password-input::placeholder {
+  color: #9ea4aa;
+}
+
+.email-input:focus,
+.password-input:focus {
+  border-color: #3692ff;
+}
+
+.login-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 56px;
+  background-color: #9ea4aa;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 40px;
+  transition: background-color 0.2s ease;
+}
+
+.login-box.active {
+  background-color: #3692ff;
+}
+
+.login-box:hover {
+  background-color: #3692ff;
+}
+
+.simple-login-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 24px;
+  background-color: #e6f2ff;
+  border-radius: 8px;
+  width: 100%; /* 640px 고정 대신 100%로 유연하게 변경 */
+  height: 74px;
+}
+
+.simple-login-text {
+  font-family: "Pretendard", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0%;
+  color: #1f2937;
+}
+
+.simple-login-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  height: 42px;
+}
+
+.google-logo,
+.kakao-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+}
+
+.google-logo-img,
+.kakao-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.panda-first {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  color: #1f2937;
+  width: 197px;
+  height: 24px;
+  gap: 4px;
+}
+
+.panda-first-signup {
+  color: #3692ff;
+  text-align: center;
+  font-weight: 500;
+  text-decoration: underline;
+}
+
+/* 눈 아이콘 */
+.input-wrapper {
+  position: relative;
+  align-items: center;
+  width: 100%;
+}
+
+.eye {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>panda signup</title>
+    <link rel="stylesheet" href="./index.css" />
+
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-DR9WXDK9ND"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-DR9WXDK9ND");
+    </script>
+  </head>
+  <body class="page-wrapper">
+    <div class="home-page">
+      <a href="../main/index.html" class="icon-box">
+        <img src="../images/panda_face.png" alt="판다마켓 로고" class="icon" />
+
+        <div class="icon-text">판다마켓</div>
+      </a>
+      <main class="input-box">
+        <div class="email-box">
+          <label class="emil-text">이메일</label>
+          <input
+            type="email"
+            id="user-email"
+            placeholder="이메일을 입력해주세요"
+            class="emil-input"
+            required
+          />
+        </div>
+
+        <div class="nickname-box">
+          <label class="nickname-text">닉네임</label>
+          <input
+            type="text"
+            id="user-nickname"
+            placeholder="닉네임을 입력해주세요"
+            class="nickname-input"
+            required
+          />
+        </div>
+
+        <div class="password-box">
+          <label class="password-text">비밀번호</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="user-password"
+              placeholder="비밀번호를 입력해주세요"
+              class="password-input"
+              required
+            />
+            <img
+              src="../images/eye.png"
+              alt="눈 아이콘"
+              class="eye"
+              id="eyeicon"
+            />
+          </div>
+        </div>
+
+        <div class="password-confirm-box">
+          <label class="password-confirm-text">비밀번호 확인</label>
+          <div class="input-wrapper">
+            <input
+              type="password"
+              id="user-password-confirm"
+              placeholder="비밀번호를 다시 한 번 입력해주세요"
+              class="password-confirm-input"
+              required
+            />
+            <img
+              src="../images/eye.png"
+              alt="눈 아이콘"
+              class="eye"
+              id="eyeicon"
+            />
+          </div>
+        </div>
+
+        <a href="" class="signup-box">회원가입</a>
+      </main>
+
+      <div class="simple-login-box">
+        <p class="simple-login-text">간편 로그인하기</p>
+        <div class="simple-login-logo">
+          <a href="https://www.google.com/" class="google-logo">
+            <img
+              src="../images/login-img/Component 2.png"
+              alt="구글 로고 이미지"
+            />
+          </a>
+          <a href="https://www.kakaocorp.com/page/" class="kakao-logo">
+            <img
+              src="../images/login-img/Component 3.png"
+              alt="카카오 로고 이미지"
+            />
+          </a>
+        </div>
+      </div>
+
+      <div class="user-login-box">
+        <p class="user-login-text">이미 회원이신가요?</p>
+        <a href="../login/index.html" class="user-login"> 로그인 </a>
+      </div>
+    </div>
+  </body>
+</html>

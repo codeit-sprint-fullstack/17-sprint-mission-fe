@@ -1,0 +1,98 @@
+/* 기본 초기화 및 박스 모델 설정 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  line-height: 1.5;
+}
+
+/* 양쪽 공백 및 중앙 정렬 클래스 */
+.container {
+  width: 100%;
+  max-width: 1200px; /* 최대 너비 지정 */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px; /* 모바일 화면에서 끝에 붙지 않도록 여백 설정 */
+  padding-right: 20px;
+}
+
+/* 헤더 스타일 예시 */
+header {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 0;
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav ul {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+header nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* 회원가입 섹션 스타일 예시 */
+.signup-section {
+  padding: 60px 0;
+}
+
+.signup-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.signup-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.submit-btn {
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.submit-btn:hover {
+  background-color: #0056b3;
+}
+
+/* 푸터 스타일 예시 */
+footer {
+  background-color: #f8f9fa;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #777;
+}
