@@ -1,0 +1,38 @@
+/* 프로젝트 전반에서 공유하는 색상, 레이아웃, 폰트 변수입니다. */
+@font-face {
+  font-family: "Pretendard";
+  src: url("../fonts/pretendard-variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("../fonts/rokaf-sans-bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --color-primary: #3692ff;
+  --color-primary-hover: #2677d9;
+  --color-primary-soft: #e6f2ff;
+  --color-text: #1f2937;
+  --color-text-secondary: #374151;
+  --color-text-muted: #4b5563;
+  --color-text-subtle: #9ca3af;
+  --color-border: #f2f4f7;
+  --color-surface: #f3f4f6;
+  --color-white: #fff;
+  --color-hero: #cfe5ff;
+  --color-footer: #111827;
+  --color-footer-text: #e5e7eb;
+  --color-error: #f04452;
+  --color-primary-rgb: 54 146 255;
+  --page-max: 95rem;
+  --page-gutter: 12.5rem;
+  --font-body: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-brand: "ROKAF Sans", sans-serif;
+}
