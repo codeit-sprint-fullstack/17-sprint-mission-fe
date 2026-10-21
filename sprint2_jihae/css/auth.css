@@ -1,0 +1,150 @@
+body {
+  font-family: "Pretendard", "Malgun Gothic", sans-serif;
+  color: var(--color-gray-800);
+  background-color: #ffffff;
+}
+
+.auth {
+  width: 40rem;
+  margin: 0 auto;
+  padding: 0.8125rem 0 3rem;
+}
+
+.auth-logo {
+  display: block;
+  width: 24.1875rem;
+  margin: 0 0 0 7.625rem;
+  cursor: pointer;
+}
+
+.auth-logo img {
+  width: 24.1875rem;
+  height: 6.5rem;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3.4375rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+  font-weight: 700;
+  color: var(--color-gray-800);
+}
+
+.input-box {
+  position: relative;
+}
+
+.input-box input {
+  width: 100%;
+  height: 3.5rem;
+  padding: 0 3.5rem 0 1.5rem;
+  border: none;
+  border-radius: 0.75rem;
+  background-color: var(--color-gray-100);
+  font-size: 1rem;
+  line-height: 1.625rem;
+  color: var(--color-gray-800);
+}
+
+.input-box input::placeholder {
+  color: var(--color-gray-400);
+}
+
+.input-box input:focus {
+  outline: none;
+  border: 0.0625rem solid var(--color-primary-100);
+}
+
+.input-box img {
+  position: absolute;
+  top: 1.1875rem;
+  right: 1.5625rem;
+  width: 1.375rem;
+  height: 1.125rem;
+}
+
+.form-signup {
+  margin-top: 3.25rem;
+}
+
+.form-signup .form-group {
+  margin-bottom: 1.3125rem;
+}
+
+.form-signup .form-group label {
+  margin-bottom: 0.875rem;
+}
+
+.form-signup .btn-submit {
+  margin-top: 0.1875rem;
+}
+
+.btn-submit {
+  width: 100%;
+  height: 3.5rem;
+  border: none;
+  border-radius: 2.5rem;
+  background-color: var(--color-gray-400);
+  font-size: 1.25rem;
+  line-height: 2rem;
+  font-weight: 600;
+  color: var(--color-gray-100);
+}
+
+.easy-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.625rem;
+  margin-top: 1.5rem;
+  padding: 0 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #e6f2ff;
+}
+
+.easy-login-title {
+  font-size: 1rem;
+  line-height: 1.625rem;
+  font-weight: 500;
+  color: var(--color-gray-800);
+}
+
+.easy-login-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.easy-login-icons a {
+  cursor: pointer;
+}
+
+.easy-login-icons img {
+  width: 2.625rem;
+  height: 2.625rem;
+}
+
+.auth-switch {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5rem;
+  font-weight: 500;
+  text-align: center;
+  color: var(--color-gray-800);
+}
+
+.auth-switch a {
+  color: var(--color-primary-100);
+  text-decoration: underline;
+  cursor: pointer;
+}
