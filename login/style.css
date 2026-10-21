@@ -1,0 +1,323 @@
+ * {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #1f2937;
+  font-family: Pretendard, "Noto Sans KR", "Malgun Gothic", sans-serif;
+}
+
+.login-page {
+  width: 640px;
+  max-width: calc(100% - 40px);
+  margin: 100px auto 60px;
+}
+
+
+.logo-link {
+  display: block;
+  width: 396px;
+  max-width: 100%;
+  margin: 0 auto 40px;
+}
+
+.logo-link img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+/* 기본: 회색 */
+.login-form .login-button {
+  background: #9ca3af;
+}
+
+/* 두 칸을 모두 입력하면 파란색 */
+.login-form:has(#email:not(:placeholder-shown)):has(#password:not(:placeholder-shown)) 
+.login-button {  background: #3692ff;
+}
+
+.logo {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.field label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.field input {
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  outline: none;
+  background: #f3f4f6;
+  color: #1f2937;
+  font: inherit;
+  font-size: 16px;
+}
+
+.field input::placeholder {
+  color: #9ca3af;
+}
+
+.field input:focus {
+  border-color: #3692ff;
+}
+
+.password-field {
+  position: relative;
+}
+
+.password-field input {
+  padding-right: 60px;
+}
+
+.password-icon {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  width: 24px;
+  height: 24px;
+  transform: translateY(-50%);
+}
+
+.login-button {
+  width: 100%;
+  height: 56px;
+  border: 0;
+  border-radius: 40px;
+  background: #9ca3af;
+  color: #f3f4f6;
+  font: inherit;
+  font-family: Pretendard, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: 0;
+  cursor: pointer;
+}
+
+.social-login {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 74px;
+  margin-top: 24px;
+  padding: 16px 23px;
+  border-radius: 8px;
+  background: #e6f2ff;
+  font-size: 16px;
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-links a,
+.social-links img {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+.signup-text {
+  margin: 24px 0 0;
+  text-align: center;
+  font-family: Pretendard, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0;
+}
+
+.signup-text a {
+  color: #3692ff;
+  text-underline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #3692ff;
+  outline-offset: 4px;
+}
+
+/* 회원가입 페이지 */
+.signup-page,
+.signup-page * {
+  box-sizing: border-box;
+}
+
+.signup-page {
+  width: 640px;
+  max-width: calc(100% - 40px);
+  margin: 100px auto 60px;
+  color: #1f2937;
+  font-family: Pretendard, "Malgun Gothic", sans-serif;
+}
+
+/* 로고 */
+.signup-logo {
+  display: block;
+  width: 396px;
+  max-width: 100%;
+  margin: 0 auto 40px;
+}
+
+.signup-logo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 입력 폼 */
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.signup-field label {
+  display: block;
+  margin-bottom: 16px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+.signup-field input {
+  display: block;
+  width: 100%;
+  height: 56px;
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  outline: none;
+  background-color: #f3f4f6;
+  color: #1f2937;
+  font: inherit;
+  font-size: 16px;
+}
+
+.signup-field input::placeholder {
+  color: #9ca3af;
+}
+
+.signup-field input:focus {
+  border-color: #3692ff;
+}
+
+/* 비밀번호 아이콘 */
+.signup-password-wrap {
+  position: relative;
+}
+
+.signup-password-wrap input {
+  padding-right: 64px;
+}
+
+.signup-password-toggle {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.signup-password-toggle img {
+  display: block;
+  width: 24px;
+  height: 24px;
+}
+
+/* 회원가입 버튼 */
+.signup-submit {
+  width: 100%;
+  height: 56px;
+  border: none;
+  border-radius: 40px;
+  background-color: #9ca3af;
+  color: #fff;
+  font: inherit;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 간편 로그인 */
+.signup-social {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 74px;
+  margin-top: 24px;
+  padding: 16px 26px;
+  border-radius: 8px;
+  background-color: #e6f2ff;
+  font-size: 16px;
+}
+
+.signup-social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.signup-social-links a,
+.signup-social-links img {
+  display: block;
+  width: 42px;
+  height: 42px;
+}
+
+/* 로그인 이동 링크 */
+.signup-footer {
+  margin: 24px 0 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.signup-footer a {
+  color: #3692ff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.signup-page a:focus-visible,
+.signup-page button:focus-visible {
+  outline: 2px solid #3692ff;
+  outline-offset: 4px;
+}
+
+/* 기본 상태 */
+.signup-submit {
+  background-color: #9ca3af;
+}
+
+/* 네 칸 모두 입력했을 때 */
+.signup-form:has(#signup-email:not(:placeholder-shown)):has(#nickname:not(:placeholder-shown)):has(#signup-password:not(:placeholder-shown)):has(#password-confirm:not(:placeholder-shown)) .signup-submit {
+  background-color: #3692ff;
+}
