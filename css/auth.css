@@ -124,18 +124,6 @@
   padding-right: calc(4.5rem - 1px);
 }
 
-/* 체크박스는 화면에서 숨기고 label(눈 아이콘)로 대신 누름 */
-.field .password-toggle-check {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: 0;
-  border: 0;
-  opacity: 0;
-  pointer-events: none;
-}
-
 .password-toggle {
   position: absolute;
   top: 50%;
@@ -145,33 +133,26 @@
   justify-content: center;
   width: 1.5rem; /* 24px */
   height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: none;
   transform: translateY(-50%);
   cursor: pointer;
 }
 
 /* 키보드로 이동했을 때 눈 아이콘 위치 표시 */
-.password-toggle-check:focus-visible + .password-toggle {
+.password-toggle:focus-visible {
   outline: 2px solid var(--color-primary-100);
   outline-offset: 2px;
 }
 
-/* 비밀번호 칸은 type=text에 글자를 점으로 가려 보여줌 (비표준 속성, JS를 배우면 type 전환 방식으로 교체) */
-.password-input {
-  -webkit-text-security: disc;
-}
-
-/* 눈 아이콘을 체크하면 글자를 그대로 보여줌 */
-.password-wrap:has(.password-toggle-check:checked) .password-input {
-  -webkit-text-security: none;
-}
-
-/* 기본: 숨김 아이콘 / 체크하면: 보기 아이콘 */
+/* 기본: 숨김 아이콘 / 비밀번호가 보이는 상태: 보기 아이콘 */
 .eye-on,
-.password-toggle-check:checked + .password-toggle .eye-off {
+.is-visible .eye-off {
   display: none;
 }
 
-.password-toggle-check:checked + .password-toggle .eye-on {
+.is-visible .eye-on {
   display: block;
 }
 
