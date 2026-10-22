@@ -5,7 +5,7 @@
   align-items: center;
   gap: 1.5rem; /* 24px: 폼 - 간편 로그인 - 링크 사이 (시안 높이 618px에 맞춤) */
   width: 40rem; /* 640px */
-  margin: 14.4375rem auto 0; /* 상단 231px, 좌우 가운데 정렬 */
+  margin: 10rem auto 0; /* 상단 160px + main 공통 padding-top 71px = 231px, 좌우 가운데 정렬 */
 }
 
 /* 로고 */
