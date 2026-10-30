@@ -18,6 +18,7 @@ export function getArticleList({ page = 1, pageSize = 10, keyword } = {}) {
     .then(checkResponse)
     .catch((error) => {
       console.error('getArticleList 에러:', error.message);
+      throw error;
     });
 }
 
@@ -26,6 +27,7 @@ export function getArticle(id) {
     .then(checkResponse)
     .catch((error) => {
       console.error('getArticle 에러:', error.message);
+      throw error;
     });
 }
 
@@ -38,6 +40,7 @@ export function createArticle({ title, content, image }) {
     .then(checkResponse)
     .catch((error) => {
       console.error('createArticle 에러:', error.message);
+      throw error;
     });
 }
 
@@ -50,6 +53,7 @@ export function patchArticle(id, data) {
     .then(checkResponse)
     .catch((error) => {
       console.error('patchArticle 에러:', error.message);
+      throw error;
     });
 }
 
@@ -58,5 +62,6 @@ export function deleteArticle(id) {
     .then(checkResponse)
     .catch((error) => {
       console.error('deleteArticle 에러:', error.message);
+      throw error;
     });
 }
