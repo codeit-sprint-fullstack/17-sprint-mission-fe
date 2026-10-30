@@ -1,0 +1,24 @@
+{
+  "name": "17-sprint-mission-fe",
+  "version": "1.0.0",
+  "description": "코드잇 스프린트 풀스택 과정이 진행되며 완성되는 프로젝트입니다. 과정 중 주어지는 스프린트 미션에 따라 내용이 수정되고 기능이 향상됩니다.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seunghn2412/17-sprint-mission-fe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/seunghn2412/17-sprint-mission-fe/issues"
+  },
+  "homepage": "https://github.com/seunghn2412/17-sprint-mission-fe#readme",
+  "dependencies": {
+    "axios": "^1.21.0"
+  }
+}
