@@ -6,6 +6,14 @@ import {
   deleteProduct,
 } from "./ProductService.js";
 
+import {
+  getArticleList,
+  getArticle,
+  createArticle,
+  patchArticle,
+  deleteArticle,
+} from "./ArticleService.js";
+
 // 상품 목록 불러오기
 // console.log("상품 목록\n", await getProductList());
 
@@ -37,3 +45,25 @@ import {
 // const change = await patchProduct(4563, productData);
 
 // console.log("\n\n 수정 확인:", change);
+
+// 게시글 목록 불러오기
+// console.log("게시글 목록: ", await getArticleList());
+
+// 특정 게시글 확인
+// console.log("특정 게시글 확인: ", await getArticle(7331));
+
+// 게시글 생성
+// const like3 = await createArticle(
+//   "likelikelike",
+//   "'좋아해' 란 그 말, 그 말은 너무 짧아",
+//   "https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/087/694/887/87694887_1780278093530_1_600x600.JPG/dims/resize/Q_80,0",
+// );
+
+// console.log("\n\n 추가한 게시글: ", like3);
+
+// 게시글 수정
+// const articleData = { title: "락삼이" };
+// console.log("\n\n 수정한 게시글: ", await patchArticle(7333, articleData));
+
+// 게시글 삭제
+// console.log("\n\n 삭제한 게시글: ", await deleteArticle(7333));

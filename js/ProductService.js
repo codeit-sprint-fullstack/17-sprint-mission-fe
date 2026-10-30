@@ -18,7 +18,7 @@ export async function getProductList(
     const res = await fetch(url);
 
     if (!res.ok) {
-      throw new Error("데이터를 불러오는 데 실패했습니다.");
+      throw new Error("상품목록을 불러오는데 실패했습니다.");
     }
 
     const data = await res.json();
@@ -36,7 +36,7 @@ export async function getProduct(id) {
     const res = await fetch(url);
 
     if (!res.ok) {
-      throw new Error("데이터를 불러오는 데 실패했습니다.");
+      throw new Error("상품을 불러오는데 실패했습니다.");
     }
     const data = await res.json();
 
@@ -86,7 +86,7 @@ export async function patchProduct(id, productData) {
     });
 
     if (!res.ok) {
-      throw new Error("데이터를 불러오는 데 실패했습니다.");
+      throw new Error("데이터를 불러오는데 실패했습니다.");
     }
 
     const data = await res.json();
@@ -105,7 +105,7 @@ export async function deleteProduct(id) {
     });
 
     if (!res.ok) {
-      throw new Error("상품을 삭제하는 데 실패했습니다.");
+      throw new Error("상품을 삭제하는데 실패했습니다.");
     }
 
     const data = await res.json();
