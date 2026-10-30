@@ -1,7 +1,7 @@
 # 판다마켓
 
 중고 거래 서비스 **판다마켓**의 랜딩 페이지와 로그인·회원가입 페이지를 HTML, CSS로 구현한 프로젝트입니다.
-코드잇 스프린트 미션 1, 2의 결과물입니다.
+코드잇 스프린트 미션 1, 2의 결과물이며, 미션 3으로 Article·Product API를 호출하는 코드를 추가했습니다.
 
 - 배포 주소: https://fs17-subin-pandamarket.netlify.app/
 
@@ -12,6 +12,7 @@
 | 마크업 | HTML5                                                   |
 | 스타일 | CSS3 (reset.css, rem 단위)                              |
 | 폰트   | [Pretendard](https://github.com/orioncactus/pretendard) |
+| API    | JavaScript (ES 모듈), fetch, Node.js                    |
 | 배포   | Netlify                                                 |
 
 ## 페이지 구성
@@ -45,6 +46,19 @@
   - 비밀번호: 8자 이상
   - 닉네임: 비어 있지 않을 것
 
+### API 호출 (미션 3)
+
+[판다마켓 API](https://panda-market-api-crud.vercel.app/docs)의 Article, Product를 `fetch`로 호출합니다.
+
+| 파일                     | 비동기 처리                     | 함수                                                                                   |
+| ------------------------ | ------------------------------- | -------------------------------------------------------------------------------------- |
+| `js/api/ArticleService.js` | `.then()` / `.catch()`          | `getArticleList`, `getArticle`, `createArticle`, `patchArticle`, `deleteArticle`       |
+| `js/api/ProductService.js` | `async/await` + `try/catch`     | `getProductList`, `getProduct`, `createProduct`, `patchProduct`, `deleteProduct`       |
+| `js/api/main.js`         | 위 함수를 `import`해 실행, 확인 | 생성 → 목록 → 단건 → 수정 → 삭제 → 삭제한 id 재조회(404 에러 출력)                    |
+
+- 목록 조회는 `page`, `pageSize`, `keyword` 쿼리 파라미터를 지원합니다.
+- 응답 상태 코드가 2XX가 아니면 에러 메시지를 콘솔에 출력합니다.
+
 ## 폴더 구조
 
 ```text
@@ -55,6 +69,13 @@
 ├── items/              # 상품 (빈 페이지)
 ├── privacy/            # 개인정보 처리방침 (빈 페이지)
 ├── faq/                # FAQ (빈 페이지)
+├── package.json        # Node에서 ES 모듈(import/export)을 쓰기 위한 설정
+├── js/
+│   ├── password-toggle.js  # 비밀번호 보기/숨기기
+│   └── api/
+│       ├── ArticleService.js  # Article API 함수
+│       ├── ProductService.js  # Product API 함수
+│       └── main.js            # API 함수 실행, 동작 확인
 ├── css/
 │   ├── reset.css       # 브라우저 기본 스타일 초기화
 │   ├── common.css      # 공통 스타일
@@ -79,8 +100,25 @@ npx http-server .
 
 VS Code의 Live Server 확장으로 열어도 됩니다.
 
+### API 호출 코드 실행
+
+Node.js로 실행하며, 터미널 출력으로 결과를 확인합니다. 서버에 테스트 데이터를 만들었다가 마지막에 삭제합니다.
+
+- 전역 `fetch`를 사용하므로 Node.js 18 이상이 필요합니다. (`package.json`의 `engines.node`에도 같은 범위를 명시)
+- 실행을 확인한 버전: Node.js v26.12.0
+
+```bash
+# 프로젝트 폴더에서
+node js/api/main.js
+```
+
 ## 구현하면서 신경 쓴 점
 
 - 모든 크기와 간격을 `rem`으로 지정해 브라우저 기본 글꼴 크기 설정에 따라 함께 변하도록 했습니다.
 - 로그인과 회원가입 페이지가 `auth.css` 하나를 공유해 같은 스타일 규칙을 중복 없이 사용합니다.
 - 버튼 색 변경은 `:has()`와 `:invalid` 선택자로 구현했습니다.
+- `fetch`는 404나 500 같은 응답에서도 에러를 내지 않아서, `res.ok`로 2XX 여부를 직접 확인하고 아니면 에러를 던져 `.catch()` 또는 `catch`에서 콘솔에 출력하도록 했습니다.
+- 두 서비스 파일이 같은 일을 하되 Article은 `.then()/.catch()`, Product는 `async/await`와 `try/catch`로 작성해 두 방식을 비교할 수 있게 했습니다.
+- `try` 안에서는 `return await`로 반환해, 응답 본문(JSON)을 읽다 생기는 에러도 `catch`에서 잡히도록 했습니다.
+- 목록 조회에서 `keyword`가 없으면 쿼리에 붙이지 않아 `keyword=undefined`가 서버로 가지 않게 했습니다.
+- 실행 확인용 `main.js`는 테스트로 만든 데이터를 마지막에 삭제하고, 삭제한 id를 다시 조회해 404 에러 출력까지 확인하도록 했습니다.
