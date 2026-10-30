@@ -1,6 +1,6 @@
 const BASE_URL = 'https://panda-market-api-crud.vercel.app/products';
 
-// 2XX가 아니면 에러를 던져서 try/catch로 넘긴다
+// 응답이 2XX가 아니면 에러를 던져 try/catch로 전달
 function checkResponse(res) {
   if (!res.ok) {
     throw new Error(`요청 실패: ${res.status} ${res.statusText}`);

@@ -30,7 +30,7 @@ async function testArticle() {
   console.log('patchArticle:', await patchArticle(created.id, { title: '수정된 게시글' }));
   console.log('deleteArticle:', await deleteArticle(created.id));
 
-  // 삭제된 id → 에러 메시지가 콘솔에 출력되어야 한다
+  // 삭제한 id를 다시 조회해 404 에러 메시지가 콘솔에 출력되는지 확인
   await getArticle(created.id);
 }
 
@@ -51,7 +51,7 @@ async function testProduct() {
   console.log('patchProduct:', await patchProduct(created.id, { price: 20000 }));
   console.log('deleteProduct:', await deleteProduct(created.id));
 
-  // 삭제된 id → 에러 메시지가 콘솔에 출력되어야 한다
+  // 삭제한 id를 다시 조회해 404 에러 메시지가 콘솔에 출력되는지 확인
   await getProduct(created.id);
 }
 
