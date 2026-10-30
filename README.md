@@ -104,6 +104,9 @@ VS Code의 Live Server 확장으로 열어도 됩니다.
 
 Node.js로 실행하며, 터미널 출력으로 결과를 확인합니다. 서버에 테스트 데이터를 만들었다가 마지막에 삭제합니다.
 
+- 전역 `fetch`를 사용하므로 Node.js 18 이상이 필요합니다. (`package.json`의 `engines.node`에도 같은 범위를 명시)
+- 실행을 확인한 버전: Node.js v26.12.0
+
 ```bash
 # 프로젝트 폴더에서
 node js/api/main.js
