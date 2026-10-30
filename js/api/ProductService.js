@@ -19,6 +19,7 @@ export async function getProductList({ page = 1, pageSize = 10, keyword } = {}) 
     return await checkResponse(res);
   } catch (error) {
     console.error('getProductList 에러:', error.message);
+    throw error;
   }
 }
 
@@ -28,6 +29,7 @@ export async function getProduct(id) {
     return await checkResponse(res);
   } catch (error) {
     console.error('getProduct 에러:', error.message);
+    throw error;
   }
 }
 
@@ -41,6 +43,7 @@ export async function createProduct({ name, description, price, tags, images }) 
     return await checkResponse(res);
   } catch (error) {
     console.error('createProduct 에러:', error.message);
+    throw error;
   }
 }
 
@@ -54,6 +57,7 @@ export async function patchProduct(id, data) {
     return await checkResponse(res);
   } catch (error) {
     console.error('patchProduct 에러:', error.message);
+    throw error;
   }
 }
 
@@ -63,5 +67,6 @@ export async function deleteProduct(id) {
     return await checkResponse(res);
   } catch (error) {
     console.error('deleteProduct 에러:', error.message);
+    throw error;
   }
 }
