@@ -17,20 +17,31 @@
 
 ### 랜딩 페이지
 - 히어로 섹션, 서비스 소개(Hot item / Search / Register), 하단 배너, 푸터로 구성
-- 반응형 레이아웃 (`1500px`, `1200px`, `1024px`, `767px` 기준)
+- 반응형 레이아웃 (`1200px`, `1024px`, `767px` 기준)
+- 헤더·푸터 좌우 여백은 `clamp()`로 화면 폭에 맞춰 조절
 - 모바일 화면에서는 텍스트형 로고로 교체
 
 ### 로그인 · 회원가입
 - 필수 입력값을 모두 채워야 제출 버튼 활성화
-- 이메일·비밀번호 입력 시 공백 자동 제거
+- 입력값의 공백을 자동으로 제거한 뒤 버튼 활성화 여부 판단
 - 비밀번호 보기/숨기기 토글 버튼 UI
 - 간편 로그인(구글, 카카오) 링크
+
+### API 연동
+[판다마켓 API](https://panda-market-api-crud.vercel.app/docs)를 호출하는 함수를 구현했습니다. 응답 상태 코드가 2XX가 아니면 에러 메시지를 콘솔에 출력합니다.
+
+| 구분 | 파일 | 비동기 처리 | 함수 |
+| --- | --- | --- | --- |
+| 게시글 | `ArticleService.js` | `.then()` / `.catch()` | `getArticleList`, `getArticle`, `createArticle`, `patchArticle`, `deleteArticle` |
+| 상품 | `ProductService.js` | `async/await` / `try/catch` | `getProductList`, `getProduct`, `createProduct`, `patchProduct`, `deleteProduct` |
+
+각 함수의 실행 코드는 `main.js`에 있으며, 결과는 브라우저 개발자 도구 콘솔에서 확인할 수 있습니다. ES Module을 사용하므로 Live Server 같은 로컬 서버로 열어야 합니다.
 
 ## 🛠 기술 스택
 
 - **HTML5** – 시맨틱 마크업, 접근성 속성(`aria-*`, `label`) 적용
 - **CSS3** – CSS 변수 기반 디자인 토큰(색상, 폰트), 미디어 쿼리 반응형
-- **JavaScript (Vanilla)** – 폼 상태 관리, 입력값 처리
+- **JavaScript (Vanilla)** – 폼 상태 관리, 입력값 처리, `fetch`를 이용한 API 연동, ES Module
 
 ## 📁 폴더 구조
 
@@ -50,8 +61,9 @@
     │   ├── style.css     # 랜딩 페이지 스타일
     │   └── auth.css      # 로그인·회원가입 페이지 스타일
     ├── js
-    │   ├── script.js     # 공통 스크립트
-    │   └── auth.js       # 로그인·회원가입 폼 로직
+    │   ├── main.js            # 폼 로직, API 함수 실행 코드
+    │   ├── ArticleService.js  # 게시글 API 함수
+    │   └── ProductService.js  # 상품 API 함수
     ├── fonts             # 웹폰트
     └── images            # 이미지
 ```
