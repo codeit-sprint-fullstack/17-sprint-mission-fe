@@ -35,8 +35,6 @@
 | 게시글 | `ArticleService.js` | `.then()` / `.catch()` | `getArticleList`, `getArticle`, `createArticle`, `patchArticle`, `deleteArticle` |
 | 상품 | `ProductService.js` | `async/await` / `try/catch` | `getProductList`, `getProduct`, `createProduct`, `patchProduct`, `deleteProduct` |
 
-각 함수의 실행 코드는 `main.js`에 있으며, 결과는 브라우저 개발자 도구 콘솔에서 확인할 수 있습니다. ES Module을 사용하므로 Live Server 같은 로컬 서버로 열어야 합니다.
-
 ## 🛠 기술 스택
 
 - **HTML5** – 시맨틱 마크업, 접근성 속성(`aria-*`, `label`) 적용
