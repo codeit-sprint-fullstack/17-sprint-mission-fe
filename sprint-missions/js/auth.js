@@ -1,6 +1,10 @@
 const authForm = document.querySelector('.auth_form');
 
 if (authForm) {
+  authForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+  });
+
   const inputs = authForm.querySelectorAll('.form_input');
   const submitButton = authForm.querySelector('.auth_submit');
 
