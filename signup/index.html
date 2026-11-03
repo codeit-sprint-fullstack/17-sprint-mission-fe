@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="/assets/css/variables.css">
     <link rel="stylesheet" href="/assets/css/common.css">
     <link rel="stylesheet" href="/assets/css/auth.css">
-    <script defer src="/assets/js/script.js"></script>
-    <script defer src="/assets/js/auth.js"></script>
+    <script defer type="module" src="../assets/js/main.js"></script>
 </head>
 <body>
     <div id="wrap" class="auth">
@@ -35,13 +34,13 @@
                 <div class="field">
                     <label class="form-label" for="signup-pw">비밀번호</label>
                     <input class="form-input" id="signup-pw" name="pw" type="password" placeholder="비밀번호를 입력해주세요" minlength="8" required>
-                    <button class="toggle-pw" type="button" aria-label="비밀번호 보기" aria-pressed="false"></button>
+                    <button class="toggle-pw-btn" type="button" aria-label="비밀번호 보기" aria-pressed="false"></button>
                     <span class="error-message"></span>
                 </div>
                 <div class="field">
                     <label class="form-label" for="signup-confirm-pw">비밀번호 확인</label>
                     <input class="form-input" id="signup-confirm-pw" name="pw-confirm" type="password" placeholder="비밀번호를 다시 한 번 입력해주세요" minlength="8" required>
-                    <button class="toggle-pw" type="button" aria-label="비밀번호 보기" aria-pressed="false"></button>
+                    <button class="toggle-pw-btn" type="button" aria-label="비밀번호 보기" aria-pressed="false"></button>
                     <span class="error-message"></span>
                 </div>
                 <button class="btn-submit btn-lg" type="submit" disabled>회원가입</button>
