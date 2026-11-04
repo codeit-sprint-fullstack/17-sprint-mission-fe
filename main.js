@@ -1,9 +1,9 @@
 import { getArticle } from "./ArticleService.js";
 
-getArticle(7311)
+getArticle(7364)
   .then((data) => {
-    console.log("게시글 상세:", data);
+    console.log("조회된 게시글:", data);
   })
   .catch(() => {
-    console.log("게시글 상세 조회를 완료하지 못했습니다");
+    console.log("조회 실패를 catch에서 처리했습니다");
   });
