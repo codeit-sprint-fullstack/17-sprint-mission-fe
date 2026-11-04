@@ -1,9 +1,8 @@
-import { getArticle } from "./ArticleService.js";
+import { getProduct } from "./ProductService.js";
 
-getArticle(7364)
-  .then((data) => {
-    console.log("조회된 게시글:", data);
-  })
-  .catch(() => {
-    console.log("조회 실패를 catch에서 처리했습니다");
-  });
+try {
+  const data = await getProduct(4610);
+  console.log("상품 상세:", data);
+} catch {
+  console.log("상품 상세 조회를 완료하지 못했습니다");
+}
