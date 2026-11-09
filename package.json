@@ -1,0 +1,8 @@
+{
+  "name": "panda-market-mission3",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/generate-api-config.js"
+  }
+}

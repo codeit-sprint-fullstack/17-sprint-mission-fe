@@ -1,4 +1,4 @@
-export const API_BASE_URL = "https://panda-market-api-crud.vercel.app";
+import { API_BASE_URL } from "./api-config.js";
 
 export function makeQuery({ page = 1, pageSize = 10, keyword = "" } = {}) {
   const params = new URLSearchParams({ page, pageSize, keyword });
