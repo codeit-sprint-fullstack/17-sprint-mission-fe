@@ -33,7 +33,7 @@ import {
 // console.log("\n\n", eggtart);
 
 // 상품 삭제하기
-// console.log("\n\n 삭제 확인: ", await deleteProduct(4563));
+// console.log("\n\n 삭제 확인: ", await deleteProduct(4582));
 
 // console.log(
 //   "\n\n 삭제확인: ",

@@ -88,7 +88,7 @@ export function deleteArticle(id) {
         console.log(e.response.status);
         console.log(e.response.data);
       } else {
-        console.log("게시글을 수정하는데 실패했습니다.");
+        console.log("게시글을 삭제하는데 실패했습니다.");
       }
     });
 }

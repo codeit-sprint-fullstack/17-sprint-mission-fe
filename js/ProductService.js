@@ -57,7 +57,7 @@ export async function createProduct(name, description, price, tags, images) {
         tags: tags,
         price: price,
         description: description,
-        images: images,
+        images: [images],
       }),
       headers: {
         "Content-Type": "application/json",
