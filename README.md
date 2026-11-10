@@ -1,7 +1,7 @@
 # 판다마켓
 
 코드잇 풀스택 부트캠프 스프린트 미션 프로젝트입니다.
-HTML, CSS, JavaScript로 판다마켓 웹 페이지를 구현하고, 외부 API를 활용하여 게시글과 상품의 CRUD 함수를 작성합니다.
+React로 중고마켓 페이지를 구현하고, Axios로 상품 API를 연결했습니다.
 
 ## 작성자
 
@@ -9,71 +9,142 @@ HTML, CSS, JavaScript로 판다마켓 웹 페이지를 구현하고, 외부 API�
 
 ## 사용 기술
 
-- HTML
-- CSS
-- JavaScript
-- Node.js
-- axios
+- React, JavaScript, HTML, CSS
+- Vite
+- Axios
+- Swiper
+- ESLint
 - Git / GitHub
 
-## 진행 상황
+## 실행 방법
 
-- 미션 1: 메인 페이지 구현
-- 미션 2: 로그인 및 회원가입 페이지 구현
-- 미션 3: 게시글 및 상품 API CRUD 함수 구현, 파일 분리 및 main.js 연결
-
-## 미션 3 구현 내용
-
-### 게시글 API
-
-- 게시글 목록 조회: `getArticleList()`
-- 게시글 상세 조회: `getArticle()`
-- 게시글 등록: `createArticle()`
-- 게시글 수정: `patchArticle()`
-- 게시글 삭제: `deleteArticle()`
-- `.then()`과 `.catch()`를 사용한 비동기 처리 및 오류 처리
-
-### 상품 API
-
-- 상품 목록 조회: `getProductList()`
-- 상품 상세 조회: `getProduct()`
-- 상품 등록: `createProduct()`
-- 상품 수정: `patchProduct()`
-- 상품 삭제: `deleteProduct()`
-- `async/await`과 `try/catch`를 사용한 비동기 처리 및 오류 처리
-
-### 공통 사항
-
-- axios를 이용한 HTTP 요청
-- 목록 조회 시 `page`, `pageSize`, `keyword` 쿼리 파라미터 사용
-- 서버에서 오류 응답을 받은 경우 상태 코드와 오류 메시지 출력
-- 서버 응답이 없는 경우 오류 메시지 출력
-- `export`와 `import`를 활용한 모듈 분리
-
-## 파일 구성
-
-- `sprint-missions/`: 웹 페이지 파일
-- `sprint-missions/css/`: 스타일 파일
-- `sprint-missions/img/`: 이미지 파일
-- `sprint-missions/js/ArticleService.js`: 게시글 API 함수
-- `sprint-missions/js/ProductService.js`: 상품 API 함수
-- `sprint-missions/js/main.js`: API 함수 import 및 실행 코드
-
-## API 코드 실행 방법
-
-Node.js가 설치된 환경에서 저장소 최상위 폴더의 터미널을 열고 실행합니다.
+저장소 루트에서 다음 명령을 실행합니다.
 
 ```bash
+cd react-missions
 npm install
-node sprint-missions/js/main.js
+npm run dev
 ```
 
-실행할 함수와 전달할 값은 `main.js`에서 설정하며, 응답 결과는 터미널에서 확인합니다.
+터미널에 표시되는 개발 서버 주소의 `/` 경로에서 중고마켓 페이지를 확인할 수 있습니다.
+
+```bash
+npm run build   # 배포용 빌드
+npm run preview # 빌드 결과 미리 보기
+npm run lint    # 전체 코드 검사
+```
+
+## 기본 요구사항
+
+### 공통
+
+- ✅ GitHub에 스프린트 미션 PR 생성
+- ✅ React 사용
+
+### 중고마켓 페이지
+
+- ✅ PC, Tablet, Mobile에 대응하는 반응형 페이지 구현
+- ✅ 별도 상품 경로 없이 `/`에서 중고마켓 페이지 표시
+- ✅ 공통 헤더와 푸터를 컴포넌트로 사용하고 기존 스타일 유지
+- ✅ `GET /products`로 상품 목록 조회
+  - ✅ 상품 목록 페이지네이션 구현
+  - ✅ 드롭다운으로 최신순·좋아요순 정렬
+  - ✅ 상품 제목 검색 구현
+- ✅ `GET /products`의 `orderBy=favorite`으로 베스트 상품 조회
+
+## 심화 요구사항
+
+### 공통
+
+- [ ] 커스텀 훅을 만들어 필요한 곳에 활용 — 미완료
+
+### 중고마켓 페이지
+
+- ✅ 베스트 상품: Desktop 4열 / Tablet 2열 / Mobile 1열
+- ✅ 전체 상품: Desktop 5열 / Tablet 3열 / Mobile 2열
+- ✅ 화면 크기에 따라 페이지당 표시 개수 및 API의 `pageSize` 변경
+
+| 구분 | 화면 너비 | 베스트 상품 표시 | 전체 상품 열 수 | 페이지당 상품 수 |
+| --- | --- | --- | --- | --- |
+| Desktop | 775px 이상 | 4개 | 5열 | 10개 |
+| Tablet | 376px ~ 774px | 2개 | 3열 | 6개 |
+| Mobile | 375px 이하 | 1개 | 2열 | 4개 |
+
+화면 크기 구간이 변경되면 1페이지부터 다시 조회합니다.
+전체 상품은 데이터가 충분할 경우 페이지마다 2줄로 표시됩니다.
+
+## 주요 기능
+
+### 상품 조회 및 정렬
+
+- Axios로 `https://panda-market-api.vercel.app/products`에 요청합니다.
+- `page`, `pageSize`, `keyword`, `orderBy`를 쿼리 파라미터로 전달합니다.
+- 최신순은 `recent`, 좋아요순은 `favorite`을 사용합니다.
+- 검색어나 정렬 기준을 변경하면 1페이지부터 조회합니다.
+- 베스트 상품은 서버의 좋아요 순위 상위 4개를 조회합니다.
+
+### 추가 구현: Swiper 라이브러리 적용
+
+- ✅ 베스트 상품 영역에 Swiper 라이브러리 적용
+- Desktop에서는 베스트 상품 4개를 한 화면에 고정해서 표시합니다.
+- Tablet에서는 2개, Mobile에서는 1개씩 표시하고, 나머지 상품은 마우스 드래그 또는 터치 스와이프로 볼 수 있도록 구현했습니다.
+- 화살표와 페이지네이션 없이 드래그로 이동하며, 전체 베스트 상품 수는 4개로 유지됩니다.
+
+### 제목 검색 및 페이지네이션
+
+- 검색어 입력 후 Enter 또는 검색 버튼으로 검색합니다.
+- API의 `keyword`는 설명에 검색어가 포함된 상품도 반환하므로, 검색 후보 전체를 조회한 뒤 상품 제목에 검색어가 포함된 결과만 필터링합니다.
+- 필터링한 결과를 기준으로 상품 수와 페이지를 계산합니다.
+- 검색어가 없으면 API의 서버 페이지네이션을 그대로 사용합니다.
+- 페이지 번호는 최대 5개씩 표시하며, 첫 페이지와 마지막 페이지에서는 해당 방향의 이동 버튼을 비활성화합니다.
+
+### 좋아요 및 이미지 처리
+
+- 하트와 숫자를 포함한 영역을 클릭하면 `on` 클래스를 토글합니다.
+- 선택한 하트는 테두리와 내부를 `#FF68CC`로 표시하고, 좋아요 수를 화면에서 1 증가시킵니다.
+- 같은 상품은 베스트 상품과 전체 상품에서 선택 상태를 공유합니다.
+- 좋아요는 화면에서만 동작하며 API에 저장하지 않습니다. 새로고침하면 초기화됩니다.
+- 이미지가 없거나 로딩에 실패하면 대체 문구와 회색 배경·테두리를 표시합니다.
+- 이미지가 있는 카드는 호버 시 이미지를 10% 확대합니다.
+
+### 상태 처리
+
+- 조회 중 로딩 상태를 표시합니다.
+- 조회 실패 시 오류 메시지와 다시 시도 버튼을 표시합니다.
+- 검색 결과가 없으면 안내 문구를 표시합니다.
+- 조회 조건 변경이나 컴포넌트 해제 시 진행 중인 요청을 취소합니다.
+
+## 주요 파일
+
+```text
+react-missions/
+├── public/                  # 로고, 아이콘 등 정적 이미지
+├── src/
+│   ├── components/
+│   │   ├── Header.jsx       # 공통 헤더
+│   │   └── Footer.jsx       # 공통 푸터
+│   ├── pages/
+│   │   └── Products.jsx     # 상품 카드, 목록, 검색, 정렬, 페이지네이션
+│   ├── js/
+│   │   └── ProductService.js # 상품 API 요청 및 제목 검색 처리
+│   ├── css/
+│   │   ├── layout.css      # 헤더·푸터 및 반응형 스타일
+│   │   ├── sub.css         # 상품 페이지 스타일
+│   │   └── reset.css       # 공통 스타일 초기화
+│   ├── App.jsx             # 중고마켓 페이지 구성
+│   └── main.jsx            # React 진입점
+└── package.json
+```
+
+## 검증 및 남은 작업
+
+- 실제 API로 조회, 제목 검색, 정렬 및 페이지네이션 검증
+- 상품 페이지와 상품 서비스 파일의 ESLint 검사 통과
+- 프로덕션 빌드 확인
+- 전체 ESLint 검사는 기존 `src/js/main.js`의 미사용 import 오류로 별도 정리가 필요합니다.
+- 커스텀 훅 활용: 미완료
+- 상품 상세 페이지 이동, 상품 등록 및 로그인·회원가입 API 연동은 현재 상품 목록 구현 범위에 포함하지 않았습니다.
 
 ## API 문서
 
-[판다마켓 API 문서](https://panda-market-api-crud.vercel.app/docs/)
-
-## 배포 주소
-
-[판다마켓 웹 페이지](https://17-sprint-mission.netlify.app/)
+[판다마켓 API 명세](https://panda-market-api.vercel.app/docs/)
