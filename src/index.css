@@ -50,3 +50,9 @@ button {
   display: flex;
   gap: 1rem;
 }
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
