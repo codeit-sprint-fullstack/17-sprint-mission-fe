@@ -2,7 +2,7 @@ import ProductCard from "./ProductCard";
 import useProducts from "../hooks/useProducts";
 
 export default function BestProducts() {
-  const products = useProducts(1, 4, "favorite", "");
+  const { products } = useProducts(1, 4, "favorite", "");
 
   return (
     <section>
