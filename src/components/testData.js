@@ -1,4 +1,4 @@
-const itemData = [
+const testData = [
   {
     id: 4581,
     name: "상품 이름",
@@ -89,4 +89,4 @@ const itemData = [
   },
 ];
 
-export default itemData;
+export default testData;

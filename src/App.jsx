@@ -1,7 +1,7 @@
 // import { useState } from "react";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import BestItem from "./components/BestItem";
+import BestProducts from "./components/BestProducts";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <Header />
 
       <main>
-        <BestItem />
+        <BestProducts />
       </main>
 
       <Footer />
