@@ -30,6 +30,13 @@ input {
     background: transparent;
     color: inherit;
 }
+ul {
+  list-style: none;
+}
+input:focus {
+  outline: none;
+  box-shadow: none;
+}
 
 .wrap {
   width: 100%;
