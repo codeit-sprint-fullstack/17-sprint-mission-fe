@@ -1,1 +1,40 @@
 .DS_Store
+node_modules/
+rokaf sans/공군서체 딩벳 매뉴얼.pdf
+rokaf sans/공군서체 매뉴얼.pdf
+rokaf sans/RokafTTF(Word)/
+
+# Build output
+dist/
+dist-ssr/
+build/
+coverage/
+
+# Logs and temporary files
+logs/
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.cache/
+
+# Local secrets (keep example templates available)
+.env
+.env.*
+!.env.example
+!.env.sample
+*.pem
+*.key
+*.p12
+*.pfx
+credentials.json
+credentials.*.json
+service-account*.json
+
+# CSS backups and unused font resources
+*.backup.css
+**/RokafTTF(Word)/
+**/공군서체 딩벳 매뉴얼.pdf
+**/공군서체 매뉴얼.pdf

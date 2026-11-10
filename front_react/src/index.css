@@ -1,0 +1,47 @@
+@font-face {
+  font-family: "ROKAF";
+  src: url("/rokaf sans/RokafOTF(Design)/right rokaf/ROKAF Sans Bold.otf")
+    format("opentype");
+  font-weight: 700;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding-top: 4.375rem; /* 고정 Header 높이 70px 확보 */
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Pretendard", sans-serif;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+.no-Image {
+  width: 200px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+}
