@@ -56,15 +56,6 @@ function App() {
     <>
       <Header />
       <main className="marketplace-main">
-        <section className="market-intro">
-          <div className="intro-copy">
-            <span className="eyebrow">PANDA MARKET</span>
-            <h1>일상의 모든 물건을<br className="desktop-break" /> 판다마켓에서 만나보세요</h1>
-            <p>필요한 물건을 찾고, 새로운 주인을 기다리는 상품을 둘러보세요.</p>
-          </div>
-          <a className="register-button" href="/products/new">상품 등록하기 <span aria-hidden="true">＋</span></a>
-        </section>
-
         <section className="section best-section" aria-labelledby="best-title">
           <div className="section-heading">
             <div><span className="eyebrow">BEST</span><h2 id="best-title">베스트 상품</h2></div>
@@ -79,9 +70,10 @@ function App() {
               <form className="search-form" onSubmit={submitSearch} role="search">
                 <label className="visually-hidden" htmlFor="product-search">상품 검색</label>
                 <span className="search-symbol" aria-hidden="true">⌕</span>
-                <input id="product-search" type="search" placeholder="상품명을 검색해보세요" value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
-                <button type="submit">검색</button>
+                <input id="product-search" type="search" placeholder="검색할 상품을 입력해주세요" value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
+                <button className="visually-hidden" type="submit">검색</button>
               </form>
+              <a className="register-button register-button-inline" href="/products/new">상품 등록하기</a>
               <label className="visually-hidden" htmlFor="product-order">상품 정렬</label>
               <select id="product-order" value={orderBy} onChange={changeOrder}>
                 <option value="recent">최신 순</option>

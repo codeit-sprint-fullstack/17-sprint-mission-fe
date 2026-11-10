@@ -11,10 +11,16 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="header-inner">
-        <a className="brand" href="/" aria-label="판다마켓 홈">
-          <img src="/images/panda-market-mark.svg" alt="" />
-          <span>판다마켓</span>
-        </a>
+        <div className="header-start">
+          <a className="brand" href="/" aria-label="판다마켓 홈">
+            <img src="/images/panda-market-mark.svg" alt="" />
+            <span>판다마켓</span>
+          </a>
+          <nav className="primary-nav" aria-label="주요 메뉴">
+            <a href="/articles">자유게시판</a>
+            <a href="/" aria-current="page">중고마켓</a>
+          </nav>
+        </div>
         <a className="login-button" href="/login">로그인</a>
       </div>
     </header>
