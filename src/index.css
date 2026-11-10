@@ -39,20 +39,53 @@ button {
   cursor: pointer;
 }
 
-.no-Image {
-  width: 200px;
-  max-width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
+.main-content {
+  padding: 2% 10%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 }
 
+.product-image {
+  display: block;
+  width: 100%;
+  max-width: calc(300rem / 16);
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* PC: 1200px 이상 */
 .best-product {
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
 }
 
 .product-list {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: 24px;
+}
+
+/* Tablet: 744px ~ 1199px */
+@media (max-width: 1199px) {
+  .best-product {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Mobile: 743px 이하 */
+@media (max-width: 743px) {
+  .best-product {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .product-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }

@@ -15,7 +15,7 @@ header {
 .header-inner {
   display: flex;
   justify-content: space-between;
-  padding: 0 12.5rem; /*200*/
+  padding: 0 10%;
   max-width: 120rem; /*1920*/
   margin: calc(9.5rem / 16) auto calc(9.5rem / 16) auto;
   height: calc(51rem / 16);

@@ -9,7 +9,7 @@ function App() {
     <>
       <Header />
 
-      <main>
+      <main className="main-content">
         <BestProducts />
         <ProductList />
       </main>
