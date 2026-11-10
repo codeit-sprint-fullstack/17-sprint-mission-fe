@@ -1,1 +1,5 @@
-export const BASE_URL = "https://panda-market-api.vercel.app";
+import axios from "axios";
+
+export const apiUrl = axios.create({
+  baseURL: "https://panda-market-api.vercel.app",
+});
