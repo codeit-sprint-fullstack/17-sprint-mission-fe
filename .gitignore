@@ -1,8 +1,5 @@
 .DS_Store
 node_modules/
-rokaf sans/공군서체 딩벳 매뉴얼.pdf
-rokaf sans/공군서체 매뉴얼.pdf
-rokaf sans/RokafTTF(Word)/
 
 # Build output
 dist/
@@ -11,12 +8,15 @@ build/
 coverage/
 
 # Logs and temporary files
-logs/
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 *.tmp
 *.temp
-*.swp
-*.swo
 *~
 .cache/
 
@@ -38,3 +38,14 @@ service-account*.json
 **/RokafTTF(Word)/
 **/공군서체 딩벳 매뉴얼.pdf
 **/공군서체 매뉴얼.pdf
+
+# React / Vite local settings
+*.local
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
