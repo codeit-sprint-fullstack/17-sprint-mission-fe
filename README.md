@@ -53,13 +53,3 @@ npm run dev   # 개발 서버 실행 → http://localhost:5173
         ├── variables.css    # 색상 변수
         └── style.css        # 페이지의 모든 스타일
 ```
-
-## 구현 포인트
-
-- **반응형 pageSize**: `useDeviceType` hook이 화면 너비(768px, 1200px 기준)를 보고 기기 종류를 알려 주면, 그에 맞춰 서버에 보내는 `pageSize`를 바꿔요.
-  - 베스트 상품: Desktop 4 / Tablet 2 / Mobile 1 (한 줄)
-  - 전체 상품: Desktop 10 / Tablet 6 / Mobile 4 (두 줄)
-- **검색·정렬·페이지 이동**: 검색어나 정렬이 바뀌면 1페이지부터 다시 보여 줘요. 화면 크기가 바뀌어 pageSize가 달라질 때도 1페이지로 돌아가요.
-- **예전 응답 무시**: 조건이 빠르게 바뀌어도 마지막 요청의 응답만 화면에 반영해요. (`useProducts`의 `ignore`)
-- **요청 공통 함수**: 미션 3 리뷰를 반영해 async/await로 통일하고, axios 인스턴스(baseURL 설정)를 쓰는 `request()` 하나로 응답·에러를 처리해요.
-- **이미지 없는 상품**: 이미지가 없거나 주소가 깨지면 기본 이미지를 보여 줘요.
