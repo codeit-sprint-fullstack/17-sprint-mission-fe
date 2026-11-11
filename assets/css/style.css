@@ -3,7 +3,7 @@ header {
     position: fixed;
     left: 0;
     right: 0;
-    padding: 0 12.5rem;
+    padding: 0 clamp(24px, calc((100vw - 69.38rem) / 2), 12.5rem);
     height: 4.38rem;
     background-color: #fff;
     border-bottom: 1px solid #dfdfdf;
@@ -24,10 +24,6 @@ header {
 
     .btn-login {
         width: 8rem;
-    }
-
-    @media (max-width: 1500px) {
-        padding: 0 24px;
     }
 
     @media (max-width: 767px) {
@@ -293,7 +289,7 @@ header {
 
 /* footer */
 footer {
-    padding: 2rem 12.5rem 6.75rem;
+    padding: 2rem clamp(24px, calc((100vw - 69.38rem) / 2), 12.5rem) 6.75rem;
     background-color: var(--color-secondary-900);
     font-size: 1rem;
     font-weight: 400;
@@ -323,10 +319,6 @@ footer {
             width: 1.25rem;
             height: 1.25rem;
         }
-    }
-
-    @media (max-width: 1500px) {
-        padding: 2rem 24px 6.75rem;
     }
 
     @media (max-width: 767px) {

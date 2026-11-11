@@ -66,14 +66,14 @@ input {
         color: var(--color-secondary-400);
     }
 
-    &:has(+ .toggle-pw) {
+    &:has(+ .toggle-pw-btn) {
         padding-right: 3.13rem;
 
         &::-ms-reveal {
             display: none;
         }
 
-        + .toggle-pw {
+        + .toggle-pw-btn {
             position: absolute;
             bottom: 1rem;
             right: 1.5rem;
