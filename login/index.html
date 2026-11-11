@@ -15,9 +15,9 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css"
     />
-    <link rel="stylesheet" href="/css/reset.css" />
-    <link rel="stylesheet" href="/css/common.css" />
-    <link rel="stylesheet" href="/css/auth.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/auth.css" />
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -29,11 +29,11 @@
       <!-- 로고 -->
       <a href="/" class="auth-logo">
         <span class="auth-logo-icon">
-          <img src="/images/logo/panda-face.png" alt="" />
+          <img src="../images/logo/panda-face.png" alt="" />
         </span>
         <img
           class="auth-logo-text"
-          src="/images/logo/logo-text.png"
+          src="../images/logo/logo-text.png"
           alt="판다마켓"
         />
       </a>
@@ -55,7 +55,7 @@
           <label for="password">비밀번호</label>
           <div class="password-wrap">
             <input
-              type="text"
+              type="password"
               class="password-input"
               id="password"
               name="password"
@@ -63,16 +63,14 @@
               placeholder="비밀번호를 입력해주세요"
               required
             />
-            <input
-              type="checkbox"
-              id="password-toggle"
-              class="password-toggle-check"
+            <button
+              type="button"
+              class="password-toggle"
               aria-label="비밀번호 보기"
-            />
-            <label for="password-toggle" class="password-toggle">
-              <img class="eye-off" src="/images/icons/ic_eye_off.png" alt="" />
-              <img class="eye-on" src="/images/icons/ic_eye_on.png" alt="" />
-            </label>
+            >
+              <img class="eye-off" src="../images/icons/ic_eye_off.png" alt="" />
+              <img class="eye-on" src="../images/icons/ic_eye_on.png" alt="" />
+            </button>
           </div>
         </div>
 
@@ -88,14 +86,14 @@
             class="easy-login-google"
             aria-label="구글로 로그인"
           >
-            <img src="/images/icons/ic_google.png" alt="" />
+            <img src="../images/icons/ic_google.png" alt="" />
           </a>
           <a
             href="https://www.kakaocorp.com/page/"
             class="easy-login-kakao"
             aria-label="카카오로 로그인"
           >
-            <img src="/images/icons/ic_kakao.png" alt="" />
+            <img src="../images/icons/ic_kakao.png" alt="" />
           </a>
         </div>
       </div>
@@ -105,5 +103,6 @@
         판다마켓이 처음이신가요? <a href="/signup/">회원가입</a>
       </p>
     </main>
+    <script src="../js/password-toggle.js"></script>
   </body>
 </html>
