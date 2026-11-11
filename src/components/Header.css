@@ -1,0 +1,50 @@
+.header {
+  background-color: var(--color-white);
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1920px;
+  height: 68px;
+  margin: 0 auto;
+  padding: 0 200px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-logo {
+  display: block;
+}
+
+.header-menu {
+  display: flex;
+}
+
+.header-menu a {
+  display: block;
+  padding: 21px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--color-gray-600);
+}
+
+.header-login {
+  height: 42px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--color-primary-100);
+  color: var(--color-white); /* 시안 값 없음, 흰색 추정 */
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: pointer;
+}
