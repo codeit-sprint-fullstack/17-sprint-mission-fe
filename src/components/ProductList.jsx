@@ -1,7 +1,7 @@
 import { useState } from "react";
 import useProducts from "../hooks/useProducts";
-import ProductCard from "./ProductCard";
 import usePageSize from "../hooks/usePageSize";
+import ProductContent from "./ProductContent";
 
 export default function ProductList() {
   const [keyword, setKeyword] = useState("");
@@ -17,7 +17,7 @@ export default function ProductList() {
     setPage(1);
   }
 
-  const { products, totalCount, error } = useProducts(
+  const { products, totalCount, error, loading } = useProducts(
     page,
     pageSize,
     sortBy,
@@ -66,19 +66,7 @@ export default function ProductList() {
         </div>
       </div>
       <div className="product-list">
-        {/* api 요청이 4~500번대 일 때 */}
-        {error && (
-          <p className="product-error">
-            상품을 불러오지 못했습니다. (오류코드: {error})
-          </p>
-        )}
-        {/* 검색한 상품이 없을 때 */}
-        {!error && totalCount === 0 && (
-          <p className="product-error">해당 검색 상품이 없습니다.</p>
-        )}
-
-        {!error &&
-          products.map((item) => <ProductCard key={item.id} products={item} />)}
+        <ProductContent products={products} error={error} loading={loading} />
       </div>
       <div className="pagination">
         <button

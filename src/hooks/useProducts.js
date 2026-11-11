@@ -5,6 +5,7 @@ export default function useProducts(page, pageSize, orderBy, keyword) {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // useEffect의 콜백함수는 프로미스를 반환하면 안됨
@@ -17,8 +18,9 @@ export default function useProducts(page, pageSize, orderBy, keyword) {
       })
       .catch((error) => {
         setError(error.response?.status ?? "네트워크 에러");
-      });
+      })
+      .finally(() => setLoading(false));
   }, [page, pageSize, orderBy, keyword]);
 
-  return { products, totalCount, error };
+  return { products, totalCount, error, loading };
 }
