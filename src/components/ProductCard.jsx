@@ -20,9 +20,9 @@ export default function ProductCard({ products }) {
           alt="이미지 없음"
         />
       )}
-      <p>{products.name}</p>
-      <p>{products.price}원</p>
-      <p>♡{products.favoriteCount}</p>
+      <p className="product-name">{products.name}</p>
+      <p className="product-price">{products.price}원</p>
+      <p className="product-favorites">♡ {products.favoriteCount}</p>
     </article>
   );
 }

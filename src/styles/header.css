@@ -10,6 +10,8 @@ header {
   /* min-width: 75rem; */
 
   z-index: 100;
+
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .header-inner {

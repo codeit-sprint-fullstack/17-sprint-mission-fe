@@ -1,8 +1,11 @@
 import ProductCard from "./ProductCard";
 import useProducts from "../hooks/useProducts";
+import usePageSize from "../hooks/usePageSize";
 
 export default function BestProducts() {
-  const { products } = useProducts(1, 4, "favorite", "");
+  const pageSize = usePageSize({ mobile: 1, tablet: 2, desktop: 4 });
+
+  const { products } = useProducts(1, pageSize, "favorite", "");
 
   return (
     <section>

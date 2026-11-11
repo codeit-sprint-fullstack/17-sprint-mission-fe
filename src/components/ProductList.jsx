@@ -1,15 +1,26 @@
 import { useState } from "react";
 import useProducts from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
+import usePageSize from "../hooks/usePageSize";
 
 export default function ProductList() {
   const [keyword, setKeyword] = useState("");
   const [sortBy, setSortBy] = useState("recent");
   const [page, setPage] = useState(1);
 
-  const { products, totalCount } = useProducts(page, 10, sortBy, keyword);
+  const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
 
-  const totalPages = Math.ceil(totalCount / 10);
+  const [prevPageSize, setPrevPageSize] = useState(pageSize);
+
+  if (prevPageSize !== pageSize) {
+    setPrevPageSize(pageSize);
+    setPage(1);
+  }
+
+  const { products, totalCount } = useProducts(page, pageSize, sortBy, keyword);
+
+  //페이지네이션
+  const totalPages = Math.ceil(totalCount / pageSize);
   const groupSize = 5;
   const startPage = Math.floor((page - 1) / groupSize) * groupSize + 1;
   const endPage = Math.min(startPage + groupSize - 1, totalPages);
@@ -20,10 +31,11 @@ export default function ProductList() {
 
   return (
     <section>
-      <div>
+      <div className="product-list-header">
         <h4>판매 중인 상품</h4>
-        <div>
+        <div className="product-list-controls">
           <input
+            className="product-search"
             type="text"
             placeholder="검색할 상품을 입력해주세요."
             value={keyword}
@@ -32,7 +44,9 @@ export default function ProductList() {
               setPage(1);
             }}
           />
-          <a>상품 등록하기</a>
+          <a className="header-login link-button product-register">
+            상품 등록하기
+          </a>
           <select
             value={sortBy}
             onChange={(e) => {
@@ -51,7 +65,7 @@ export default function ProductList() {
           <ProductCard key={item.id} products={item} />
         ))}
       </div>
-      <div>
+      <div className="pagination">
         <button
           disabled={page === 1}
           onClick={() => {
