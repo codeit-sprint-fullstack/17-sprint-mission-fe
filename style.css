@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* 로컬 파일 다운로드 시 — @font-face는 항상 CSS 파일 맨 위에 작성.
   다운로드한 폰트 파일을 fonts/ 폴더에 넣고 경로를 맞춰주세요. */
 /* @font-face {
@@ -26,10 +27,14 @@ body {
 }
 
 /* 요소의 너비(width) 속성이 전체 너비되도록 지정(안쪽 여백과 테두리를 포함)*/
+=======
+/* 전체 적용 선택자 선언 - 요소의 width는 전체 너비되도록 설정 */
+>>>>>>> ebdbb5d5872ecdd82e5a1943f87aa6a0fefbac08
 * {
   box-sizing: border-box;
 }
 
+<<<<<<< HEAD
 /* <<<< 상단 메뉴 영역 >>>> */
 
 /* 상단 메뉴 전체 설정 - 스크롤 시에도 최상단에 유지하기 */
@@ -76,14 +81,62 @@ body {
 }
 
 /* 로그인 버튼 만들기 */
+=======
+/* header 부분 설정 */
+.site-header {
+  display: fixed;
+  top: 0;
+  /* left: 0;
+  right: 0; */
+  height: 70px;
+  background-color: #ffffff;
+  /* background-color: #3692ff; */
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  max-width: 1920px;
+  height: 100%;
+
+  padding: 0 200px;
+  margin: 0 auto;
+  /* margin-bottom: 0; */
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  max-width: 353;
+  gap: 8px;
+  /* text-decoration: none; */
+}
+
+.logo-face {
+  height: 40px;
+}
+
+.logo-text {
+  height: 35px;
+}
+
+>>>>>>> ebdbb5d5872ecdd82e5a1943f87aa6a0fefbac08
 .login-button {
   display: flex;
   justify-content: center;
   align-items: center;
+<<<<<<< HEAD
+=======
+
+>>>>>>> ebdbb5d5872ecdd82e5a1943f87aa6a0fefbac08
   width: 128px;
   height: 48px;
   background-color: #3692ff;
   color: #ffffff;
+<<<<<<< HEAD
   border-radius: 8px;
   font-size: 16px;
   font-weight: 600;
@@ -273,10 +326,65 @@ a {
   max-width: 1920px;
   margin: 0 auto;
   padding: 32px 200px; /*좌우 여백은 200px*/
+=======
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+}
+
+.hero {
+  background-color: #cfe5ff;
+  max-width: 1920px;
+  height: 540px;
+  padding: 0 200px;
+  padding-top: 200px;
+  margin: 0 auto;
+
+  display: flex;
+}
+
+.hero-text {
+  /* display: block; */
+  width: 357px;
+  height: 260;
+}
+
+.item-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background: #3692ff;
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 40px;
+
+  width: 357px;
+  height: 56px;
+  text-align: center;
+}
+
+.hero-image {
+  max-width: 746px;
+  height: 340;
+}
+
+.feature {
+  padding: 138px 344px;
+
+  background: #ffffff;
+}
+
+.feature-box {
+  max-width: 988px;
+  height: 444px;
+>>>>>>> ebdbb5d5872ecdd82e5a1943f87aa6a0fefbac08
 
   display: flex;
   justify-content: space-between;
   align-items: center;
+<<<<<<< HEAD
 }
 
 .footer-copylight {
@@ -309,4 +417,58 @@ a {
   display: block;
   width: 20px;
   height: 20px;
+=======
+  /* gap: 10px; */
+}
+
+.feature-text {
+  max-width: 274px;
+  height: 238px;
+}
+
+.feature-label {
+  color: #3692ff;
+}
+
+.hero-bottom {
+  background-color: #cfe5ff;
+  max-width: 1920px;
+  height: 540px;
+
+  padding: 0 200px;
+  padding-top: 103px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-bottom-text {
+  padding-bottom: 172px;
+}
+
+.site-footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: baseline;
+
+  max-width: 1920px;
+  height: 160px;
+  background: #000000;
+}
+
+.site-footer-copylight {
+  color: #ffffff;
+}
+
+.site-footer-link {
+  display: flex;
+  gap: 30px;
+
+  color: #ffffff;
+}
+
+.site-footer-link a {
+  color: #ffffff;
+>>>>>>> ebdbb5d5872ecdd82e5a1943f87aa6a0fefbac08
 }
