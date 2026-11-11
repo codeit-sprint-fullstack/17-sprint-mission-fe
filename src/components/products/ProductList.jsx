@@ -1,6 +1,6 @@
 import { useState } from "react";
-import useProducts from "../hooks/useProducts";
-import usePageSize from "../hooks/usePageSize";
+import useProducts from "../../hooks/useProducts";
+import usePageSize from "../../hooks/usePageSize";
 import ProductContent from "./ProductContent";
 
 export default function ProductList() {
