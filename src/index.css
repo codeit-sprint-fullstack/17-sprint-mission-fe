@@ -248,3 +248,7 @@ button {
     width: 100%;
   }
 }
+
+.product-error {
+  grid-column: 1 / -1;
+}
