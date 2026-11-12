@@ -1,4 +1,5 @@
 import logo from '../assets/logo.png'
+import logoMobile from '../assets/logo-mobile.png'
 import './Header.css'
 
 function Header() {
@@ -7,7 +8,10 @@ function Header() {
       <div className="header-inner">
         <nav className="header-nav">
           <a href="/" className="header-logo">
-            <img src={logo} alt="판다마켓" width="153" height="51" />
+            <picture>
+              <source media="(max-width: 743px)" srcSet={logoMobile} />
+              <img src={logo} alt="판다마켓" />
+            </picture>
           </a>
           <ul className="header-menu">
             <li>

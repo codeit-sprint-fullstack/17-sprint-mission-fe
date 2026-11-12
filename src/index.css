@@ -80,3 +80,9 @@ body {
 main {
   padding-top: 69px;
 }
+
+@media (max-width: 743px) {
+  main {
+    padding-top: 71px;
+  }
+}
