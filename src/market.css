@@ -26,12 +26,25 @@ button, input { font: inherit; }
 button { cursor: pointer; }
 img { display: block; }
 
-header { background: #fff; border-bottom: 1px solid var(--line); }
+header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
 .header-inner, .footer-inner {
   width: min(1520px, calc(100% - 2 * var(--gutter)));
   margin-inline: auto;
   display: flex;
   align-items: center;
+}
+
+@media (min-width: 1440px) {
+  .header-inner, .footer-inner {
+    width: min(1520px, calc(100% - 400px));
+  }
 }
 
 .header-inner {
