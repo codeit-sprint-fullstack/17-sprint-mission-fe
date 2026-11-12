@@ -1,25 +1,28 @@
 import { useState } from 'react'
 import { useProducts } from '../hooks/useProducts'
+import { useDeviceType } from '../hooks/useDeviceType'
 import ProductCard from './ProductCard'
 import SortDropdown from './SortDropdown'
 import Pagination from './Pagination'
 import searchIcon from '../assets/icons/ic_search.png'
 import './AllProducts.css'
 
-const PAGE_SIZE = 10 // PC. 태블릿/모바일은 PC 완료 후 useDeviceType으로 분기
+// 모바일은 시안 값을 받은 뒤 정리(지금은 태블릿과 같게 둠)
+const PAGE_SIZE = { pc: 10, tablet: 6, mobile: 6 }
 
 function AllProducts() {
+  const pageSize = PAGE_SIZE[useDeviceType()]
   const [orderBy, setOrderBy] = useState('recent')
   const [keyword, setKeyword] = useState('')
   const [input, setInput] = useState('')
   const [page, setPage] = useState(1)
   const { products, totalCount } = useProducts({
     page,
-    pageSize: PAGE_SIZE,
+    pageSize,
     orderBy,
     keyword,
   })
-  const totalPages = Math.ceil(totalCount / PAGE_SIZE)
+  const totalPages = Math.ceil(totalCount / pageSize)
 
   const handleSortChange = (value) => {
     setOrderBy(value)

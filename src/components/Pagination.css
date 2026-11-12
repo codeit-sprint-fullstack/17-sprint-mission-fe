@@ -34,3 +34,10 @@
 .pagination-button:disabled {
   cursor: default;
 }
+
+/* 태블릿 (744px ~ 1199px): 섹션 gap 40으로 간격이 정해짐 */
+@media (max-width: 1199px) {
+  .pagination {
+    margin-top: 0;
+  }
+}

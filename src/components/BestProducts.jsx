@@ -1,11 +1,16 @@
 import { useProducts } from '../hooks/useProducts'
+import { useDeviceType } from '../hooks/useDeviceType'
 import ProductCard from './ProductCard'
 import './BestProducts.css'
 
+// 모바일은 시안 값을 받은 뒤 정리(지금은 태블릿과 같게 둠)
+const PAGE_SIZE = { pc: 4, tablet: 2, mobile: 2 }
+
 function BestProducts() {
+  const deviceType = useDeviceType()
   const { products } = useProducts({
     page: 1,
-    pageSize: 4,
+    pageSize: PAGE_SIZE[deviceType],
     orderBy: 'favorite',
   })
 
