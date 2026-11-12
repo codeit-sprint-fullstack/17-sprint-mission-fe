@@ -1,0 +1,77 @@
+.all-products {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.all-products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+}
+
+.all-products-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-gray-900);
+}
+
+.all-products-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.all-products-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 325px;
+  height: 42px;
+  padding: 9px 20px 9px 16px;
+  border-radius: 12px;
+  background-color: var(--color-gray-100);
+}
+
+.all-products-search img {
+  width: 24px;
+  height: 24px;
+}
+
+.all-products-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--color-gray-800);
+}
+
+.all-products-search input::placeholder {
+  color: var(--color-gray-400);
+}
+
+.all-products-register {
+  height: 42px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--color-primary-100);
+  color: var(--color-gray-100);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.all-products-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+}
