@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useProducts } from '../hooks/useProducts'
 import ProductCard from './ProductCard'
 import SortDropdown from './SortDropdown'
+import Pagination from './Pagination'
 import searchIcon from '../assets/icons/ic_search.png'
 import './AllProducts.css'
 
@@ -11,16 +12,24 @@ function AllProducts() {
   const [orderBy, setOrderBy] = useState('recent')
   const [keyword, setKeyword] = useState('')
   const [input, setInput] = useState('')
-  const { products } = useProducts({
-    page: 1,
+  const [page, setPage] = useState(1)
+  const { products, totalCount } = useProducts({
+    page,
     pageSize: PAGE_SIZE,
     orderBy,
     keyword,
   })
+  const totalPages = Math.ceil(totalCount / PAGE_SIZE)
+
+  const handleSortChange = (value) => {
+    setOrderBy(value)
+    setPage(1)
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     setKeyword(input.trim())
+    setPage(1)
   }
 
   return (
@@ -40,7 +49,7 @@ function AllProducts() {
           <button type="button" className="all-products-register">
             상품 등록하기
           </button>
-          <SortDropdown value={orderBy} onChange={setOrderBy} />
+          <SortDropdown value={orderBy} onChange={handleSortChange} />
         </div>
       </div>
       <ul className="all-products-list">
@@ -48,6 +57,9 @@ function AllProducts() {
           <ProductCard key={product.id} product={product} />
         ))}
       </ul>
+      {totalPages > 0 && (
+        <Pagination page={page} totalPages={totalPages} onChange={setPage} />
+      )}
     </section>
   )
 }

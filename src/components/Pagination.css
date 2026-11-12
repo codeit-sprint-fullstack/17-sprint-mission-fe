@@ -1,0 +1,36 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 19px; /* 섹션 gap 24와 합쳐 카드 목록 아래 43px */
+}
+
+.pagination-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 40px;
+  background-color: var(--color-white);
+  color: var(--color-gray-500);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.pagination-button.is-active {
+  border: 0;
+  background-color: #2F80ED;
+  color: var(--color-gray-50);
+}
+
+.pagination-next svg {
+  transform: rotate(180deg);
+}
+
+.pagination-button:disabled {
+  cursor: default;
+}
