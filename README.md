@@ -19,9 +19,19 @@
 
 ### 공통
 - 헤더: 현재 페이지 메뉴 강조 (`NavLink`), 모바일에서는 텍스트형 로고로 교체
-- 반응형 레이아웃: 모바일(~767px) / 태블릿(768px~) / PC(1200px~)
-  - 베스트 상품 1열 / 2열 / 4열
-  - 판매 중인 상품 2열 / 3열 / 5열
+
+### 반응형
+화면 크기에 따라 레이아웃 열 수와 **API에 요청하는 상품 수(`pageSize`)**가 함께 바뀝니다.
+
+| | 모바일 (~767px) | 태블릿 (768px~) | PC (1200px~) |
+| --- | --- | --- | --- |
+| 베스트 상품 | 1열 · 1개 | 2열 · 2개 | 4열 · 4개 |
+| 판매 중인 상품 | 2열 · 4개 | 3열 · 6개 | 5열 · 10개 |
+
+- `useBreakpoint` 커스텀 훅으로 현재 화면 구분(`mobile` / `tablet` / `pc`)을 반환
+  - `resize` 이벤트로 창 크기 변화를 감지하고, 컴포넌트가 사라지면 이벤트 제거(cleanup)
+  - 너비 숫자 대신 화면 구분 값을 저장해, 기준 너비를 넘을 때만 다시 렌더링
+- 화면 구분이 바뀌면 바뀐 `pageSize`로 상품을 다시 요청
 
 ### API 연동
 [판다마켓 API](https://panda-market-api.vercel.app/docs)의 `GET /products`를 사용합니다.
@@ -38,7 +48,7 @@
 
 ## 🛠 기술 스택
 
-- **React 19** – 함수 컴포넌트, `useState` / `useEffect`
+- **React** – 함수 컴포넌트, `useState` / `useEffect`, 커스텀 훅
 - **React Router** – `Link`, `NavLink` 페이지 이동
 - **Tailwind CSS v4** – `@theme`으로 색상·폰트 디자인 토큰 관리, 반응형 접두어(`md:`, `pc:`)
 - **Axios** – API 요청
@@ -63,6 +73,8 @@ src
 │   └── Pagination.jsx     # 페이지네이션
 ├── constants
 │   └── routes.js          # 페이지 경로 상수
+├── hooks
+│   └── useBreakpoint.js   # 반응형 커스텀 훅
 ├── pages
 │   └── Item.jsx           # 중고마켓 페이지
 ├── styles
