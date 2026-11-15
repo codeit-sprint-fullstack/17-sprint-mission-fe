@@ -19,7 +19,7 @@
 
   --color-error: #f74747;
   --color-pagination: #2F80ED;
-  --color-bg-lightblue: #cfe5ff;
+  --color-lightblue: #cfe5ff;
 
   /* Tailwind 기본 text 크기 제거 */
   --text-*: initial;
