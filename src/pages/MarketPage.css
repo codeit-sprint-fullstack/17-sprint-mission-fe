@@ -13,3 +13,12 @@
     margin-bottom: 165px;
   }
 }
+
+/* 모바일 (743px 이하) */
+@media (max-width: 743px) {
+  .market-page {
+    gap: 24px;
+    margin: 16px auto 135px;
+    padding: 0 16px;
+  }
+}

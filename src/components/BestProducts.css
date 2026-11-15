@@ -28,3 +28,10 @@
     border-radius: 19.46px;
   }
 }
+
+/* 모바일 (743px 이하) */
+@media (max-width: 743px) {
+  .best-products-list {
+    grid-template-columns: 1fr;
+  }
+}

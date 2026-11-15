@@ -7,8 +7,7 @@ import Pagination from './Pagination'
 import searchIcon from '../assets/icons/ic_search.png'
 import './AllProducts.css'
 
-// 모바일은 시안 값을 받은 뒤 정리(지금은 태블릿과 같게 둠)
-const PAGE_SIZE = { pc: 10, tablet: 6, mobile: 6 }
+const PAGE_SIZE = { pc: 10, tablet: 6, mobile: 4 }
 
 function AllProducts() {
   const pageSize = PAGE_SIZE[useDeviceType()]

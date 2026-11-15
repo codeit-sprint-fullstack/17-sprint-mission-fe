@@ -92,3 +92,48 @@
     row-gap: 24px;
   }
 }
+
+/* 모바일 (743px 이하) */
+@media (max-width: 743px) {
+  .all-products-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 14px 42px;
+    row-gap: 8px;
+    height: auto;
+  }
+
+  .all-products-tools {
+    display: contents;
+  }
+
+  .all-products-title {
+    grid-area: 1 / 1;
+    align-self: center;
+  }
+
+  .all-products-register {
+    grid-area: 1 / 1;
+    justify-self: start;
+    width: max-content; /* 칸이 좁아도 버튼 폭(133)이 줄지 않게 */
+    margin-left: 166px; /* 제목 113 + 간격 53 */
+  }
+
+  .all-products-search {
+    grid-area: 2 / 1;
+    width: 100%;
+  }
+
+  .all-products .sort-dropdown {
+    grid-area: 2 / 3;
+  }
+
+  .all-products-list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8px;
+    row-gap: 8px;
+  }
+
+  .all-products-list .product-card-image {
+    border-radius: 12px;
+  }
+}
