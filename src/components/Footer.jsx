@@ -22,7 +22,7 @@ const SNS_LINKS = [
 
 export default function Footer() {
   return (
-    <footer className='bg-secondary-900 px-[clamp(24px,calc((100vw_-_69.38rem)/2),12.5rem)] pt-8 pb-[6.75rem]'>
+    <footer className='bg-secondary-900 px-[clamp(24px,calc((100%_-_75rem)/2),12.5rem)] pt-8 pb-[6.75rem]'>
       <div className='inner-wide flex flex-wrap justify-between gap-6'>
         <p className='order-1 text-secondary-400 md:order-none'>©codeit-2024</p>
         <ul className='flex gap-[1.88rem] text-secondary-200'>

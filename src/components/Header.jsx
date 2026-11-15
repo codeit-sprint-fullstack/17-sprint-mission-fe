@@ -10,7 +10,7 @@ const navLinkStyle =
 
 export default function Header() {
   return (
-    <header className='fixed inset-x-0 top-0 z-10 h-[4.38rem] border-b border-[#dfdfdf] bg-white px-4 md:px-[clamp(24px,calc((100vw_-_69.38rem)/2),12.5rem)]'>
+    <header className='fixed inset-x-0 top-0 z-10 h-[4.38rem] border-b border-[#dfdfdf] bg-white px-4 px-[clamp(16px,calc((100%_-_75rem)/2),12.5rem)]'>
       <div className='inner-wide flex items-center gap-2 md:gap-5 pc:gap-6'>
         <Link to={ROUTES.HOME} className='w-[5.06rem] md:w-[9.56rem]'>
           <img className='hidden md:block' src={logo} alt='판다마켓' />
