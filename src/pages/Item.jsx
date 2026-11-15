@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { getProducts } from '../api/productApi';
+import { getProducts } from '../api/productApi.js';
+import useBreakpoint from '../hooks/useBreakpoint.js';
 import ProductCard from '../components/ProductCard';
 import Button from '../components/Button';
 import SortDropdown from '../components/SortDropdown';
@@ -11,10 +12,11 @@ const SORT_OPTIONS = [
   { value: 'favorite', label: '좋아요순' },
 ];
 
-const bestPageSize = 4;
-const allPageSize = 10;
+const BEST_PAGE_SIZE = { mobile: 1, tablet: 2, pc: 4 };
+const ALL_PAGE_SIZE = { mobile: 4, tablet: 6, pc: 10 };
 
 export default function Item() {
+  const breakpoint = useBreakpoint();
   const [bestProducts, setBestProducts] = useState([]);
   const [allProducts, setAllProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -27,14 +29,17 @@ export default function Item() {
   useEffect(() => {
     const fetchBestProducts = async () => {
       try {
-        const data = await getProducts({ orderBy: 'favorite', pageSize: bestPageSize });
+        const data = await getProducts({
+          orderBy: 'favorite',
+          pageSize: BEST_PAGE_SIZE[breakpoint],
+        });
         setBestProducts(data.list);
       } catch (err) {
         setError(err);
       }
     };
     fetchBestProducts();
-  }, []);
+  }, [breakpoint]);
 
   // 판매 중인 상품
   useEffect(() => {
@@ -44,7 +49,7 @@ export default function Item() {
           orderBy,
           keyword,
           page,
-          pageSize: allPageSize,
+          pageSize: ALL_PAGE_SIZE[breakpoint],
         });
         setAllProducts(data.list);
         setTotalCount(data.totalCount);
@@ -53,7 +58,7 @@ export default function Item() {
       }
     };
     fetchAllProducts();
-  }, [orderBy, keyword, page]);
+  }, [orderBy, keyword, page, breakpoint]);
 
   const handleSortChange = (value) => {
     setOrderBy(value);
@@ -142,7 +147,7 @@ export default function Item() {
         )}
         <Pagination
           currentPage={page}
-          totalPage={Math.ceil(totalCount / allPageSize)}
+          totalPage={Math.ceil(totalCount / ALL_PAGE_SIZE[breakpoint])}
           onChange={setPage}
           className='mt-10'
         />
