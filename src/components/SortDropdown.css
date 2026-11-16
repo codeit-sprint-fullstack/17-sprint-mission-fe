@@ -1,0 +1,86 @@
+.sort-dropdown {
+  position: relative;
+  width: 130px;
+}
+
+.sort-dropdown-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 42px;
+  padding: 0 20px;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 12px;
+  background-color: var(--color-white);
+  color: var(--color-gray-800);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.sort-dropdown-list {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  height: 84px;
+  border: 1px solid var(--color-gray-200);
+  border-radius: 12px;
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.sort-dropdown-list li {
+  flex: 1;
+}
+
+.sort-dropdown-list button {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: none;
+  color: var(--color-gray-800);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.sort-dropdown-icon {
+  display: none;
+}
+
+/* 모바일 (743px 이하): 아이콘만 표시 */
+@media (max-width: 743px) {
+  .sort-dropdown {
+    width: 42px;
+  }
+
+  .sort-dropdown-button {
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .sort-dropdown-button span,
+  .sort-dropdown-arrow {
+    display: none;
+  }
+
+  .sort-dropdown-icon {
+    display: block;
+    width: 24px;
+    height: 24px;
+  }
+
+  .sort-dropdown-list {
+    top: calc(100% + 4px); /* 시안: 아이콘 아래 4px */
+    left: auto;
+    right: 0;
+  }
+}

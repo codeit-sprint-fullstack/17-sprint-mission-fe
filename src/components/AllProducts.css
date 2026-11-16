@@ -1,0 +1,139 @@
+.all-products {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.all-products-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 42px;
+}
+
+.all-products-title {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  color: var(--color-gray-900);
+}
+
+.all-products-tools {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.all-products-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 325px;
+  height: 42px;
+  padding: 9px 20px 9px 16px;
+  border-radius: 12px;
+  background-color: var(--color-gray-100);
+}
+
+.all-products-search img {
+  width: 24px;
+  height: 24px;
+}
+
+.all-products-search input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: 0;
+  background: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  color: var(--color-gray-800);
+}
+
+.all-products-search input::placeholder {
+  color: var(--color-gray-400);
+}
+
+.all-products-register {
+  height: 42px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--color-primary-100);
+  color: var(--color-gray-100);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+.all-products-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 24px;
+  row-gap: 40px;
+}
+
+/* 태블릿 (744px ~ 1199px) */
+@media (max-width: 1199px) {
+  .all-products {
+    gap: 40px;
+  }
+
+  .all-products-search {
+    width: 242px;
+  }
+
+  .all-products-list {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 16px;
+    row-gap: 24px;
+  }
+}
+
+/* 모바일 (743px 이하) */
+@media (max-width: 743px) {
+  .all-products-header {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 14px 42px;
+    row-gap: 8px;
+    height: auto;
+  }
+
+  .all-products-tools {
+    display: contents;
+  }
+
+  .all-products-title {
+    grid-area: 1 / 1;
+    align-self: center;
+  }
+
+  .all-products-register {
+    grid-area: 1 / 1;
+    justify-self: start;
+    width: max-content; /* 칸이 좁아도 버튼 폭(133)이 줄지 않게 */
+    margin-left: 166px; /* 제목 113 + 간격 53 */
+  }
+
+  .all-products-search {
+    grid-area: 2 / 1;
+    width: 100%;
+  }
+
+  .all-products .sort-dropdown {
+    grid-area: 2 / 3;
+  }
+
+  .all-products-list {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 8px;
+    row-gap: 8px;
+  }
+
+  .all-products-list .product-card-image {
+    border-radius: 12px;
+  }
+}

@@ -1,0 +1,83 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  background-color: var(--color-white);
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1920px;
+  height: 68px;
+  margin: 0 auto;
+  padding: 0 200px;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header-logo {
+  display: block;
+}
+
+.header-menu {
+  display: flex;
+}
+
+.header-menu a {
+  display: block;
+  padding: 21px 15px;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+  color: var(--color-gray-600);
+}
+
+.header-login {
+  height: 42px;
+  padding: 0 23px;
+  border: 0;
+  border-radius: 8px;
+  background-color: var(--color-primary-100);
+  color: var(--color-gray-100);
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 26px;
+  cursor: pointer;
+}
+
+/* 태블릿 (744px ~ 1199px) */
+@media (max-width: 1199px) {
+  .header-inner {
+    padding: 0 24px;
+  }
+}
+
+/* 모바일 (743px 이하) */
+@media (max-width: 743px) {
+  .header-inner {
+    height: 70px;
+    padding: 0 16px;
+  }
+
+  .header-nav {
+    gap: 8px;
+  }
+
+  .header-menu {
+    gap: 8px;
+  }
+
+  .header-menu a {
+    padding: 0;
+    font-size: 16px;
+  }
+}
