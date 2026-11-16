@@ -1,0 +1,78 @@
+/* 로고 글꼴 (public/fonts 폴더 → 주소는 /fonts/로 시작) */
+@font-face {
+  font-family: "ROKAF Sans";
+  src: url("/fonts/rokaf-sans-bold-logo.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 페이지 전체 공통 */
+body {
+  font-family: var(--font-sans);
+  color: var(--gray-700);
+  background: var(--page);
+}
+
+a {
+  cursor: pointer;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+/* 내용이 짧아도 푸터가 화면 맨 아래에 붙도록 */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* 중고마켓 페이지 안쪽 폭 (PC 1200px) */
+.market {
+  width: 100%;
+  max-width: 75rem;
+  margin: 0 auto;
+  padding: 1.5rem 0 8.75rem;
+}
+
+/* "베스트 상품", "전체 상품" 제목 */
+.section-title {
+  font-size: 1.25rem;
+  font-weight: var(--fw-bold);
+  line-height: 2rem;
+  color: var(--gray-900);
+}
+
+/* 파란 기본 버튼 (로그인·상품 등록하기 공통) */
+.btn-primary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius-sm);
+  background: var(--blue);
+  color: var(--gray-100);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-semibold);
+}
+
+/* 태블릿: 양옆 여백 24px */
+@media (max-width: 1199px) {
+  .market {
+    padding: 1rem 1.5rem 8.75rem;
+  }
+}
+
+/* 모바일: 양옆 여백 16px */
+@media (max-width: 743px) {
+  .market {
+    padding: 1rem 1rem 8.75rem;
+  }
+}

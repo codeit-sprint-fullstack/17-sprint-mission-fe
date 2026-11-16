@@ -1,0 +1,83 @@
+import { useState } from "react";
+import useProducts from "../hooks/useProducts";
+import usePageSize from "../hooks/usePageSize";
+import ProductCard from "./ProductCard";
+import SearchForm from "./SearchForm";
+import SortDropdown from "./SortDropdown";
+import Pagination from "./Pagination";
+import "./AllProducts.css";
+
+function AllProducts() {
+  const [orderBy, setOrderBy] = useState("recent");
+  const [keyword, setKeyword] = useState("");
+  const [page, setPage] = useState(1);
+
+  const pageSize = usePageSize({ pc: 10, tablet: 6, mobile: 4 });
+  const [prevPageSize, setPrevPageSize] = useState(pageSize);
+
+  if (pageSize !== prevPageSize) {
+    setPrevPageSize(pageSize);
+    setPage(1);
+  }
+
+  const { products, totalCount, isLoading, error } = useProducts({
+    page,
+    pageSize,
+    orderBy,
+    keyword,
+  });
+
+  const totalPages = Math.ceil(totalCount / pageSize);
+  const isEmpty = !isLoading && !error && products.length === 0;
+
+  const handleOrderChange = (nextOrderBy) => {
+    setOrderBy(nextOrderBy);
+    setPage(1);
+  };
+
+  const handleSearch = (nextKeyword) => {
+    setKeyword(nextKeyword);
+    setPage(1);
+  };
+
+  return (
+    <section className="all-products">
+      <div className="all-products-header">
+        <h2 className="section-title">전체 상품</h2>
+        <SearchForm onSearch={handleSearch} />
+        <a href="/registration" className="btn-primary all-products-register">
+          상품 등록하기
+        </a>
+        <SortDropdown value={orderBy} onChange={handleOrderChange} />
+      </div>
+
+      {isLoading && <p className="status-text">불러오는 중...</p>}
+      {error && <p className="status-text">상품을 불러오지 못했어요.</p>}
+      {isEmpty && (
+        <p className="status-text">
+          {keyword
+            ? `"${keyword}"에 대한 검색 결과가 없어요.`
+            : "등록된 상품이 없어요."}
+        </p>
+      )}
+
+      <ul className="all-products-list">
+        {products.map((product) => (
+          <li key={product.id}>
+            <ProductCard product={product} />
+          </li>
+        ))}
+      </ul>
+
+      {totalPages > 0 && (
+        <Pagination
+          currentPage={page}
+          totalPages={totalPages}
+          onPageChange={setPage}
+        />
+      )}
+    </section>
+  );
+}
+
+export default AllProducts;
