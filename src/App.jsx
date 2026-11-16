@@ -26,20 +26,20 @@ function Pagination({ page, totalPages, onChange }) {
 }
 
 function App() {
-  const layout = useMarketplaceLayout();
+  const { bestPageSize, productPageSize } = useMarketplaceLayout();
   const [searchInput, setSearchInput] = useState("");
   const [keyword, setKeyword] = useState("");
   const [orderBy, setOrderBy] = useState("recent");
   const [page, setPage] = useState(1);
   const [bestPage, setBestPage] = useState(1);
-  const best = useProducts({ page: bestPage, pageSize: layout.bestPageSize, orderBy: "favorite" });
-  const all = useProducts({ page, pageSize: layout.productPageSize, keyword, orderBy });
-  const totalPages = Math.max(1, Math.ceil(all.totalCount / layout.productPageSize));
+  const best = useProducts({ page: bestPage, pageSize: bestPageSize, orderBy: "favorite" });
+  const all = useProducts({ page, pageSize: productPageSize, keyword, orderBy });
+  const totalPages = Math.max(1, Math.ceil(all.totalCount / productPageSize));
 
   useEffect(() => {
     setPage(1);
     setBestPage(1);
-  }, [layout.productPageSize, layout.bestPageSize]);
+  }, [productPageSize, bestPageSize]);
 
   function submitSearch(event) {
     event.preventDefault();
