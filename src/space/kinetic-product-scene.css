@@ -1,0 +1,315 @@
+.kin-scene {
+  position: absolute;
+  inset: 21px 0 19px;
+  width: 100%;
+  height: calc(100% - 40px);
+  overflow: visible;
+  filter: drop-shadow(0 12px 9px #02091355);
+}
+.kin-scene g { transform-box: view-box; }
+.kin-scene [data-part] { will-change: transform; }
+.kin-human-head { transform-origin: 252px 120px; animation: kin-head-look 5s ease-in-out 1.25s infinite; }
+.kin-human-arm-right { transform-origin: 282px 145px; animation: kin-wave-intro 1.2s ease 1, kin-arm-work 4s ease-in-out 1.25s infinite; }
+.kin-human-forearm { transform-origin: 313px 176px; animation: kin-wrist-work 4s ease-in-out 1.25s infinite; }
+.kin-human-arm-left { transform-origin: 219px 145px; animation: kin-left-work 4s ease-in-out 1.25s infinite; }
+.kin-assistant--cooking .kin-human-arm-left { animation-name: kin-stir-arm; }
+.kin-assistant--cleaning .kin-human-arm-right { animation-name: kin-wave-intro, kin-clean-arm; }
+.kin-assistant--organizing .kin-human-arm-right { animation-name: kin-wave-intro, kin-organize-arm; }
+.kin-assistant--care .kin-human-arm-right { animation-name: kin-wave-intro, kin-serve-arm; }
+.kin-assistant--concierge .kin-human-arm-right { animation-name: kin-wave-intro, kin-serve-arm; }
+.kin-assistant--secretary .kin-human-forearm { animation: kin-type-wrist .75s ease-in-out 1.25s infinite alternate; }
+.kin-pan { transform-origin: 343px 187px; animation: kin-pan-flip 4s ease-in-out 1.25s infinite; }
+.kin-pan-food { transform-origin: 410px 190px; animation: kin-food-flip 4s ease-in-out 1.25s infinite; }
+.kin-spoon { transform-origin: 355px 160px; animation: kin-stir 4s ease-in-out 1.25s infinite; }
+.kin-steam { animation: kin-steam 2s ease-out 1.25s infinite; }
+.kin-vacuum { animation: kin-clean-sweep 4s ease-in-out 1.25s infinite; }
+.kin-dirt { animation: kin-dirt-clean 4s linear 1.25s infinite; }
+.kin-dirt-1 { animation-delay: 1.45s; }.kin-dirt-2 { animation-delay: 1.7s; }.kin-dirt-3 { animation-delay: 1.95s; }.kin-dirt-4 { animation-delay: 2.15s; }
+.kin-organize-box { animation: kin-box-stack 4s ease-in-out 1.25s infinite; }
+.kin-water-delivery { animation: kin-water-serve 4s ease-in-out 1.25s infinite; }
+.kin-recipient-arm { transform-origin: 456px 157px; animation: kin-receive 4s ease-in-out 1.25s infinite; }
+.kin-serving-tray { animation: kin-tray-serve 4s ease-in-out 1.25s infinite; }
+.kin-serving-cover { animation: kin-cover-open 4s ease-in-out 1.25s infinite; }
+.kin-finger { animation: kin-finger-type .55s ease-in-out calc(1.25s + var(--part-index) * .12s) infinite alternate; }
+.kin-schedule-row { animation: kin-schedule-fill 3s ease-in-out calc(1.25s + var(--part-index) * .6s) infinite; }
+.kin-scene[data-action="greet"] .kin-human-arm-right { animation: kin-wave-repeat 1.6s ease-in-out infinite; }
+.kin-scene[data-action="greet"] .kin-human-forearm { animation: kin-wave-wrist 1.6s ease-in-out infinite; }
+.kin-scene[data-action="greet"] .kin-work-props { opacity: .28; }
+.kin-scene[data-action="greet"] .kin-work-props *, .kin-scene[data-action="greet"] .kin-human-arm-left { animation-play-state: paused; }
+.kin-animal-leg-front { transform-origin: 344px 212px; animation: kin-front-step 1.4s ease-in-out infinite; }
+.kin-animal-leg-back { transform-origin: 257px 211px; animation: kin-back-step 1.4s ease-in-out infinite; }
+.kin-animal-tail { transform-origin: 239px 198px; animation: kin-tail-wag .7s ease-in-out infinite alternate; }
+.kin-animal-head { transform-origin: 348px 175px; animation: kin-animal-look 3s ease-in-out infinite; }
+.kin-animal-ears { transform-origin: 360px 108px; animation: kin-ear-twitch 3s ease-in-out infinite; }
+.kin-animal-wing { transform-origin: 289px 167px; animation: kin-wing-flap .7s ease-in-out infinite alternate; }
+.kin-animal--penguin .kin-animal-wing, .kin-animal--duck .kin-animal-wing { animation-duration: 1.5s; }
+.kin-animal--seal .kin-animal-leg, .kin-animal--otter .kin-animal-leg { animation-duration: 2s; }
+.kin-animal--cat .kin-animal-tail { animation-duration: 1.7s; }
+.kin-animal--rabbit .kin-animal-ears { animation-name: kin-rabbit-ears; }
+.kin-scene[data-action="greet"] .kin-animal-leg-front { animation: kin-paw-wave 1.5s ease-in-out infinite; }
+.kin-scene[data-action="greet"] .kin-animal-leg-back { animation-play-state: paused; }
+.kin-rotor { transform-box: fill-box !important; transform-origin: center; animation: kin-rotor-spin .13s linear infinite; }
+.kin-winch-cable { transform-origin: 300px 176px; animation: kin-cable-lower 5s ease-in-out infinite; }
+.kin-lowered-cargo { animation: kin-cargo-lower 5s ease-in-out infinite; }
+.kin-carrier-drive { animation: kin-carrier-transport 6s ease-in-out infinite; }
+.kin-wheel { transform-box: fill-box !important; transform-origin: center; animation: kin-wheel-roll 6s ease-in-out infinite; }
+.kin-load-lift { animation: kin-load-lift 6s ease-in-out infinite; }
+.kin-load-transfer { animation: kin-load-transfer 6s ease-in-out infinite; }
+.kin-aircraft-gear-rear { transform-origin: 219px 183px; animation: kin-gear-retract 6s ease-in-out infinite; }
+.kin-aircraft-gear-front { transform-origin: 392px 176px; animation: kin-nosegear-retract 6s ease-in-out infinite; }
+.kin-aircraft-flap { transform-origin: 328px 213px; animation: kin-flap 6s ease-in-out infinite; }
+.kin-fan { animation: kin-fan-spin .3s linear infinite; }
+.kin-main-flame { transform-origin: 300px 228px; animation: kin-engine-ignition 6s ease-in-out infinite; }
+.kin-booster-left { animation: kin-stage-left 6s ease-in-out infinite; }
+.kin-booster-right { animation: kin-stage-right 6s ease-in-out infinite; }
+.kin-fairing { transform-origin: 279px 101px; animation: kin-fairing-release 6s ease-in-out infinite; }
+.kin-dish-azimuth { transform-origin: 300px 209px; animation: kin-dish-align 6s ease-in-out infinite; }
+.kin-dish-elevation { animation: kin-dish-tilt 6s ease-in-out infinite; }
+.kin-scene--satellite .kin-dish-azimuth { transform-origin: 300px 130px; }
+.kin-solar-left { transform-origin: 266px 177px; animation: kin-panel-unfold-left 7s ease-in-out infinite; }
+.kin-solar-right { transform-origin: 334px 177px; animation: kin-panel-unfold-right 7s ease-in-out infinite; }
+.kin-phone-fold { transform-origin: 330px 168px; animation: kin-phone-unfold 6s ease-in-out infinite; }
+.kin-phone--6 .kin-phone-fold { transform-origin: 285px 168px; animation-name: kin-phone-flip; }
+.kin-third-screen { transform-origin: 237px 168px; animation: kin-third-unfold 6s ease-in-out infinite; }
+.kin-phone-roll { transform-origin: 330px 168px; animation: kin-phone-roll 6s ease-in-out infinite; }
+.kin-phone-slide { animation: kin-phone-slide 6s ease-in-out infinite; }
+.kin-crystal-display { animation: kin-crystal-display 5s ease-in-out infinite; }
+.kin-edge-display { animation: kin-edge-display 5s ease-in-out infinite; }
+.kin-phone-camera { animation: kin-camera-extend 4s ease-in-out infinite; }
+.kin-camera-iris { transform-origin: 285px 131px; animation: kin-iris 4s ease-in-out infinite; }
+.kin-projector-lens { transform-origin: 300px 231px; animation: kin-lens-open 5s ease-in-out infinite; }
+.kin-holo-screen { transform-origin: 300px 231px; animation: kin-project-screen 5s ease-in-out infinite; }
+.kin-building-door-left { animation: kin-door-left 5s ease-in-out infinite; }.kin-building-door-right { animation: kin-door-right 5s ease-in-out infinite; }
+.kin-elevator { animation: kin-elevator-travel 6s ease-in-out infinite; }
+.kin-window { animation: kin-window-light 6s ease-in-out calc(var(--part-index) * .16s) infinite; }
+.kin-sleeve-left { transform-origin: 263px 107px; animation: kin-sleeve-left 5s ease-in-out infinite; }.kin-sleeve-right { transform-origin: 338px 107px; animation: kin-sleeve-right 5s ease-in-out infinite; }
+.kin-suit-leg-left { transform-origin: 273px 215px; animation: kin-suit-leg 5s ease-in-out infinite; }.kin-suit-leg-right { transform-origin: 325px 215px; animation: kin-suit-leg 5s ease-in-out -2.5s infinite; }
+.kin-harness-clasp { transform-origin: 300px 205px; animation: kin-harness-lock 5s ease-in-out infinite; }
+.kin-boot { animation: kin-boot-step 4s ease-in-out infinite; }.kin-boot-1 { animation-delay: -2s; }
+.kin-sole-lock { animation: kin-sole-lock 4s ease-in-out infinite; }
+.kin-boot-1 .kin-sole-lock { animation-delay: -2s; }
+.kin-glove-finger { animation: kin-finger-bend 3s ease-in-out calc(var(--part-index) * .15s) infinite; }
+.kin-glove-thumb { transform-origin: 261px 209px; animation: kin-thumb-bend 3s ease-in-out infinite; }
+.kin-visor-panel { transform-origin: 300px 155px; animation: kin-visor-open 5s ease-in-out infinite; }
+.kin-cape { transform-origin: 300px 105px; animation: kin-cape-flow 4s ease-in-out infinite alternate; }
+.kin-light-blade { transform-origin: 300px 205px; animation: kin-blade-extend 4s ease-in-out infinite; }
+.kin-second-blade { transform-origin: 300px 279px; animation: kin-blade-extend 4s ease-in-out infinite; }
+.kin-laser-recoil { animation: kin-laser-recoil 2.4s ease-out infinite; }.kin-laser-pulse { animation: kin-laser-pulse 2.4s linear infinite; }
+.kin-gravity-fork { transform-origin:312px 176px; animation:kin-fork-open 5s ease-in-out infinite; }
+.kin-hovering-cube { transform-origin:436px 177px; animation:kin-cube-hover 5s ease-in-out infinite; }
+.kin-array-turntable { transform-origin:300px 226px; animation:kin-array-align 5s ease-in-out infinite; }
+.kin-wrist-module { transform-origin:239px 187px; animation:kin-module-open 5s ease-in-out infinite; }
+.kin-gear-claw { transform-origin:300px 147px; animation:kin-claw-unfold 5s ease-in-out infinite; }
+.kin-shield-panel { transform-origin: 300px 194px; transform: rotate(var(--panel-angle)); animation: kin-shield-open 5s ease-in-out infinite; }
+.kin-portal-ring { transform-origin: 300px 175px; animation: kin-fan-spin 10s linear infinite; }.kin-portal-opening { transform-origin: 300px 175px; animation: kin-portal-open 5s ease-in-out infinite; }
+.kin-warp-aperture { animation:kin-warp-open 7s ease-in-out infinite; }
+.kin-warp-crate-in { transform-origin:127px 238px; animation:kin-warp-enter 7s ease-in-out infinite; }
+.kin-warp-crate-out { transform-origin:408px 238px; opacity:0; animation:kin-warp-emerge 7s ease-in-out infinite; }
+.kin-warp-particle { opacity:0; animation:kin-warp-particle 7s ease-in-out calc(var(--particle-index) * .09s) infinite; }
+.kin-capsule-lid { animation: kin-capsule-lid 5s ease-in-out infinite; }.kin-capsule-core { animation: kin-capsule-core 5s ease-in-out infinite; }
+.kin-food-capsule-lid { animation:kin-food-lid 6s ease-in-out infinite; }
+.kin-expanding-bean { transform-origin:300px 219px; animation:kin-bean-expand 6s ease-in-out infinite; }
+.kin-nutrient-layer { animation:kin-nutrient-layer 6s ease-in-out infinite; }
+.kin-biscuit-left { transform-origin:260px 188px; animation:kin-biscuit-left 6s ease-in-out infinite; }
+.kin-biscuit-right { transform-origin:350px 188px; animation:kin-biscuit-right 6s ease-in-out infinite; }
+.kin-biscuit-filling { animation:kin-biscuit-filling 6s ease-in-out infinite; }
+.kin-biscuit-crumbs { animation:kin-biscuit-crumbs 6s ease-in-out infinite; }
+.kin-food-steam { animation:kin-food-steam 6s ease-in-out infinite; }
+.kin-pouring-jug { transform-origin:238px 147px; animation:kin-jug-pour 6s ease-in-out infinite; }
+.kin-water-stream { animation:kin-water-pour 6s ease-in-out infinite; }
+.kin-unfolding-noodles { transform-origin:300px 201px; animation:kin-noodles-unfold 6s ease-in-out infinite; }
+.kin-meal-tray-lid { transform-origin:192px 167px; animation:kin-meal-lid 6s ease-in-out infinite; }
+.kin-rising-meal { animation:kin-meal-rise 6s ease-in-out infinite; }
+.kin-food-pouch { transform-origin:275px 205px; animation:kin-pouch-tilt 6s ease-in-out infinite; }
+.kin-pouch-seal { animation:kin-pouch-open 6s ease-in-out infinite; }
+.kin-floating-fruit { transform-origin:365px 126px; animation:kin-fruit-float 6s ease-in-out infinite; }
+.kin-poured-bead { animation:kin-bead-pour 6s ease-in-out calc(var(--bead-index) * .12s) infinite; }
+.kin-parcel-boundary { animation:kin-parcel-survey 6s linear infinite; }
+.kin-survey-head { transform-origin:193px 164px; animation:kin-survey-look 6s ease-in-out infinite; }
+.kin-land-dome-left { animation:kin-land-dome-left 6s ease-in-out infinite; }
+.kin-land-dome-right { animation:kin-land-dome-right 6s ease-in-out infinite; }
+.kin-orbital-deck-left { transform-origin:241px 180px; animation:kin-orbital-left 6s ease-in-out infinite; }
+.kin-orbital-deck-right { transform-origin:359px 180px; animation:kin-orbital-right 6s ease-in-out infinite; }
+.kin-living-mattress { transform-origin:300px 232px; animation:kin-mattress-rise 7s ease-in-out infinite; }
+.kin-desk-leg-left { transform-origin:209px 174px; animation:kin-desk-leg 6s ease-in-out infinite; }
+.kin-desk-leg-right { transform-origin:391px 174px; animation:kin-desk-leg 6s ease-in-out .15s infinite; }
+.kin-desk-panel-left { transform-origin:260px 165px; animation:kin-desk-left 6s ease-in-out infinite; }
+.kin-desk-panel-right { transform-origin:340px 165px; animation:kin-desk-right 6s ease-in-out infinite; }
+.kin-tv-projector { animation:kin-tv-lens 6s ease-in-out infinite; }
+.kin-tv-screen { transform-origin:300px 249px; animation:kin-tv-project 6s ease-in-out infinite; }
+.kin-oven-arm-left { transform-origin:204px 140px; animation:kin-oven-left 7s ease-in-out infinite; }
+.kin-oven-arm-right { transform-origin:338px 140px; animation:kin-oven-right 7s ease-in-out infinite; }
+.kin-oven-door { animation:kin-oven-door 7s ease-in-out infinite; }
+.kin-oven-meal { animation:kin-oven-serve 7s ease-in-out infinite; }
+.kin-wardrobe-hanger { animation:kin-hanger-slide 7s ease-in-out infinite; }
+.kin-wardrobe-fold-left { transform-origin:229px 205px; animation:kin-wardrobe-fold-left 7s ease-in-out infinite; }
+.kin-wardrobe-fold-right { transform-origin:370px 205px; animation:kin-wardrobe-fold-right 7s ease-in-out infinite; }
+.kin-folded-sweater { transform-origin:301px 223px; animation:kin-sweater-fold 7s ease-in-out infinite; }
+.kin-wardrobe-door-left { animation:kin-wardrobe-door-left 7s ease-in-out infinite; }
+.kin-wardrobe-door-right { animation:kin-wardrobe-door-right 7s ease-in-out infinite; }
+.kin-sofa-backrest { transform-origin:213px 203px; animation:kin-sofa-recline 6s ease-in-out infinite; }
+.kin-sofa-footrest { transform-origin:374px 225px; animation:kin-sofa-footrest 6s ease-in-out infinite; }
+.kin-shower-door { transform-origin:252px 177px; animation:kin-shower-door 7s ease-in-out infinite; }
+.kin-shower-nozzles { transform-origin:300px 118px; animation:kin-shower-nozzles 7s ease-in-out infinite; }
+.kin-shower-drop { opacity:0; animation:kin-shower-mist 7s ease-in-out calc(var(--drop-index) * .05s) infinite; }
+.kin-garden-dome { transform-origin:198px 229px; animation:kin-garden-dome 7s ease-in-out infinite; }
+.kin-garden-water-arm { transform-origin:414px 153px; animation:kin-garden-water 7s ease-in-out infinite; }
+.kin-garden-drops { opacity:0; animation:kin-garden-drops 7s ease-in-out infinite; }
+.kin-garden-light { transform-origin:300px 88px; animation:kin-garden-light 7s ease-in-out infinite; }
+
+@keyframes kin-wave-intro {0%,100%{transform:rotate(0)}25%,65%{transform:rotate(-76deg)}45%,85%{transform:rotate(-58deg)}}
+@keyframes kin-wave-repeat {0%,100%{transform:rotate(-58deg)}25%,75%{transform:rotate(-80deg)}50%{transform:rotate(-60deg)}}
+@keyframes kin-wave-wrist {0%,100%{transform:rotate(-12deg)}50%{transform:rotate(24deg)}}
+@keyframes kin-head-look {0%,100%{transform:rotate(0)}45%,70%{transform:rotate(7deg)}}
+@keyframes kin-arm-work {0%,100%{transform:rotate(0)}45%{transform:rotate(9deg)}70%{transform:rotate(-7deg)}}
+@keyframes kin-wrist-work {0%,100%{transform:rotate(0)}35%{transform:rotate(12deg)}65%{transform:rotate(-8deg)}}
+@keyframes kin-left-work {0%,100%{transform:rotate(0)}50%{transform:rotate(-12deg)}}
+@keyframes kin-stir-arm {0%,100%{transform:rotate(-8deg)}20%,50%{transform:rotate(-17deg)}35%,65%{transform:rotate(-3deg)}}
+@keyframes kin-stir {0%,100%{transform:rotate(0)}15%,45%{transform:rotate(16deg)}30%,60%{transform:rotate(-10deg)}72%,88%{transform:rotate(-25deg)}}
+@keyframes kin-pan-flip {0%,58%,100%{transform:rotate(0)}68%{transform:rotate(-18deg) translateY(-5px)}78%{transform:rotate(8deg)}88%{transform:rotate(0)}}
+@keyframes kin-food-flip {0%,60%,90%,100%{transform:translateY(0) rotate(0)}73%{transform:translateY(-48px) rotate(170deg)}85%{transform:translateY(-5px) rotate(360deg)}}
+@keyframes kin-steam {0%{transform:translateY(6px);opacity:0}30%{opacity:.65}100%{transform:translateY(-12px);opacity:0}}
+@keyframes kin-clean-sweep {0%,100%{transform:translateX(-20px)}55%{transform:translateX(68px)}}
+@keyframes kin-clean-arm {0%,100%{transform:rotate(2deg)}55%{transform:rotate(-17deg)}}
+@keyframes kin-dirt-clean {0%,18%{opacity:1}42%,92%{opacity:0}100%{opacity:1}}
+@keyframes kin-box-stack {0%,12%,100%{transform:translate(0,0)}32%{transform:translate(15px,-65px)}58%,76%{transform:translate(97px,-42px)}88%{opacity:1}94%{opacity:0}100%{opacity:1}}
+@keyframes kin-organize-arm {0%,100%{transform:rotate(0)}32%{transform:rotate(-32deg)}58%,76%{transform:rotate(-18deg)}}
+@keyframes kin-water-serve {0%,100%{transform:translateX(0)}45%,75%{transform:translateX(43px)}}
+@keyframes kin-serve-arm {0%,100%{transform:rotate(0)}45%,75%{transform:rotate(-12deg)}}
+@keyframes kin-receive {0%,100%{transform:rotate(-18deg)}45%,75%{transform:rotate(0)}}
+@keyframes kin-tray-serve {0%,100%{transform:translateX(0)}35%,80%{transform:translateX(48px)}}
+@keyframes kin-cover-open {0%,35%,100%{transform:translateY(0)}55%,80%{transform:translateY(-50px)}}
+@keyframes kin-type-wrist {from{transform:rotate(12deg)}to{transform:rotate(17deg)}}
+@keyframes kin-finger-type {from{transform:translateY(-5px)}to{transform:translateY(2px)}}
+@keyframes kin-schedule-fill {0%,12%{opacity:.18}35%,80%{opacity:1}100%{opacity:.18}}
+@keyframes kin-front-step {0%,100%{transform:rotate(14deg)}50%{transform:rotate(-16deg)}}
+@keyframes kin-back-step {0%,100%{transform:rotate(-14deg)}50%{transform:rotate(16deg)}}
+@keyframes kin-tail-wag {from{transform:rotate(-15deg)}to{transform:rotate(20deg)}}
+@keyframes kin-animal-look {0%,100%{transform:rotate(-3deg)}40%{transform:rotate(8deg)}70%{transform:rotate(0)}}
+@keyframes kin-ear-twitch {0%,60%,100%{transform:rotate(0)}68%{transform:rotate(6deg)}76%{transform:rotate(-4deg)}}
+@keyframes kin-rabbit-ears {0%,100%{transform:rotate(-9deg)}50%{transform:rotate(12deg)}}
+@keyframes kin-wing-flap {from{transform:rotate(-14deg)}to{transform:rotate(30deg)}}
+@keyframes kin-paw-wave {0%,100%{transform:rotate(-52deg)}50%{transform:rotate(-78deg)}}
+@keyframes kin-rotor-spin {from{transform:rotate(0)}to{transform:rotate(180deg)}}
+@keyframes kin-cable-lower {0%,20%,100%{transform:scaleY(.4)}55%,75%{transform:scaleY(1.2)}}
+@keyframes kin-cargo-lower {0%,20%,100%{transform:translateY(-35px)}55%,75%{transform:translateY(15px)}}
+@keyframes kin-carrier-transport {0%,20%,100%{transform:translateX(-42px)}60%,80%{transform:translateX(67px)}}
+@keyframes kin-wheel-roll {0%,20%,100%{transform:rotate(0)}60%,80%{transform:rotate(360deg)}}
+@keyframes kin-load-lift {0%,100%{transform:translateY(25px)}18%,80%{transform:translateY(0)}}
+@keyframes kin-load-transfer {0%,100%{transform:translate(-30px,25px)}18%,72%{transform:translate(0,0)}85%,93%{transform:translate(66px,25px)}}
+@keyframes kin-gear-retract {0%,20%,100%{transform:rotate(0);opacity:1}50%,76%{transform:rotate(-94deg);opacity:.1}90%{opacity:1}}
+@keyframes kin-nosegear-retract {0%,25%,100%{transform:rotate(0);opacity:1}55%,76%{transform:rotate(90deg);opacity:.1}90%{opacity:1}}
+@keyframes kin-flap {0%,100%{transform:rotate(0)}20%,40%{transform:rotate(24deg)}65%,80%{transform:rotate(-5deg)}}
+@keyframes kin-fan-spin {to{transform:rotate(360deg)}}
+@keyframes kin-engine-ignition {0%,100%{transform:scaleY(.15);opacity:.1}18%,76%{transform:scaleY(1);opacity:1}35%,60%{transform:scaleY(.8);opacity:.8}92%{transform:scaleY(.3);opacity:.3}}
+@keyframes kin-stage-left {0%,34%,100%{transform:translate(0,0);opacity:1}62%,85%{transform:translate(-62px,45px) rotate(-8deg);opacity:0}95%{opacity:0}}
+@keyframes kin-stage-right {0%,34%,100%{transform:translate(0,0);opacity:1}62%,85%{transform:translate(62px,45px) rotate(8deg);opacity:0}95%{opacity:0}}
+@keyframes kin-fairing-release {0%,55%,100%{transform:rotate(0);opacity:1}75%,90%{transform:rotate(-35deg) translate(-14px,-10px);opacity:0}95%{opacity:0}}
+@keyframes kin-dish-align {0%,100%{transform:rotate(-13deg)}35%,70%{transform:rotate(12deg)}}
+@keyframes kin-dish-tilt {0%,100%{transform:rotate(-8deg)}45%,75%{transform:rotate(14deg)}}
+@keyframes kin-panel-unfold-left {0%,15%,100%{transform:scaleX(.08) skewY(15deg)}45%,82%{transform:scaleX(1) skewY(0)}}
+@keyframes kin-panel-unfold-right {0%,22%,100%{transform:scaleX(.08) skewY(-15deg)}52%,82%{transform:scaleX(1) skewY(0)}}
+@keyframes kin-phone-unfold {0%,12%,100%{transform:scaleX(.08) skewY(-12deg)}42%,80%{transform:scaleX(1) skewY(0)}}
+@keyframes kin-third-unfold {0%,24%,100%{transform:scaleX(.08) skewY(12deg)}55%,80%{transform:scaleX(1) skewY(0)}}
+@keyframes kin-phone-flip {0%,12%,100%{transform:translate(-90px,0) scaleY(.12)}45%,80%{transform:translate(-90px,-86px) scaleY(.5)}}
+@keyframes kin-phone-roll {0%,15%,100%{transform:scaleX(.03)}55%,80%{transform:scaleX(1)}}
+@keyframes kin-phone-slide {0%,15%,100%{transform:translateX(-88px)}45%,80%{transform:translateX(0)}}
+@keyframes kin-crystal-display {0%,10%,100%{opacity:.12}35%,82%{opacity:1}}
+@keyframes kin-edge-display {0%,100%{opacity:.15}25%,78%{opacity:1}45%{opacity:.55}}
+@keyframes kin-camera-extend {0%,100%{transform:translate(0,0)}35%,75%{transform:translate(16px,-5px)}}
+@keyframes kin-iris {0%,100%{transform:rotate(0) scale(.65)}35%,75%{transform:rotate(30deg) scale(1)}}
+@keyframes kin-lens-open {0%,100%{transform:scaleX(.35)}30%,82%{transform:scaleX(1)}}
+@keyframes kin-project-screen {0%,12%,100%{transform:scaleY(.03);opacity:0}40%,80%{transform:scaleY(1);opacity:1}}
+@keyframes kin-door-left {0%,20%,100%{transform:translateX(0)}45%,78%{transform:translateX(-25px)}}
+@keyframes kin-door-right {0%,20%,100%{transform:translateX(0)}45%,78%{transform:translateX(25px)}}
+@keyframes kin-elevator-travel {0%,15%,100%{transform:translateY(0)}50%,75%{transform:translateY(-105px)}}
+@keyframes kin-window-light {0%,12%,100%{fill:#18374c}40%,80%{fill:#e5e0a1}}
+@keyframes kin-sleeve-left {0%,100%{transform:rotate(0)}45%,75%{transform:rotate(26deg)}}
+@keyframes kin-sleeve-right {0%,100%{transform:rotate(0)}45%,75%{transform:rotate(-26deg)}}
+@keyframes kin-suit-leg {0%,100%{transform:rotate(-5deg)}50%{transform:rotate(8deg)}}
+@keyframes kin-harness-lock {0%,12%,100%{transform:scaleX(1.15)}40%,78%{transform:scaleX(1)}}
+@keyframes kin-boot-step {0%,20%,100%{transform:translateY(-25px)}50%,78%{transform:translateY(0)}}
+@keyframes kin-sole-lock {0%,35%,100%{transform:translateY(-7px)}55%,78%{transform:translateY(0)}}
+@keyframes kin-finger-bend {0%,100%{transform:scaleY(1) skewX(0)}45%,75%{transform:scaleY(.5) skewX(-12deg)}}
+@keyframes kin-thumb-bend {0%,100%{transform:rotate(0)}45%,75%{transform:rotate(-34deg)}}
+@keyframes kin-visor-open {0%,100%{transform:translateY(0) scaleY(1)}45%,75%{transform:translateY(-43px) scaleY(.8)}}
+@keyframes kin-cape-flow {from{transform:skewX(-4deg) scaleX(.95)}to{transform:skewX(5deg) scaleX(1.08)}}
+@keyframes kin-blade-extend {0%,12%,100%{transform:scaleY(.01)}35%,78%{transform:scaleY(1)}}
+@keyframes kin-laser-recoil {0%,30%,100%{transform:translateX(0)}34%{transform:translateX(-18px)}48%{transform:translateX(0)}}
+@keyframes kin-laser-pulse {0%,29%,38%,100%{opacity:0}31%,35%{opacity:1}}
+@keyframes kin-fork-open {0%,100%{transform:scaleY(.52)}35%,80%{transform:scaleY(1)}}
+@keyframes kin-cube-hover {0%,100%{transform:translateY(53px) rotate(0)}35%{transform:translateY(0) rotate(-8deg)}60%{transform:translateY(-9px) rotate(6deg)}80%{transform:translateY(0) rotate(-5deg)}}
+@keyframes kin-array-align {0%,100%{transform:skewX(-10deg) scaleX(.8)}40%,75%{transform:skewX(12deg) scaleX(1)}}
+@keyframes kin-module-open {0%,100%{transform:rotate(0)}40%,78%{transform:rotate(-25deg)}}
+@keyframes kin-claw-unfold {0%,12%,100%{transform:rotate(0) scaleY(.35)}40%,78%{transform:rotate(var(--claw-angle)) scaleY(1)}}
+@keyframes kin-shield-open {0%,15%,100%{transform:rotate(0) scaleY(.1);opacity:.2}45%,80%{transform:rotate(var(--panel-angle)) scaleY(1);opacity:1}}
+@keyframes kin-portal-open {0%,12%,100%{transform:scaleX(.03);opacity:.2}45%,80%{transform:scaleX(1);opacity:1}}
+@keyframes kin-warp-open {0%,8%,100%{transform:scaleX(.02);opacity:.2}22%,86%{transform:scaleX(1);opacity:1}}
+@keyframes kin-warp-enter {0%,20%,100%{transform:translateX(0) scaleX(1);opacity:1}33%{transform:translateX(46px) scaleX(1);opacity:1}43%{transform:translateX(63px) scaleX(.04);opacity:.4}45%,95%{transform:translateX(63px) scaleX(.04);opacity:0}97%{transform:translateX(0) scaleX(1);opacity:0}}
+@keyframes kin-warp-emerge {0%,43%,100%{transform:translateX(0) scaleX(.04);opacity:0}47%{transform:translateX(0) scaleX(.04);opacity:1}58%{transform:translateX(24px) scaleX(1);opacity:1}73%,84%{transform:translateX(76px) scaleX(1);opacity:1}92%,98%{transform:translateX(76px) scaleX(1);opacity:0}}
+@keyframes kin-warp-particle {0%,35%,67%,100%{opacity:0;transform:translateY(13px)}42%,55%{opacity:.8;transform:translateY(-8px)}}
+@keyframes kin-capsule-lid {0%,15%,100%{transform:translateY(0)}45%,80%{transform:translateY(-80px)}}
+@keyframes kin-capsule-core {0%,15%,100%{transform:translateY(0)}45%,80%{transform:translateY(-25px)}}
+@keyframes kin-food-lid {0%,10%,100%{transform:translateY(0)}30%,82%{transform:translateY(-118px)}}
+@keyframes kin-bean-expand {0%,18%,100%{transform:scale(.25)}42%,80%{transform:scale(1)}}
+@keyframes kin-nutrient-layer {0%,28%,100%{transform:translateY(0)}50%,80%{transform:translateY(calc(var(--layer-index) * -12px))}}
+@keyframes kin-biscuit-left {0%,15%,100%{transform:translateX(0) rotate(0)}38%,80%{transform:translateX(-30px) rotate(-9deg)}}
+@keyframes kin-biscuit-right {0%,15%,100%{transform:translateX(0) rotate(0)}38%,80%{transform:translateX(30px) rotate(9deg)}}
+@keyframes kin-biscuit-filling {0%,18%,100%{opacity:0}30%,80%{opacity:1}}
+@keyframes kin-biscuit-crumbs {0%,18%,100%{opacity:0;transform:translateY(-20px)}30%{opacity:1}65%,85%{opacity:0;transform:translateY(25px)}}
+@keyframes kin-food-steam {0%,30%,100%{opacity:0;transform:translateY(7px)}46%,65%{opacity:.7}82%{opacity:0;transform:translateY(-22px)}}
+@keyframes kin-jug-pour {0%,5%,100%{transform:rotate(0)}16%,34%{transform:rotate(30deg)}48%,85%{transform:rotate(0)}}
+@keyframes kin-water-pour {0%,14%,40%,100%{opacity:0}18%,35%{opacity:.85}}
+@keyframes kin-noodles-unfold {0%,30%,100%{transform:scaleY(.15)}55%,83%{transform:scaleY(1)}}
+@keyframes kin-meal-lid {0%,10%,100%{transform:translateY(0) rotate(0)}34%,82%{transform:translateY(-72px) rotate(-12deg)}}
+@keyframes kin-meal-rise {0%,24%,100%{transform:translateY(19px)}45%,80%{transform:translateY(-12px)}}
+@keyframes kin-pouch-tilt {0%,12%,100%{transform:rotate(0)}35%,78%{transform:rotate(13deg)}}
+@keyframes kin-pouch-open {0%,10%,100%{transform:translate(0,0);opacity:1}26%,80%{transform:translate(15px,-62px) rotate(8deg);opacity:.7}}
+@keyframes kin-fruit-float {0%,18%,100%{transform:translate(-90px,82px) scale(.2);opacity:0}40%,78%{transform:translate(0,0) scale(1);opacity:1}59%{transform:translate(6px,-12px) scale(1);opacity:1}}
+@keyframes kin-bead-pour {0%,22%,100%{opacity:0;transform:translate(-29px,25px)}38%{opacity:1;transform:translate(10px,-24px)}65%,83%{opacity:.9;transform:translate(40px,66px)}}
+@keyframes kin-parcel-survey {0%{stroke-dashoffset:88;opacity:.4}35%,80%{opacity:1}100%{stroke-dashoffset:0;opacity:.4}}
+@keyframes kin-survey-look {0%,100%{transform:rotate(-12deg)}30%,60%{transform:rotate(18deg)}}
+@keyframes kin-land-dome-left {0%,35%,100%{transform:translateX(0)}58%,82%{transform:translateX(-27px)}}
+@keyframes kin-land-dome-right {0%,35%,100%{transform:translateX(0)}58%,82%{transform:translateX(27px)}}
+@keyframes kin-orbital-left {0%,15%,100%{transform:scaleX(.16)}45%,82%{transform:scaleX(1)}}
+@keyframes kin-orbital-right {0%,23%,100%{transform:scaleX(.16)}53%,82%{transform:scaleX(1)}}
+@keyframes kin-mattress-rise {0%,12%,100%{transform:translateY(0) rotate(0)}35%,80%{transform:translateY(-32px) rotate(-2deg)}57%{transform:translateY(-40px) rotate(1deg)}}
+@keyframes kin-desk-leg {0%,22%,100%{transform:scaleY(.16)}45%,82%{transform:scaleY(1)}}
+@keyframes kin-desk-left {0%,10%,100%{transform:scaleX(.06) skewY(28deg)}32%,82%{transform:scaleX(1) skewY(0)}}
+@keyframes kin-desk-right {0%,16%,100%{transform:scaleX(.06) skewY(-28deg)}38%,82%{transform:scaleX(1) skewY(0)}}
+@keyframes kin-tv-lens {0%,100%{transform:translateY(0)}20%,84%{transform:translateY(-9px)}}
+@keyframes kin-tv-project {0%,10%,100%{transform:scaleY(.02) scaleX(.3);opacity:0}35%,82%{transform:scaleY(1) scaleX(1);opacity:1}60%{transform:scaleY(1) scaleX(.94) skewY(2deg);opacity:1}}
+@keyframes kin-oven-left {0%,38%,100%{transform:rotate(0)}12%,30%{transform:rotate(16deg)}21%{transform:rotate(-9deg)}}
+@keyframes kin-oven-right {0%,38%,100%{transform:rotate(0)}12%,30%{transform:rotate(-16deg)}21%{transform:rotate(9deg)}}
+@keyframes kin-oven-door {0%,36%,100%{transform:translateX(0)}51%,83%{transform:translateX(-105px)}}
+@keyframes kin-oven-serve {0%,48%,100%{transform:translate(0,0)}66%,80%{transform:translate(78px,48px)}}
+@keyframes kin-hanger-slide {0%,25%,100%{transform:translateX(0)}48%,78%{transform:translateX(48px)}}
+@keyframes kin-wardrobe-fold-left {0%,30%,100%{transform:rotate(0)}46%,68%{transform:rotate(-22deg)}56%{transform:rotate(-8deg)}}
+@keyframes kin-wardrobe-fold-right {0%,30%,100%{transform:rotate(0)}46%,68%{transform:rotate(22deg)}56%{transform:rotate(8deg)}}
+@keyframes kin-sweater-fold {0%,30%,100%{transform:scaleX(1.55)}50%,78%{transform:scaleX(1)}}
+@keyframes kin-wardrobe-door-left {0%,10%,100%{transform:translateX(0);opacity:1}27%,83%{transform:translateX(-58px);opacity:.55}}
+@keyframes kin-wardrobe-door-right {0%,10%,100%{transform:translateX(0);opacity:1}27%,83%{transform:translateX(58px);opacity:.55}}
+@keyframes kin-sofa-recline {0%,12%,100%{transform:rotate(0)}45%,80%{transform:rotate(-24deg)}}
+@keyframes kin-sofa-footrest {0%,15%,100%{transform:rotate(67deg)}48%,80%{transform:rotate(0)}}
+@keyframes kin-shower-door {0%,13%,95%,100%{transform:translateX(-31px) scaleX(.35)}30%,82%{transform:translateX(0) scaleX(1)}}
+@keyframes kin-shower-nozzles {0%,30%,85%,100%{transform:scaleX(1)}48%{transform:scaleX(.82)}65%{transform:scaleX(1.1)}}
+@keyframes kin-shower-mist {0%,35%,82%,100%{opacity:0;transform:translateY(0)}44%,68%{opacity:.8;transform:translateY(12px)}55%,77%{opacity:.2;transform:translateY(25px)}}
+@keyframes kin-garden-dome {0%,10%,100%{transform:rotate(0)}28%,83%{transform:rotate(-28deg) translateY(-10px)}}
+@keyframes kin-garden-water {0%,28%,100%{transform:rotate(-12deg)}42%{transform:rotate(10deg)}63%,80%{transform:rotate(29deg)}}
+@keyframes kin-garden-drops {0%,32%,84%,100%{opacity:0;transform:translateY(0)}43%,66%{opacity:.9;transform:translateY(5px)}55%,77%{opacity:.2;transform:translateY(13px)}}
+@keyframes kin-garden-light {0%,100%{transform:rotate(-9deg)}45%,80%{transform:rotate(12deg)}}
+
+.is-paused .kin-scene *, .is-paused .kin-scene *::before, .is-paused .kin-scene *::after { animation-play-state: paused !important; }
+@media (max-width: 600px) { .kin-scene { inset:32px -5% 24px; width:110%; height:calc(100% - 56px); } }
+@media (prefers-reduced-motion: reduce) {
+  .kin-scene *, .kin-scene *::before, .kin-scene *::after { animation:none !important; transition:none !important; }
+  .kin-dirt { opacity:.25; }.kin-holo-screen,.kin-light-blade,.kin-shield-panel { opacity:1; }
+  .kin-warp-crate-in { opacity:0; }
+  .kin-warp-crate-out { opacity:1; transform:translateX(76px); }
+  .kin-living-mattress { transform:translateY(-32px); }
+  .kin-oven-door { transform:translateX(-105px); }
+  .kin-oven-meal { transform:translate(78px,48px); }
+  .kin-wardrobe-door-left { transform:translateX(-58px); }
+  .kin-wardrobe-door-right { transform:translateX(58px); }
+  .kin-garden-dome { transform:rotate(-28deg) translateY(-10px); }
+}

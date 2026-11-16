@@ -1,0 +1,129 @@
+.landing-wrapper {
+  width: min(1200px, calc(100% - 80px));
+  margin: 0 auto;
+}
+.landing-page h1,
+.landing-page h2 {
+  font-size: 40px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  font-weight: 700;
+}
+.landing-banner {
+  min-height: 540px;
+  display: flex;
+  align-items: center;
+  background-color: #cfe5ff;
+  background-repeat: no-repeat;
+  background-position: 80% bottom;
+  background-size: 55%;
+}
+.landing-hero {
+  background-image: url("../../images/home/hero-image.png");
+}
+.landing-bottom {
+  background-image: url("../../images/home/bottom-banner-image.png");
+}
+.landing-pill {
+  margin-top: 32px;
+  border-radius: 999px;
+  padding: 16px 124px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.landing-features {
+  padding-bottom: 138px;
+}
+.landing-feature {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+  padding: 138px 0;
+}
+.landing-feature > img {
+  width: 50%;
+}
+.landing-feature__content {
+  flex: 1;
+}
+.landing-feature--reverse {
+  flex-direction: row-reverse;
+  text-align: right;
+}
+.landing-feature__tag {
+  color: #3692ff;
+  font-size: 18px;
+  line-height: 25px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+.landing-feature__description {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  margin-top: 24px;
+}
+
+@media (width < 1200px) {
+  .landing-banner {
+    min-height: 700px;
+    align-items: flex-start;
+    padding-top: 72px;
+    text-align: center;
+    background-size: min(745px, 95%);
+    background-position: center bottom;
+  }
+  .landing-feature {
+    padding: 80px 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+  }
+  .landing-feature > img {
+    width: 100%;
+  }
+  .landing-feature--reverse {
+    align-items: flex-end;
+  }
+  .landing-features {
+    padding-bottom: 80px;
+  }
+}
+
+@media (width < 744px) {
+  .landing-wrapper {
+    width: calc(100% - 32px);
+  }
+  .landing-page h1,
+  .landing-page h2 {
+    font-size: 32px;
+    line-height: 1.4;
+  }
+  .landing-banner {
+    min-height: 540px;
+    padding-top: 48px;
+    background-size: auto 230px;
+  }
+  .landing-pill {
+    max-width: 100%;
+    padding: 14px 72px;
+    margin-top: 24px;
+    font-size: 18px;
+  }
+  .landing-feature {
+    padding: 48px 0;
+    gap: 24px;
+  }
+  .landing-feature__tag {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  .landing-feature__description {
+    font-size: 18px;
+    margin-top: 16px;
+  }
+  .landing-features {
+    padding-bottom: 48px;
+  }
+}
