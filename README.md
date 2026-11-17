@@ -10,7 +10,7 @@ Node.js 20.19 이상(또는 22.12 이상)이 필요합니다.
 
 ```bash
 npm install
-cp .env.example .env    # VITE_API_BASE_URL=http://localhost:3000 (또는 render 주소)
+cp .env.example .env    # VITE_API_URL=http://localhost:3000 (또는 render 주소)
 npm run dev             # → http://localhost:5173
 ```
 
@@ -35,9 +35,9 @@ npm run dev             # → http://localhost:5173
 
 ```
 ├── index.html
-├── .env.example             # VITE_API_BASE_URL (백엔드 주소)
+├── .env.example             # VITE_API_URL (백엔드 주소)
 ├── public/
-│   ├── _redirects           # Netlify 배포 시 /items 같은 주소로 새로고침해도 404가 안 나게
+│   ├── _redirects           # Netlify용 새로고침 404 방지 (render는 Rewrite 규칙으로 처리)
 │   └── images/              # 로고, 아이콘, 기본 상품 이미지, home/(랜딩), social/(간편 로그인)
 ├── src/
 │   ├── main.jsx
