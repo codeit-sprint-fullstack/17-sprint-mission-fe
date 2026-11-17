@@ -68,6 +68,7 @@
 .
 ├── index.html
 ├── package.json
+├── .env.example           # 필요한 환경 변수 예시
 ├── vite.config.js
 └── src/
     ├── main.jsx
@@ -101,6 +102,7 @@ Node.js가 필요합니다.
 ```bash
 # 프로젝트 폴더에서
 npm install
+cp .env.example .env   # API 주소 설정 (VITE_BASE_URL)
 npm run dev        # 개발 서버
 npm run build      # 빌드
 npm run lint       # 린트
