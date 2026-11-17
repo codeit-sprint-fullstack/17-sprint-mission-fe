@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useDeviceType from '../hooks/useDeviceType.js';
 import useProducts from '../hooks/useProducts.js';
 import { ALL_PAGE_SIZE } from '../utils/constants.js';
@@ -49,9 +50,9 @@ function AllProducts() {
         <div className="all-products__search">
           <SearchBar onSearch={handleSearch} />
         </div>
-        <a href="/registration" className="all-products__register">
+        <Link to="/registration" className="all-products__register">
           상품 등록하기
-        </a>
+        </Link>
         <div className="all-products__sort">
           <SortDropdown value={orderBy} onChange={handleOrderChange} />
         </div>

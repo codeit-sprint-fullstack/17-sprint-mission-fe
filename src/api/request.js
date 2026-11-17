@@ -16,7 +16,6 @@ export async function request(config) {
     const error = new Error(
       `요청 실패${status ? ` (상태 코드: ${status})` : ''} ${serverMessage}`
     );
-
     error.status = status;
     error.data = err.response?.data;
     throw error;
