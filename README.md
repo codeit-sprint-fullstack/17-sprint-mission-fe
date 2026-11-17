@@ -37,7 +37,7 @@ React 프론트엔드와 Express/MongoDB 백엔드를 별도 폴더와 배포 �
 ## 프론트엔드
 
 - `/`: 랜딩 페이지
-- `/items`: 판매 중인 상품 목록, 검색, 최신순 정렬, offset 페이지네이션
+- `/items`: 판매 중인 상품 목록, 검색, 최신순·좋아요순 정렬, offset 페이지네이션
 - `/registration`: 상품 등록, 입력 검증, 태그 칩
 - `/items/:id`: 상품 상세 빈 페이지
 - 상품 이미지가 없으면 프론트엔드의 기본 이미지를 보여줍니다.
@@ -46,7 +46,7 @@ React 프론트엔드와 Express/MongoDB 백엔드를 별도 폴더와 배포 �
 
 | 메서드 | 경로 | 기능 |
 | --- | --- | --- |
-| `GET` | `/api/products?offset=0&limit=10&orderBy=recent&keyword=` | 목록, 최신순, 이름·소개 검색, offset 페이지네이션 |
+| `GET` | `/api/products?offset=0&limit=10&orderBy=recent&keyword=` | 목록, `recent` 또는 `favorite` 정렬, 이름·소개 검색, offset 페이지네이션 |
 | `POST` | `/api/products` | 상품 생성 |
 | `GET` | `/api/products/:id` | 상품 상세 조회 |
 | `PATCH` | `/api/products/:id` | 상품 수정 |

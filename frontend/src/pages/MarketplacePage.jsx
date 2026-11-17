@@ -21,7 +21,8 @@ export function MarketplacePage() {
   const [searchInput, setSearchInput] = useState("");
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
-  const { products, totalCount, loading, error } = useProducts({ page, pageSize: productPageSize, keyword });
+  const [orderBy, setOrderBy] = useState("recent");
+  const { products, totalCount, loading, error } = useProducts({ page, pageSize: productPageSize, keyword, orderBy });
   const totalPages = Math.max(1, Math.ceil(totalCount / productPageSize));
 
   function submitSearch(event) {
@@ -51,8 +52,9 @@ export function MarketplacePage() {
                   </svg>
                 </span>
                 <label className="visually-hidden" htmlFor="product-order">상품 정렬</label>
-                <select id="product-order" defaultValue="recent" aria-label="상품 정렬">
+                <select id="product-order" value={orderBy} onChange={(event) => { setOrderBy(event.target.value); setPage(1); }} aria-label="상품 정렬">
                   <option value="recent">최신순</option>
+                  <option value="favorite">좋아요순</option>
                 </select>
               </div>
             </div>

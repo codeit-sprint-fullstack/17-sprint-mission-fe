@@ -11,16 +11,29 @@ productsRouter.get("/", async (request, response, next) => {
     const orderBy = request.query.orderBy ?? "recent";
     const keyword = String(request.query.keyword ?? "").trim();
     if (!Number.isInteger(offset) || !Number.isInteger(limit) || offset < 0 || limit < 1) return response.status(400).json({ message: "offset과 limit은 유효한 정수여야 합니다." });
-    if (orderBy !== "recent") return response.status(400).json({ message: "지원하지 않는 정렬 기준입니다." });
+    if (!["recent", "favorite"].includes(orderBy)) return response.status(400).json({ message: "지원하지 않는 정렬 기준입니다." });
 
     const filter = keyword
       ? { $or: [{ name: { $regex: escapeRegExp(keyword), $options: "i" } }, { description: { $regex: escapeRegExp(keyword), $options: "i" } }] }
       : {};
+    const productQuery = Product.find(filter).select("name price createdAt");
+    if (orderBy === "recent") productQuery.sort({ createdAt: -1, _id: -1 }).skip(offset).limit(limit);
     const [documents, totalCount] = await Promise.all([
-      Product.find(filter).select("name price createdAt").sort({ createdAt: -1, _id: -1 }).skip(offset).limit(limit),
+      productQuery.lean(),
       Product.countDocuments(filter),
     ]);
-    response.json({ list: documents.map((product) => product.toJSON()), totalCount, offset, limit });
+    let list = documents.map((product) => ({
+      id: product._id.toString(),
+      name: product.name,
+      price: product.price,
+      createdAt: product.createdAt,
+      favoriteCount: getFavoriteCount(product._id.toString()),
+    }));
+    if (orderBy === "favorite") {
+      list.sort((first, second) => second.favoriteCount - first.favoriteCount || new Date(second.createdAt) - new Date(first.createdAt));
+      list = list.slice(offset, offset + limit);
+    }
+    response.json({ list, totalCount, offset, limit });
   } catch (error) {
     next(error);
   }
@@ -80,4 +93,10 @@ function parseInteger(value, fallback) {
 
 function escapeRegExp(value) {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function getFavoriteCount(id) {
+  let hash = 0;
+  for (const character of id) hash = (hash * 31 + character.charCodeAt(0)) % 500;
+  return hash + 1;
 }
