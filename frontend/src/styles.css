@@ -91,7 +91,7 @@ button, select { cursor: pointer; }
 .product-name { grid-column: 1 / -1; overflow: hidden; color: #374151; font-size: 15px; line-height: 1.45; font-weight: 550; text-overflow: ellipsis; white-space: nowrap; }
 .product-name:hover { color: var(--blue); }
 .product-price { color: #111827; font-size: 17px; line-height: 1.4; font-weight: 750; letter-spacing: -0.02em; }
-.favorite-button { display: inline-flex; justify-self: end; align-items: center; gap: 4px; padding: 0; border: 0; color: #6b7280; background: transparent; font: inherit; font-size: 13px; line-height: 1.7; white-space: nowrap; cursor: pointer; }
+.favorite-button { grid-column: 1 / -1; display: inline-flex; justify-self: start; align-items: center; gap: 4px; padding: 0; border: 0; color: #6b7280; background: transparent; font: inherit; font-size: 13px; line-height: 1.7; white-space: nowrap; cursor: pointer; }
 .favorite-button svg { width: 17px; height: 17px; fill: transparent; stroke: currentColor; stroke-width: 1.5; }
 .favorite-button.liked { color: #ef4444; }
 .favorite-button.liked svg { fill: currentColor; }
