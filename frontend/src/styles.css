@@ -97,8 +97,8 @@ button, select { cursor: pointer; }
 .favorite-button.liked svg { fill: currentColor; }
 .state-message { grid-column: 1 / -1; min-height: 120px; margin: 0; display: grid; place-items: center; color: var(--muted); font-size: 15px; }
 .error-message { color: #dc2626; }
-.pagination { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 44px; }
-.pagination button { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 10px; color: #4b5563; background: #fff; font-size: 14px; }
+.pagination { display: flex; align-items: center; justify-content: center; gap: 4px; margin-top: 44px; }
+.pagination button { width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; color: #6b7280; background: #fff; font-size: 14px; }
 .pagination button:hover:not(:disabled), .pagination button.current { border-color: var(--blue); color: #fff; background: var(--blue); }
 .pagination button:disabled { cursor: not-allowed; color: #cbd5e1; background: #f9fafb; }
 .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
@@ -219,7 +219,7 @@ button, select { cursor: pointer; }
   .favorite-button { gap: 3px; font-size: 11px; }
   .favorite-button svg { width: 15px; height: 15px; }
   .pagination { gap: 5px; margin-top: 30px; }
-  .pagination button { width: 34px; height: 34px; border-radius: 8px; }
+  .pagination button { width: 40px; height: 40px; border-radius: 50%; }
   .site-footer { min-height: 132px; }
   .footer-inner { min-height: 132px; grid-template-columns: 1fr auto; grid-template-rows: auto auto; gap: 14px; padding: 22px 0; }
   .footer-links { grid-column: 1; grid-row: 1; gap: 24px; font-size: 13px; }
