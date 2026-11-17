@@ -141,7 +141,8 @@ button, select { cursor: pointer; }
 .registration-form { display: grid; gap: 18px; }
 .registration-field > label { display: block; margin-bottom: 10px; color: #374151; font-size: 16px; font-weight: 700; }
 .registration-control { position: relative; }
-.registration-control input, .registration-control textarea, .tag-field { width: 100%; min-height: 56px; padding: 15px 16px; border: 1px solid #e5e7eb; border-radius: 8px; outline: 0; color: var(--ink); background: #F3F4F6; font-size: 16px; }
+.registration-control input, .registration-control textarea, .tag-field { width: 100%; min-height: 56px; padding: 15px 16px; border: 1px solid #e5e7eb; border-radius: 8px; outline: 0; color: var(--ink); background-color: #F3F4F6; font-size: 16px; }
+.registration-control input:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px #F3F4F6 inset; -webkit-text-fill-color: var(--ink); }
 .registration-control textarea { display: block; min-height: 282px; resize: vertical; }
 .registration-control input:focus, .registration-control textarea:focus { border-color: var(--blue); }
 .registration-control input[aria-invalid="true"], .registration-control textarea[aria-invalid="true"] { border-color: #ef4444; }
