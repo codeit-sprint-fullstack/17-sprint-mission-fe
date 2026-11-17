@@ -95,7 +95,7 @@ export function RegistrationPage() {
           error={touched.tags ? tagError || errors.tags : ""}
           afterError={values.tags.length > 0 ? (
             <div className="tag-list" aria-label="추가한 태그">
-              {values.tags.map((tag) => <button className="tag-chip" type="button" key={tag} onClick={() => removeTag(tag)} aria-label={`${tag} 태그 삭제`}>#{tag}<span aria-hidden="true">×</span></button>)}
+              {values.tags.map((tag) => <button className="tag-chip" type="button" key={tag} onClick={() => removeTag(tag)} aria-label={`${tag} 태그 삭제`}>#{tag}<span aria-hidden="true"><svg viewBox="0 0 12 12"><path d="m3 3 6 6M9 3 3 9" /></svg></span></button>)}
             </div>
           ) : null}
         >
