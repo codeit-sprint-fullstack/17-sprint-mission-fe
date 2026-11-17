@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 const socialLinks = [
   ["Facebook", "/images/ic-facebook.svg", "https://www.facebook.com/"],
   ["Twitter", "/images/ic-twitter.svg", "https://twitter.com/"],
@@ -7,7 +5,7 @@ const socialLinks = [
   ["Instagram", "/images/ic-instagram.svg", "https://www.instagram.com/"],
 ];
 
-export function Header() {
+export function Header({ active = "" }) {
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -18,7 +16,7 @@ export function Header() {
           </a>
           <nav className="primary-nav" aria-label="주요 메뉴">
             <a href="/articles">자유게시판</a>
-            <a href="/" aria-current="page">중고마켓</a>
+            <a href="/items" className={active === "items" ? "active" : ""} aria-current={active === "items" ? "page" : undefined}>중고마켓</a>
           </nav>
         </div>
         <a className="login-button" href="/login">로그인</a>
@@ -49,21 +47,14 @@ export function Footer() {
 }
 
 export function ProductCard({ product }) {
-  const [imageFailed, setImageFailed] = useState(false);
-  const image = product.images?.[0];
   return (
     <article className="product-card">
-      <a className="product-image" href={`/products/${product.id}`} aria-label={`${product.name} 상세 보기`}>
-        {image && !imageFailed ? (
-          <img src={image} alt={product.name} loading="lazy" onError={() => setImageFailed(true)} />
-        ) : (
-          <span className="image-placeholder" aria-hidden="true">🐼</span>
-        )}
+      <a className="product-image" href={`/items/${product.id}`} aria-label={`${product.name} 상세 보기`}>
+        <img src="/images/판다 얼굴.svg" alt="" loading="lazy" />
       </a>
       <div className="product-info">
-        <a className="product-name" href={`/products/${product.id}`}>{product.name}</a>
+        <a className="product-name" href={`/items/${product.id}`}>{product.name}</a>
         <strong className="product-price">{Number(product.price).toLocaleString("ko-KR")}원</strong>
-        <span className="favorite-count"><span aria-hidden="true">♡</span> {product.favoriteCount}</span>
       </div>
     </article>
   );

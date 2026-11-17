@@ -1,83 +1,67 @@
-# 🐼 판다마켓 프로젝트
+# 판다마켓 · 스프린트 미션 5
 
-> _이 저장소는 판다마켓 프로젝트의 프론트엔드 코드를 관리합니다. 프로젝트를 클론하여 개발 환경을 설정하고, 각 브랜치에서 스프린트 미션을 수행해 주세요!_ 🛠️
+React 기반 판다마켓 프론트엔드와 Express/MongoDB 상품 API입니다.
 
-## 소개
+## 기능
 
-안녕하세요! 판다마켓 프로젝트에 오신 것을 환영합니다! 🥳
+- 랜딩 페이지: `/`
+- 중고마켓 페이지: `/items` — 서버 상품 목록, 이름·소개 검색, offset 페이지네이션, 기본 상품 이미지
+- 상품 등록 페이지: `/registration` — 필드 유효성 검사, Enter 키 태그 칩, 등록 성공 후 상세 경로 이동
+- 상품 상세 경로: `/items/:id` — 미션 요구사항에 따라 빈 화면
+- API: 상품 생성·상세 조회·수정·삭제·목록 조회, 최근 등록순, 이름·소개 검색
 
-판다마켓은 따뜻한 중고거래를 위한 커뮤니티 플랫폼이에요. 상품을 등록하고, 다른 사용자와 소통하며, 자유게시판에서 정보를 나눌 수 있습니다. 스프린트 미션을 통해 배운 내용을 프로젝트에 적용하고 코드 리뷰를 받으며 성장해 나갑니다. 🚀
+## 로컬 실행
 
-![판다마켓 프로젝트 대표 이미지](https://github.com/user-attachments/assets/3784b99f-73c9-4349-a9a9-92b2a7563574)
+Node.js와 MongoDB가 필요합니다.
 
-_위 이미지는 판다마켓의 대표 이미지입니다._ 📸
+1. 의존성을 설치합니다.
 
-## 스프린트 미션이란?
+   ```bash
+   npm install
+   ```
 
-스프린트 미션은 하나의 개인 프로젝트를 이어서 진행하면서 주기적으로 피드백을 받는 과제입니다. 각 미션에서 배운 이론을 적용하고, 멘토님의 코드 리뷰를 통해 개발 역량을 키워갑니다. 💪
+2. `.env.example`을 `.env`로 복사한 뒤 `MONGODB_URI`를 로컬 MongoDB 주소 또는 MongoDB Atlas 연결 주소로 설정합니다.
 
-## 판다마켓의 주요 기능
+3. 프론트엔드와 API 서버를 함께 실행합니다.
 
-1. **상품 등록**: 물건과 사진, 설명을 등록해 판매할 수 있습니다.
-2. **문의 댓글**: 상품에 대한 질문과 의견을 나눌 수 있습니다.
-3. **자유게시판**: 다양한 주제로 소통하고 정보를 공유할 수 있습니다. 🗣️
+   ```bash
+   npm run dev
+   ```
 
-## 현재 미션: 중고마켓 페이지
+   Vite는 `http://localhost:5173`, Express API는 `http://localhost:3001`에서 실행됩니다.
 
-React와 Vite로 구현한 반응형 중고마켓 페이지입니다. Panda Market Product API에서 베스트 상품과 전체 상품을 불러옵니다.
+## 환경 변수
 
-- 베스트 상품은 좋아요 순으로 조회합니다.
-- 전체 상품을 최신 순 또는 좋아요 순으로 정렬할 수 있습니다.
-- 상품명 검색과 페이지네이션을 제공합니다.
-- 화면 크기에 따라 카드 열 수와 API 요청 `pageSize`를 조정합니다.
-- 상품 로딩, 오류, 검색 결과 없음 상태를 표시합니다.
-- 공통 헤더와 푸터를 사용합니다.
+| 이름 | 설명 | 기본값 |
+| --- | --- | --- |
+| `MONGODB_URI` | MongoDB 연결 문자열 | 없음 (필수) |
+| `PORT` | Express 포트 | `3001` |
+| `CLIENT_ORIGIN` | 허용할 프론트엔드 origin. 여러 주소는 쉼표로 구분 | `http://localhost:5173` |
 
-## 반응형 기준
+## Product API
 
-| 화면 | 베스트 상품 | 전체 상품 | 요청 `pageSize` (베스트 / 전체) |
-| --- | ---: | ---: | ---: |
-| Desktop (1200px 이상) | 4열 | 5열 | 4 / 10 |
-| Tablet (744px–1199px) | 2열 | 3열 | 2 / 6 |
-| Mobile (743px 이하) | 1열 | 2열 | 1 / 6 |
+| 메서드 | 경로 | 설명 |
+| --- | --- | --- |
+| `GET` | `/api/products?offset=0&limit=10&orderBy=recent&keyword=` | 상품 목록 및 검색 |
+| `POST` | `/api/products` | 상품 등록 |
+| `GET` | `/api/products/:id` | 상품 상세 조회 |
+| `PATCH` | `/api/products/:id` | 상품 수정 |
+| `DELETE` | `/api/products/:id` | 상품 삭제 |
+| `GET` | `/api/health` | 서버 상태 확인 |
 
-## 기술 스택
+상품 등록 본문 예시:
 
-- React, Vite
-- JavaScript, CSS
-- Fetch API
-- Panda Market Product API: `https://panda-market-api.vercel.app`
-
-## 시작하기
-
-Node.js가 설치되어 있어야 합니다.
-
-```bash
-npm install
-npm run dev
+```json
+{
+  "name": "판다 인형",
+  "description": "깨끗하게 사용한 판다 인형입니다.",
+  "price": 12000,
+  "tags": ["인형", "판다"]
+}
 ```
 
-개발 서버 주소는 터미널에 표시됩니다. `npm run dev`는 기본 브라우저도 엽니다.
+목록 API는 `{ "list": [], "totalCount": 0, "offset": 0, "limit": 10 }` 형태로 응답합니다.
 
-## 빌드 및 미리보기
+## 배포
 
-```bash
-npm run build
-npm run preview
-```
-
-빌드 결과물은 `dist` 폴더에 생성됩니다.
-
-## 프로젝트 구조
-
-```text
-.
-├── public/                 # 정적 이미지와 폰트
-├── src/
-│   ├── components/         # 헤더, 푸터, 상품 카드
-│   ├── hooks/              # 상품 조회 및 화면 크기 커스텀 훅
-│   ├── App.jsx             # 마켓 페이지와 검색·정렬·페이지네이션
-│   └── styles.css          # 공통 및 반응형 스타일
-├── index.html
-└── package.json
-```
+Render Web Service의 Build Command는 `npm install && npm run build`, Start Command는 `npm start`로 설정합니다. Render 환경 변수에 MongoDB Atlas의 `MONGODB_URI`, 공개 프론트엔드 origin인 `CLIENT_ORIGIN`, 필요하면 `NODE_ENV=production`을 등록합니다.

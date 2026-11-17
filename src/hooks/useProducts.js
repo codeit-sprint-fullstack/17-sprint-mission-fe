@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
 
-const API_BASE_URL = "https://panda-market-api.vercel.app";
-
 export function useProducts({ page, pageSize, keyword = "", orderBy = "recent" }) {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -11,8 +9,8 @@ export function useProducts({ page, pageSize, keyword = "", orderBy = "recent" }
   useEffect(() => {
     const controller = new AbortController();
     const params = new URLSearchParams({
-      page: String(page),
-      pageSize: String(pageSize),
+      offset: String((page - 1) * pageSize),
+      limit: String(pageSize),
       orderBy,
       ...(keyword ? { keyword } : {}),
     });
@@ -21,7 +19,7 @@ export function useProducts({ page, pageSize, keyword = "", orderBy = "recent" }
       setLoading(true);
       setError("");
       try {
-        const response = await fetch(`${API_BASE_URL}/products?${params}`, {
+        const response = await fetch(`/api/products?${params}`, {
           signal: controller.signal,
         });
         if (!response.ok) {
