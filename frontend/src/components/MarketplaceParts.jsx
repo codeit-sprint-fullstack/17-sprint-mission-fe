@@ -50,7 +50,7 @@ export function ProductCard({ product }) {
   return (
     <article className="product-card">
       <a className="product-image" href={`/items/${product.id}`} aria-label={`${product.name} 상세 보기`}>
-        <img src="/images/판다 얼굴.svg" alt="" loading="lazy" />
+        <img src="/images/product-placeholder.svg" alt="" loading="lazy" />
       </a>
       <div className="product-info">
         <a className="product-name" href={`/items/${product.id}`}>{product.name}</a>

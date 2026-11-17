@@ -1,28 +1,15 @@
 {
   "name": "panda-market-mission5",
   "private": true,
-  "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -k \"npm:server:dev\" \"npm:vite\"",
-    "vite": "vite --open",
-    "server:dev": "node --watch server/index.js",
-    "start": "node server/index.js",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "@vitejs/plugin-react": "latest",
-    "cors": "^2.8.6",
-    "dotenv": "^18.0.10",
-    "express": "^5.3.0",
-    "mongoose": "^9.12.2",
-    "react": "latest",
-    "react-dom": "latest",
-    "react-router-dom": "^7.18.5",
-    "vite": "latest"
+    "setup": "npm install && npm install --prefix frontend && npm install --prefix backend",
+    "dev": "concurrently -k \"npm --prefix backend run dev\" \"wait-on --timeout 30000 tcp:3001 && npm --prefix frontend run dev\"",
+    "build:frontend": "npm --prefix frontend run build",
+    "start:backend": "npm --prefix backend start"
   },
   "devDependencies": {
-    "concurrently": "^10.0.7"
+    "concurrently": "^10.0.7",
+    "wait-on": "^9.0.3"
   }
 }

@@ -34,7 +34,7 @@ export function MarketplacePage() {
     <main className="marketplace-main">
       <section className="section all-section" aria-labelledby="items-title">
         <div className="section-heading all-heading">
-          <h1 id="items-title">중고마켓</h1>
+          <h1 id="items-title">판매 중인 상품</h1>
           <div className="catalog-controls">
             <form className="search-form" onSubmit={submitSearch} role="search">
               <label className="visually-hidden" htmlFor="product-search">상품 검색</label>
@@ -43,6 +43,10 @@ export function MarketplacePage() {
               <button className="visually-hidden" type="submit">검색</button>
             </form>
             <a className="register-button register-button-inline" href="/registration">상품 등록하기</a>
+            <label className="visually-hidden" htmlFor="product-order">상품 정렬</label>
+            <select id="product-order" value="recent" disabled>
+              <option value="recent">최신순</option>
+            </select>
           </div>
         </div>
         {loading ? <p className="state-message" role="status">상품을 불러오는 중입니다.</p> : null}

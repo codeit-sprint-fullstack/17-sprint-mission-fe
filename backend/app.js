@@ -1,12 +1,8 @@
 import cors from "cors";
 import express from "express";
-import path from "node:path";
-import { fileURLToPath } from "node:url";
 import { productsRouter } from "./routes/products.js";
 
 const app = express();
-const currentDirectory = path.dirname(fileURLToPath(import.meta.url));
-const projectDirectory = path.resolve(currentDirectory, "..");
 
 const allowedOrigins = (process.env.CLIENT_ORIGIN ?? "http://localhost:5173")
   .split(",")
@@ -16,12 +12,6 @@ app.use(cors({ origin: allowedOrigins }));
 app.use(express.json({ limit: "1mb" }));
 app.use("/api/products", productsRouter);
 app.get("/api/health", (_request, response) => response.json({ status: "ok" }));
-
-if (process.env.NODE_ENV === "production") {
-  const distDirectory = path.join(projectDirectory, "dist");
-  app.use(express.static(distDirectory));
-  app.get(/^(?!\/api).*/, (_request, response) => response.sendFile(path.join(distDirectory, "index.html")));
-}
 
 app.use((_request, response) => response.status(404).json({ message: "요청한 경로를 찾을 수 없습니다." }));
 

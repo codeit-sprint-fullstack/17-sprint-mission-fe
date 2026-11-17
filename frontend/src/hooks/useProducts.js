@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "");
+
 export function useProducts({ page, pageSize, keyword = "", orderBy = "recent" }) {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
@@ -19,7 +21,7 @@ export function useProducts({ page, pageSize, keyword = "", orderBy = "recent" }
       setLoading(true);
       setError("");
       try {
-        const response = await fetch(`/api/products?${params}`, {
+        const response = await fetch(`${API_BASE_URL}/api/products?${params}`, {
           signal: controller.signal,
         });
         if (!response.ok) {

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useRegistrationValidation } from "../hooks/useRegistrationValidation.js";
 
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "");
 const initialValues = { name: "", description: "", price: "", tags: [] };
 
 export function RegistrationPage() {
@@ -46,7 +47,7 @@ export function RegistrationPage() {
     setSubmitting(true);
     setRequestError("");
     try {
-      const response = await fetch("/api/products", {
+      const response = await fetch(`${API_BASE_URL}/api/products`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ ...values, price: Number(values.price) }),
@@ -63,11 +64,11 @@ export function RegistrationPage() {
 
   return (
     <main className="registration-main">
-      <div className="registration-heading">
-        <a href="/items" className="back-link" aria-label="중고마켓으로 돌아가기">←</a>
-        <h1>상품 등록하기</h1>
-      </div>
       <form className="registration-form" onSubmit={submit} noValidate>
+        <div className="registration-heading">
+          <h1>상품 등록하기</h1>
+          <button className="submit-registration" type="submit" disabled={!isValid || submitting}>{submitting ? "등록 중..." : "등록"}</button>
+        </div>
         <Field label="상품명" error={touched.name ? errors.name : ""}>
           <input name="name" value={values.name} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, name: true }))} maxLength={10} placeholder="상품명을 입력해 주세요" aria-invalid={Boolean(touched.name && errors.name)} />
         </Field>
@@ -88,7 +89,6 @@ export function RegistrationPage() {
           </div>
         </Field>
         {requestError ? <p className="request-error" role="alert">{requestError}</p> : null}
-        <button className="submit-registration" type="submit" disabled={!isValid || submitting}>{submitting ? "등록 중..." : "등록하기"}</button>
       </form>
     </main>
   );
