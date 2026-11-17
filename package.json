@@ -5,6 +5,7 @@
   "scripts": {
     "setup": "npm install && npm install --prefix frontend && npm install --prefix backend",
     "dev": "concurrently -k \"npm --prefix backend run dev\" \"wait-on --timeout 30000 tcp:3001 && npm --prefix frontend run dev\"",
+    "seed": "npm --prefix backend run seed",
     "build:frontend": "npm --prefix frontend run build",
     "start:backend": "npm --prefix backend start"
   },
