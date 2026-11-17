@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ProductCard } from "../components/MarketplaceParts.jsx";
 import { useMarketplaceLayout } from "../hooks/useMarketplaceLayout.js";
 import { useProducts } from "../hooks/useProducts.js";
@@ -22,8 +22,26 @@ export function MarketplacePage() {
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
   const [orderBy, setOrderBy] = useState("recent");
+  const [sortOpen, setSortOpen] = useState(false);
+  const sortControlRef = useRef(null);
   const { products, totalCount, loading, error } = useProducts({ page, pageSize: productPageSize, keyword, orderBy });
   const totalPages = Math.max(1, Math.ceil(totalCount / productPageSize));
+
+  useEffect(() => {
+    if (!sortOpen) return undefined;
+    function closeOnOutsideClick(event) {
+      if (!sortControlRef.current?.contains(event.target)) setSortOpen(false);
+    }
+    function closeOnEscape(event) {
+      if (event.key === "Escape") setSortOpen(false);
+    }
+    document.addEventListener("pointerdown", closeOnOutsideClick);
+    document.addEventListener("keydown", closeOnEscape);
+    return () => {
+      document.removeEventListener("pointerdown", closeOnOutsideClick);
+      document.removeEventListener("keydown", closeOnEscape);
+    };
+  }, [sortOpen]);
 
   function submitSearch(event) {
     event.preventDefault();
@@ -45,17 +63,23 @@ export function MarketplacePage() {
             </form>
             <div className="catalog-actions">
               <a className="register-button register-button-inline" href="/registration">상품 등록하기</a>
-              <div className="sort-control">
-                <span className="sort-icon" aria-hidden="true">
-                  <svg viewBox="0 0 20 20" fill="none">
-                    <path d="M3.5 5h7M3.5 9h5M3.5 13h3M14 4v11m-3-3 3 3 3-3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <label className="visually-hidden" htmlFor="product-order">상품 정렬</label>
-                <select id="product-order" value={orderBy} onChange={(event) => { setOrderBy(event.target.value); setPage(1); }} aria-label="상품 정렬">
-                  <option value="recent">최신순</option>
-                  <option value="favorite">좋아요순</option>
-                </select>
+              <div className="sort-control" ref={sortControlRef}>
+                <button className="sort-toggle" type="button" aria-label="상품 정렬" aria-haspopup="listbox" aria-expanded={sortOpen} onClick={() => setSortOpen((open) => !open)}>
+                  <span className="sort-icon" aria-hidden="true">
+                    <svg viewBox="0 0 20 20" fill="none">
+                      <path d="M3.5 5h7M3.5 9h5M3.5 13h3M14 4v11m-3-3 3 3 3-3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                  <span className="sort-label">{orderBy === "recent" ? "최신순" : "좋아요순"}</span>
+                  <svg className="sort-chevron" viewBox="0 0 16 16" aria-hidden="true"><path d="m3 6 5 5 5-5" /></svg>
+                </button>
+                {sortOpen ? (
+                  <div className="sort-menu" role="listbox" aria-label="상품 정렬 기준">
+                    {[ ["recent", "최신순"], ["favorite", "좋아요순"] ].map(([value, label]) => (
+                      <button className="sort-option" type="button" role="option" aria-selected={orderBy === value} key={value} onClick={() => { setOrderBy(value); setPage(1); setSortOpen(false); }}>{label}</button>
+                    ))}
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>
