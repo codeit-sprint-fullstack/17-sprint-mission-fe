@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useProducts } from '../hooks/useProducts'
 import { useDeviceType } from '../hooks/useDeviceType'
+import { ORDER_BY } from '../constants/product'
 import ProductCard from './ProductCard'
 import SortDropdown from './SortDropdown'
 import Pagination from './Pagination'
@@ -11,17 +12,22 @@ const PAGE_SIZE = { pc: 10, tablet: 6, mobile: 4 }
 
 function AllProducts() {
   const pageSize = PAGE_SIZE[useDeviceType()]
-  const [orderBy, setOrderBy] = useState('recent')
+  const [orderBy, setOrderBy] = useState(ORDER_BY.RECENT)
   const [keyword, setKeyword] = useState('')
   const [input, setInput] = useState('')
   const [page, setPage] = useState(1)
-  const { products, totalCount } = useProducts({
+  const { products, totalCount, isLoading, error } = useProducts({
     page,
     pageSize,
     orderBy,
     keyword,
   })
   const totalPages = Math.ceil(totalCount / pageSize)
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setPage(1)
+  }, [pageSize])
 
   const handleSortChange = (value) => {
     setOrderBy(value)
@@ -54,12 +60,20 @@ function AllProducts() {
           <SortDropdown value={orderBy} onChange={handleSortChange} />
         </div>
       </div>
-      <ul className="all-products-list">
-        {products.map((product) => (
-          <ProductCard key={product.id} product={product} />
-        ))}
-      </ul>
-      {totalPages > 0 && (
+      {error ? (
+        <p className="all-products-message">상품을 불러오지 못했어요.</p>
+      ) : isLoading ? (
+        <p className="all-products-message">불러오는 중...</p>
+      ) : products.length === 0 ? (
+        <p className="all-products-message">검색 결과가 없습니다.</p>
+      ) : (
+        <ul className="all-products-list">
+          {products.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </ul>
+      )}
+      {!error && totalPages > 0 && (
         <Pagination page={page} totalPages={totalPages} onChange={setPage} />
       )}
     </section>
