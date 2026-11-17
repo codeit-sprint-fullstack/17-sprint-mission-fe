@@ -146,6 +146,7 @@ button, select { cursor: pointer; }
 .registration-control input:focus, .registration-control textarea:focus { border-color: var(--blue); }
 .registration-control input[aria-invalid="true"], .registration-control textarea[aria-invalid="true"] { border-color: #ef4444; }
 .registration-control input::placeholder, .registration-control textarea::placeholder { color: #9ca3af; }
+.registration-control textarea::placeholder { font-family: "Pretendard", sans-serif; font-weight: 400; font-style: normal; font-size: 16px; line-height: 26px; letter-spacing: 0; }
 .registration-field .character-count { position: absolute; right: 14px; bottom: 12px; color: #9ca3af; font-size: 13px; }
 .price-input-wrap { position: relative; }
 .price-input-wrap input { padding-right: 48px; }
