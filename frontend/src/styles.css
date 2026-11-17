@@ -247,3 +247,11 @@ button, select { cursor: pointer; }
   .registration-control input, .registration-control textarea, .tag-field { font-size: 14px; }
 }
 
+@media (min-width: 376px) and (max-width: 743px) {
+  .all-heading { grid-template-columns: max-content 133px minmax(0, 1fr); }
+  .search-form { width: min(288px, calc(100vw - 132px)); }
+  .sort-control { width: min(126px, calc(100vw - 280px)); }
+  .sort-icon { display: none; }
+  .sort-control select { width: 100%; min-width: 0; padding: 0 28px 0 12px; appearance: auto; color: var(--ink); background: #fff; }
+}
+
