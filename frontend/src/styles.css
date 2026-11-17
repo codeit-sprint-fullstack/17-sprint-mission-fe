@@ -165,6 +165,8 @@ button, select { cursor: pointer; }
   .marketplace-main { padding-top: 28px; }
   .all-heading { align-items: stretch; flex-direction: column; }
   .catalog-controls { justify-content: flex-end; }
+  .sort-icon { display: none; }
+  .sort-control select { width: 126px; min-width: 126px; height: 44px; padding: 0 34px 0 14px; appearance: auto; color: var(--ink); background: #fff; }
   .search-form { width: min(380px, 48vw); }
   .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 18px; }
   .best-section .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
