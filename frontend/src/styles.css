@@ -24,7 +24,8 @@
   --ink: #1f2937;
   --muted: #6b7280;
   --line: #e5e7eb;
-  --surface: #f3f4f6;
+  --cool-gray-100: #f3f4f6;
+  --surface: var(--cool-gray-100);
   --footer: #111827;
   --pretendard-lg-16px-semibold: 600 16px/26px Pretendard;
 }
@@ -141,9 +142,9 @@ button, select { cursor: pointer; }
 .registration-form { display: grid; gap: 18px; }
 .registration-field > label { display: block; margin-bottom: 10px; color: #374151; font-size: 16px; font-weight: 700; }
 .registration-control { position: relative; }
-.registration-control input, .registration-control textarea, .tag-field { width: 100%; min-height: 56px; padding: 15px 16px; border: 1px solid #e5e7eb; border-radius: 8px; outline: 0; color: var(--ink); background-color: #F3F4F6; font-size: 16px; }
-.registration-control input:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px #F3F4F6 inset; -webkit-text-fill-color: var(--ink); }
-.registration-main .registration-form .registration-control input, .registration-main .registration-form .registration-control textarea { background-color: #F3F4F6 !important; }
+.registration-control input, .registration-control textarea, .tag-field { width: 100%; min-height: 56px; padding: 15px 16px; border: 1px solid #e5e7eb; border-radius: 8px; outline: 0; color: var(--ink); background-color: var(--cool-gray-100); font-size: 16px; }
+.registration-control input:-webkit-autofill { -webkit-box-shadow: 0 0 0 1000px var(--cool-gray-100) inset; -webkit-text-fill-color: var(--ink); }
+.registration-main .registration-form .registration-control input, .registration-main .registration-form .registration-control textarea { background-color: var(--cool-gray-100) !important; }
 .registration-control textarea { display: block; min-height: 282px; resize: vertical; }
 .registration-control input:focus, .registration-control textarea:focus { border-color: var(--blue); }
 .registration-control input[aria-invalid="true"], .registration-control textarea[aria-invalid="true"] { border-color: #ef4444; }
@@ -155,7 +156,7 @@ button, select { cursor: pointer; }
 .price-input-wrap > span { position: absolute; top: 50%; right: 18px; color: #6b7280; transform: translateY(-50%); }
 .tag-input { display: block; }
 .tag-list { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 8px; }
-.tag-chip { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 6px 10px; border: 1px solid #d1d5db; border-radius: 18px; color: #374151; background: #F3F4F6; font-size: 14px; }
+.tag-chip { display: inline-flex; align-items: center; gap: 7px; min-height: 36px; padding: 6px 10px; border: 1px solid #d1d5db; border-radius: 18px; color: #374151; background: var(--cool-gray-100); font-size: 14px; }
 .tag-chip span { display: grid; width: 20px; height: 20px; place-items: center; border-radius: 50%; background: #9CA3AF; }
 .tag-chip span svg { display: block; width: 12px; height: 12px; }
 .tag-chip span path { fill: none; stroke: #fff; stroke-width: 1.6; stroke-linecap: round; }
