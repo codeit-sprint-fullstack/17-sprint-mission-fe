@@ -50,7 +50,8 @@ export function Footer() {
 
 export function ProductCard({ product }) {
   const [liked, setLiked] = useState(false);
-  const favoriteCount = Number(product.favoriteCount ?? 0) + (liked ? 1 : 0);
+  const [baseFavoriteCount] = useState(() => Math.floor(Math.random() * 500) + 1);
+  const favoriteCount = baseFavoriteCount + (liked ? 1 : 0);
 
   return (
     <article className="product-card">
