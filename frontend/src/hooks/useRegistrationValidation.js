@@ -1,23 +1,28 @@
 const validators = {
-  name: (value) => value.trim().length >= 1 && value.trim().length <= 10,
-  description: (value) => value.trim().length >= 10 && value.trim().length <= 100,
-  price: (value) => /^\d+$/.test(value.trim()) && Number(value) > 0,
-  tags: (value) => value.length > 0 && value.every((tag) => tag.length <= 5),
-};
-
-const messages = {
-  name: "상품명은 1자 이상 10자 이내로 입력해 주세요.",
-  description: "상품 소개는 10자 이상 100자 이내로 입력해 주세요.",
-  price: "판매 가격은 1 이상의 숫자로 입력해 주세요.",
-  tags: "5자 이내의 태그를 하나 이상 추가해 주세요.",
+  name(value) {
+    const trimmed = value.trim();
+    if (!trimmed) return "상품명을 입력해주세요.";
+    if (trimmed.length > 10) return "10자 이내로 입력해주세요.";
+    return "";
+  },
+  description(value) {
+    const length = value.trim().length;
+    if (length < 10) return "10자 이상 입력해주세요.";
+    if (length > 100) return "100자 이내로 입력해주세요.";
+    return "";
+  },
+  price(value) {
+    return /^\d+$/.test(value.trim()) && Number(value) > 0 ? "" : "숫자로 입력해주세요.";
+  },
+  tags(value) {
+    if (value.some((tag) => tag.length > 5)) return "5글자 이내로 입력해주세요.";
+    return value.length > 0 ? "" : "태그를 하나 이상 추가해주세요.";
+  },
 };
 
 export function useRegistrationValidation(values) {
   const errors = Object.fromEntries(
-    Object.entries(validators).map(([key, validate]) => [
-      key,
-      validate(values[key]) ? "" : messages[key],
-    ]),
+    Object.entries(validators).map(([key, validate]) => [key, validate(values[key])]),
   );
   const isValid = Object.values(errors).every((message) => !message);
 
