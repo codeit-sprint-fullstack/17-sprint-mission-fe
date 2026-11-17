@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const socialLinks = [
   ["Facebook", "/images/ic-facebook.svg", "https://www.facebook.com/"],
   ["Twitter", "/images/ic-twitter.svg", "https://twitter.com/"],
@@ -47,6 +49,9 @@ export function Footer() {
 }
 
 export function ProductCard({ product }) {
+  const [liked, setLiked] = useState(false);
+  const favoriteCount = Number(product.favoriteCount ?? 0) + (liked ? 1 : 0);
+
   return (
     <article className="product-card">
       <a className="product-image" href={`/items/${product.id}`} aria-label={`${product.name} 상세 보기`}>
@@ -55,6 +60,18 @@ export function ProductCard({ product }) {
       <div className="product-info">
         <a className="product-name" href={`/items/${product.id}`}>{product.name}</a>
         <strong className="product-price">{Number(product.price).toLocaleString("ko-KR")}원</strong>
+        <button
+          className={`favorite-button${liked ? " liked" : ""}`}
+          type="button"
+          aria-label={`${liked ? "좋아요 취소" : "좋아요"}: ${product.name}, ${favoriteCount}개`}
+          aria-pressed={liked}
+          onClick={() => setLiked((current) => !current)}
+        >
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 17s-6.5-3.9-6.5-8.3A3.7 3.7 0 0 1 10 6.8a3.7 3.7 0 0 1 6.5 1.9C16.5 13.1 10 17 10 17Z" />
+          </svg>
+          <span>{favoriteCount}</span>
+        </button>
       </div>
     </article>
   );

@@ -91,8 +91,10 @@ button, select { cursor: pointer; }
 .product-name { grid-column: 1 / -1; overflow: hidden; color: #374151; font-size: 15px; line-height: 1.45; font-weight: 550; text-overflow: ellipsis; white-space: nowrap; }
 .product-name:hover { color: var(--blue); }
 .product-price { color: #111827; font-size: 17px; line-height: 1.4; font-weight: 750; letter-spacing: -0.02em; }
-.favorite-count { justify-self: end; color: #9ca3af; font-size: 13px; line-height: 1.7; white-space: nowrap; }
-.favorite-count span { color: #9ca3af; font-size: 17px; vertical-align: -1px; }
+.favorite-button { display: inline-flex; justify-self: end; align-items: center; gap: 4px; padding: 0; border: 0; color: #6b7280; background: transparent; font: inherit; font-size: 13px; line-height: 1.7; white-space: nowrap; cursor: pointer; }
+.favorite-button svg { width: 17px; height: 17px; fill: transparent; stroke: currentColor; stroke-width: 1.5; }
+.favorite-button.liked { color: #ef4444; }
+.favorite-button.liked svg { fill: currentColor; }
 .state-message { grid-column: 1 / -1; min-height: 120px; margin: 0; display: grid; place-items: center; color: var(--muted); font-size: 15px; }
 .error-message { color: #dc2626; }
 .pagination { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 44px; }
@@ -214,8 +216,8 @@ button, select { cursor: pointer; }
   .product-info { gap: 4px 4px; padding-top: 9px; }
   .product-name { font-size: 13px; }
   .product-price { font-size: 14px; }
-  .favorite-count { font-size: 11px; }
-  .favorite-count span { font-size: 15px; }
+  .favorite-button { gap: 3px; font-size: 11px; }
+  .favorite-button svg { width: 15px; height: 15px; }
   .pagination { gap: 5px; margin-top: 30px; }
   .pagination button { width: 34px; height: 34px; border-radius: 8px; }
   .site-footer { min-height: 132px; }
