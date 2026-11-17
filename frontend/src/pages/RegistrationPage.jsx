@@ -59,7 +59,7 @@ export function RegistrationPage() {
       const response = await fetch(`${API_BASE_URL}/api/products`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...values, price: Number(values.price) }),
+        body: JSON.stringify({ ...values, price: Number(values.price.replaceAll(",", "")) }),
       });
       const result = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(result.message || "상품을 등록하지 못했습니다.");

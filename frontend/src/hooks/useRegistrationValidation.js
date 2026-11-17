@@ -12,7 +12,9 @@ const validators = {
     return "";
   },
   price(value) {
-    return /^\d+$/.test(value.trim()) && Number(value) > 0 ? "" : "숫자로 입력해주세요.";
+    const normalized = value.trim().replaceAll(",", "");
+    const isValidFormat = /^\d+$/.test(value.trim()) || /^\d{1,3}(,\d{3})+$/.test(value.trim());
+    return isValidFormat && Number(normalized) > 0 ? "" : "숫자로 입력해주세요.";
   },
   tags(value) {
     if (value.some((tag) => tag.length > 5)) return "5글자 이내로 입력해주세요.";
