@@ -42,11 +42,20 @@ export function MarketplacePage() {
               <input id="product-search" type="search" placeholder="검색할 상품을 입력해주세요" value={searchInput} onChange={(event) => setSearchInput(event.target.value)} />
               <button className="visually-hidden" type="submit">검색</button>
             </form>
-            <a className="register-button register-button-inline" href="/registration">상품 등록하기</a>
-            <label className="visually-hidden" htmlFor="product-order">상품 정렬</label>
-            <select id="product-order" value="recent" disabled>
-              <option value="recent">최신순</option>
-            </select>
+            <div className="catalog-actions">
+              <a className="register-button register-button-inline" href="/registration">상품 등록하기</a>
+              <div className="sort-control">
+                <span className="sort-icon" aria-hidden="true">
+                  <svg viewBox="0 0 20 20" fill="none">
+                    <path d="M3.5 5h7M3.5 9h5M3.5 13h3M14 4v11m-3-3 3 3 3-3" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+                <label className="visually-hidden" htmlFor="product-order">상품 정렬</label>
+                <select id="product-order" defaultValue="recent" aria-label="상품 정렬">
+                  <option value="recent">최신순</option>
+                </select>
+              </div>
+            </div>
           </div>
         </div>
         {loading ? <p className="state-message" role="status">상품을 불러오는 중입니다.</p> : null}
