@@ -79,22 +79,27 @@ export function RegistrationPage() {
           <button className="submit-registration" type="submit" disabled={!hasRequiredValues || submitting}>{submitting ? "등록 중..." : "등록"}</button>
         </div>
         <Field label="상품명" error={touched.name ? errors.name : ""}>
-          <input name="name" value={values.name} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, name: true }))} placeholder="상품명을 입력해 주세요" aria-invalid={Boolean(touched.name && errors.name)} />
+          <input name="name" value={values.name} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, name: true }))} placeholder="상품명을 입력해주세요" aria-invalid={Boolean(touched.name && errors.name)} />
         </Field>
         <Field label="상품 소개" error={touched.description ? errors.description : ""}>
-          <textarea name="description" value={values.description} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, description: true }))} placeholder="상품을 소개해 주세요" rows={6} aria-invalid={Boolean(touched.description && errors.description)} />
+          <textarea name="description" value={values.description} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, description: true }))} placeholder="상품 소개를 입력해주세요" rows={6} aria-invalid={Boolean(touched.description && errors.description)} />
         </Field>
         <Field label="판매 가격" error={touched.price ? errors.price : ""}>
           <div className="price-input-wrap">
-            <input name="price" inputMode="numeric" value={values.price} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, price: true }))} placeholder="숫자만 입력해 주세요" aria-invalid={Boolean(touched.price && errors.price)} />
+            <input name="price" inputMode="numeric" value={values.price} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, price: true }))} placeholder="판매 가격을 입력해주세요" aria-invalid={Boolean(touched.price && errors.price)} />
             <span>원</span>
           </div>
         </Field>
-        <Field label="태그" error={touched.tags ? tagError || errors.tags : ""}>
-          <div className={`tag-field ${touched.tags && (tagError || errors.tags) ? "invalid" : ""}`}>
-            {values.tags.map((tag) => <button className="tag-chip" type="button" key={tag} onClick={() => removeTag(tag)} aria-label={`${tag} 태그 삭제`}>#{tag}<span aria-hidden="true">×</span></button>)}
-            <input value={tagInput} onChange={(event) => { setTagInput(event.target.value); setTagError(""); }} onKeyDown={addTag} onBlur={() => setTouched((current) => ({ ...current, tags: true }))} placeholder="태그를 입력하고 Enter를 눌러주세요" aria-label="태그 입력" aria-invalid={Boolean(touched.tags && (tagError || errors.tags))} />
-          </div>
+        <Field
+          label="태그"
+          error={touched.tags ? tagError || errors.tags : ""}
+          afterError={values.tags.length > 0 ? (
+            <div className="tag-list" aria-label="추가한 태그">
+              {values.tags.map((tag) => <button className="tag-chip" type="button" key={tag} onClick={() => removeTag(tag)} aria-label={`${tag} 태그 삭제`}>#{tag}<span aria-hidden="true">×</span></button>)}
+            </div>
+          ) : null}
+        >
+          <input className="tag-input" value={tagInput} onChange={(event) => { setTagInput(event.target.value); setTagError(""); }} onKeyDown={addTag} onBlur={() => setTouched((current) => ({ ...current, tags: true }))} placeholder="태그를 입력해주세요" aria-label="태그 입력" aria-invalid={Boolean(touched.tags && (tagError || errors.tags))} />
         </Field>
         {requestError ? <p className="request-error" role="alert">{requestError}</p> : null}
       </form>
@@ -102,12 +107,13 @@ export function RegistrationPage() {
   );
 }
 
-function Field({ label, error, children }) {
+function Field({ label, error, afterError, children }) {
   return (
     <div className="registration-field">
       <label>{label}</label>
       <div className="registration-control">{children}</div>
       {error ? <p className="field-error" role="alert">{error}</p> : <p className="field-error-placeholder" aria-hidden="true">&nbsp;</p>}
+      {afterError}
     </div>
   );
 }
