@@ -4,6 +4,7 @@ import { useRegistrationValidation } from "../hooks/useRegistrationValidation.js
 
 const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? "").replace(/\/+$/, "");
 const initialValues = { name: "", description: "", price: "", tags: [] };
+const controlBackground = { backgroundColor: "var(--cool-gray-100)" };
 
 export function RegistrationPage() {
   const [values, setValues] = useState(initialValues);
@@ -79,14 +80,14 @@ export function RegistrationPage() {
           <button className="submit-registration" type="submit" disabled={!hasRequiredValues || submitting}>{submitting ? "등록 중..." : "등록"}</button>
         </div>
         <Field label="상품명" error={touched.name ? errors.name : ""}>
-          <input name="name" value={values.name} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, name: true }))} placeholder="상품명을 입력해주세요" aria-invalid={Boolean(touched.name && errors.name)} />
+          <input name="name" style={controlBackground} value={values.name} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, name: true }))} placeholder="상품명을 입력해주세요" aria-invalid={Boolean(touched.name && errors.name)} />
         </Field>
         <Field label="상품 소개" error={touched.description ? errors.description : ""}>
-          <textarea name="description" value={values.description} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, description: true }))} placeholder="상품 소개를 입력해주세요" rows={6} aria-invalid={Boolean(touched.description && errors.description)} />
+          <textarea name="description" style={controlBackground} value={values.description} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, description: true }))} placeholder="상품 소개를 입력해주세요" rows={6} aria-invalid={Boolean(touched.description && errors.description)} />
         </Field>
         <Field label="판매 가격" error={touched.price ? errors.price : ""}>
           <div className="price-input-wrap">
-            <input name="price" inputMode="numeric" value={values.price} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, price: true }))} placeholder="판매 가격을 입력해주세요" aria-invalid={Boolean(touched.price && errors.price)} />
+            <input name="price" style={controlBackground} inputMode="numeric" value={values.price} onChange={updateField} onBlur={() => setTouched((current) => ({ ...current, price: true }))} placeholder="판매 가격을 입력해주세요" aria-invalid={Boolean(touched.price && errors.price)} />
             <span>원</span>
           </div>
         </Field>
@@ -99,7 +100,7 @@ export function RegistrationPage() {
             </div>
           ) : null}
         >
-          <input className="tag-input" value={tagInput} onChange={(event) => { setTagInput(event.target.value); setTagError(""); }} onKeyDown={addTag} onBlur={() => setTouched((current) => ({ ...current, tags: true }))} placeholder="태그를 입력해주세요" aria-label="태그 입력" aria-invalid={Boolean(touched.tags && (tagError || errors.tags))} />
+          <input className="tag-input" style={controlBackground} value={tagInput} onChange={(event) => { setTagInput(event.target.value); setTagError(""); }} onKeyDown={addTag} onBlur={() => setTouched((current) => ({ ...current, tags: true }))} placeholder="태그를 입력해주세요" aria-label="태그 입력" aria-invalid={Boolean(touched.tags && (tagError || errors.tags))} />
         </Field>
         {requestError ? <p className="request-error" role="alert">{requestError}</p> : null}
       </form>
