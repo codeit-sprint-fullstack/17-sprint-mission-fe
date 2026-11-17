@@ -1,5 +1,6 @@
 import { useProducts } from '../hooks/useProducts'
 import { useDeviceType } from '../hooks/useDeviceType'
+import { ORDER_BY } from '../constants/product'
 import ProductCard from './ProductCard'
 import './BestProducts.css'
 
@@ -10,7 +11,7 @@ function BestProducts() {
   const { products } = useProducts({
     page: 1,
     pageSize: PAGE_SIZE[deviceType],
-    orderBy: 'favorite',
+    orderBy: ORDER_BY.FAVORITE,
   })
 
   return (

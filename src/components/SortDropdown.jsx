@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from 'react'
 import arrowDown from '../assets/icons/ic_arrow_down.png'
 import sortIcon from '../assets/icons/ic_sort.png'
+import { ORDER_BY } from '../constants/product'
 import './SortDropdown.css'
 
 const OPTIONS = [
-  { value: 'recent', label: '최신순' },
-  { value: 'favorite', label: '좋아요순' },
+  { value: ORDER_BY.RECENT, label: '최신순' },
+  { value: ORDER_BY.FAVORITE, label: '좋아요순' },
 ]
 
 function SortDropdown({ value, onChange }) {
