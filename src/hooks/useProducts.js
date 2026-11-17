@@ -24,11 +24,11 @@ export function useProducts({ page, pageSize, orderBy, keyword }) {
         })
         setProducts(data.list)
         setTotalCount(data.totalCount)
-        setIsLoading(false)
       } catch (e) {
         if (axios.isCancel(e)) return
         setError(e)
-        setIsLoading(false)
+      } finally {
+        if (!controller.signal.aborted) setIsLoading(false)
       }
     }
 
