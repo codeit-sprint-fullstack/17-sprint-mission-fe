@@ -1,0 +1,211 @@
+:focus-visible {
+  outline: 3px solid #2563eb;
+  outline-offset: 3px;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.withHeader { flex: 1; }
+
+.globalHeader nav a[aria-current="page"] {
+  color: #3692ff;
+}
+
+.landing h2 {
+  font-size: 40px;
+  line-height: 1.4;
+}
+
+.landing .feature:nth-child(2) {
+  flex-direction: row-reverse;
+}
+
+.page {
+  width: min(100% - 48px, 1200px);
+  margin: 0 auto;
+  padding: 32px 0 64px;
+}
+
+.pageTitle, .formField label {
+  color: #1f2937;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.marketTools, .formHeading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.marketTools h1, .formHeading h1 {
+  margin-right: auto;
+}
+
+.action {
+  padding: 12px 22px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.searchBox {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 16px;
+  background: #f3f4f6;
+  border-radius: 12px;
+}
+
+.searchBox input {
+  min-width: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+}
+
+.searchBox button {
+  flex: none;
+}
+
+.sortLabel {
+  color: #4b5563;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 40px 24px;
+  margin-bottom: 40px;
+}
+
+.itemImage {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: contain;
+  margin-bottom: 16px;
+  border-radius: 16px;
+}
+
+.itemCard h2 {
+  overflow: hidden;
+  margin-bottom: 6px;
+  font-size: 16px;
+  font-weight: 400;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.itemCard strong {
+  color: #1f2937;
+}
+
+.status {
+  padding: 56px 0;
+  text-align: center;
+  color: #6b7280;
+}
+
+.registration {
+  max-width: 1200px;
+}
+
+.formHeading {
+  justify-content: space-between;
+}
+
+.formField {
+  margin: 24px 0 0;
+}
+
+.formField label {
+  display: block;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.formField input, .formField textarea {
+  width: 100%;
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #f3f4f6;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.formField textarea {
+  min-height: 282px;
+  resize: vertical;
+}
+
+.formField [aria-invalid="true"] {
+  border-color: #dc2626;
+}
+
+.fieldError {
+  margin-top: 6px;
+  color: #b91c1c;
+  font-size: 14px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+  list-style: none;
+}
+
+.chips li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  background: #f3f4f6;
+}
+
+.chips button {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 1279px) {
+  .cardGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 16px; }
+  .landing .banner { background-position: 95% bottom; }
+  .landing .feature { padding: 80px 0; }
+}
+
+@media (max-width: 743px) {
+  .globalHeader { padding: 0 12px; }
+  .globalHeader .headerLogo { width: 100px; margin-right: 12px; }
+  .globalHeader nav ul { font-size: 14px; }
+  .loginLink { font-size: 14px; padding: 9px 12px; }
+  .landing .banner { height: 415px; align-items: flex-start; padding-top: 44px; text-align: center; background-position: center bottom; background-size: auto 48%; }
+  .landing h1, .landing h2 { font-size: 30px; line-height: 1.4; }
+  .landing .banner .pill-button { margin-top: 16px; }
+  .landing .feature, .landing .feature:nth-child(2) { flex-direction: column; align-items: flex-start; gap: 24px; padding: 36px 0; text-align: left; }
+  .landing .feature img { width: 100%; }
+  .landing .feature-description { font-size: 18px; margin-top: 16px; }
+  .landing #features { padding-bottom: 32px; }
+  .page { width: calc(100% - 32px); padding-top: 24px; }
+  .marketTools { display: grid; grid-template-columns: 1fr auto; }
+  .marketTools .action { grid-column: 2; grid-row: 1; }
+  .searchBox { grid-column: 1; }
+  .sortLabel { text-align: right; }
+  .action { padding: 10px 16px; }
+  .cardGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 8px; }
+  .formField input, .formField textarea { padding: 12px 16px; }
+}
