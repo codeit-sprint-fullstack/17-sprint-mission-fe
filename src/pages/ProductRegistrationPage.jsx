@@ -1,7 +1,11 @@
+import ProductRegistration from "../components/products/ProductRegistration";
+import Header from "../components/Header";
+
 export default function ProductRegistrationPage() {
   return (
     <>
-      <h1> 상품 등록 페이지 </h1>
+      <Header />
+      <ProductRegistration />
     </>
   );
 }

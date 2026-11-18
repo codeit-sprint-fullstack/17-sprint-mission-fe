@@ -1,0 +1,33 @@
+.product-registration {
+  width: 90%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.product-registration label {
+  font-weight: 700;
+  font-size: calc(18rem / 16);
+}
+
+.product-input input {
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  padding: 1rem 1.5rem;
+  width: 100%;
+}
+
+.product-input textarea {
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  color: #9ca3af;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  height: 10rem;
+}
+
+.product-registration input,
+.product-registration textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
