@@ -22,7 +22,6 @@ export default function ProductCard({ products }) {
       )}
       <p className="product-name">{products.name}</p>
       <p className="product-price">{products.price}원</p>
-      <p className="product-favorites">♡ {products.favoriteCount}</p>
     </article>
   );
 }

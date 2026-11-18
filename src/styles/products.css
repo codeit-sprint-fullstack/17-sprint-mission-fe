@@ -22,36 +22,25 @@
   background-color: #f3f4f6;
 }
 
-.best-product,
 .product-list {
   display: grid;
   gap: 2rem 1.5rem;
 }
 
-.best-product > article,
 .product-list > article {
   min-width: 0;
   overflow-wrap: anywhere;
 }
 
 /* PC: 1200px 이상 */
-.best-product {
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-}
-
 .product-list {
   grid-template-columns: repeat(5, minmax(0, 1fr));
 }
 
-.main-content h3,
 .main-content h4 {
   color: #1f2937;
   font-size: 1.25rem;
   line-height: 1.5;
-}
-
-.main-content h3 {
-  margin-bottom: 1.5rem;
 }
 
 .product-list-header {
@@ -130,13 +119,6 @@
   line-height: 1.5;
 }
 
-.product-favorites {
-  margin-top: 0.25rem;
-  color: #6b7280;
-  font-size: 0.75rem;
-  line-height: 1.5;
-}
-
 .pagination {
   display: flex;
   flex-wrap: wrap;
@@ -175,10 +157,6 @@
 
 /* Tablet: 768px ~ 1199px (usePageSize와 동일한 구간) */
 @media (max-width: 74.9375rem) {
-  .best-product {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .product-list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -188,10 +166,6 @@
 @media (max-width: 47.9375rem) {
   .main-content {
     padding-inline: 1rem;
-  }
-
-  .best-product {
-    grid-template-columns: minmax(0, 1fr);
   }
 
   .product-list {
