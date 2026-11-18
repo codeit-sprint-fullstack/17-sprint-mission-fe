@@ -1,122 +1,69 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
+import Landing from './Landing.jsx'
+import Market from './Market.jsx'
+import Registration from './Registration.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+const socialLinks = [
+  ['facebook', 'https://www.facebook.com/'],
+  ['twitter', 'https://twitter.com/'],
+  ['youtube', 'https://www.youtube.com/'],
+  ['instagram', 'https://www.instagram.com/'],
+]
+
+function Header() {
+  const { pathname } = useLocation()
+  const isMarket = pathname.replace(/\/$/, '') === '/items'
 
   return (
-    <>
-      <section id="center">
-        <div className="hero">
-          <img src={heroImg} className="base" width="170" height="179" alt="" />
-          <img src={reactLogo} className="framework" alt="React logo" />
-          <img src={viteLogo} className="vite" alt="Vite logo" />
-        </div>
-        <div>
-          <h1>Get started</h1>
-          <p>
-            Edit <code>src/App.jsx</code> and save to test <code>HMR</code>
-          </p>
-        </div>
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        >
-          Count is {count}
-        </button>
-      </section>
-
-      <div className="ticks"></div>
-
-      <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <div className="ticks"></div>
-      <section id="spacer"></section>
-    </>
+    <header>
+      <div className="header-inner">
+        <Link className="brand" to="/" aria-label="판다마켓 홈">
+          <img className="logo" src="/brand/logo.png" alt="" />
+        </Link>
+        <nav aria-label="주 메뉴">
+          <Link to="/boards">자유게시판</Link>
+          <Link to="/items" aria-current={isMarket ? 'page' : undefined}>중고마켓</Link>
+        </nav>
+        <a className="primary login" href="/login/index.html">로그인</a>
+      </div>
+    </header>
   )
 }
 
-export default App
+function Footer() {
+  return (
+    <footer>
+      <div className="footer-inner">
+        <span>©codeit - 2024</span>
+        <div className="footer-links">
+          <a href="/privacy/index.html">Privacy Policy</a>
+          <a href="/faq/index.html">FAQ</a>
+        </div>
+        <div className="social">
+          {socialLinks.map(([name, url]) => (
+            <a key={name} href={url} target="_blank" rel="noreferrer">
+              <img src={`/brand/ic_${name}.png`} alt={name} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </footer>
+  )
+}
+
+export default function App() {
+  return (
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/items" element={<Market />} />
+        <Route path="/registration" element={<Registration />} />
+        <Route path="/items/:id" element={<main aria-label="상품 상세" />} />
+        <Route path="/boards" element={<main aria-label="자유게시판" />} />
+        <Route path="*" element={<main><h1>페이지를 찾을 수 없습니다.</h1></main>} />
+      </Routes>
+      <Footer />
+    </>
+  )
+}
