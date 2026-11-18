@@ -1,7 +1,13 @@
+import Footer from "../components/Footer";
+import Header from "../components/Header";
+import HomeMain from "../components/HomeMain";
+
 export default function HomePage() {
   return (
     <>
-      <h1> 메인 홈 페이지 </h1>
+      <Header />
+      <HomeMain />
+      <Footer />
     </>
   );
 }
