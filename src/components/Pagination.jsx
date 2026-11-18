@@ -1,6 +1,6 @@
 import './Pagination.css'
 
-const WINDOW_SIZE = 5 // 한 번에 보여줄 페이지 번호 개수
+const WINDOW_SIZE = 5
 
 function ChevronIcon() {
   return (
