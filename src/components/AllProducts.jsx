@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useProducts } from '../hooks/useProducts'
 import { useDeviceType } from '../hooks/useDeviceType'
-import { ORDER_BY } from '../constants/product'
 import ProductCard from './ProductCard'
 import SortDropdown from './SortDropdown'
 import Pagination from './Pagination'
@@ -12,14 +12,12 @@ const PAGE_SIZE = { pc: 10, tablet: 6, mobile: 4 }
 
 function AllProducts() {
   const pageSize = PAGE_SIZE[useDeviceType()]
-  const [orderBy, setOrderBy] = useState(ORDER_BY.RECENT)
   const [keyword, setKeyword] = useState('')
   const [input, setInput] = useState('')
   const [page, setPage] = useState(1)
   const { products, totalCount, isLoading, error } = useProducts({
     page,
     pageSize,
-    orderBy,
     keyword,
   })
   const totalPages = Math.ceil(totalCount / pageSize)
@@ -28,11 +26,6 @@ function AllProducts() {
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setPage(1)
   }, [pageSize])
-
-  const handleSortChange = (value) => {
-    setOrderBy(value)
-    setPage(1)
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -54,10 +47,10 @@ function AllProducts() {
               placeholder="검색할 상품을 입력해주세요"
             />
           </form>
-          <button type="button" className="all-products-register">
+          <Link to="/registration" className="all-products-register">
             상품 등록하기
-          </button>
-          <SortDropdown value={orderBy} onChange={handleSortChange} />
+          </Link>
+          <SortDropdown />
         </div>
       </div>
       {error ? (

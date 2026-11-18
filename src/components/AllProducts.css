@@ -57,6 +57,8 @@
 }
 
 .all-products-register {
+  display: flex;
+  align-items: center;
   height: 42px;
   padding: 0 23px;
   border: 0;
