@@ -1,4 +1,4 @@
-import defaultImage from '../assets/default-product.svg'
+import defaultImage from '../assets/default-product.png'
 import './ProductCard.css'
 
 function ProductCard({ product }) {
