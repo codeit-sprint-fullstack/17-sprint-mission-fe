@@ -38,14 +38,18 @@ export function useProductForm() {
     errors[field] = touched[field] ? RULES[field](trimmed[field]) : ''
   }
 
+  const submitTags =
+    trimmed.tag && !tags.includes(trimmed.tag) ? [...tags, trimmed.tag] : tags
+
   const isValid =
-    FIELDS.every((field) => !RULES[field](trimmed[field])) && tags.length > 0
+    FIELDS.every((field) => !RULES[field](trimmed[field])) &&
+    submitTags.length > 0
 
   const product = {
     name: trimmed.name,
     description: trimmed.description,
     price: Number(trimmed.price),
-    tags,
+    tags: submitTags,
   }
 
   const handleChange = (e) => {
