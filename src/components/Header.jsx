@@ -12,7 +12,12 @@ export default function Header() {
 
         <nav className="nav">
           <a href="/boards">자유게시판</a>
-          <a href="/" aria-current="page">
+          <a
+            href="/items"
+            aria-current={
+              window.location.pathname === "/items" ? "page" : undefined
+            }
+          >
             중고마켓
           </a>
         </nav>

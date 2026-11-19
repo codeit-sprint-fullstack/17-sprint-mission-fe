@@ -4,7 +4,7 @@ import axios from "axios";
 // - api.get("/products") = axios.get("https://panda-market-api.vercel.app/products")
 
 const api = axios.create({
-  baseURL: "https://panda-market-api.vercel.app",
+  baseURL: import.meta.env.VITE_API_URL || "http://localhost:3001",
 });
 
 export default api;

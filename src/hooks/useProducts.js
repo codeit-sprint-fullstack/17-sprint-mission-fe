@@ -8,7 +8,12 @@ import api from "../api/api.js";
 // - AbortController : 조건이 바뀌면 이전 요청을 취소한다.
 //   -> 늦게 도착한 이전 응답이 화면을 덮어쓰는 문제 해결 (data1 Fetch3 참고)
 
-export default function useProducts({ page = 1, pageSize = 10, orderBy = "recent", keyword = "" }) {
+export default function useProducts({
+  page = 1,
+  pageSize = 10,
+  orderBy = "recent",
+  keyword = "",
+}) {
   const [products, setProducts] = useState([]);
   const [totalCount, setTotalCount] = useState(0);
   const [loading, setLoading] = useState(true);
@@ -22,7 +27,12 @@ export default function useProducts({ page = 1, pageSize = 10, orderBy = "recent
       setError(null);
       try {
         const response = await api.get("/products", {
-          params: { page, pageSize, orderBy, keyword },
+          params: {
+            offset: (page - 1) * pageSize,
+            limit: pageSize,
+            orderBy,
+            keyword,
+          },
           signal: controller.signal,
         });
         setProducts(response.data.list);
