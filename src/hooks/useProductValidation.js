@@ -40,7 +40,7 @@ export default function useProductValidation() {
 
     if (!tags.length) {
       newErrors.tags = "태그를 등록해주세요";
-    } 
+    }
 
     setError(newErrors);
 

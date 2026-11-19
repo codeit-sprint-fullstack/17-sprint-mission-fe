@@ -4,9 +4,31 @@
   margin-inline: auto;
 }
 
+.product-registration-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-registration-top > .header-login {
+  border: none;
+  font-family: inherit;
+}
+
+.product-registration-top > p {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
 .product-registration label {
   font-weight: 700;
   font-size: calc(18rem / 16);
+  display: block;
+  margin: 16px 0;
 }
 
 .product-input input {
@@ -35,8 +57,9 @@
   padding: 16px 0;
 }
 
-.error-message {
+.product-input .error-message {
   color: #b91717;
+  margin-top: 12px;
 }
 
 .tags-input {
@@ -44,6 +67,10 @@
   flex-wrap: wrap;
   gap: 8px;
   margin-top: 12px;
+}
+
+.tags-input:empty {
+  display: none;
 }
 
 .tag-registration {
@@ -66,4 +93,8 @@
 .tag-registration button img {
   display: block;
   height: 18px;
+}
+
+.product-input-error {
+  outline: 2px solid #b91717;
 }
