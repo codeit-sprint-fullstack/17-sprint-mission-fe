@@ -12,6 +12,7 @@ const socialLinks = [
 
 function Header() {
   const { pathname } = useLocation()
+  const isLanding = pathname === '/'
   const isMarket = pathname.replace(/\/$/, '') === '/items'
 
   return (
@@ -20,10 +21,12 @@ function Header() {
         <Link className="brand" to="/" aria-label="판다마켓 홈">
           <img className="logo" src="/brand/logo.png" alt="" />
         </Link>
-        <nav aria-label="주 메뉴">
-          <Link to="/boards">자유게시판</Link>
-          <Link to="/items" aria-current={isMarket ? 'page' : undefined}>중고마켓</Link>
-        </nav>
+        {!isLanding && (
+          <nav aria-label="주 메뉴">
+            <Link to="/boards">자유게시판</Link>
+            <Link to="/items" aria-current={isMarket ? 'page' : undefined}>중고마켓</Link>
+          </nav>
+        )}
         <a className="primary login" href="/login/index.html">로그인</a>
       </div>
     </header>

@@ -48,7 +48,7 @@ function ProductGrid({ result }) {
 
   return (
     <ul className="cards">
-      {result.list.map(({ id, name, price, favoriteCount }) => (
+      {result.list.map(({ id, name, price, favoriteCount = 0 }) => (
         <li key={id}>
           <Link to={`/items/${id}`}>
             <div className="photo" aria-hidden="true">
@@ -103,7 +103,8 @@ export default function Market() {
         <h1>판매 중인 상품</h1>
         <form onSubmit={search}>
           <button type="submit" className="search-button" aria-label="검색" />
-          <input type="search" name="keyword" aria-label="상품 검색" placeholder="검색할 상품을 입력해주세요" />
+          <input type="search" name="keyword" aria-label="상품 검색"
+            maxLength={100} placeholder="검색할 상품을 입력해주세요" />
         </form>
         <Link className="primary register" to="/registration">상품 등록하기</Link>
         <span className="sort-label" title="최신순"><span>최신순</span><b aria-hidden="true">⇣</b></span>
