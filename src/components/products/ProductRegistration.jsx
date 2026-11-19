@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { createProduct } from "../../api/productApi";
-import useProductValidation from "../../hooks/useProductValidation";
 import useTags from "../../hooks/useTags";
+import useProductValidation from "../../hooks/useProductValidation";
 import { useNavigate } from "react-router-dom";
 import "../../styles/productRegistration.css";
 
@@ -10,10 +10,15 @@ export default function ProductRegistration() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
 
-  const { error, validate } = useProductValidation();
-
   const { tags, tagInput, tagHandleChange, tagHandleKeyDown, tagHandleDelete } =
     useTags();
+
+  const { error, validate } = useProductValidation(
+    name,
+    description,
+    price,
+    tags,
+  );
 
   const navigate = useNavigate();
 
