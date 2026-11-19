@@ -7,8 +7,7 @@ export default function Landing() {
         <div>
           <h1>
             일상의 모든 물건을
-            <br />
-            거래해 보세요
+            <br className="landing-title-break" /> 거래해 보세요
           </h1>
           <a href="/items">구경하러 가기</a>
         </div>
@@ -41,7 +40,7 @@ export default function Landing() {
         </div>
       </section>
 
-      <section className="landing-feature landing-feature-reverse">
+      <section className="landing-feature landing-feature-reverse landing-trust">
         <img src="/images/item4.png" alt="판다마켓 중고 거래" />
         <div>
           <h2>믿을 수 있는 판다마켓 중고 거래</h2>

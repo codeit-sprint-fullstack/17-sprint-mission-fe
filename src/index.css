@@ -575,3 +575,47 @@ button.primary {
   color: #ef4444;
   font-size: 14px;
 }
+
+@media (max-width: 743px) {
+  .market-toolbar {
+    margin-top: 0;
+    grid-template-columns: minmax(0, 1fr) 46px 76px;
+    gap: 8px;
+  }
+
+  .market-toolbar button.primary {
+    grid-column: 2 / 4;
+  }
+
+  .market-toolbar form {
+    grid-column: 1 / 3;
+  }
+
+  .market-toolbar select {
+    grid-column: 3;
+    width: 100%;
+    min-width: 0;
+    padding-inline: 6px;
+    font-size: 12px;
+  }
+}
+
+.pagination button {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #374151;
+}
+
+.pagination button.active {
+  border-color: #3692ff;
+  background-color: #3692ff;
+  color: #fff;
+}
+
+.pagination button:disabled {
+  color: #9ca3af;
+}
