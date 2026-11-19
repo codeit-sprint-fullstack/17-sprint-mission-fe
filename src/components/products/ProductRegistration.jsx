@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createProduct } from "../../api/productApi";
 import useProductValidation from "../../hooks/useProductValidation";
+import useTags from "../../hooks/useTags";
 import { useNavigate } from "react-router-dom";
 import "../../styles/productRegistration.css";
 
@@ -8,9 +9,11 @@ export default function ProductRegistration() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [tags, setTags] = useState("");
 
   const { error, validate } = useProductValidation();
+
+  const { tags, tagInput, tagHandleChange, tagHandleKeyDown, tagHandleDelete } =
+    useTags();
 
   const navigate = useNavigate();
 
@@ -20,7 +23,7 @@ export default function ProductRegistration() {
       name,
       description,
       price: Number(price),
-      tags: [tags],
+      tags: tags,
     };
     try {
       if (!isValid) {
@@ -82,9 +85,20 @@ export default function ProductRegistration() {
           <input
             id="tags"
             placeholder="태그를 입력해주세요.(5글자 이하)"
-            value={tags}
-            onChange={(e) => setTags(e.target.value)}
+            value={tagInput}
+            onChange={tagHandleChange}
+            onKeyDown={tagHandleKeyDown}
           ></input>
+          <div className="tags-input">
+            {tags.map((tag) => (
+              <div className="tag-registration" key={tag}>
+                <p>{tag}</p>
+                <button type="button" onClick={()=>tagHandleDelete(tag)}>
+                  <img src="/images/ic_X.png" alt="태그 삭제" />
+                </button>
+              </div>
+            ))}
+          </div>
           {error.tags && <p className="error-message">{error.tags}</p>}
         </div>
       </section>

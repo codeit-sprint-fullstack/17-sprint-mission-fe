@@ -38,11 +38,9 @@ export default function useProductValidation() {
       newErrors.price = "상품 금액을 0원 이상으로 작성해주세요.";
     }
 
-    if (!tags.trim()) {
+    if (!tags.length) {
       newErrors.tags = "태그를 등록해주세요";
-    } else if (tags.length > 5) {
-      newErrors.tags = "태그를 5글자 이하로 작성해주세요.";
-    }
+    } 
 
     setError(newErrors);
 
