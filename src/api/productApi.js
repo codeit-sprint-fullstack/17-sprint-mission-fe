@@ -11,3 +11,8 @@ export async function getProducts({
   });
   return res.data;
 }
+
+export async function createProduct({ name, description, price, tags }) {
+  const res = await api.post('/products', { name, description, price, tags });
+  return res.data;
+}

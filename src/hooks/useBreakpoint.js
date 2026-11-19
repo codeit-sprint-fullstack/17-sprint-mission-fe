@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-const getBreakpoint = (width) => {
+function getBreakpoint(width) {
   if (width >= 1200) return 'pc';
   if (width >= 768) return 'tablet';
   return 'mobile';
-};
+}
 
 export default function useBreakpoint() {
   const [breakpoint, setBreakpoint] = useState(() =>
