@@ -35,15 +35,16 @@ main {
   flex: 1;
 }
 
-/* 중고마켓 페이지 안쪽 폭 (PC 1200px) */
-.market {
+/* 중고마켓·상품 등록 페이지 안쪽 폭 (PC 1200px) */
+.market,
+.registration {
   width: 100%;
   max-width: 75rem;
   margin: 0 auto;
   padding: 1.5rem 0 8.75rem;
 }
 
-/* "베스트 상품", "전체 상품" 제목 */
+/* "판매 중인 상품" 제목 */
 .section-title {
   font-size: 1.25rem;
   font-weight: var(--fw-bold);
@@ -65,14 +66,16 @@ main {
 
 /* 태블릿: 양옆 여백 24px */
 @media (max-width: 1199px) {
-  .market {
+  .market,
+  .registration {
     padding: 1rem 1.5rem 8.75rem;
   }
 }
 
 /* 모바일: 양옆 여백 16px */
 @media (max-width: 743px) {
-  .market {
+  .market,
+  .registration {
     padding: 1rem 1rem 8.75rem;
   }
 }

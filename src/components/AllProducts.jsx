@@ -1,14 +1,16 @@
 import { useState } from "react";
+import { Link } from "react-router";
 import useProducts from "../hooks/useProducts";
 import usePageSize from "../hooks/usePageSize";
 import ProductCard from "./ProductCard";
 import SearchForm from "./SearchForm";
 import SortDropdown from "./SortDropdown";
 import Pagination from "./Pagination";
+import { ORDER_BY } from "../constants/product";
 import "./AllProducts.css";
 
 function AllProducts() {
-  const [orderBy, setOrderBy] = useState("recent");
+  const [orderBy, setOrderBy] = useState(ORDER_BY.RECENT);
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
 
@@ -43,11 +45,11 @@ function AllProducts() {
   return (
     <section className="all-products">
       <div className="all-products-header">
-        <h2 className="section-title">전체 상품</h2>
+        <h2 className="section-title">판매 중인 상품</h2>
         <SearchForm onSearch={handleSearch} />
-        <a href="/registration" className="btn-primary all-products-register">
+        <Link to="/registration" className="btn-primary all-products-register">
           상품 등록하기
-        </a>
+        </Link>
         <SortDropdown value={orderBy} onChange={handleOrderChange} />
       </div>
 
