@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   gap: 4px;
-  margin-top: 19px; /* 섹션 gap 24와 합쳐 카드 목록 아래 43px */
+  margin-top: 19px;
 }
 
 .pagination-button {
@@ -35,7 +35,7 @@
   cursor: default;
 }
 
-/* 태블릿 (744px ~ 1199px): 섹션 gap 40으로 간격이 정해짐 */
+/* 태블릿 (744px ~ 1199px) */
 @media (max-width: 1199px) {
   .pagination {
     margin-top: 0;

@@ -41,6 +41,10 @@
   color: var(--color-gray-600);
 }
 
+.header-menu a.active {
+  color: var(--color-primary-100);
+}
+
 .header-login {
   height: 42px;
   padding: 0 23px;
