@@ -1,83 +1,64 @@
-# 🐼 판다마켓 프로젝트
+# 판다마켓 · 스프린트 미션 5
 
-> _이 저장소는 판다마켓 프로젝트의 프론트엔드 코드를 관리합니다. 프로젝트를 클론하여 개발 환경을 설정하고, 각 브랜치에서 스프린트 미션을 수행해 주세요!_ 🛠️
+React 프론트엔드와 Express/MongoDB 백엔드를 별도 폴더와 배포 서비스로 나눈 프로젝트입니다.
 
-## 소개
-
-안녕하세요! 판다마켓 프로젝트에 오신 것을 환영합니다! 🥳
-
-판다마켓은 따뜻한 중고거래를 위한 커뮤니티 플랫폼이에요. 상품을 등록하고, 다른 사용자와 소통하며, 자유게시판에서 정보를 나눌 수 있습니다. 스프린트 미션을 통해 배운 내용을 프로젝트에 적용하고 코드 리뷰를 받으며 성장해 나갑니다. 🚀
-
-![판다마켓 프로젝트 대표 이미지](https://github.com/user-attachments/assets/3784b99f-73c9-4349-a9a9-92b2a7563574)
-
-_위 이미지는 판다마켓의 대표 이미지입니다._ 📸
-
-## 스프린트 미션이란?
-
-스프린트 미션은 하나의 개인 프로젝트를 이어서 진행하면서 주기적으로 피드백을 받는 과제입니다. 각 미션에서 배운 이론을 적용하고, 멘토님의 코드 리뷰를 통해 개발 역량을 키워갑니다. 💪
-
-## 판다마켓의 주요 기능
-
-1. **상품 등록**: 물건과 사진, 설명을 등록해 판매할 수 있습니다.
-2. **문의 댓글**: 상품에 대한 질문과 의견을 나눌 수 있습니다.
-3. **자유게시판**: 다양한 주제로 소통하고 정보를 공유할 수 있습니다. 🗣️
-
-## 현재 미션: 중고마켓 페이지
-
-React와 Vite로 구현한 반응형 중고마켓 페이지입니다. Panda Market Product API에서 베스트 상품과 전체 상품을 불러옵니다.
-
-- 베스트 상품은 좋아요 순으로 조회합니다.
-- 전체 상품을 최신 순 또는 좋아요 순으로 정렬할 수 있습니다.
-- 상품명 검색과 페이지네이션을 제공합니다.
-- 화면 크기에 따라 카드 열 수와 API 요청 `pageSize`를 조정합니다.
-- 상품 로딩, 오류, 검색 결과 없음 상태를 표시합니다.
-- 공통 헤더와 푸터를 사용합니다.
-
-## 반응형 기준
-
-| 화면 | 베스트 상품 | 전체 상품 | 요청 `pageSize` (베스트 / 전체) |
-| --- | ---: | ---: | ---: |
-| Desktop (1200px 이상) | 4열 | 5열 | 4 / 10 |
-| Tablet (744px–1199px) | 2열 | 3열 | 2 / 6 |
-| Mobile (743px 이하) | 1열 | 2열 | 1 / 6 |
-
-## 기술 스택
-
-- React, Vite
-- JavaScript, CSS
-- Fetch API
-- Panda Market Product API: `https://panda-market-api.vercel.app`
-
-## 시작하기
-
-Node.js가 설치되어 있어야 합니다.
-
-```bash
-npm install
-npm run dev
-```
-
-개발 서버 주소는 터미널에 표시됩니다. `npm run dev`는 기본 브라우저도 엽니다.
-
-## 빌드 및 미리보기
-
-```bash
-npm run build
-npm run preview
-```
-
-빌드 결과물은 `dist` 폴더에 생성됩니다.
-
-## 프로젝트 구조
+## 폴더 구성
 
 ```text
 .
-├── public/                 # 정적 이미지와 폰트
-├── src/
-│   ├── components/         # 헤더, 푸터, 상품 카드
-│   ├── hooks/              # 상품 조회 및 화면 크기 커스텀 훅
-│   ├── App.jsx             # 마켓 페이지와 검색·정렬·페이지네이션
-│   └── styles.css          # 공통 및 반응형 스타일
-├── index.html
-└── package.json
+├── frontend/   # React, Vite, 화면과 API 요청
+├── backend/    # Express, Mongoose, 상품 API
+├── package.json # 두 개발 서버 실행 스크립트
+└── render.yaml  # Render 프론트엔드/백엔드 배포 설정
 ```
+
+## 로컬 실행
+
+1. 프로젝트 루트에서 프론트엔드와 백엔드 패키지를 설치합니다.
+
+   ```bash
+   npm run setup
+   ```
+
+2. `backend/.env`가 아직 없다면 `backend/.env.example`을 복사하고, `MONGODB_URI`에 Atlas 연결 문자열을 입력하세요. 이미 `.env`가 있으면 덮어쓰지 말고 그 파일을 수정하세요. 비밀번호는 채팅이나 GitHub에 올리지 마세요.
+
+   ```powershell
+   if (!(Test-Path backend/.env)) { Copy-Item backend/.env.example backend/.env }
+   ```
+
+3. 프로젝트 루트에서 양쪽 서버를 실행합니다.
+
+   ```bash
+   npm run dev
+   ```
+
+   서버가 MongoDB에 연결되면 Express가 `http://localhost:3001`, React가 `http://localhost:5173`에서 실행됩니다. 개발 중 `/api` 요청은 Vite가 Express로 전달합니다.
+
+## 프론트엔드
+
+- `/`: 랜딩 페이지
+- `/items`: 판매 중인 상품 목록, 검색, 최신순·좋아요순 정렬, offset 페이지네이션
+- `/registration`: 상품 등록, 입력 검증, 태그 칩
+- `/items/:id`: 상품 상세 빈 페이지
+- 상품 이미지가 없으면 프론트엔드의 기본 이미지를 보여줍니다.
+
+## 백엔드 API
+
+| 메서드 | 경로 | 기능 |
+| --- | --- | --- |
+| `GET` | `/api/products?offset=0&limit=10&orderBy=recent&keyword=` | 목록, `recent` 또는 `favorite` 정렬, 이름·소개 검색, offset 페이지네이션 |
+| `POST` | `/api/products` | 상품 생성 |
+| `GET` | `/api/products/:id` | 상품 상세 조회 |
+| `PATCH` | `/api/products/:id` | 상품 수정 |
+| `DELETE` | `/api/products/:id` | 상품 삭제 |
+| `GET` | `/api/health` | API 상태 확인 |
+
+## Render 배포
+
+`render.yaml`은 Static Site 프론트엔드와 Web Service 백엔드를 각각 정의합니다. Render에서 Blueprint로 적용한 뒤 환경 변수에 다음 값을 입력하세요.
+
+- 백엔드 `MONGODB_URI`: Atlas의 Node.js 연결 문자열
+- 백엔드 `CLIENT_ORIGIN`: Render 프론트엔드 URL
+- 프론트엔드 `VITE_API_BASE_URL`: Render 백엔드 URL
+
+Atlas의 Network Access에는 로컬 개발 PC와 배포 서버가 접속할 수 있도록 허용 주소를 설정해야 합니다.

@@ -7,7 +7,7 @@ const socialLinks = [
   ["Instagram", "/images/ic-instagram.svg", "https://www.instagram.com/"],
 ];
 
-export function Header() {
+export function Header({ active = "" }) {
   return (
     <header className="site-header">
       <div className="header-inner">
@@ -18,7 +18,7 @@ export function Header() {
           </a>
           <nav className="primary-nav" aria-label="주요 메뉴">
             <a href="/articles">자유게시판</a>
-            <a href="/" aria-current="page">중고마켓</a>
+            <a href="/items" className={active === "items" ? "active" : ""} aria-current={active === "items" ? "page" : undefined}>중고마켓</a>
           </nav>
         </div>
         <a className="login-button" href="/login">로그인</a>
@@ -49,21 +49,29 @@ export function Footer() {
 }
 
 export function ProductCard({ product }) {
-  const [imageFailed, setImageFailed] = useState(false);
-  const image = product.images?.[0];
+  const [liked, setLiked] = useState(false);
+  const favoriteCount = Number(product.favoriteCount ?? 0) + (liked ? 1 : 0);
+
   return (
     <article className="product-card">
-      <a className="product-image" href={`/products/${product.id}`} aria-label={`${product.name} 상세 보기`}>
-        {image && !imageFailed ? (
-          <img src={image} alt={product.name} loading="lazy" onError={() => setImageFailed(true)} />
-        ) : (
-          <span className="image-placeholder" aria-hidden="true">🐼</span>
-        )}
+      <a className="product-image" href={`/items/${product.id}`} aria-label={`${product.name} 상세 보기`}>
+        <img src="/images/product-placeholder.svg" alt="" loading="lazy" />
       </a>
       <div className="product-info">
-        <a className="product-name" href={`/products/${product.id}`}>{product.name}</a>
+        <a className="product-name" href={`/items/${product.id}`}>{product.name}</a>
         <strong className="product-price">{Number(product.price).toLocaleString("ko-KR")}원</strong>
-        <span className="favorite-count"><span aria-hidden="true">♡</span> {product.favoriteCount}</span>
+        <button
+          className={`favorite-button${liked ? " liked" : ""}`}
+          type="button"
+          aria-label={`${liked ? "좋아요 취소" : "좋아요"}: ${product.name}, ${favoriteCount}개`}
+          aria-pressed={liked}
+          onClick={() => setLiked((current) => !current)}
+        >
+          <svg viewBox="0 0 20 20" aria-hidden="true">
+            <path d="M10 17s-6.5-3.9-6.5-8.3A3.7 3.7 0 0 1 10 6.8a3.7 3.7 0 0 1 6.5 1.9C16.5 13.1 10 17 10 17Z" />
+          </svg>
+          <span>{favoriteCount}</span>
+        </button>
       </div>
     </article>
   );
