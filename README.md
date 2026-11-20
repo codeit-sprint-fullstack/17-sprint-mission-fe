@@ -72,9 +72,12 @@ GitHub의 `sprint-mission-5` 브랜치에서 `render.yaml`을 Blueprint로 선�
 | 서비스 | 환경 변수 | 입력할 값 |
 | --- | --- | --- |
 | 백엔드 | `DB_CONNECT` | MongoDB Atlas의 Node.js 연결 문자열 |
+| 백엔드 | `DB_USER`, `DB_PASSWORD` | Atlas 사용자 이름과 비밀번호를 별도로 입력할 때 사용 |
 | 백엔드 | `CLIENT_ORIGIN` | Render 프론트엔드 URL |
 | 프론트엔드 | `VITE_API_URL` | Render 백엔드 URL |
 
 Atlas의 IP 액세스 목록에 Render 백엔드의 아웃바운드 IP 범위를 추가합니다. Atlas 비밀번호가 담긴 연결 문자열은 Render의 백엔드 환경 변수나 로컬 `server/.env`에만 입력합니다. [Render 아웃바운드 IP](https://render.com/docs/outbound-ip-addresses) · [Atlas IP 액세스 목록](https://www.mongodb.com/docs/atlas/security/ip-access-list/)
+
+별도 인증을 사용할 때는 `DB_CONNECT`를 `mongodb+srv://클러스터주소/데이터베이스이름?authSource=admin` 형식으로 입력합니다. Render에 `DB_USER`와 `DB_PASSWORD`를 추가하고 Atlas에 설정한 값을 그대로 입력합니다.
 
 백엔드 주소의 `/health`에서 `{"status":"ok"}`를 확인합니다. 프론트엔드의 `VITE_API_URL`을 바꾸면 다시 빌드합니다. 배포된 화면에서 상품 조회와 등록이 동작하는지 확인합니다.
