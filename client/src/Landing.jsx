@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import './landing.css'
 
+const siteBase = import.meta.env.BASE_URL
+
 const features = [
   {
     label: 'Hot item',
@@ -31,13 +33,13 @@ export default function Landing() {
             <h1>일상의 모든 물건을<br />거래해 보세요</h1>
             <Link className="primary landing-cta" to="/items">구경하러 가기</Link>
           </div>
-          <img src="/landing/banner.png" alt="" />
+          <img src={`${siteBase}landing/banner.png`} alt="" />
         </div>
       </section>
       {features.map(({ label, image, title, description }) => (
         <section className="landing-feature" key={label}>
           <div className="landing-feature-inner">
-            <img src={`/landing/${image}`} alt="" loading="lazy" />
+            <img src={`${siteBase}landing/${image}`} alt="" loading="lazy" />
             <div>
               <span>{label}</span>
               <h2>{title}</h2>
@@ -49,7 +51,7 @@ export default function Landing() {
       <section className="landing-banner landing-closing">
         <div className="landing-banner-inner">
           <h2>믿을 수 있는<br />판다마켓 중고 거래</h2>
-          <img src="/landing/section04.png" alt="" loading="lazy" />
+          <img src={`${siteBase}landing/section04.png`} alt="" loading="lazy" />
         </div>
       </section>
     </main>

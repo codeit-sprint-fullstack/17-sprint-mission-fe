@@ -1,0 +1,55 @@
+name: Deploy frontend to GitHub Pages
+
+on:
+  push:
+    branches: [sprint-mission-5]
+    paths:
+      - client/**
+      - .github/workflows/pages.yml
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
+    defaults:
+      run:
+        working-directory: client
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: client/package-lock.json
+      - uses: actions/configure-pages@v5
+        id: pages
+      - run: npm ci
+      - run: npm run build -- --base="${PAGES_BASE_PATH%/}/"
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          VITE_USE_HASH_ROUTER: 'true'
+          VITE_API_URL: https://pandamarket-mission5-api.onrender.com
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: client/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment

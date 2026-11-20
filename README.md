@@ -81,3 +81,13 @@ Atlas의 IP 액세스 목록에 Render 백엔드의 아웃바운드 IP 범위를
 별도 인증을 사용할 때는 `DB_CONNECT`를 `mongodb+srv://클러스터주소/데이터베이스이름?authSource=admin` 형식으로 입력합니다. Render에 `DB_USER`와 `DB_PASSWORD`를 추가하고 Atlas에 설정한 값을 그대로 입력합니다.
 
 백엔드 주소의 `/health`에서 `{"status":"ok"}`를 확인합니다. 프론트엔드의 `VITE_API_URL`을 바꾸면 다시 빌드합니다. 배포된 화면에서 상품 조회와 등록이 동작하는지 확인합니다.
+
+## GitHub Pages 배포
+
+GitHub Pages는 React 화면을 호스팅하고, 화면의 상품 요청은 기존 Render 백엔드로 보냅니다.
+
+1. Render 백엔드의 `CLIENT_ORIGIN`에 `https://pandamarket-mission5-client.onrender.com,https://mct2005.github.io`를 입력합니다.
+2. GitHub 저장소의 **Settings → Pages → Source**에서 **GitHub Actions**를 선택합니다. [GitHub Pages 설정 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)
+3. `sprint-mission-5` 브랜치에 프론트엔드 또는 워크플로 변경을 푸시하면 GitHub Actions가 `client/dist`를 배포합니다.
+
+예상 사이트 주소는 `https://mct2005.github.io/17-sprint-mission-fe/`입니다. 상품 목록 주소는 `/17-sprint-mission-fe/#/items`이며, `#/items`를 그대로 열거나 새로고침해도 목록을 표시합니다.
