@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import useProducts from "../../hooks/useProducts";
 import usePageSize from "../../hooks/usePageSize";
 import ProductContent from "./ProductContent";
 
 export default function ProductList() {
   const [keyword, setKeyword] = useState("");
-  const [sortBy, setSortBy] = useState("recent");
   const [page, setPage] = useState(1);
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
@@ -20,7 +20,7 @@ export default function ProductList() {
   const { products, totalCount, error, loading } = useProducts(
     page,
     pageSize,
-    sortBy,
+    "recent",
     keyword,
   );
 
@@ -49,19 +49,14 @@ export default function ProductList() {
               setPage(1);
             }}
           />
-          <a className="header-login link-button product-register">
-            상품 등록하기
-          </a>
-          <select
-            value={sortBy}
-            onChange={(e) => {
-              setSortBy(e.target.value);
-              //   검색하면 페이지 1번으로 초기화
-              setPage(1);
-            }}
+          <Link
+            to="/registration"
+            className="header-login link-button product-register"
           >
+            상품 등록하기
+          </Link>
+          <select>
             <option value="recent">최신순</option>
-            <option value="favorite">좋아요순</option>
           </select>
         </div>
       </div>

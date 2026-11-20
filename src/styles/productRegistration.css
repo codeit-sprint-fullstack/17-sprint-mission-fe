@@ -1,0 +1,100 @@
+.product-registration {
+  width: 90%;
+  max-width: 1200px;
+  margin-inline: auto;
+}
+
+.product-registration-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.product-registration-top > .header-login {
+  border: none;
+  font-family: inherit;
+}
+
+.product-registration-top > p {
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+button:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+.product-registration label {
+  font-weight: 700;
+  font-size: calc(18rem / 16);
+  display: block;
+  margin: 16px 0;
+}
+
+.product-input input {
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  padding: 1rem 1.5rem;
+  width: 100%;
+}
+
+.product-input textarea {
+  border-radius: 12px;
+  background-color: #f3f4f6;
+  padding: 1rem 1.5rem;
+  width: 100%;
+  height: 10rem;
+}
+
+.product-registration input,
+.product-registration textarea {
+  font-family: inherit;
+  font-size: 1rem;
+}
+
+.product-registration > div,
+.product-registration > .product-input > div {
+  padding: 16px 0;
+}
+
+.product-input .error-message {
+  color: #b91717;
+  margin-top: 12px;
+}
+
+.tags-input {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.tags-input:empty {
+  display: none;
+}
+
+.tag-registration {
+  background-color: #f3f4f6;
+  border-radius: 26px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 12px;
+  font-size: calc(14rem / 16);
+  line-height: 18px;
+}
+
+.tag-registration button {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+.tag-registration button img {
+  display: block;
+  height: 18px;
+}
+
+.product-input-error {
+  outline: 2px solid #b91717;
+}

@@ -1,5 +1,5 @@
 import axios from "axios";
 
-export const apiUrl = axios.create({
-  baseURL: "https://panda-market-api.vercel.app",
+export const apiClient = axios.create({
+  baseURL: import.meta.env.VITE_API_URL,
 });

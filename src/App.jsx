@@ -1,21 +1,18 @@
-// import { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import BestProducts from "./components/products/BestProducts";
-import ProductList from "./components/products/ProductList";
-import "./styles/products.css";
+import { Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ProductPage from "./pages/ProductPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import ProductRegistrationPage from "./pages/ProductRegistrationPage";
 
 function App() {
   return (
     <>
-      <Header />
-
-      <main className="main-content">
-        <BestProducts />
-        <ProductList />
-      </main>
-
-      <Footer />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/items" element={<ProductPage />} />
+        <Route path="/items/:id" element={<ProductDetailPage />} />
+        <Route path="/registration" element={<ProductRegistrationPage />} />
+      </Routes>
     </>
   );
 }
