@@ -7,6 +7,7 @@ import ProductCard from "../components/ProductCard.jsx";
 import Pagination from "../components/Pagination.jsx";
 import usePageSize from "../hooks/usePageSize.js";
 import useProducts from "../hooks/useProducts.js";
+import { Link } from "react-router";
 
 
 export default function PandaMarket() {
@@ -15,10 +16,8 @@ export default function PandaMarket() {
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
 
-  const bestPageSize = usePageSize({ mobile: 1, tablet: 2, desktop: 4 });
-  const pageSize = usePageSize({ mobile: 2, tablet: 3, desktop: 5 });
+  const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
 
-  const best = useProducts({ pageSize: bestPageSize, orderBy: "favorite" });
   const { products, totalCount, loading, error } = useProducts({ page, pageSize, orderBy, keyword });
 
   const handleSearch = (e) => {
@@ -35,18 +34,13 @@ export default function PandaMarket() {
   const totalPages = Math.ceil(totalCount / pageSize);
 
   return (
-    <div style={{'marginTop': '70px'}}>
-      <h4 className="market-title">베스트 상품</h4>
-      <div className="best-grid">
-        {best.products.map(product => (<ProductCard key={product.id} product={product} />))}
-      </div>
-
+    <div style={{'margin': '70px auto 70px auto', 'maxWidth': '1200px', 'padding': 'auto'}}>
       <div className="market-toolbar">
         <h4 className="market-title">판매 중인 상품</h4>
         <form onSubmit={handleSearch}>
           <input placeholder="검색할 상품을 입력해주세요" value={search} onChange={(e) => setSearch(e.target.value)} />
         </form>
-        <button className="primary">상품 등록하기</button>
+        <button className="primary"><Link to='/registration' className="primary">상품 등록하기</Link></button>
         <select value={orderBy} onChange={handleOrderChange}>
           <option value="recent">최신순</option>
           <option value="favorite">좋아요순</option>

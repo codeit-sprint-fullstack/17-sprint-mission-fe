@@ -12,7 +12,7 @@ export default function Pagination({ page, totalPages, onChange }) {
     <div className="pagination">
       <button disabled={page === 1} onClick={() => onChange(page - 1)}>&lt;</button>
       {pageNumbers.map(number => (
-        <button key={number} className={number === page ? "active" : ""} onClick={() => onChange(number)}>
+        <button key={number} className={number === page ? "pagination-active" : ""} onClick={() => onChange(number)}>
           {number}
         </button>
       ))}

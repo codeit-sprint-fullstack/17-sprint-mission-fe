@@ -15,10 +15,10 @@ export default function Footer() {
                 <a href="#faq">FAQ</a>
             </div>
             <div>
-                <a className="out-links" href="https://www.facebook.com/" target="_blank"><img src="ic_facebook.png" alt=""/></a>
-                <a className="out-links" href="https://www.x.com/" target="_blank"><img src="ic_twitter.png" alt=""/></a>
-                <a className="out-links" href="https://www.youtube.com/" target="_blank"><img src="ic_youtube.png" alt=""/></a>
-                <a className="out-links" href="https://www.instagram.com/" target="_blank"><img src="ic_instagram.png" alt=""/></a>
+                <a className="out-links" href="https://www.facebook.com/" target="_blank"><img src="./icons/ic_facebook.png" alt=""/></a>
+                <a className="out-links" href="https://www.x.com/" target="_blank"><img src="./icons/ic_twitter.png" alt=""/></a>
+                <a className="out-links" href="https://www.youtube.com/" target="_blank"><img src="./icons/ic_youtube.png" alt=""/></a>
+                <a className="out-links" href="https://www.instagram.com/" target="_blank"><img src="./icons/ic_instagram.png" alt=""/></a>
             </div>
         </div>
     </footer>
