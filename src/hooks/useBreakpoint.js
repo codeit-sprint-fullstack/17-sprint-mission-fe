@@ -12,13 +12,21 @@ export default function useBreakpoint() {
   );
 
   useEffect(() => {
+    let timer;
+
     const handleResize = () => {
-      setBreakpoint(getBreakpoint(window.innerWidth));
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        setBreakpoint(getBreakpoint(window.innerWidth));
+      }, 150);
     };
 
     window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timer);
+    };
   }, []);
 
   return breakpoint;
