@@ -1,4 +1,5 @@
-import "../css/layout.css";
+import { Link } from "react-router";
+import "./Footer.css";
 
 export default function Footer() {
   return (
@@ -7,8 +8,8 @@ export default function Footer() {
         <p className="footer-copyright">©codeit - 2024</p>
 
         <div className="footer-link">
-          <a href="/privacy">Privacy Policy</a>
-          <a href="/faq">FAQ</a>
+          <Link to="/privacy">Privacy Policy</Link>
+          <Link to="/faq">FAQ</Link>
         </div>
 
         <div className="footer-sns">
@@ -18,7 +19,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="sns-link"
           >
-            <img src="/public/ic_facebook.png" alt="Facebook" />
+            <img src="/ic_facebook.png" alt="Facebook" />
           </a>
 
           <a
@@ -27,7 +28,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="sns-link"
           >
-            <img src="/public/ic_twitter.png" alt="Twitter" />
+            <img src="/ic_twitter.png" alt="Twitter" />
           </a>
 
           <a
@@ -36,7 +37,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="sns-link"
           >
-            <img src="/public/ic_youtube.png" alt="YouTube" />
+            <img src="/ic_youtube.png" alt="YouTube" />
           </a>
 
           <a
@@ -45,7 +46,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="sns-link"
           >
-            <img src="/public/ic_instagram.png" alt="Instagram" />
+            <img src="/ic_instagram.png" alt="Instagram" />
           </a>
         </div>
       </div>
