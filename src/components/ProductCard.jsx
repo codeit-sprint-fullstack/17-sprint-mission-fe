@@ -9,7 +9,7 @@ export default function ProductCard({
   thumbSrc,
   title,
   price,
-  favoriteCount,
+  favoriteCount = 0,
 }) {
   const [imgError, setImgError] = useState(false);
   const hasImage = thumbSrc && !imgError;

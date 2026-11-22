@@ -139,7 +139,7 @@ export default function ItemsPage() {
             {allProducts.map((prd) => (
               <ProductCard
                 key={prd.id}
-                thumbSrc={prd.images[0]}
+                thumbSrc={prd.images?.[0]}
                 title={prd.name}
                 price={prd.price}
                 favoriteCount={prd.favoriteCount}
