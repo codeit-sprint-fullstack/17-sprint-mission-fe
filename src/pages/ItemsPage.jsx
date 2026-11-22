@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getProducts } from '../api/productApi.js';
 import useBreakpoint from '../hooks/useBreakpoint.js';
 import ProductCard from '../components/ProductCard';
+import ProductCardSkeleton from '../components/ProductCardSkeleton';
 import Button from '../components/Button';
 import SortDropdown from '../components/SortDropdown';
 import Pagination from '../components/Pagination';
@@ -24,11 +25,18 @@ export default function ItemsPage() {
   const [orderBy, setOrderBy] = useState('recent');
   const [keyword, setKeyword] = useState('');
   const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
+  const [isLoadingBestPrd, setIsLoadingBestPrd] = useState(true);
+  const [isLoadingAllPrd, setIsLoadingAllPrd] = useState(true);
+  const [isErrorBestPrd, setIsErrorBestPrd] = useState(false);
+  const [isErrorAllPrd, setIsErrorAllPrd] = useState(false);
 
   // 베스트 상품
   useEffect(() => {
     const fetchBestProducts = async () => {
+      // 요청 시작 시 초기화
+      setIsErrorBestPrd(false);
+      setIsLoadingBestPrd(true);
+
       try {
         const data = await getProducts({
           orderBy: 'favorite',
@@ -36,7 +44,10 @@ export default function ItemsPage() {
         });
         setBestProducts(data.list);
       } catch (err) {
-        setError(err);
+        console.error(err);
+        setIsErrorBestPrd(true);
+      } finally {
+        setIsLoadingBestPrd(false);
       }
     };
     fetchBestProducts();
@@ -45,6 +56,10 @@ export default function ItemsPage() {
   // 판매 중인 상품
   useEffect(() => {
     const fetchAllProducts = async () => {
+      // 요청 시작 시 초기화
+      setIsErrorAllPrd(false);
+      setIsLoadingAllPrd(true);
+
       try {
         const data = await getProducts({
           orderBy,
@@ -55,7 +70,10 @@ export default function ItemsPage() {
         setAllProducts(data.list);
         setTotalCount(data.totalCount);
       } catch (err) {
-        setError(err);
+        console.error(err);
+        setIsErrorAllPrd(true);
+      } finally {
+        setIsLoadingAllPrd(false);
       }
     };
     fetchAllProducts();
@@ -73,26 +91,32 @@ export default function ItemsPage() {
     setPage(1);
   };
 
-  if (error) {
-    return <p className='inner py-10 text-center'>상품을 불러오지 못했어요.</p>;
-  }
-
   return (
     <>
       <section className='inner pb-6 md:pb-10'>
         <h2 className='text-xl-bold text-secondary-900'>베스트 상품</h2>
-        <ul className='mt-4 grid grid-cols-1 gap-2.5 md:grid-cols-2 pc:grid-cols-4 pc:gap-6'>
-          {bestProducts.map((prd) => (
-            <ProductCard
-              key={prd.id}
-              variant='best'
-              thumbSrc={prd.images?.[0]}
-              title={prd.name}
-              price={prd.price}
-              favoriteCount={prd.favoriteCount}
-            />
-          ))}
-        </ul>
+        {isErrorBestPrd ? (
+          <p className='py-10 text-center text-lg-regular text-secondary-400'>
+            베스트 상품을 불러오지 못했어요.
+          </p>
+        ) : (
+          <ul className='mt-4 grid grid-cols-1 gap-2.5 md:grid-cols-2 pc:grid-cols-4 pc:gap-6'>
+            {isLoadingBestPrd
+              ? Array.from({ length: BEST_PAGE_SIZE[breakpoint] }, (_, i) => (
+                  <ProductCardSkeleton key={i} />
+                ))
+              : bestProducts.map((prd) => (
+                  <ProductCard
+                    key={prd.id}
+                    variant='best'
+                    thumbSrc={prd.images?.[0]}
+                    title={prd.name}
+                    price={prd.price}
+                    favoriteCount={prd.favoriteCount}
+                  />
+                ))}
+          </ul>
+        )}
       </section>
       <section className='inner'>
         <div className='flex flex-wrap items-center gap-x-3.5 gap-y-2 md:flex-nowrap md:gap-3'>
@@ -130,21 +154,29 @@ export default function ItemsPage() {
             className='order-4 md:order-0'
           />
         </div>
-        {allProducts.length === 0 ? (
+        {isErrorAllPrd ? (
           <p className='py-20 text-center text-lg-regular text-secondary-400'>
-            검색 결과가 없어요.
+            상품을 불러오지 못했어요.
+          </p>
+        ) : !isLoadingAllPrd && allProducts.length === 0 ? (
+          <p className='py-20 text-center text-lg-regular text-secondary-400'>
+            {keyword ? '검색 결과가 없어요.' : '등록된 상품이 없어요.'}
           </p>
         ) : (
           <ul className='mt-4 grid grid-cols-2 gap-x-2 gap-y-8 md:mt-6 md:grid-cols-3 md:gap-x-4 md:gap-y-10 pc:grid-cols-5 pc:gap-x-6'>
-            {allProducts.map((prd) => (
-              <ProductCard
-                key={prd.id}
-                thumbSrc={prd.images?.[0]}
-                title={prd.name}
-                price={prd.price}
-                favoriteCount={prd.favoriteCount}
-              />
-            ))}
+            {isLoadingAllPrd
+              ? Array.from({ length: ALL_PAGE_SIZE[breakpoint] }, (_, i) => (
+                  <ProductCardSkeleton key={i} />
+                ))
+              : allProducts.map((prd) => (
+                  <ProductCard
+                    key={prd.id}
+                    thumbSrc={prd.images?.[0]}
+                    title={prd.name}
+                    price={prd.price}
+                    favoriteCount={prd.favoriteCount}
+                  />
+                ))}
           </ul>
         )}
         <Pagination
