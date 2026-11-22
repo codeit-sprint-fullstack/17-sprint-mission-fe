@@ -8,7 +8,7 @@ export default function ProductCard({
   variant = 'default',
   thumbSrc,
   title,
-  price,
+  price = 0,
   favoriteCount = 0,
 }) {
   const [imgError, setImgError] = useState(false);

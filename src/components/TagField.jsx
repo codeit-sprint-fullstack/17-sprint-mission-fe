@@ -18,7 +18,7 @@ export default function TagField({ tags, onAdd, onRemove, ...rest }) {
         placeholder='태그를 입력해주세요'
         onKeyDown={handleKeyDown}
       />
-      <ul className='mt-3.5 flex items-center gap-3'>
+      <ul className='mt-3.5 flex items-center flex-wrap gap-3'>
         {tags.map((t) => (
           <li
             key={t}
