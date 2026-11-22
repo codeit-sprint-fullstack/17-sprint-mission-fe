@@ -13,7 +13,7 @@ function FeatureSection({ img, label, title, reverse = false, children }) {
   return (
     <section className='lg:py-[8.63rem]'>
       <div
-        className={`inner-sm flex flex-col gap-6 flex-wrap lg:items-center lg:justify-center lg:gap-16 lg:bg-[#fcfcfc] ${
+        className={`inner-sm flex flex-col gap-6 flex-wrap lg:items-center lg:justify-center lg:gap-16 ${
           reverse
             ? 'items-end text-right lg:flex-row-reverse'
             : 'items-start lg:flex-row'
