@@ -1,31 +1,28 @@
 import { Link } from "react-router-dom";
 
+// 프론트엔드 기본 상품 이미지
+const DEFAULT_PRODUCT_IMAGE = "/images/default-product.svg";
+
 export default function ProductCard({ product }) {
-  const image = product.images?.[0] || product.image;
+  // 가격에 천 단위 쉼표 추가
   const price = Number(product.price ?? 0).toLocaleString("ko-KR");
 
   return (
-    <Link className="product-card" to={`/products/${product.id}`}>
+    <Link className="product-card" to={`/items/${product.id}`}>
+      {/* 기본 상품 이미지 */}
       <div className="product-image">
-        {image ? (
-          <img
-            src={image}
-            alt={product.name || "상품 이미지"}
-            loading="lazy"
-            onError={(event) => {
-              event.currentTarget.style.display = "none";
-              event.currentTarget.parentElement.classList.add("image-failed");
-            }}
-          />
-        ) : (
-          <span>이미지 없음</span>
-        )}
+        <img
+          src={DEFAULT_PRODUCT_IMAGE}
+          alt={`${product.name || "상품"} 기본 이미지`}
+          loading="lazy"
+        />
       </div>
+
+      {/* 상품명 */}
       <div className="product-name">{product.name || "상품명 없음"}</div>
+
+      {/* 판매 가격 */}
       <strong className="product-price">{price}원</strong>
-      <div className="product-like">
-        ♡ {product.favoriteCount ?? product.favorites ?? 0}
-      </div>
     </Link>
   );
 }

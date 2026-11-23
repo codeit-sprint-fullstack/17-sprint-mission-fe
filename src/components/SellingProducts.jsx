@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
+
 import useProducts from "../hooks/useProducts";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
@@ -17,12 +18,14 @@ function SearchForm({ keyword, onSearch }) {
       }}
     >
       <span aria-hidden="true">⌕</span>
+
       <input
         aria-label="상품 검색"
         placeholder="검색할 상품을 입력해주세요"
         value={searchInput}
         onChange={(e) => setSearchInput(e.target.value)}
       />
+
       <button type="submit" className="search-submit">
         검색
       </button>
@@ -33,15 +36,15 @@ function SearchForm({ keyword, onSearch }) {
 export default function SellingProducts({ pageSize }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
+  // URL에서 현재 페이지 번호 가져오기
   const rawPage = Number(searchParams.get("page"));
+
   const page = Number.isInteger(rawPage) && rawPage > 0 ? rawPage : 1;
 
-  const orderBy =
-    searchParams.get("orderBy") === "favorite" ? "favorite" : "recent";
-
+  // URL에서 검색어 가져오기
   const keyword = searchParams.get("keyword") || "";
 
-  // 검색어, 정렬 기준, 페이지 번호를 URL에 반영
+  // 검색어와 페이지 번호를 URL에 반영
   function changeQuery(changes) {
     setSearchParams((previous) => {
       const next = new URLSearchParams(previous);
@@ -72,14 +75,15 @@ export default function SellingProducts({ pageSize }) {
     );
   }, [pageSize, setSearchParams]);
 
-  // 상품 목록 조회
+  // 상품 목록 조회 - 최신순만 사용
   const { list, totalCount, loading, error } = useProducts({
     page,
     pageSize,
     keyword,
-    orderBy,
+    orderBy: "recent",
   });
 
+  // 전체 페이지 수 계산
   const totalPages = Math.max(1, Math.ceil(totalCount / pageSize));
 
   // 현재 페이지가 전체 페이지 수를 초과하면 마지막 페이지로 이동
@@ -102,37 +106,21 @@ export default function SellingProducts({ pageSize }) {
         <h2>판매 중인 상품</h2>
 
         <div className="selling-controls">
+          {/* 상품 검색 */}
           <SearchForm
             key={keyword}
             keyword={keyword}
             onSearch={(value) => changeQuery({ keyword: value, page: 1 })}
           />
 
-          <button
-            className="register-button"
-            type="button"
-            onClick={() => window.alert("잘못된 요청입니다.")}
-          >
+          {/* 상품 등록 페이지로 이동 */}
+          <Link to="/registration" className="register-button">
             상품 등록하기
-          </button>
-
-          <select
-            className="sort-select"
-            aria-label="상품 정렬"
-            value={orderBy}
-            onChange={(e) =>
-              changeQuery({
-                orderBy: e.target.value,
-                page: 1,
-              })
-            }
-          >
-            <option value="recent">최신순</option>
-            <option value="favorite">좋아요순</option>
-          </select>
+          </Link>
         </div>
       </div>
 
+      {/* 상품 목록 상태에 따라 화면 분기 */}
       {loading ? (
         <p className="status">상품을 불러오는 중...</p>
       ) : error ? (
@@ -147,6 +135,7 @@ export default function SellingProducts({ pageSize }) {
         </div>
       )}
 
+      {/* 페이지네이션 */}
       {!loading && !error && (
         <Pagination
           page={page}
