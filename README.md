@@ -67,7 +67,10 @@
 - 화면 구분이 바뀌면 바뀐 `pageSize`로 상품을 다시 요청
 
 ### API 연동
-[판다마켓 API](https://panda-market-api.vercel.app/docs)의 상품 API를 사용합니다.
+직접 만든 Express 서버의 상품 API를 사용합니다.
+
+- 서버 주소: https://one7-sprint-mission-be-2gcd.onrender.com
+- 백엔드 레포: [17-sprint-mission-be](https://github.com/dev-jnjeong/17-sprint-mission-be)
 
 | 메서드 | 경로 | 설명 |
 | --- | --- | --- |
