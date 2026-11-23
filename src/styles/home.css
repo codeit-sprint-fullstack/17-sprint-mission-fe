@@ -1,0 +1,305 @@
+/* 랜딩 페이지 공통 설정 */
+.home-page {
+  --home-blue: #3692ff;
+  --home-light-blue: #cfe5ff;
+
+  width: 100%;
+  color: #111827;
+}
+
+/* 상단 배너 */
+.home-hero {
+  width: 100%;
+  min-height: 540px;
+  background-color: var(--home-light-blue);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+.home-hero-inner {
+  width: min(100%, 1200px);
+  min-height: 540px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 0 24px;
+}
+
+.home-hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  flex-shrink: 0;
+  padding-bottom: 90px;
+}
+
+.home-hero-text h1 {
+  margin: 0;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.home-cta {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 14px 72px;
+
+  border-radius: 40px;
+  background-color: var(--home-blue);
+  color: white;
+
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.home-cta:hover {
+  background-color: #2478dc;
+}
+
+.home-hero-image {
+  display: block;
+  width: min(58%, 746px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* 가운데 콘텐츠 공통 */
+.home-feature-section {
+  padding: 80px 24px;
+}
+
+.home-feature {
+  max-width: 1000px;
+  min-height: 444px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+
+  background-color: #fcfcfc;
+  border-radius: 12px;
+}
+
+.home-feature-image {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-feature-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.home-feature-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.home-feature-text h2 {
+  margin: 0 0 12px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.home-feature-text p {
+  margin: 0;
+  color: #4b5563;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.home-badge {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: var(--home-blue);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+/* 두 번째 콘텐츠 - 텍스트 왼쪽, 이미지 오른쪽 */
+.home-feature-reverse .home-feature-text {
+  text-align: right;
+}
+
+/* 하단 배너 */
+.home-bottom-banner {
+  margin-top: 100px;
+  min-height: 540px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+
+  background-color: var(--home-light-blue);
+  overflow: hidden;
+}
+
+.home-bottom-inner {
+  width: min(100%, 1200px);
+  min-height: 540px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+
+  padding: 0 24px;
+}
+
+.home-bottom-inner h2 {
+  flex-shrink: 0;
+  margin: 0 0 160px;
+
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.home-bottom-image {
+  display: block;
+  width: min(60%, 700px);
+  height: auto;
+  object-fit: contain;
+}
+
+/* 태블릿 */
+@media (max-width: 1199px) {
+  .home-hero-inner,
+  .home-bottom-inner {
+    padding: 0 32px;
+  }
+
+  .home-hero-text h1 {
+    font-size: 32px;
+  }
+
+  .home-cta {
+    padding: 12px 48px;
+  }
+
+  .home-feature-section {
+    padding: 56px 24px;
+  }
+
+  .home-feature {
+    min-height: auto;
+    padding: 24px;
+  }
+
+  .home-feature-text h2 {
+    font-size: 24px;
+  }
+
+  .home-bottom-inner h2 {
+    font-size: 28px;
+  }
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .home-hero {
+    min-height: auto;
+  }
+
+  .home-hero-inner {
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    padding: 64px 20px 0;
+  }
+
+  .home-hero-text {
+    width: 100%;
+    align-items: center;
+    padding-bottom: 0;
+    text-align: center;
+  }
+
+  .home-hero-text h1 {
+    font-size: 28px;
+  }
+
+  .home-cta {
+    width: 100%;
+    max-width: 320px;
+    padding: 14px 24px;
+  }
+
+  .home-hero-image {
+    width: 100%;
+    max-width: 440px;
+  }
+
+  .home-feature-section {
+    padding: 36px 16px;
+  }
+
+  .home-feature,
+  .home-feature-reverse {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px;
+  }
+
+  .home-feature-reverse .home-feature-text {
+    order: -1;
+    text-align: left;
+  }
+
+  .home-feature-image,
+  .home-feature-text {
+    width: 100%;
+    flex: initial;
+  }
+
+  .home-feature-text h2 {
+    font-size: 24px;
+  }
+
+  .home-feature-text p {
+    font-size: 14px;
+  }
+
+  .home-bottom-banner {
+    margin-top: 40px;
+    min-height: auto;
+  }
+
+  .home-bottom-inner {
+    min-height: auto;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+
+    padding: 64px 20px 0;
+  }
+
+  .home-bottom-inner h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 26px;
+  }
+
+  .home-bottom-image {
+    width: 100%;
+    max-width: 440px;
+  }
+}

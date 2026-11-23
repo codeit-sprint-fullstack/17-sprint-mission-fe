@@ -386,3 +386,8 @@ h2 {
     padding: 8px 9px;
   }
 }
+
+/* 현재 페이지에 해당하는 내비게이션 메뉴 */
+.nav-links .nav-link.active {
+  color: #3692ff;
+}
