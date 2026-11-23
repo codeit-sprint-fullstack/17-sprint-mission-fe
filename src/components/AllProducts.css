@@ -57,6 +57,8 @@
 }
 
 .all-products-register {
+  display: flex;
+  align-items: center;
   height: 42px;
   padding: 0 23px;
   border: 0;
@@ -112,10 +114,8 @@
   }
 
   .all-products-register {
-    grid-area: 1 / 1;
-    justify-self: start;
-    width: max-content; /* 칸이 좁아도 버튼 폭(133)이 줄지 않게 */
-    margin-left: 166px; /* 제목 113 + 간격 53 */
+    grid-area: 1 / 1 / 2 / -1;
+    justify-self: end;
   }
 
   .all-products-search {
@@ -136,4 +136,12 @@
   .all-products-list .product-card-image {
     border-radius: 12px;
   }
+}
+
+.all-products-message {
+  padding: 80px 0;
+  text-align: center;
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--color-gray-400);
 }

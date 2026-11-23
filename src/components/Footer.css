@@ -50,7 +50,7 @@
   }
 }
 
-/* 모바일 (743px 이하): 1줄 링크 + SNS, 2줄 저작권 */
+/* 모바일 (743px 이하) */
 @media (max-width: 743px) {
   .footer-inner {
     flex-wrap: wrap;
