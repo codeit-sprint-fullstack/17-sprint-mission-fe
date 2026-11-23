@@ -131,10 +131,15 @@ textarea:focus {
 
 /* 레이아웃 */
 .container {
-  /* max-width: 1200px; */
   max-width: 100%;
   margin: 0 auto;
+  margin-top: 70px;
   font-family: Pretendard2;
+}
+
+#home {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 section {
@@ -373,17 +378,6 @@ section {
     cursor: pointer;
 }
 
-.login > a {
-    background-color: #3692FF;
-    color: #f3f4f6;
-    /* padding: 12px 23px; */
-    padding: 0.75rem 1.4375rem;
-    /* border-radius: 10px; */
-    border-radius: 0.625rem;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .content { 
     display: flex;
     flex-direction: row;
@@ -424,6 +418,40 @@ section {
     color: #3c3c3c;
 }
 
+.productRegistor {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.productInput {
+  background-color: var(--gray);
+  width: 90%;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.post {
+  background-color: #3692FF;
+  color: #f3f4f6;
+  padding: 0.75rem 1.4375rem;
+  border-radius: 0.625rem;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.post:disabled {
+  border-color: var(--border);
+  background: var(--gray);
+  color: #aaa;
+  cursor: default;
+}
+
 /* Tablet : 744px ~ 1199px (usePageSize 기준과 동일) */
 @media (max-width: 1199px) {
   .best-grid {
@@ -446,4 +474,49 @@ section {
     margin-left: 8px;
     font-size: 14px;
   }
+}
+
+[aria-invalid="true"] {
+  border: 1px solid #2d1af2;
+}
+
+.field-error {
+  color: #b5192b;
+}
+.productInput[aria-invalid="true"] {
+  border: 1px solid #c42333;
+}
+
+.productField textarea {
+  resize: vertical;
+}
+
+.fieldError {
+  margin: 4px 0 0;
+  color: #b5192b;
+  font-size: 0.75rem;
+}
+
+.tagList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0;
+  list-style: none;
+}
+
+.tagChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #edf2ff;
+}
+
+.tagChip button {
+  border: 0;
+  padding: 0 4px;
+  background: transparent;
+  color: inherit;
 }
