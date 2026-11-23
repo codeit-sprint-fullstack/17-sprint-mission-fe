@@ -1,18 +1,21 @@
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import BestProducts from "./components/BestProducts";
-import AllProducts from "./components/AllProducts";
+import { Route, Routes } from "react-router";
+import Layout from "./components/Layout";
+import LandingPage from "./pages/LandingPage";
+import MarketPage from "./pages/MarketPage";
+import ProductDetailPage from "./pages/ProductDetailPage";
+import RegistrationPage from "./pages/RegistrationPage";
 
+// 주소별 페이지 연결
 function App() {
   return (
-    <>
-      <Header />
-      <main className="market">
-        <BestProducts />
-        <AllProducts />
-      </main>
-      <Footer />
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/items" element={<MarketPage />} />
+        <Route path="/items/:productId" element={<ProductDetailPage />} />
+        <Route path="/registration" element={<RegistrationPage />} />
+      </Route>
+    </Routes>
   );
 }
 
