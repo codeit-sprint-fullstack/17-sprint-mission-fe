@@ -6,7 +6,14 @@ React 프론트엔드와 Express/MongoDB 백엔드를 별도 폴더와 배포 �
 
 ```text
 .
-├── client/       # React, Vite, 화면과 API 요청
+├── client/       # React, Vite 프론트엔드
+│   └── src/
+│       ├── api/         # 상품 API 요청
+│       ├── components/  # 공통 헤더와 푸터
+│       ├── css/         # 기본·공통·페이지 스타일
+│       ├── pages/       # 랜딩, 중고마켓, 상품 등록
+│       ├── App.jsx      # 화면 경로 설정
+│       └── main.jsx     # React 실행
 ├── server/       # Express, Mongoose, 상품 API
 ├── package.json  # 패키지 설치, 화면 빌드, 서버 실행 명령
 ├── compose.yaml  # 로컬 MongoDB 실행 설정
