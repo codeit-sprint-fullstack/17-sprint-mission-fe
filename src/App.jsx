@@ -14,7 +14,7 @@ export default function App() {
           <Route path="/" element={<Home />} />
 
           {/*중고마켓 페이지*/}
-          <Route path="/" element={<Items />} />
+          <Route path="/items" element={<Items />} />
 
           {/*상품 등록 페이지*/}
           <Route path="/registration" element={null} />
