@@ -189,3 +189,80 @@
     min-height: 200px;
   }
 }
+
+/* 유효성 검사 실패 시 빨간색 테두리 */
+.registration-field input.registration-input-error,
+.registration-field textarea.registration-input-error,
+.registration-field input.registration-input-error:focus,
+.registration-field textarea.registration-input-error:focus {
+  border: 1px solid #f74747;
+}
+
+/* 입력창 아래 오류 메시지 */
+.registration-error {
+  margin: 0;
+  color: #f74747;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 태그 칩 목록 */
+.registration-tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 각각의 태그 칩 */
+.registration-tag-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 6px 10px;
+
+  border-radius: 24px;
+  background-color: #f3f4f6;
+
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* 태그 삭제 버튼 */
+.registration-tag-remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 18px;
+  height: 18px;
+  padding: 0;
+
+  border: none;
+  border-radius: 50%;
+
+  background-color: #9ca3af;
+  color: #ffffff;
+
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.registration-tag-remove:hover {
+  background-color: #6b7280;
+}
+
+/* 모바일 */
+@media (max-width: 767px) {
+  .registration-error {
+    font-size: 12px;
+  }
+
+  .registration-tag-chip {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
