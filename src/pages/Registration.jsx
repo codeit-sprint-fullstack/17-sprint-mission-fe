@@ -1,31 +1,38 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 import useProductValidation from "../hooks/useProductValidation";
+import { createProduct } from "../services/productService";
+
 import "../styles/registration.css";
 
 export default function Registration() {
-  // 상품 등록 폼 상태
+  const navigate = useNavigate();
+
+  // 상품 입력값
   const [form, setForm] = useState({
     name: "",
     description: "",
     price: "",
   });
 
-  // 태그 입력창 상태
+  // 태그 입력과 등록된 태그 목록
   const [tagInput, setTagInput] = useState("");
-
-  // 추가 완료된 태그 목록
   const [tags, setTags] = useState([]);
-
-  // 태그 입력 관련 오류 메시지
   const [tagMessage, setTagMessage] = useState("");
 
-  // 유효성 검사 Custom Hook
+  // API 요청 상태
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState("");
+
+  // Custom Hook으로 유효성 검사
   const { isValid, handleBlur, getError } = useProductValidation(form, tags);
 
-  // 모든 조건을 만족해야 등록 버튼 활성화
-  const canSubmit = isValid && tagInput.trim() === "" && tagMessage === "";
+  // 등록 가능한 상태인지 확인
+  const canSubmit =
+    isValid && tagInput.trim() === "" && tagMessage === "" && !isSubmitting;
 
-  // 상품명, 상품 소개, 판매 가격 변경
+  // 상품명, 소개, 가격 입력값 변경
   function handleChange(e) {
     const { name, value } = e.target;
 
@@ -50,38 +57,31 @@ export default function Registration() {
     }
   }
 
-  // Enter 키를 누르면 태그 칩 추가
+  // Enter 키를 누르면 태그 추가
   function handleTagKeyDown(e) {
     if (e.key !== "Enter" || e.nativeEvent.isComposing) {
       return;
     }
 
-    // Enter로 폼이 제출되지 않게 방지
     e.preventDefault();
 
     const newTag = tagInput.trim().replace(/^#/, "").trim();
 
-    // 빈 태그는 추가하지 않음
     if (!newTag) {
       return;
     }
 
-    // 태그 길이 검사
     if (Array.from(newTag).length > 5) {
       setTagMessage("태그는 5글자 이내로 입력해 주세요.");
       return;
     }
 
-    // 중복 태그 검사
     if (tags.includes(newTag)) {
       setTagMessage("이미 등록한 태그입니다.");
       return;
     }
 
-    // 기존 배열을 유지하며 새 태그 추가
     setTags((previous) => [...previous, newTag]);
-
-    // 입력창과 오류 초기화
     setTagInput("");
     setTagMessage("");
   }
@@ -93,19 +93,51 @@ export default function Registration() {
     setTagMessage("");
   }
 
-  // STEP 27에서 POST API 연결 예정
-  function handleSubmit(e) {
+  // 상품 등록 POST 요청
+  async function handleSubmit(e) {
     e.preventDefault();
 
     if (!canSubmit) {
       return;
     }
 
-    // 현재는 입력 폼 UI만 동작하도록 유지
-    // 다음 단계에서 상품 등록 API 호출
+    setIsSubmitting(true);
+    setSubmitError("");
+
+    // 서버에 보낼 데이터
+    const productData = {
+      name: form.name.trim(),
+      description: form.description.trim(),
+      price: Number(form.price),
+      tags,
+    };
+
+    try {
+      // Express API에 POST 요청
+      const createdProduct = await createProduct(productData);
+
+      // 서버가 생성한 상품 ID로 이동
+      navigate(`/items/${createdProduct.id}`, {
+        replace: true,
+      });
+    } catch (error) {
+      console.error("상품 등록 실패:", error);
+
+      const message =
+        error.response?.data?.message ||
+        error.response?.data?.error ||
+        error.message ||
+        "상품 등록에 실패했습니다.";
+
+      setSubmitError(
+        typeof message === "string" ? message : "상품 등록에 실패했습니다.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
-  // 오류 메시지 가져오기
+  // 오류 메시지
   const nameError = getError("name");
   const descriptionError = getError("description");
   const priceError = getError("price");
@@ -114,7 +146,7 @@ export default function Registration() {
   return (
     <main className="registration-page">
       <div className="registration-container">
-        {/* 페이지 제목과 등록 버튼 */}
+        {/* 상단 제목 및 등록 버튼 */}
         <div className="registration-header">
           <h1>상품 등록하기</h1>
 
@@ -124,17 +156,23 @@ export default function Registration() {
             className="registration-submit"
             disabled={!canSubmit}
           >
-            등록
+            {isSubmitting ? "등록 중..." : "등록"}
           </button>
         </div>
 
-        {/* 상품 등록 폼 */}
         <form
           id="registration-form"
           className="registration-form"
           onSubmit={handleSubmit}
           noValidate
         >
+          {/* 서버 요청 오류 */}
+          {submitError && (
+            <p className="registration-error" role="alert">
+              {submitError}
+            </p>
+          )}
+
           {/* 상품명 */}
           <div className="registration-field">
             <label htmlFor="product-name">상품명</label>
@@ -238,7 +276,7 @@ export default function Registration() {
               </p>
             )}
 
-            {/* 등록된 태그 칩 */}
+            {/* 태그 칩 목록 */}
             {tags.length > 0 && (
               <div className="registration-tag-list" aria-label="등록된 태그">
                 {tags.map((tag) => (

@@ -3,10 +3,10 @@ import axios from "axios";
 // Express 서버와 통신하기 위한 Axios 인스턴스
 const api = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
-  timeout: 15000,
+  timeout: 30000,
 });
 
-// 상품 목록 조회
+// 상품 목록 조회 GET
 export async function getProducts({
   page = 1,
   pageSize = 10,
@@ -35,11 +35,17 @@ export async function getProducts({
   };
 }
 
-// 상품 상세 조회
+// 상품 상세 조회 GET
 export async function getProduct(id, signal) {
   const { data } = await api.get(`/api/products/${id}`, {
     signal,
   });
 
+  return data;
+}
+
+//상품 등록 POST
+export async function createProduct(productData) {
+  const { data } = await api.post("/api/products", productData);
   return data;
 }
