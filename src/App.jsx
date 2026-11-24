@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./layouts/Layout";
 import Home from "./pages/Home";
 import Items from "./pages/Items";
+import Registration from "./pages/Registration";
 import ProductDetail from "./pages/ProductDetail";
 import Placeholder from "./pages/Placeholder";
 
@@ -17,7 +18,7 @@ export default function App() {
           <Route path="/items" element={<Items />} />
 
           {/*상품 등록 페이지*/}
-          <Route path="/registration" element={null} />
+          <Route path="/registration" element={<Registration />} />
 
           {/* 등록 후 이동할 빈 상세 페이지 */}
           <Route path="/items/:id" element={null} />

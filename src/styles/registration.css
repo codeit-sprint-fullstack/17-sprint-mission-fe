@@ -1,0 +1,191 @@
+/* 상품 등록 페이지 전체 */
+.registration-page {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #ffffff;
+}
+
+/* 상품 등록 콘텐츠 영역 */
+.registration-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 48px 24px 100px;
+}
+
+/* 페이지 상단 제목 + 등록 버튼 */
+.registration-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+
+  margin-bottom: 32px;
+}
+
+.registration-header h1 {
+  margin: 0;
+
+  color: #111827;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* 등록 버튼 */
+.registration-submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 120px;
+  min-height: 44px;
+  padding: 10px 24px;
+
+  border: none;
+  border-radius: 8px;
+
+  background-color: #3692ff;
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.registration-submit:disabled {
+  background-color: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* 상품 등록 폼 */
+.registration-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+/* 각 입력 영역 */
+.registration-field {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* 입력창 라벨 */
+.registration-field label {
+  color: #111827;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+/* input과 textarea 공통 */
+.registration-field input,
+.registration-field textarea {
+  display: block;
+
+  width: 100%;
+  padding: 16px 24px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+  outline: none;
+
+  background-color: #f3f4f6;
+  color: #111827;
+
+  font-family: inherit;
+  font-size: 16px;
+  line-height: 1.5;
+
+  box-sizing: border-box;
+}
+
+/* 입력창 placeholder */
+.registration-field input::placeholder,
+.registration-field textarea::placeholder {
+  color: #9ca3af;
+}
+
+/* 입력창에 포커스했을 때 */
+.registration-field input:focus,
+.registration-field textarea:focus {
+  border-color: #3692ff;
+}
+
+/* 한 줄 입력창 높이 */
+.registration-field input {
+  min-height: 56px;
+}
+
+/* 상품 소개 입력창 */
+.registration-field textarea {
+  min-height: 240px;
+  resize: vertical;
+}
+
+/* 태블릿 화면 */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .registration-container {
+    padding: 40px 24px 80px;
+  }
+
+  .registration-header {
+    margin-bottom: 28px;
+  }
+
+  .registration-form {
+    gap: 28px;
+  }
+}
+
+/* 모바일 화면 */
+@media (max-width: 767px) {
+  .registration-container {
+    padding: 24px 16px 64px;
+  }
+
+  .registration-header {
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .registration-header h1 {
+    font-size: 20px;
+  }
+
+  .registration-submit {
+    min-width: 80px;
+    min-height: 40px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .registration-form {
+    gap: 24px;
+  }
+
+  .registration-field {
+    gap: 8px;
+  }
+
+  .registration-field label {
+    font-size: 16px;
+  }
+
+  .registration-field input,
+  .registration-field textarea {
+    padding: 14px 16px;
+    font-size: 14px;
+  }
+
+  .registration-field input {
+    min-height: 52px;
+  }
+
+  .registration-field textarea {
+    min-height: 200px;
+  }
+}
