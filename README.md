@@ -1,28 +1,100 @@
-# 스프린트 미션 4 · 판다마켓
+# 판다마켓 · 스프린트 미션 5
 
-React로 구현한 중고마켓 페이지입니다.
+React 프론트엔드와 Express/MongoDB 백엔드를 별도 폴더와 배포 서비스로 나눈 프로젝트입니다.
 
-## 기본 요구사항
+## 폴더 구성
 
-### 공통
+```text
+.
+├── client/       # React, Vite 프론트엔드
+│   └── src/
+│       ├── api/         # 상품 API 요청
+│       ├── components/  # 공통 헤더와 푸터
+│       ├── css/         # 기본·공통·페이지 스타일
+│       ├── pages/       # 랜딩, 중고마켓, 상품 등록
+│       ├── App.jsx      # 화면 경로 설정
+│       └── main.jsx     # React 실행
+├── server/       # Express, Mongoose, 상품 API
+├── package.json  # 패키지 설치, 화면 빌드, 서버 실행 명령
+├── compose.yaml  # 로컬 MongoDB 실행 설정
+└── render.yaml   # Render 프론트엔드·백엔드 배포 설정
+```
 
-- [x] GitHub에 스프린트 미션 4 PR 만들기
-- [x] React 사용하기
+## 로컬 실행
 
-### 중고마켓 페이지
+Node.js 22.13 이상과 MongoDB가 필요합니다. 프로젝트 루트에서 PowerShell을 열고 실행합니다.
 
-- [x] PC·태블릿·모바일에 대응하는 중고마켓 페이지 구현하기
-- [x] 기본 경로 `/`에서 중고마켓 페이지 표시하기
-- [x] 상단 내비게이션과 푸터가 랜딩 페이지의 스타일 및 배치 규칙과 일치하는지 확인하기
-- [x] [판다마켓 API](https://panda-market-api.vercel.app/docs/)의 `GET /products`로 상품 데이터 가져오기
-  - [x] 상품 목록 페이지네이션 구현하기
-  - [x] 드롭다운에서 최신순·좋아요순으로 정렬하기
-  - [x] 상품 목록 검색 기능 구현하기
-- [x] 베스트 상품은 `GET /products`에 `orderBy=favorite`를 전달해 조회하기
+1. 프론트엔드와 백엔드 패키지를 설치합니다.
 
-## 확인한 내용
+   ```powershell
+   npm run setup
+   ```
 
-- `npm run lint` 및 `npm run build` 통과
-- 브라우저에서 1,920px·744px·375px의 상품 배치, 헤더 고정, 가로 넘침 여부 확인
-- 다음 페이지 이동과 좋아요순 정렬 결과 확인
-- `후추`를 검색해 상품 1개가 표시되는 것을 확인
+2. `server/.env`가 없으면 예제 파일을 복사합니다. Docker Desktop을 켜고 MongoDB를 실행합니다.
+
+   ```powershell
+   if (-not (Test-Path -LiteralPath server/.env)) {
+     Copy-Item -LiteralPath server/.env.example -Destination server/.env
+   }
+   docker compose up -d --wait
+   ```
+
+   MongoDB를 따로 실행 중이면 `server/.env`의 `DB_CONNECT`에 사용 중인 연결 주소를 입력하고 Compose 명령은 건너뜁니다.
+
+3. React 화면을 빌드하고 Express 서버를 실행합니다.
+
+   ```powershell
+   npm run build
+   npm start
+   ```
+
+   [판다마켓](http://127.0.0.1:3002)에서 화면을 열고, [서버 상태](http://127.0.0.1:3002/health)에서 MongoDB 연결을 확인합니다.
+
+화면을 수정하면서 확인하려면 Express 서버를 켜 둔 상태에서 새 터미널에 `npm --prefix client run dev`를 입력합니다. 기본 개발 주소는 `http://localhost:5173`이며, Vite가 `/products` 요청을 Express로 전달합니다.
+
+## 프론트엔드
+
+- `/`는 랜딩 페이지입니다.
+- `/items`에서 판매 중인 상품을 최신순으로 조회하고, 검색과 페이지 이동을 할 수 있습니다. 목록에는 기본 상품 이미지를 표시합니다.
+- `/registration`에서 상품명, 소개, 가격, 태그를 입력합니다. 태그를 입력하고 Enter를 누르면 태그가 추가됩니다.
+- 상품 등록에 성공하면 `/items/:id`로 이동합니다. 과제 요구사항에 따라 상세 화면은 빈 페이지입니다.
+
+## 백엔드 API
+
+| 메서드 | 경로 | 기능 |
+| --- | --- | --- |
+| `GET` | `/products?offset=0&limit=10&orderBy=recent&keyword=` | 최신순 목록, 상품명·소개 검색, 페이지네이션 |
+| `POST` | `/products` | 상품 등록 |
+| `GET` | `/products/:id` | 상품 상세 조회 |
+| `PATCH` | `/products/:id` | 상품 수정 |
+| `DELETE` | `/products/:id` | 상품 삭제 |
+| `GET` | `/health` | MongoDB 연결 상태 확인 |
+
+목록 응답은 `{ list, totalCount }`입니다. 상품 API는 기존 `/api/products` 경로로도 호출할 수 있습니다.
+
+## Render 배포
+
+GitHub의 `sprint-mission-5` 브랜치에서 `render.yaml`을 Blueprint로 선택합니다. 이 파일은 Static Site 프론트엔드와 Web Service 백엔드를 정의하고, 화면에서 새로고침할 때 사용하는 Rewrite 규칙을 설정합니다.
+
+| 서비스 | 환경 변수 | 입력할 값 |
+| --- | --- | --- |
+| 백엔드 | `DB_CONNECT` | MongoDB Atlas의 Node.js 연결 문자열 |
+| 백엔드 | `DB_USER`, `DB_PASSWORD` | Atlas 사용자 이름과 비밀번호를 별도로 입력할 때 사용 |
+| 백엔드 | `CLIENT_ORIGIN` | Render 프론트엔드 URL |
+| 프론트엔드 | `VITE_API_URL` | Render 백엔드 URL |
+
+Atlas의 IP 액세스 목록에 Render 백엔드의 아웃바운드 IP 범위를 추가합니다. Atlas 비밀번호가 담긴 연결 문자열은 Render의 백엔드 환경 변수나 로컬 `server/.env`에만 입력합니다. [Render 아웃바운드 IP](https://render.com/docs/outbound-ip-addresses) · [Atlas IP 액세스 목록](https://www.mongodb.com/docs/atlas/security/ip-access-list/)
+
+별도 인증을 사용할 때는 `DB_CONNECT`를 `mongodb+srv://클러스터주소/데이터베이스이름?authSource=admin` 형식으로 입력합니다. Render에 `DB_USER`와 `DB_PASSWORD`를 추가하고 Atlas에 설정한 값을 그대로 입력합니다.
+
+백엔드 주소의 `/health`에서 `{"status":"ok"}`를 확인합니다. 프론트엔드의 `VITE_API_URL`을 바꾸면 다시 빌드합니다. 배포된 화면에서 상품 조회와 등록이 동작하는지 확인합니다.
+
+## GitHub Pages 배포
+
+GitHub Pages는 React 화면을 호스팅하고, 화면의 상품 요청은 기존 Render 백엔드로 보냅니다.
+
+1. Render 백엔드의 `CLIENT_ORIGIN`에 `https://pandamarket-mission5-client.onrender.com,https://mct2005.github.io`를 입력합니다.
+2. GitHub 저장소의 **Settings → Pages → Source**에서 **GitHub Actions**를 선택합니다. [GitHub Pages 설정 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow)
+3. `sprint-mission-5` 브랜치에 프론트엔드 또는 워크플로 변경을 푸시하면 GitHub Actions가 `client/dist`를 배포합니다.
+
+예상 사이트 주소는 `https://mct2005.github.io/17-sprint-mission-fe/`입니다. 상품 목록 주소는 `/17-sprint-mission-fe/#/items`이며, `#/items`를 그대로 열거나 새로고침해도 목록을 표시합니다.

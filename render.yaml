@@ -1,0 +1,36 @@
+services:
+  - type: web
+    name: pandamarket-mission5-api
+    runtime: node
+    plan: free
+    branch: sprint-mission-5
+    rootDir: server
+    buildCommand: npm ci
+    startCommand: npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_VERSION
+        value: "24.22.1"
+      - key: NODE_ENV
+        value: production
+      - key: DB_CONNECT
+        sync: false
+      - key: CLIENT_ORIGIN
+        sync: false
+
+  - type: web
+    name: pandamarket-mission5-client
+    runtime: static
+    branch: sprint-mission-5
+    rootDir: client
+    buildCommand: npm ci --include=dev && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: "24.22.1"
+      - key: VITE_API_URL
+        sync: false
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html

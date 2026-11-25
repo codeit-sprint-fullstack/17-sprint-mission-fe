@@ -1,0 +1,79 @@
+.registration-page {
+  padding-top: 24px;
+}
+
+.registration-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.registration-heading h1 { font-size: 20px; }
+.registration-heading button {
+  min-width: 74px;
+  padding-inline: 16px;
+  border: 0;
+  font-weight: 700;
+}
+
+.registration-heading button:disabled { background: #9ca3af; cursor: default; }
+.registration-field { display: grid; gap: 16px; }
+.registration-field + .registration-field { margin-top: 32px; }
+.registration-field label { font-size: 18px; font-weight: 700; line-height: 26px; }
+.registration-field input,
+.registration-field textarea {
+  width: 100%;
+  padding: 16px 24px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: #f3f4f6;
+  color: inherit;
+  font: inherit;
+  line-height: 22px;
+}
+
+.registration-field textarea { min-height: 282px; resize: vertical; }
+.registration-field ::placeholder { color: #6b7280; }
+.registration-error { color: #b91c1c; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: -2px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  max-width: 100%;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background: #f3f4f6;
+  overflow-wrap: anywhere;
+}
+
+.tags button {
+  flex: 0 0 20px;
+  height: 20px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #6b7280;
+  color: white;
+  line-height: 20px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
