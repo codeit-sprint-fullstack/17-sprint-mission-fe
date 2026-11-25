@@ -50,11 +50,11 @@ export default function useProducts({
         }
       });
 
-    // 컴포넌트가 사라지거나 요청 조건이 바뀌면 이전 API 요청을 취소한다
+    // 요청 조건 변경 또는 컴포넌트 종료 시 이전 요청 취소
     return () => controller.abort();
   }, [page, pageSize, keyword, orderBy, requestKey]);
 
-  // 현재 요청에 해당하는 응답이 없으면 로딩 중
+  // 현재 요청에 대한 응답이 아직 없으면 로딩 중
   const loading = state.requestKey !== requestKey;
 
   return {

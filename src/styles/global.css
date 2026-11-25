@@ -68,6 +68,11 @@ button {
   padding: 11px 22px;
   font-size: 14px;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  cursor: pointer;
 }
 .login-button {
   margin-left: auto;
@@ -385,4 +390,9 @@ h2 {
   .login-button {
     padding: 8px 9px;
   }
+}
+
+/* 현재 페이지에 해당하는 내비게이션 메뉴 */
+.nav-links .nav-link.active {
+  color: #3692ff;
 }
