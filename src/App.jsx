@@ -1,17 +1,21 @@
-import Header from "./components/Header.jsx";
-import Footer from "./components/Footer.jsx";
-import MarketApp from "./market/MarketApp.jsx";
+import { BrowserRouter, Route, Routes } from "react-router";
+import Layout from "./layouts/Layout.jsx";
+import HomePage from './pages/HomePage';
+import PandaMarket from "./pages/PandaMarket.jsx";
+import Registration from "./pages/Registration.jsx";
 
 export default function App() {
   return (
     <>
-      <Header />
-      <main className="container">
-        <section id="market">
-          <MarketApp />
-        </section>
-      </main>
-      <Footer />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route index element={<HomePage/>}/>
+          <Route path="/items" element={<PandaMarket/>}/>
+          <Route path="/registration" element={<Registration/>}/>
+        </Route>
+      </Routes>
+    </BrowserRouter>
     </>
   );
 }

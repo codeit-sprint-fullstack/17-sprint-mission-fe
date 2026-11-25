@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import api from "../api/api.js";
+import {api} from "../api/api.js";
 
 // useProducts
 // - 상품 목록 조회 로직(state 4개 + useEffect)을 hook으로 분리한다.
