@@ -38,3 +38,8 @@ a,
 button {
   cursor: pointer;
 }
+
+input,
+textarea {
+  border: none;
+}
