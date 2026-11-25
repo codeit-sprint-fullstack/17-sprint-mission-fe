@@ -4,7 +4,6 @@ import Button from './Button';
 import logo from '../assets/images/logo.png';
 import logoTypo from '../assets/images/logo_typo.png';
 
-// 메뉴: 모바일 16px / 태블릿·PC 18px Bold, 현재 페이지는 파란색
 const navLinkStyle =
   'inline-block h-full text-lg-bold text-secondary-600 md:text-2lg-bold aria-[current=page]:text-primary-100';
 
@@ -24,7 +23,7 @@ export default function Header() {
               </NavLink>
             </li>
             <li>
-              <NavLink to={ROUTES.HOME} end className={navLinkStyle}>
+              <NavLink to={ROUTES.ITEMS} className={navLinkStyle}>
                 중고마켓
               </NavLink>
             </li>

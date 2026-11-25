@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 
-const getBreakpoint = (width) => {
+function getBreakpoint(width) {
   if (width >= 1200) return 'pc';
   if (width >= 768) return 'tablet';
   return 'mobile';
-};
+}
 
 export default function useBreakpoint() {
   const [breakpoint, setBreakpoint] = useState(() =>
@@ -12,13 +12,21 @@ export default function useBreakpoint() {
   );
 
   useEffect(() => {
+    let timer;
+
     const handleResize = () => {
-      setBreakpoint(getBreakpoint(window.innerWidth));
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        setBreakpoint(getBreakpoint(window.innerWidth));
+      }, 150);
     };
 
     window.addEventListener('resize', handleResize);
 
-    return () => window.removeEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+      clearTimeout(timer);
+    };
   }, []);
 
   return breakpoint;

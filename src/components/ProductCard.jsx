@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router';
+import imgDefault from '../assets/images/img_default.png';
 import icHeartOff from '../assets/images/ic_heart_off.png';
 // import icHeartOn from '../assets/images/ic_heart_on.png';
 
@@ -7,11 +8,11 @@ export default function ProductCard({
   variant = 'default',
   thumbSrc,
   title,
-  price,
-  favoriteCount,
+  price = 0,
+  favoriteCount = 0,
 }) {
-  const [isImageError, setIsImageError] = useState(false);
-  const hasImage = thumbSrc && !isImageError;
+  const [imgError, setImgError] = useState(false);
+  const hasImage = thumbSrc && !imgError;
 
   const thumbRadius =
     variant === 'best' ? 'rounded-2xl' : 'rounded-xl md:rounded-2xl';
@@ -19,19 +20,16 @@ export default function ProductCard({
   return (
     <li>
       <Link to='#'>
-        <div className={`overflow-hidden ${thumbRadius}`}>
+        <div className={`aspect-square overflow-hidden ${thumbRadius}`}>
           {hasImage ? (
             <img
-              className='aspect-square w-full object-cover'
+              className='h-full'
               src={thumbSrc}
-              onError={() => setIsImageError(true)}
+              onError={() => setImgError(true)}
               alt={`${title} 이미지`}
             />
           ) : (
-            <span
-              className='aspect-square w-full bg-secondary-200'
-              aria-hidden='true'
-            ></span>
+            <img className='h-full' src={imgDefault} alt='' />
           )}
         </div>
         <div className='mt-4 flex flex-col gap-1.5'>

@@ -1,19 +1,25 @@
 import { Routes, Route } from 'react-router';
 import { ROUTES } from './constants/routes';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Item from './pages/Item';
+import Layout from './layout/Layout';
+import Contents from './layout/Contents';
+import LandingPage from './pages/LandingPage';
+import ItemsPage from './pages/ItemsPage';
+import ItemsDetailPage from './pages/ItemsDetailPage';
+import RegistrationPage from './pages/RegistrationPage';
 
 function App() {
   return (
     <div id='wrap'>
-      <Header />
-      <main id='container'>
-        <Routes>
-          <Route path={ROUTES.HOME} element={<Item />} />
-        </Routes>
-      </main>
-      <Footer />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path={ROUTES.HOME} element={<LandingPage />}></Route>
+          <Route element={<Contents />}>
+            <Route path={ROUTES.ITEMS} element={<ItemsPage />}></Route>
+            <Route path={ROUTES.DETAIL} element={<ItemsDetailPage />}></Route>
+            <Route path={ROUTES.REGIST} element={<RegistrationPage />}></Route>
+          </Route>
+        </Route>
+      </Routes>
     </div>
   );
 }
