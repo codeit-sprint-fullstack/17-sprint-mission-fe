@@ -8,6 +8,7 @@ export default function Market2() {
   const [search, setSearch] = useState("");
   const [keyword, setKeyword] = useState("");
   const [page, setPage] = useState(1);
+  const [orderBy, setOrderBy] = useState("recent");
 
   const pageSize = usePageSize({ mobile: 4, tablet: 6, desktop: 10 });
 
@@ -18,6 +19,7 @@ export default function Market2() {
   const { products, totalCount, loading, error } = useProducts({
     page,
     pageSize,
+    orderBy,
     keyword,
   });
 
@@ -45,7 +47,14 @@ export default function Market2() {
         >
           상품 등록하기
         </button>
-        <select aria-label="상품 정렬" defaultValue="recent">
+        <select
+          aria-label="상품 정렬"
+          value={orderBy}
+          onChange={(event) => {
+            setOrderBy(event.target.value);
+            setPage(1);
+          }}
+        >
           <option value="recent">최신순</option>
         </select>
       </div>

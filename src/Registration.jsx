@@ -23,7 +23,7 @@ export default function Registration() {
       validate("name", name),
       validate("description", description),
       validate("price", price),
-      validate("tags", tagInput),
+      validate("tags", tags),
     ];
 
     if (checks.includes(false)) return;
@@ -92,9 +92,12 @@ export default function Registration() {
             placeholder="상품명을 입력해 주세요"
             onBlur={(event) => validate("name", event.target.value)}
             aria-invalid={Boolean(errors.name)}
+            aria-describedby={errors.name ? "product-name-error" : undefined}
           />
           {errors.name && (
-            <span className="registration-error">{errors.name}</span>
+            <span id="product-name-error" className="registration-error">
+              {errors.name}
+            </span>
           )}
         </p>
 
@@ -108,9 +111,14 @@ export default function Registration() {
             rows={5}
             onBlur={(event) => validate("description", event.target.value)}
             aria-invalid={Boolean(errors.description)}
+            aria-describedby={
+              errors.description ? "product-description-error" : undefined
+            }
           />
           {errors.description && (
-            <span className="registration-error">{errors.description}</span>
+            <span id="product-description-error" className="registration-error">
+              {errors.description}
+            </span>
           )}
         </p>
 
@@ -125,9 +133,12 @@ export default function Registration() {
             placeholder="판매 가격을 입력해 주세요"
             onBlur={(event) => validate("price", event.target.value)}
             aria-invalid={Boolean(errors.price)}
+            aria-describedby={errors.price ? "product-price-error" : undefined}
           />
           {errors.price && (
-            <span className="registration-error">{errors.price}</span>
+            <span id="product-price-error" className="registration-error">
+              {errors.price}
+            </span>
           )}
         </p>
 
@@ -143,9 +154,25 @@ export default function Registration() {
             onKeyDown={handleTagKeyDown}
             onBlur={(event) => validate("tags", event.target.value)}
             aria-invalid={Boolean(errors.tags)}
+            aria-describedby={
+              [
+                tags.length === 0 && "product-tag-hint",
+                errors.tags && "product-tag-error",
+              ]
+                .filter(Boolean)
+                .join(" ") || undefined
+            }
           />
+          {tags.length === 0 && (
+            <small id="product-tag-hint">
+              태그를 하나 이상 입력하고 엔터를 눌러 주세요.
+            </small>
+          )}
+
           {errors.tags && (
-            <span className="registration-error">{errors.tags}</span>
+            <span id="product-tag-error" className="registration-error">
+              {errors.tags}
+            </span>
           )}
 
           {tags.length > 0 && (

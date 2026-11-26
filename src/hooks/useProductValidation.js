@@ -4,7 +4,7 @@ export default function useProductValidation() {
   const [errors, setErrors] = useState({});
 
   function validate(field, value) {
-    const text = value.trim();
+    const text = typeof value === "string" ? value.trim() : "";
     let message = "";
 
     if (field === "name" && (text.length < 1 || text.length > 10)) {
@@ -19,8 +19,12 @@ export default function useProductValidation() {
       message = "판매 가격은 숫자로 입력해 주세요.";
     }
 
-    if (field === "tags" && text.length > 5) {
-      message = "태그는 5자 이내로 입력해 주세요.";
+    if (field === "tags") {
+      const tagsToCheck = Array.isArray(value) ? value : [text];
+
+      if (tagsToCheck.some((tag) => tag.trim().length > 5)) {
+        message = "태그는 5자 이내로 입력해 주세요.";
+      }
     }
 
     setErrors((previous) => ({ ...previous, [field]: message }));
