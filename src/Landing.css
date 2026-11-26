@@ -1,0 +1,135 @@
+.landing-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 32px;
+  background-color: #8ec1f0;
+}
+
+.landing-hero h1 {
+  margin: 0 0 24px;
+  font-size: clamp(24px, 4vw, 40px);
+  color: #111827;
+}
+
+.landing-hero a {
+  display: inline-block;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: #3692ff;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.landing-hero img {
+  width: min(50%, 500px);
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .landing-hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .landing-hero {
+    padding-bottom: 0;
+  }
+
+  .landing-hero img {
+    width: 100%;
+  }
+}
+
+.landing-feature {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  max-width: 1000px;
+  margin: 48px auto;
+}
+
+.landing-feature-reverse {
+  flex-direction: row-reverse;
+}
+
+.landing-feature img {
+  width: min(50%, 500px);
+  height: auto;
+}
+
+@media (max-width: 900px) {
+  .landing-feature {
+    flex-direction: column;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .landing-feature img {
+    width: 100%;
+  }
+}
+main.container:has(> .landing-hero) {
+  max-width: none;
+  padding: 0;
+}
+
+.landing-hero {
+  padding-inline: max(24px, calc((100% - 1000px) / 2));
+  background-color: #cfe5ff;
+}
+
+.landing-feature {
+  padding-inline: 16px;
+}
+
+body:has(.landing-hero) .header .nav {
+  display: none;
+}
+
+@media (min-width: 744px) and (max-width: 900px) {
+  .landing-title-break {
+    display: none;
+  }
+}
+
+.landing-hero a {
+  box-sizing: border-box;
+  width: min(300px, 65vw);
+  border-radius: 999px;
+  text-align: center;
+}
+
+@media (min-width: 901px) {
+  .landing-hero {
+    padding-bottom: 0;
+  }
+
+  .landing-hero > div {
+    padding-bottom: 32px;
+  }
+
+  .landing-hero img {
+    align-self: flex-end;
+  }
+}
+
+.landing-trust {
+  max-width: none;
+  justify-content: center;
+  margin-bottom: 0;
+  padding-top: 32px;
+  background-color: #cfe5ff;
+}
+
+main:has(.landing-trust) + .footer {
+  margin-top: 0;
+}
+
+@media (max-width: 900px) {
+  .landing-trust {
+    flex-direction: column-reverse;
+  }
+}
